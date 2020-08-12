@@ -7,6 +7,18 @@
     <match Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/RecipeDef[defName="MakeRPNerveToxin_Vial"]/ingredients/li[2]/filter/thingDefs</xpath>
+          <value>
+            <li>MSEthylMercury</li>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/RecipeDef[defName="MakeRPNerveToxin_Vial"]/fixedIngredientFilter/thingDefs</xpath>
+          <value>
+            <li>MSEthylMercury</li>
+          </value>
+        </li>
         <li Class="PatchOperationConditional">
           <xpath>/Defs/HediffDef[defName="GGNerveToxin"]/comps</xpath>
           <match Class="PatchOperationAdd">
