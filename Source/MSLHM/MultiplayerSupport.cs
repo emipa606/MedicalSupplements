@@ -47,6 +47,6 @@ namespace MSLHM
 		}
 
 		// Token: 0x04000005 RID: 5
-		private static Harmony harmony = new Harmony("rimworld.mslhm.multiplayersupport");
+		private static readonly Harmony harmony = new Harmony("rimworld.mslhm.multiplayersupport");
 	}
 }

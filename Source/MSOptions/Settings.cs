@@ -37,9 +37,9 @@ namespace MSOptions
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look<bool>(ref this.RealisticBandages, "RealisticBandages", false, false);
-			Scribe_Values.Look<bool>(ref this.AllowCollapseRocks, "AllowCollapseRocks", true, false);
-			Scribe_Values.Look<float>(ref this.ResPct, "ResPct", 100f, false);
+			Scribe_Values.Look(ref this.RealisticBandages, "RealisticBandages", false, false);
+			Scribe_Values.Look(ref this.AllowCollapseRocks, "AllowCollapseRocks", true, false);
+			Scribe_Values.Look(ref this.ResPct, "ResPct", 100f, false);
 		}
 
 		// Token: 0x04000002 RID: 2

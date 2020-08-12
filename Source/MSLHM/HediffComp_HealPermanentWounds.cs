@@ -29,7 +29,7 @@ namespace MSLHM
 					this.chronicConditions.Add(hg.hediff.defName);
 				});
 			}
-			Log.Message(string.Join(", ", this.chronicConditions.ToArray<string>()), false);
+			Log.Message(string.Join(", ", this.chronicConditions.ToArray()), false);
 		}
 
 		// Token: 0x06000004 RID: 4 RVA: 0x00002170 File Offset: 0x00000370
@@ -73,18 +73,17 @@ namespace MSLHM
 			IEnumerable<Hediff> selectHediffsQuery = from hd in base.Pawn.health.hediffSet.hediffs
 			where hd.IsPermanent() || this.chronicConditions.Contains(hd.def.defName)
 			select hd;
-			if (selectHediffsQuery.Any<Hediff>())
+			if (selectHediffsQuery.Any())
 			{
-				Hediff hediff;
-				selectHediffsQuery.TryRandomElement(out hediff);
-				string Hlabel = "condition";
+                selectHediffsQuery.TryRandomElement(out Hediff hediff);
+                string Hlabel = "condition";
 				if (hediff != null)
 				{
 					Hlabel = hediff.Label;
 					float meanHeal = 0.2f;
 					float rndHealPercent = meanHeal + Rand.Gaussian(0f, 1f) * meanHeal / 2f;
 					float bodyPartMaxHP = 1f;
-					if (((hediff != null) ? hediff.Part : null) != null)
+					if ((hediff?.Part) != null)
 					{
 						bodyPartMaxHP = hediff.Part.def.GetMaxHealth(hediff.pawn);
 					}
@@ -116,12 +115,8 @@ namespace MSLHM
 			{
 				if (base.Pawn.ageTracker.AgeBiologicalYears > 25)
 				{
-					int biologicalYears;
-					int biologicalQuadrums;
-					int biologicalDays;
-					float biologicalHours;
-					base.Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out biologicalYears, out biologicalQuadrums, out biologicalDays, out biologicalHours);
-					string ageBefore = "AgeBiological".Translate(new object[]
+                    base.Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out int biologicalYears, out int biologicalQuadrums, out int biologicalDays, out _);
+                    string ageBefore = "AgeBiological".Translate(new object[]
 					{
 						biologicalYears,
 						biologicalQuadrums,
@@ -129,7 +124,7 @@ namespace MSLHM
 					});
 					long diffFromOptimalAge = base.Pawn.ageTracker.AgeBiologicalTicks - 90000000L;
 					base.Pawn.ageTracker.AgeBiologicalTicks -= (long)((float)diffFromOptimalAge * 0.05f);
-					base.Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out biologicalYears, out biologicalQuadrums, out biologicalDays, out biologicalHours);
+					base.Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out biologicalYears, out biologicalQuadrums, out biologicalDays, out _);
 					string ageAfter = "AgeBiological".Translate(new object[]
 					{
 						biologicalYears,
@@ -171,7 +166,7 @@ namespace MSLHM
 		// Token: 0x06000009 RID: 9 RVA: 0x0000259B File Offset: 0x0000079B
 		public override void CompExposeData()
 		{
-			Scribe_Values.Look<int>(ref this.ticksToHeal, "ticksToHeal", 0, false);
+			Scribe_Values.Look(ref this.ticksToHeal, "ticksToHeal", 0, false);
 		}
 
 		// Token: 0x0600000A RID: 10 RVA: 0x000025AF File Offset: 0x000007AF
@@ -184,7 +179,7 @@ namespace MSLHM
 		private int ticksToHeal;
 
 		// Token: 0x04000002 RID: 2
-		private HashSet<string> chronicConditions = new HashSet<string>
+		private readonly HashSet<string> chronicConditions = new HashSet<string>
 		{
 			"Blindness",
 			"TraumaSavant",

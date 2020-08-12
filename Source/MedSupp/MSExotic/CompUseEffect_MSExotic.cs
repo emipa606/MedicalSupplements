@@ -43,10 +43,8 @@ namespace MSExotic
 			failReason = null;
 			if (this.parent.def == MSExoticDefOf.ThingDefOf.MSImmunisation)
 			{
-				string Reason;
-				bool Passed;
-				MSExoticUtility.ChkMSImmunisation(p, out Reason, out Passed);
-				if (!Passed)
+                MSExoticUtility.ChkMSImmunisation(p, out string Reason, out bool Passed);
+                if (!Passed)
 				{
 					failReason = Reason;
 					return false;
@@ -54,10 +52,8 @@ namespace MSExotic
 			}
 			if (this.parent.def == MSExoticDefOf.ThingDefOf.MSCerebrax)
 			{
-				string Reason2;
-				bool Passed2;
-				MSExoticUtility.ChkMSCerebrax(p, out Reason2, out Passed2);
-				if (!Passed2)
+                MSExoticUtility.ChkMSCerebrax(p, out string Reason2, out bool Passed2);
+                if (!Passed2)
 				{
 					failReason = Reason2;
 					return false;
@@ -65,10 +61,8 @@ namespace MSExotic
 			}
 			if (this.parent.def == MSExoticDefOf.ThingDefOf.MSBattleStim)
 			{
-				string Reason3;
-				bool Passed3;
-				MSExoticUtility.ChkMSBattleStim(p, out Reason3, out Passed3);
-				if (!Passed3)
+                MSExoticUtility.ChkMSBattleStim(p, out string Reason3, out bool Passed3);
+                if (!Passed3)
 				{
 					failReason = Reason3;
 					return false;
@@ -76,10 +70,8 @@ namespace MSExotic
 			}
 			if (MSExoticUtility.GetIsTranscendence(this.parent.def))
 			{
-				string Reason4;
-				bool Passed4;
-				MSExoticUtility.ChkMSTranscendence(p, this.parent.def, out Reason4, out Passed4);
-				if (!Passed4)
+                MSExoticUtility.ChkMSTranscendence(p, this.parent.def, out string Reason4, out bool Passed4);
+                if (!Passed4)
 				{
 					failReason = Reason4;
 					return false;
@@ -87,10 +79,8 @@ namespace MSExotic
 			}
 			if (this.parent.def == MSExoticDefOf.ThingDefOf.MSPerpetuity)
 			{
-				string Reason5;
-				bool Passed5;
-				MSExoticUtility.ChkMSPerpetuity(p, out Reason5, out Passed5);
-				if (!Passed5)
+                MSExoticUtility.ChkMSPerpetuity(p, out string Reason5, out bool Passed5);
+                if (!Passed5)
 				{
 					failReason = Reason5;
 					return false;
@@ -98,10 +88,8 @@ namespace MSExotic
 			}
 			if (this.parent.def == MSExoticDefOf.ThingDefOf.MSCondom)
 			{
-				string Reason6;
-				bool Passed6;
-				MSExoticUtility.ChkMSCondom(p, out Reason6, out Passed6);
-				if (!Passed6)
+                MSExoticUtility.ChkMSCondom(p, out string Reason6, out bool Passed6);
+                if (!Passed6)
 				{
 					failReason = Reason6;
 					return false;

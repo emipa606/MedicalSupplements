@@ -20,7 +20,7 @@ namespace MSExotic
 				if (CondomJobDef != null)
 				{
 					Pawn pawn2 = pawn;
-					if (((pawn2 != null) ? pawn2.Map : null) != null && pawn.Spawned)
+					if ((pawn2?.Map) != null && pawn.Spawned)
 					{
 						ThingDef CondomDef = DefDatabase<ThingDef>.GetNamed("MSCondom", false);
 						if (CondomDef != null)
@@ -29,10 +29,10 @@ namespace MSExotic
 							Predicate<Thing> validator = delegate(Thing t)
 							{
 								Pawn pawn3 = pawn;
-								if (((pawn3 != null) ? pawn3.GetRoom(RegionType.Set_Passable) : null) != null)
+								if ((pawn3?.GetRoom(RegionType.Set_Passable)) != null)
 								{
 									Pawn pawn4 = pawn;
-									if (((pawn4 != null) ? pawn4.GetRoom(RegionType.Set_Passable) : null) == ((t != null) ? t.GetRoom(RegionType.Set_Passable) : null))
+									if ((pawn4?.GetRoom(RegionType.Set_Passable)) == (t?.GetRoom(RegionType.Set_Passable)))
 									{
 										return true;
 									}

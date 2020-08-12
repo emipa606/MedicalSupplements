@@ -46,7 +46,7 @@ namespace MedSupp
 					else
 					{
 						Pawn_HealthTracker health2 = pawn.health;
-						hediffSet = ((health2 != null) ? health2.hediffSet : null);
+						hediffSet = (health2?.hediffSet);
 					}
 					HediffSet set = hediffSet;
 					if (set != null)

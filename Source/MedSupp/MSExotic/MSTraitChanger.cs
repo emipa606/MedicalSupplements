@@ -15,7 +15,7 @@ namespace MSExotic
 			Pawn_StoryTracker story = pawn.story;
 			Trait remTrait = (story != null) ? (from x in story.traits.allTraits
 			where x.def == trait.def
-			select x).FirstOrDefault<Trait>() : null;
+			select x).FirstOrDefault() : null;
 			if (remTrait == null)
 			{
 				return;
@@ -32,9 +32,9 @@ namespace MSExotic
 			if (SendMsg)
 			{
 				string key = "MSExotic.TraitRemoved";
-				NamedArgument arg = (pawn != null) ? pawn.LabelShort.CapitalizeFirst() : null;
+				NamedArgument arg = pawn?.LabelShort.CapitalizeFirst();
 				Trait trait2 = trait;
-				Messages.Message(key.Translate(arg, (trait2 != null) ? trait2.Label.CapitalizeFirst() : null, doer.CapitalizeFirst()), pawn, MsgType, true);
+				Messages.Message(key.Translate(arg, trait2?.Label.CapitalizeFirst(), doer.CapitalizeFirst()), pawn, MsgType, true);
 			}
 		}
 
@@ -52,7 +52,7 @@ namespace MSExotic
 			MSTraitChanger.TraitsUpdated(pawn);
 			if (SendMsg)
 			{
-				Messages.Message("MSExotic.TraitAdded".Translate((pawn != null) ? pawn.LabelShort.CapitalizeFirst() : null, (trait != null) ? trait.Label.CapitalizeFirst() : null, doer.CapitalizeFirst()), pawn, MsgType, true);
+				Messages.Message("MSExotic.TraitAdded".Translate(pawn?.LabelShort.CapitalizeFirst(), trait?.Label.CapitalizeFirst(), doer.CapitalizeFirst()), pawn, MsgType, true);
 			}
 		}
 

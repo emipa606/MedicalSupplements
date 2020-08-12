@@ -66,7 +66,7 @@ namespace MSRegen
 			else
 			{
 				Pawn_HealthTracker health = pawn.health;
-				list = ((health != null) ? health.hediffSet.hediffs : null);
+				list = (health?.hediffSet.hediffs);
 			}
 			List<Hediff> hediffs = list;
 			if (hediffs.Count > 0)
@@ -96,9 +96,8 @@ namespace MSRegen
 			}
 			if (candidates.Count > 0)
 			{
-				Hediff hediffToHeal = null;
-				candidates.TryRandomElement(out hediffToHeal);
-				if (hediffToHeal != null)
+                candidates.TryRandomElement(out Hediff hediffToHeal);
+                if (hediffToHeal != null)
 				{
 					if (hediffToHeal.IsTended())
 					{
@@ -173,7 +172,7 @@ namespace MSRegen
 		// Token: 0x0600003A RID: 58 RVA: 0x000044FF File Offset: 0x000026FF
 		public override void CompExposeData()
 		{
-			Scribe_Values.Look<int>(ref this.ticksToHeal, "ticksToHeal", 0, false);
+			Scribe_Values.Look(ref this.ticksToHeal, "ticksToHeal", 0, false);
 		}
 
 		// Token: 0x0600003B RID: 59 RVA: 0x00004513 File Offset: 0x00002713

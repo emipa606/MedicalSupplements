@@ -21,7 +21,7 @@ namespace MSDrugMix
 				{
 					this.cachedAdjCellsCardinal = (from c in GenAdj.CellsAdjacentCardinal(this)
 					where c.InBounds(base.Map)
-					select c).ToList<IntVec3>();
+					select c).ToList();
 				}
 				return this.cachedAdjCellsCardinal;
 			}
@@ -31,12 +31,12 @@ namespace MSDrugMix
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Defs.Look<ThingDef>(ref this.MixerThingDef, "MixerThingDef");
-			Scribe_Values.Look<bool>(ref this.isProducing, "isProducing", false, false);
-			Scribe_Values.Look<int>(ref this.NumProd, "NumProd", 0, false);
-			Scribe_Values.Look<int>(ref this.ProdWorkTicks, "ProdWorkTicks", 0, false);
-			Scribe_Values.Look<int>(ref this.TotalProdWorkTicks, "TotalProdWorkTicks", 0, false);
-			Scribe_Values.Look<int>(ref this.StockLimit, "StockLimit", 0, false);
+			Scribe_Defs.Look(ref this.MixerThingDef, "MixerThingDef");
+			Scribe_Values.Look(ref this.isProducing, "isProducing", false, false);
+			Scribe_Values.Look(ref this.NumProd, "NumProd", 0, false);
+			Scribe_Values.Look(ref this.ProdWorkTicks, "ProdWorkTicks", 0, false);
+			Scribe_Values.Look(ref this.TotalProdWorkTicks, "TotalProdWorkTicks", 0, false);
+			Scribe_Values.Look(ref this.StockLimit, "StockLimit", 0, false);
 		}
 
 		// Token: 0x06000086 RID: 134 RVA: 0x00006C61 File Offset: 0x00004E61
@@ -75,119 +75,110 @@ namespace MSDrugMix
 				});
 				Log.Message(debugMsg, false);
 			}
-			int StockNumbers;
-			if (this.IsWorking(this) && this.MixerThingDef != null && !Building_MSDrugMix.StockLimitReached(this, this.MixerThingDef, this.StockLimit, out StockNumbers))
-			{
-				bool UseMax;
-				List<Building_MSDrugMix.RCPItemCanUse> RecipeList;
-				int minProd;
-				int maxProd;
-				int ticks;
-				if (this.ProdWorkTicks > 0 && this.isProducing)
-				{
-					this.ProdWorkTicks--;
-					if (this.mixSustainer == null)
-					{
-						this.StartMixSustainer();
-						return;
-					}
-					if (this.mixSustainer.Ended)
-					{
-						this.StartMixSustainer();
-						return;
-					}
-					this.mixSustainer.Maintain();
-					return;
-				}
-				else if (this.isProducing && this.NumProd > 0 && this.MixerThingDef != null)
-				{
-					if (this.debug)
-					{
-						Log.Message("Production point: " + this.MixerThingDef.defName + " : " + this.ProdWorkTicks.ToString(), false);
-					}
-					int hasSpace;
-					List<Building> candidatesOut;
-					if (this.ValidateOutput(this.MixerThingDef, out hasSpace, out candidatesOut) && hasSpace > 0)
-					{
-						if (hasSpace >= this.NumProd)
-						{
-							if (this.debug)
-							{
-								Log.Message("Ejecting: " + this.MixerThingDef.defName + " : " + this.NumProd.ToString(), false);
-							}
-							int Surplus;
-							this.MixerEject(this, this.MixerThingDef, this.NumProd, candidatesOut, out Surplus);
-							this.NumProd = Surplus;
-						}
-						else
-						{
-							if (this.debug)
-							{
-								Log.Message("Ejecting: " + this.MixerThingDef.defName + " : " + hasSpace.ToString(), false);
-							}
-							int Surplus2;
-							this.MixerEject(this, this.MixerThingDef, hasSpace, candidatesOut, out Surplus2);
-							this.NumProd -= hasSpace - Surplus2;
-						}
-					}
-					if (this.NumProd == 0)
-					{
-						this.TotalProdWorkTicks = 0;
-						return;
-					}
-				}
-				else if (this.isProducing && this.MixerThingDef != null && this.ValidateRecipe(this.MixerThingDef, out UseMax, out RecipeList, out minProd, out maxProd, out ticks))
-				{
-					if (this.debug)
-					{
-						Log.Message(string.Concat(new object[]
-						{
-							"StartProduction: ",
-							this.MixerThingDef.defName,
-							" :  RCP Items: ",
-							RecipeList.Count
-						}), false);
-					}
-					if (RecipeList.Count > 0)
-					{
-						for (int i = 0; i < RecipeList.Count; i++)
-						{
-							ThingDef recipeThingDef = RecipeList[i].def;
-							int num;
-							if (UseMax)
-							{
-								num = RecipeList[i].Max;
-							}
-							else
-							{
-								num = RecipeList[i].Min;
-							}
-							if (this.debug)
-							{
-								Log.Message(string.Concat(new string[]
-								{
-									"Removing: ",
-									UseMax ? "Max" : "Min",
-									": ",
-									num.ToString(),
-									" (",
-									recipeThingDef.defName,
-									")"
-								}), false);
-							}
-							this.RemoveRecipeItems(recipeThingDef, num);
-						}
-						this.NumProd = minProd;
-						if (UseMax)
-						{
-							this.NumProd = maxProd;
-						}
-						this.ProdWorkTicks = (int)((float)ticks * this.effeciencyFactor * (float)this.NumProd);
-						this.TotalProdWorkTicks = this.ProdWorkTicks;
-					}
-				}
-			}
-		}
+
+            if (this.IsWorking(this) && this.MixerThingDef != null && !Building_MSDrugMix.StockLimitReached(this, this.MixerThingDef, this.StockLimit, out _))
+            {
+                if (this.ProdWorkTicks > 0 && this.isProducing)
+                {
+                    this.ProdWorkTicks--;
+                    if (this.mixSustainer == null)
+                    {
+                        this.StartMixSustainer();
+                        return;
+                    }
+                    if (this.mixSustainer.Ended)
+                    {
+                        this.StartMixSustainer();
+                        return;
+                    }
+                    this.mixSustainer.Maintain();
+                    return;
+                }
+                else if (this.isProducing && this.NumProd > 0 && this.MixerThingDef != null)
+                {
+                    if (this.debug)
+                    {
+                        Log.Message("Production point: " + this.MixerThingDef.defName + " : " + this.ProdWorkTicks.ToString(), false);
+                    }
+                    if (this.ValidateOutput(this.MixerThingDef, out int hasSpace, out List<Building> candidatesOut) && hasSpace > 0)
+                    {
+                        if (hasSpace >= this.NumProd)
+                        {
+                            if (this.debug)
+                            {
+                                Log.Message("Ejecting: " + this.MixerThingDef.defName + " : " + this.NumProd.ToString(), false);
+                            }
+                            this.MixerEject(this, this.MixerThingDef, this.NumProd, candidatesOut, out int Surplus);
+                            this.NumProd = Surplus;
+                        }
+                        else
+                        {
+                            if (this.debug)
+                            {
+                                Log.Message("Ejecting: " + this.MixerThingDef.defName + " : " + hasSpace.ToString(), false);
+                            }
+                            this.MixerEject(this, this.MixerThingDef, hasSpace, candidatesOut, out int Surplus2);
+                            this.NumProd -= hasSpace - Surplus2;
+                        }
+                    }
+                    if (this.NumProd == 0)
+                    {
+                        this.TotalProdWorkTicks = 0;
+                        return;
+                    }
+                }
+                else if (this.isProducing && this.MixerThingDef != null && this.ValidateRecipe(this.MixerThingDef, out bool UseMax, out List<RCPItemCanUse> RecipeList, out int minProd, out int maxProd, out int ticks))
+                {
+                    if (this.debug)
+                    {
+                        Log.Message(string.Concat(new object[]
+                        {
+                            "StartProduction: ",
+                            this.MixerThingDef.defName,
+                            " :  RCP Items: ",
+                            RecipeList.Count
+                        }), false);
+                    }
+                    if (RecipeList.Count > 0)
+                    {
+                        for (int i = 0; i < RecipeList.Count; i++)
+                        {
+                            ThingDef recipeThingDef = RecipeList[i].def;
+                            int num;
+                            if (UseMax)
+                            {
+                                num = RecipeList[i].Max;
+                            }
+                            else
+                            {
+                                num = RecipeList[i].Min;
+                            }
+                            if (this.debug)
+                            {
+                                Log.Message(string.Concat(new string[]
+                                {
+                                    "Removing: ",
+                                    UseMax ? "Max" : "Min",
+                                    ": ",
+                                    num.ToString(),
+                                    " (",
+                                    recipeThingDef.defName,
+                                    ")"
+                                }), false);
+                            }
+                            this.RemoveRecipeItems(recipeThingDef, num);
+                        }
+                        this.NumProd = minProd;
+                        if (UseMax)
+                        {
+                            this.NumProd = maxProd;
+                        }
+                        this.ProdWorkTicks = (int)((float)ticks * this.effeciencyFactor * (float)this.NumProd);
+                        this.TotalProdWorkTicks = this.ProdWorkTicks;
+                    }
+                }
+            }
+        }
 
 		// Token: 0x06000089 RID: 137 RVA: 0x000070B1 File Offset: 0x000052B1
 		public override void TickRare()
@@ -205,8 +196,9 @@ namespace MSDrugMix
 				{
 					if (i == 0)
 					{
-						Building building = candidatesout[i];
-					}
+                        Building building;
+                        _ = candidatesout[i];
+                    }
 					if (numProducts > 0)
 					{
 						List<Thing> thingList = candidatesout[i].Position.GetThingList(candidatesout[i].Map);
@@ -259,9 +251,8 @@ namespace MSDrugMix
 										numProducts -= canPlace;
 										remaining -= canPlace;
 									}
-									Thing newProductThing;
-									GenPlace.TryPlaceThing(newProduct, candidatesout[i].Position, candidatesout[i].Map, ThingPlaceMode.Direct, out newProductThing, null, null, default(Rot4));
-								}
+                                    GenPlace.TryPlaceThing(newProduct, candidatesout[i].Position, candidatesout[i].Map, ThingPlaceMode.Direct, out Thing newProductThing, null, null, default);
+                                }
 							}
 						}
 					}
@@ -376,7 +367,7 @@ namespace MSDrugMix
 		}
 
 		// Token: 0x0600008D RID: 141 RVA: 0x00007594 File Offset: 0x00005794
-		public bool ValidateRecipe(ThingDef t, out bool CanUseMax, out List<Building_MSDrugMix.RCPItemCanUse> FinalList, out int MinProd, out int MaxProd, out int Ticks)
+		public bool ValidateRecipe(ThingDef t, out bool CanUseMax, out List<RCPItemCanUse> FinalList, out int MinProd, out int MaxProd, out int Ticks)
 		{
 			CanUseMax = true;
 			FinalList = null;
@@ -387,15 +378,11 @@ namespace MSDrugMix
 			{
 				Log.Message("ValRep: " + t.defName, false);
 			}
-			int ticks;
-			int minProd;
-			int maxProd;
-			string Res;
-			if (!MSDrugMixUtility.RCPProdValues(t, out ticks, out minProd, out maxProd, out Res))
-			{
-				return false;
-			}
-			Ticks = ticks;
+            if (!MSDrugMixUtility.RCPProdValues(t, out int ticks, out int minProd, out int maxProd, out string Res))
+            {
+                return false;
+            }
+            Ticks = ticks;
 			MinProd = minProd;
 			MaxProd = maxProd;
 			if (this.debug)
@@ -445,7 +432,7 @@ namespace MSDrugMix
 			{
 				Log.Message("RCP Listings: " + listRCP.Count.ToString(), false);
 			}
-			List<Building_MSDrugMix.RCPItemCanUse> RCPListPotentials = new List<Building_MSDrugMix.RCPItemCanUse>();
+			List<RCPItemCanUse> RCPListPotentials = new List<RCPItemCanUse>();
 			List<int> RCPGroups = new List<int>();
 			for (int i = 0; i < listRCP.Count; i++)
 			{
@@ -464,8 +451,8 @@ namespace MSDrugMix
 				}
 				if (MaterialsMin > 0 || MaterialsMax > 0)
 				{
-					RCPListPotentials.Add(new Building_MSDrugMix.RCPItemCanUse
-					{
+					RCPListPotentials.Add(new RCPItemCanUse
+                    {
 						def = RCPItem.def,
 						Min = MaterialsMin,
 						Max = MaterialsMax,
@@ -481,7 +468,7 @@ namespace MSDrugMix
 			{
 				Log.Message("InnerRecipe List: Groups: " + RCPGroups.Count.ToString() + " , Potentials: " + RCPListPotentials.Count.ToString(), false);
 			}
-			FinalList = new List<Building_MSDrugMix.RCPItemCanUse>();
+			FinalList = new List<RCPItemCanUse>();
 			bool NotAllGroups = false;
 			if (RCPGroups.Count > 0)
 			{
@@ -490,12 +477,12 @@ namespace MSDrugMix
 					bool foundGroup = false;
 					if (RCPListPotentials.Count > 0)
 					{
-						Building_MSDrugMix.RCPItemCanUse bestthingsofar = default(Building_MSDrugMix.RCPItemCanUse);
+                        RCPItemCanUse bestthingsofar = default;
 						bool best = false;
 						bool bestmax = false;
 						for (int k = 0; k < RCPListPotentials.Count; k++)
 						{
-							Building_MSDrugMix.RCPItemCanUse itemchk = RCPListPotentials[k];
+                            RCPItemCanUse itemchk = RCPListPotentials[k];
 							if (itemchk.Grp == RCPGroups[j])
 							{
 								foundGroup = true;
@@ -680,19 +667,15 @@ namespace MSDrugMix
 				{
 					if (this.MixerThingDef != null)
 					{
-						int ticks;
-						int minProd;
-						int maxProd;
-						string research;
-						if (MSDrugMixUtility.RCPProdValues(this.MixerThingDef, out ticks, out minProd, out maxProd, out research))
-						{
-							LabelProduce += "MSDrugMix.ProdLabelRange".Translate(minProd.ToString(), maxProd.ToString());
-						}
-						else
-						{
-							LabelProduce += "MSDrugMix.ProdLabelERR".Translate();
-						}
-					}
+                        if (MSDrugMixUtility.RCPProdValues(this.MixerThingDef, out int ticks, out int minProd, out int maxProd, out string research))
+                        {
+                            LabelProduce += "MSDrugMix.ProdLabelRange".Translate(minProd.ToString(), maxProd.ToString());
+                        }
+                        else
+                        {
+                            LabelProduce += "MSDrugMix.ProdLabelERR".Translate();
+                        }
+                    }
 					else
 					{
 						LabelProduce += "MSDrugMix.ProdNoChem".Translate();
@@ -717,9 +700,8 @@ namespace MSDrugMix
 				string LimitLabelDetail;
 				if (this.StockLimit > 0)
 				{
-					int ActualStockNum;
-					Building_MSDrugMix.StockLimitReached(this, this.MixerThingDef, this.StockLimit, out ActualStockNum);
-					int LimitPct = ActualStockNum * 100 / this.StockLimit;
+                    Building_MSDrugMix.StockLimitReached(this, this.MixerThingDef, this.StockLimit, out int ActualStockNum);
+                    int LimitPct = ActualStockNum * 100 / this.StockLimit;
 					LimitLabelDetail = "MSDrugMix.StockLabel".Translate(this.StockLimit.ToString(), LimitPct.ToString());
 					LimitTexPath += this.StockLimit.ToString();
 				}
@@ -864,12 +846,8 @@ namespace MSDrugMix
 		// Token: 0x06000097 RID: 151 RVA: 0x00007F1C File Offset: 0x0000611C
 		public static bool IsChemAvailable(ThingDef chkchemDef)
 		{
-			int ticks;
-			int minProd;
-			int maxProd;
-			string research;
-			return MSDrugMixUtility.RCPProdValues(chkchemDef, out ticks, out minProd, out maxProd, out research) && research != "" && DefDatabase<ResearchProjectDef>.GetNamed(research, false).IsFinished;
-		}
+            return MSDrugMixUtility.RCPProdValues(chkchemDef, out _, out _, out _, out string research) && research != "" && DefDatabase<ResearchProjectDef>.GetNamed(research, false).IsFinished;
+        }
 
 		// Token: 0x06000098 RID: 152 RVA: 0x00007F58 File Offset: 0x00006158
 		public static bool StockLimitReached(Building b, ThingDef stockThing, int stockLim, out int ActualStockNum)
@@ -977,23 +955,23 @@ namespace MSDrugMix
 
 		// Token: 0x0400005F RID: 95
 		[NoTranslate]
-		private string produceTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerProduce_Icon";
+		private readonly string produceTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerProduce_Icon";
 
 		// Token: 0x04000060 RID: 96
 		[NoTranslate]
-		private string chemicalTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerChem_Icon";
+		private readonly string chemicalTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerChem_Icon";
 
 		// Token: 0x04000061 RID: 97
 		[NoTranslate]
-		private string debugTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerDebug_Icon";
+		private readonly string debugTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerDebug_Icon";
 
 		// Token: 0x04000062 RID: 98
 		[NoTranslate]
-		private string FrontLimitPath = Building_MSDrugMix.UITexPath + "StockLimits/MSDrugMixerStock";
+		private readonly string FrontLimitPath = Building_MSDrugMix.UITexPath + "StockLimits/MSDrugMixerStock";
 
 		// Token: 0x04000063 RID: 99
 		[NoTranslate]
-		private string EndLimitPath = "Limit_icon";
+		private readonly string EndLimitPath = "Limit_icon";
 
 		// Token: 0x02000039 RID: 57
 		public struct RCPItemCanUse

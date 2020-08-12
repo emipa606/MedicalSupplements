@@ -68,30 +68,32 @@ namespace MSRegen
 				Messages.Message("MSRegen.CureMsg".Translate(base.Pawn.LabelShort.CapitalizeFirst(), base.Def.label.CapitalizeFirst()), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
 				return;
 			}
-			List<string> Immunities = new List<string>();
-			if (MSRegenUtility.ImmuneTo(base.Pawn, base.Def, out Immunities))
-			{
-				int ImmunitiesAsCure = 0;
-				for (int i = 0; i < Immunities.Count; i++)
-				{
-					if (Immunities[i] != "MSCondom_High")
-					{
-						ImmunitiesAsCure++;
-					}
-				}
-				if (ImmunitiesAsCure > 0)
-				{
-					this.SetTicksToCure();
-					this.curing = true;
-				}
-			}
-		}
+
+            _ = new List<string>();
+            List<string> Immunities;
+            if (MSRegenUtility.ImmuneTo(base.Pawn, base.Def, out Immunities))
+            {
+                int ImmunitiesAsCure = 0;
+                for (int i = 0; i < Immunities.Count; i++)
+                {
+                    if (Immunities[i] != "MSCondom_High")
+                    {
+                        ImmunitiesAsCure++;
+                    }
+                }
+                if (ImmunitiesAsCure > 0)
+                {
+                    this.SetTicksToCure();
+                    this.curing = true;
+                }
+            }
+        }
 
 		// Token: 0x0600002F RID: 47 RVA: 0x00004058 File Offset: 0x00002258
 		public override void CompExposeData()
 		{
-			Scribe_Values.Look<int>(ref this.ticksToCure, "ticksToCure", 0, false);
-			Scribe_Values.Look<bool>(ref this.curing, "curing", false, false);
+			Scribe_Values.Look(ref this.ticksToCure, "ticksToCure", 0, false);
+			Scribe_Values.Look(ref this.curing, "curing", false, false);
 		}
 
 		// Token: 0x06000030 RID: 48 RVA: 0x0000407E File Offset: 0x0000227E

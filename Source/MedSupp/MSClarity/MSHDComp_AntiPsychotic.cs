@@ -21,14 +21,14 @@ namespace MSClarity
 				HediffSet MShedSet = this.parent.pawn.health.hediffSet;
 				if (MShedSet != null)
 				{
-					if ((base.Def.defName == "CatatonicBreakdown" || base.Def.defName == "PsychicShock") && ((MShedSet != null) ? MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High"), false) : null) != null)
+					if ((base.Def.defName == "CatatonicBreakdown" || base.Def.defName == "PsychicShock") && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High"), false)) != null)
 					{
 						this.ticksToDisappear--;
 					}
 					if (base.Def.defName == "Unease" || base.Def.defName == "SuicidePreparation")
 					{
-						bool flag = ((MShedSet != null) ? MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High"), false) : null) != null;
-						Hediff MSCheckRimzac = (MShedSet != null) ? MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSRimzac_High"), false) : null;
+						bool flag = (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High"), false)) != null;
+						Hediff MSCheckRimzac = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimzac_High"), false);
 						if (flag || MSCheckRimzac != null)
 						{
 							this.ticksToDisappear--;

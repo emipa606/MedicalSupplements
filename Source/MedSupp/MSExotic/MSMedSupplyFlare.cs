@@ -20,7 +20,7 @@ namespace MSExotic
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look<int>(ref this.destroyTick, "destroyTick", 0, false);
+			Scribe_Values.Look(ref this.destroyTick, "destroyTick", 0, false);
 		}
 
 		// Token: 0x0600006A RID: 106 RVA: 0x000060B8 File Offset: 0x000042B8

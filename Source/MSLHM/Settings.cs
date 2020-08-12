@@ -26,7 +26,7 @@ namespace MSLHM
 		// Token: 0x06000012 RID: 18 RVA: 0x00002678 File Offset: 0x00000878
 		public override void ExposeData()
 		{
-			Scribe_Values.Look<bool>(ref this.showAgingMessages, "showAgingMessages", false, false);
+			Scribe_Values.Look(ref this.showAgingMessages, "showAgingMessages", false, false);
 		}
 
 		// Token: 0x04000003 RID: 3

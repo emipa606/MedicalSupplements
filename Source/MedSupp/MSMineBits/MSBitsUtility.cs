@@ -32,7 +32,7 @@ namespace MSMineBits
 			int yield = 0;
 			if (defSource != null)
 			{
-				if (((defSource != null) ? defSource.defName : null) == "ChunkLepidolite")
+				if ((defSource?.defName) == "ChunkLepidolite")
 				{
 					string defName = def.defName;
 					if (!(defName == "MSLithiumSalts"))
@@ -54,7 +54,7 @@ namespace MSMineBits
 						yield = Rand.Range(10, 15);
 					}
 				}
-				else if (((defSource != null) ? defSource.defName : null) == "ChunkSerpentinite")
+				else if ((defSource?.defName) == "ChunkSerpentinite")
 				{
 					string defName = def.defName;
 					if (!(defName == "MSLithiumSalts"))
@@ -76,7 +76,7 @@ namespace MSMineBits
 						yield = Rand.Range(1, 3);
 					}
 				}
-				else if (((defSource != null) ? defSource.defName : null) == "ChunkDunite")
+				else if ((defSource?.defName) == "ChunkDunite")
 				{
 					string defName = def.defName;
 					if (!(defName == "MSLithiumSalts"))
@@ -98,7 +98,7 @@ namespace MSMineBits
 						yield = Rand.Range(1, 2);
 					}
 				}
-				else if (((defSource != null) ? defSource.defName : null) == "ChunkPegmatite")
+				else if ((defSource?.defName) == "ChunkPegmatite")
 				{
 					string defName = def.defName;
 					if (!(defName == "MSLithiumSalts"))
@@ -120,7 +120,7 @@ namespace MSMineBits
 						yield = Rand.Range(5, 20);
 					}
 				}
-				else if (((defSource != null) ? defSource.defName : null) == "ChunkMarble" || ((defSource != null) ? defSource.defName : null) == "ChunkLimestone" || ((defSource != null) ? defSource.defName : null) == "ChunkEmperadordark" || ((defSource != null) ? defSource.defName : null) == "ChunkBlueschist" || ((defSource != null) ? defSource.defName : null) == "ChunkGreenSchist" || ((defSource != null) ? defSource.defName : null) == "ChunkDacite" || ((defSource != null) ? defSource.defName : null) == "ChunkSovite" || ((defSource != null) ? defSource.defName : null) == "ChunkChalk" || ((defSource != null) ? defSource.defName : null) == "ChunkCreoleMarble" || ((defSource != null) ? defSource.defName : null) == "ChunkEtowahMarble" || ((defSource != null) ? defSource.defName : null) == "ChunkDiorite")
+				else if ((defSource?.defName) == "ChunkMarble" || (defSource?.defName) == "ChunkLimestone" || (defSource?.defName) == "ChunkEmperadordark" || (defSource?.defName) == "ChunkBlueschist" || (defSource?.defName) == "ChunkGreenSchist" || (defSource?.defName) == "ChunkDacite" || (defSource?.defName) == "ChunkSovite" || (defSource?.defName) == "ChunkChalk" || (defSource?.defName) == "ChunkCreoleMarble" || (defSource?.defName) == "ChunkEtowahMarble" || (defSource?.defName) == "ChunkDiorite")
 				{
 					string defName = def.defName;
 					if (!(defName == "MSLithiumSalts"))

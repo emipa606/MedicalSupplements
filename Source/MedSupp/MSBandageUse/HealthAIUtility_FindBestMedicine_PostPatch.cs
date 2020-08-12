@@ -36,12 +36,12 @@ namespace MSBandageUse
 			else
 			{
 				Pawn_HealthTracker health = pawn.health;
-				hediffSet = ((health != null) ? health.hediffSet : null);
+				hediffSet = (health?.hediffSet);
 			}
 			HediffSet hedset = hediffSet;
 			if (hedset != null)
 			{
-				List<Hediff> injuries = hedset.GetHediffsTendable().ToList<Hediff>();
+				List<Hediff> injuries = hedset.GetHediffsTendable().ToList();
 				if (injuries != null && injuries.Count > 0)
 				{
 					foreach (Hediff injury in injuries)

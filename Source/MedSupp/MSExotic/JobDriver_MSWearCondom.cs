@@ -24,11 +24,13 @@ namespace MSExotic
 			Pawn pawn = base.GetActor();
 			this.FailOnBurningImmobile(TargetIndex.A);
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.A);
-			Toil toil = new Toil();
-			toil.tickAction = delegate()
-			{
-			};
-			Toil prepare = toil;
+            Toil toil = new Toil
+            {
+                tickAction = delegate ()
+                {
+                }
+            };
+            Toil prepare = toil;
 			prepare.WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
 			prepare.FailOnDespawnedNullOrForbidden(TargetIndex.A);
 			prepare.defaultCompleteMode = ToilCompleteMode.Delay;
@@ -56,7 +58,6 @@ namespace MSExotic
 				{
 					JC = JobCondition.Incompletable;
 				}
-				pawn = pawn;
 				Thing thing;
 				if (pawn == null)
 				{
@@ -65,7 +66,7 @@ namespace MSExotic
 				else
 				{
 					Pawn_Ownership ownership = pawn.ownership;
-					thing = ((ownership != null) ? ownership.OwnedBed : null);
+					thing = (ownership?.OwnedBed);
 				}
 				Thing LovinBed = thing;
 				if (LovinBed != null)

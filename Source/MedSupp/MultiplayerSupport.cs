@@ -72,6 +72,6 @@ namespace MedSupp
 		}
 
 		// Token: 0x0400006A RID: 106
-		private static Harmony harmony = new Harmony("rimworld.medicalsupplements.multiplayersupport");
+		private static readonly Harmony harmony = new Harmony("rimworld.medicalsupplements.multiplayersupport");
 	}
 }

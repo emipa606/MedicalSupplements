@@ -45,7 +45,7 @@ namespace MSExotic
 				else
 				{
 					TraitSet traits2 = story2.traits;
-					trait = ((traits2 != null) ? traits2.GetTrait(Immunity) : null);
+					trait = (traits2?.GetTrait(Immunity));
 				}
 				Trait ToGo = trait;
 				MSTraitChanger.RemoveTrait(p, ToGo, t.label, MsgType, true);
@@ -62,7 +62,7 @@ namespace MSExotic
 			if (!p.RaceProps.Humanlike)
 			{
 				Passed = false;
-				Reason = "MSExotic.NotHumanLike".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+				Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
 				return;
 			}
 			TraitDef Immunity = DefDatabase<TraitDef>.GetNamed("Immunity", true);
@@ -84,7 +84,7 @@ namespace MSExotic
 				if (num2.GetValueOrDefault() == num3 & num2 != null)
 				{
 					Passed = false;
-					Reason = "MSExotic.AlreadyHasImmunity".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+					Reason = "MSExotic.AlreadyHasImmunity".Translate(p?.LabelShort.CapitalizeFirst());
 					return;
 				}
 			}
@@ -112,7 +112,7 @@ namespace MSExotic
 				else
 				{
 					TraitSet traits = story.traits;
-					trait = ((traits != null) ? traits.GetTrait(Psych) : null);
+					trait = (traits?.GetTrait(Psych));
 				}
 				Trait ToGo = trait;
 				MSTraitChanger.RemoveTrait(p, ToGo, t.label, MsgType, true);
@@ -131,7 +131,7 @@ namespace MSExotic
 				else
 				{
 					TraitSet traits2 = story2.traits;
-					trait2 = ((traits2 != null) ? traits2.GetTrait(Psych) : null);
+					trait2 = (traits2?.GetTrait(Psych));
 				}
 				Trait ToGo2 = trait2;
 				MSTraitChanger.RemoveTrait(p, ToGo2, t.label, MsgType, true);
@@ -145,7 +145,7 @@ namespace MSExotic
 			if (!p.RaceProps.Humanlike)
 			{
 				Passed = false;
-				Reason = "MSExotic.NotHumanLike".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+				Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
 				return;
 			}
 			TraitDef Psych = DefDatabase<TraitDef>.GetNamed("PsychicSensitivity", true);
@@ -169,7 +169,7 @@ namespace MSExotic
 					if (num2.GetValueOrDefault() <= num3 & num2 != null)
 					{
 						Passed = false;
-						Reason = "MSExotic.HasNoPsychSensitivity".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+						Reason = "MSExotic.HasNoPsychSensitivity".Translate(p?.LabelShort.CapitalizeFirst());
 						return;
 					}
 				}
@@ -177,7 +177,7 @@ namespace MSExotic
 				return;
 			}
 			Passed = false;
-			Reason = "MSExotic.HasNoPsychSensitivity".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+			Reason = "MSExotic.HasNoPsychSensitivity".Translate(p?.LabelShort.CapitalizeFirst());
 		}
 
 		// Token: 0x0600005A RID: 90 RVA: 0x00005ACC File Offset: 0x00003CCC
@@ -185,9 +185,8 @@ namespace MSExotic
 		{
 			HediffDef named = DefDatabase<HediffDef>.GetNamed("MSBattleStim_High", false);
 			float SeverityToApply = 0.5f;
-			bool immune;
-			MSHediffEffecter.HediffEffect(named, SeverityToApply, p, null, out immune);
-		}
+            MSHediffEffecter.HediffEffect(named, SeverityToApply, p, null, out _);
+        }
 
 		// Token: 0x0600005B RID: 91 RVA: 0x00005AF8 File Offset: 0x00003CF8
 		public static void ChkMSBattleStim(Pawn p, out string Reason, out bool Passed)
@@ -196,13 +195,13 @@ namespace MSExotic
 			if (!p.RaceProps.Humanlike)
 			{
 				Passed = false;
-				Reason = "MSExotic.NotHumanLike".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+				Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
 				return;
 			}
 			if (MSHediffEffecter.HasHediff(p, DefDatabase<HediffDef>.GetNamed("MSBattleStim_High", true)))
 			{
 				Passed = false;
-				Reason = "MSExoctic.AlreadyStimmed".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+				Reason = "MSExoctic.AlreadyStimmed".Translate(p?.LabelShort.CapitalizeFirst());
 				return;
 			}
 			Passed = true;
@@ -253,7 +252,7 @@ namespace MSExotic
 			}
 			if (candidates.Count > 0)
 			{
-				SkillDef skill = candidates.RandomElement<SkillDef>();
+				SkillDef skill = candidates.RandomElement();
 				int before = p.skills.GetSkill(skill).Level;
 				float Rnd = Rand.Range(1f, 3f);
 				p.skills.Learn(skill, 32000f * Rnd, true);
@@ -269,13 +268,11 @@ namespace MSExotic
 			if (!p.RaceProps.Humanlike)
 			{
 				Passed = false;
-				Reason = "MSExotic.NotHumanLike".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+				Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
 				return;
 			}
-			string skillsReason;
-			bool skillsPassed;
-			MSSkillChanger.CheckSkills(p, t, out skillsReason, out skillsPassed);
-			if (!skillsPassed)
+            MSSkillChanger.CheckSkills(p, t, out string skillsReason, out bool skillsPassed);
+            if (!skillsPassed)
 			{
 				Passed = false;
 				Reason = skillsReason;
@@ -316,7 +313,7 @@ namespace MSExotic
 			if (!p.RaceProps.Humanlike)
 			{
 				Passed = false;
-				Reason = "MSExotic.NotHumanLike".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+				Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
 				return;
 			}
 			Passed = true;
@@ -327,9 +324,8 @@ namespace MSExotic
 		{
 			HediffDef named = DefDatabase<HediffDef>.GetNamed("MSCondom_High", false);
 			float SeverityToApply = 0.5f;
-			bool immune;
-			MSHediffEffecter.HediffEffect(named, SeverityToApply, p, null, out immune);
-		}
+            MSHediffEffecter.HediffEffect(named, SeverityToApply, p, null, out _);
+        }
 
 		// Token: 0x06000062 RID: 98 RVA: 0x00005ED9 File Offset: 0x000040D9
 		public static void ChkMSCondom(Pawn p, out string Reason, out bool Passed)
@@ -338,7 +334,7 @@ namespace MSExotic
 			if (!p.RaceProps.Humanlike)
 			{
 				Passed = false;
-				Reason = "MSExotic.NotHumanLike".Translate((p != null) ? p.LabelShort.CapitalizeFirst() : null);
+				Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
 				return;
 			}
 			Passed = true;

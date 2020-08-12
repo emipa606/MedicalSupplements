@@ -33,16 +33,16 @@ namespace MSTend
 		public override void CompExposeData()
 		{
 			base.CompExposeData();
-			Scribe_Values.Look<HediffGrowthMode>(ref this.growthMode, "growthMode", HediffGrowthMode.Growing, false);
-			Scribe_Values.Look<float>(ref this.severityPerDayGrowingRandomFactor, "severityPerDayGrowingRandomFactor", 1f, false);
-			Scribe_Values.Look<float>(ref this.severityPerDayRemissionRandomFactor, "severityPerDayRemissionRandomFactor", 1f, false);
+			Scribe_Values.Look(ref this.growthMode, "growthMode", HediffGrowthMode.Growing, false);
+			Scribe_Values.Look(ref this.severityPerDayGrowingRandomFactor, "severityPerDayGrowingRandomFactor", 1f, false);
+			Scribe_Values.Look(ref this.severityPerDayRemissionRandomFactor, "severityPerDayRemissionRandomFactor", 1f, false);
 		}
 
 		// Token: 0x06000012 RID: 18 RVA: 0x00002368 File Offset: 0x00000568
 		public override void CompPostPostAdd(DamageInfo? dinfo)
 		{
 			base.CompPostPostAdd(dinfo);
-			this.growthMode = ((HediffGrowthMode[])Enum.GetValues(typeof(HediffGrowthMode))).RandomElement<HediffGrowthMode>();
+			this.growthMode = ((HediffGrowthMode[])Enum.GetValues(typeof(HediffGrowthMode))).RandomElement();
 			this.severityPerDayGrowingRandomFactor = this.Props.severityPerDayGrowingRandomFactor.RandomInRange;
 			this.severityPerDayRemissionRandomFactor = this.Props.severityPerDayRemissionRandomFactor.RandomInRange;
 		}
@@ -92,7 +92,7 @@ namespace MSTend
 				else
 				{
 					Pawn_HealthTracker health = p.health;
-					hediffSet = ((health != null) ? health.hediffSet : null);
+					hediffSet = (health?.hediffSet);
 				}
 				HediffSet hSet = hediffSet;
 				if (hSet != null)
@@ -112,7 +112,7 @@ namespace MSTend
 		{
 			this.growthMode = (from x in (HediffGrowthMode[])Enum.GetValues(typeof(HediffGrowthMode))
 			where x != this.growthMode
-			select x).RandomElement<HediffGrowthMode>();
+			select x).RandomElement();
 			if (PawnUtility.ShouldSendNotificationAbout(base.Pawn))
 			{
 				switch (this.growthMode)

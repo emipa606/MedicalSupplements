@@ -28,7 +28,7 @@ namespace MSClarity
 			{
 				return true;
 			}
-			Hediff MSCheckClarity = (MShedSet != null) ? MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High"), false) : null;
+			Hediff MSCheckClarity = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High"), false);
 			if (MSCheckClarity != null)
 			{
 				__instance.RecoverFromState();

@@ -10,7 +10,7 @@ namespace MSExotic
 		// Token: 0x06000054 RID: 84 RVA: 0x00005700 File Offset: 0x00003900
 		static MSExoticDefOf()
 		{
-			DefOfHelper.EnsureInitializedInCtor(typeof(MSExoticDefOf.ThingDefOf));
+			DefOfHelper.EnsureInitializedInCtor(typeof(ThingDefOf));
 		}
 
 		// Token: 0x02000034 RID: 52

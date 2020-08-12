@@ -38,7 +38,7 @@ namespace MSMineBits
 					else
 					{
 						BuildingProperties building = def.building;
-						obj = ((building != null) ? building.mineableThing : null);
+						obj = (building?.mineableThing);
 					}
 				}
 				if (obj != null || isSource)
@@ -52,7 +52,7 @@ namespace MSMineBits
 					else
 					{
 						Pawn_SkillTracker skills = pawn.skills;
-						flag = (((skills != null) ? skills.GetSkill(SkillDefOf.Mining) : null) != null);
+						flag = ((skills?.GetSkill(SkillDefOf.Mining)) != null);
 					}
 					if (flag)
 					{
@@ -76,24 +76,21 @@ namespace MSMineBits
 							else
 							{
 								BuildingProperties building2 = def2.building;
-								defSource = ((building2 != null) ? building2.mineableThing : null);
+								defSource = (building2?.mineableThing);
 							}
 						}
-						ThingDef bitsdef;
-						int bitsyield;
-						if (MSBitsUtility.GetIsBitsSource(defSource, isSource, pawn, out bitsdef, out bitsyield) && bitsdef != null && bitsyield > 0)
-						{
-							int num = Mathf.Max(1, Mathf.RoundToInt((float)bitsyield * Find.Storyteller.difficulty.mineYieldFactor));
-							Thing thing = ThingMaker.MakeThing(bitsdef, null);
-							thing.stackCount = num;
-							Thing newbitsthing;
-							GenPlace.TryPlaceThing(thing, pawn.Position, map, ThingPlaceMode.Near, out newbitsthing, null, null, default(Rot4));
-							if ((pawn == null || !pawn.IsColonist) && newbitsthing.def.EverHaulable && !newbitsthing.def.designateHaulable)
-							{
-								newbitsthing.SetForbidden(true, true);
-							}
-						}
-					}
+                        if (MSBitsUtility.GetIsBitsSource(defSource, isSource, pawn, out ThingDef bitsdef, out int bitsyield) && bitsdef != null && bitsyield > 0)
+                        {
+                            int num = Mathf.Max(1, Mathf.RoundToInt((float)bitsyield * Find.Storyteller.difficulty.mineYieldFactor));
+                            Thing thing = ThingMaker.MakeThing(bitsdef, null);
+                            thing.stackCount = num;
+                            GenPlace.TryPlaceThing(thing, pawn.Position, map, ThingPlaceMode.Near, out Thing newbitsthing, null, null, default);
+                            if ((pawn == null || !pawn.IsColonist) && newbitsthing.def.EverHaulable && !newbitsthing.def.designateHaulable)
+                            {
+                                newbitsthing.SetForbidden(true, true);
+                            }
+                        }
+                    }
 				}
 			}
 		}

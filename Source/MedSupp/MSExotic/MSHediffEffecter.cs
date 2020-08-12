@@ -26,7 +26,7 @@ namespace MSExotic
 						else
 						{
 							HediffSet hediffSet = health.hediffSet;
-							hediff = ((hediffSet != null) ? hediffSet.GetFirstHediffOfDef(hediffdef, false) : null);
+							hediff = (hediffSet?.GetFirstHediffOfDef(hediffdef, false));
 						}
 						Hediff hashediff = hediff;
 						if (hashediff != null)
@@ -73,7 +73,7 @@ namespace MSExotic
 		internal static bool HasHediff(Pawn pawn, HediffDef def)
 		{
 			Pawn_HealthTracker health = pawn.health;
-			HediffSet HS = (health != null) ? health.hediffSet : null;
+			HediffSet HS = health?.hediffSet;
 			return HS != null && HS.GetFirstHediffOfDef(def, false) != null;
 		}
 	}

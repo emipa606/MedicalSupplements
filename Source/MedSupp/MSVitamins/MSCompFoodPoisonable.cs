@@ -23,7 +23,7 @@ namespace MSVitamins
 			HediffSet MShedSet = ingester.health.hediffSet;
 			if (MShedSet != null)
 			{
-				if (((MShedSet != null) ? MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSMultiVitamins_High"), false) : null) == null && Rand.Chance(this.poisonPct * Find.Storyteller.difficulty.foodPoisonChanceFactor))
+				if ((MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMultiVitamins_High"), false)) == null && Rand.Chance(this.poisonPct * Find.Storyteller.difficulty.foodPoisonChanceFactor))
 				{
 					FoodUtility.AddFoodPoisoningHediff(ingester, this.parent, this.cause);
 					return;

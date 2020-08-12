@@ -33,7 +33,7 @@ namespace MSAddict
 				else
 				{
 					Pawn_HealthTracker health = pawn.health;
-					hediffSet = ((health != null) ? health.hediffSet : null);
+					hediffSet = (health?.hediffSet);
 				}
 				HediffSet set = hediffSet;
 				if (Chemicals != null && Chemicals.Count > 0)
@@ -42,7 +42,7 @@ namespace MSAddict
 					{
 						if (!(Chemical.defName == "MSMental"))
 						{
-							HediffDef addiction = (Chemical != null) ? Chemical.addictionHediff : null;
+							HediffDef addiction = Chemical?.addictionHediff;
 							if (addiction != null && set != null)
 							{
 								Hediff chkaddiction = set.GetFirstHediffOfDef(addiction, false);
@@ -51,7 +51,7 @@ namespace MSAddict
 									this.ReduceHediff(chkaddiction, this.MSProps.AddictionLossPerHour);
 								}
 							}
-							HediffDef tolerance = (Chemical != null) ? Chemical.toleranceHediff : null;
+							HediffDef tolerance = Chemical?.toleranceHediff;
 							if (tolerance != null && set != null)
 							{
 								Hediff chktolerance = set.GetFirstHediffOfDef(tolerance, false);

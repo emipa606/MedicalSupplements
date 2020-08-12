@@ -73,7 +73,7 @@ namespace MSExotic
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look<int>(ref this.StimUses, "StimUses", 1, false);
+			Scribe_Values.Look(ref this.StimUses, "StimUses", 1, false);
 		}
 
 		// Token: 0x06000079 RID: 121 RVA: 0x000066F4 File Offset: 0x000048F4
@@ -83,10 +83,8 @@ namespace MSExotic
 			{
 				if (this.def.defName == "MSBattleStimBelt")
 				{
-					string Reason;
-					bool Passed;
-					MSExoticUtility.ChkMSBattleStim(p, out Reason, out Passed);
-					if (!Passed)
+                    MSExoticUtility.ChkMSBattleStim(p, out string Reason, out bool Passed);
+                    if (!Passed)
 					{
 						Messages.Message("MSExotic.ReasonPrefix".Translate() + Reason, p, MessageTypeDefOf.NeutralEvent, false);
 						return;

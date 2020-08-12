@@ -18,7 +18,7 @@ namespace MSExotic
 					if (item.def.IsDrug && item.def.IsIngestible)
 					{
 						IngestibleProperties ingestible = item.def.ingestible;
-						List<IngestionOutcomeDoer> listIOD = (ingestible != null) ? ingestible.outcomeDoers : null;
+						List<IngestionOutcomeDoer> listIOD = ingestible?.outcomeDoers;
 						if (listIOD.Count > 0)
 						{
 							foreach (IngestionOutcomeDoer ingestionOutcomeDoer in listIOD)

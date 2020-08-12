@@ -66,10 +66,10 @@ namespace MSTend
 		}
 
 		// Token: 0x04000005 RID: 5
-		private float baseTendDurationHours = -1f;
+		private readonly float baseTendDurationHours = -1f;
 
 		// Token: 0x04000006 RID: 6
-		private float tendOverlapHours = 3f;
+		private readonly float tendOverlapHours = 3f;
 
 		// Token: 0x04000007 RID: 7
 		public bool tendAllAtOnce;
