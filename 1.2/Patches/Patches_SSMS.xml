@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- ====== Compatability Patch ==================== -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Social Supplements (Continued)</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/RecipeDef[defName="MakeAntitoxin"]/ingredients/li[2]/filter/thingDefs</xpath>
+          <match Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="MakeAntitoxin"]/ingredients/li[2]/filter/thingDefs</xpath>
+            <value>
+              <li>SSMorel</li>
+            </value>
+          </match>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="MakeAntitoxin"]/ingredients/li[2]/filter</xpath>
+            <value>
+              <thingDefs>
+                <li>SSMorel</li>
+              </thingDefs>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/RecipeDef[defName="MakeAntitoxin"]/fixedIngredientFilter/thingDefs</xpath>
+          <match Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="MakeAntitoxin"]/fixedIngredientFilter/thingDefs</xpath>
+            <value>
+              <li>SSMorel</li>
+            </value>
+          </match>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="MakeAntitoxin"]/fixedIngredientFilter</xpath>
+            <value>
+              <thingDefs>
+                <li>SSMorel</li>
+              </thingDefs>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/RecipeDef[defName="MakeBulkAntitoxin"]/ingredients/li[2]/filter/thingDefs</xpath>
+          <match Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="MakeBulkAntitoxin"]/ingredients/li[2]/filter/thingDefs</xpath>
+            <value>
+              <li>SSMorel</li>
+            </value>
+          </match>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="MakeBulkAntitoxin"]/ingredients/li[2]/filter</xpath>
+            <value>
+              <thingDefs>
+                <li>SSMorel</li>
+              </thingDefs>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/RecipeDef[defName="MakeBulkAntitoxin"]/fixedIngredientFilter/thingDefs</xpath>
+          <match Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="MakeBulkAntitoxin"]/fixedIngredientFilter/thingDefs</xpath>
+            <value>
+              <li>SSMorel</li>
+            </value>
+          </match>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/RecipeDef[defName="MakeBulkAntitoxin"]/fixedIngredientFilter</xpath>
+            <value>
+              <thingDefs>
+                <li>SSMorel</li>
+              </thingDefs>
+            </value>
+          </nomatch>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName="MSDrugMixInput"]/building/fixedStorageSettings/filter/disallowedThingDefs</xpath>
+          <value>
+            <li>SSFoodSupplyFlare</li>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/ThingDef[defName="MSDrugMixOutput"]/building/fixedStorageSettings/filter/disallowedThingDefs</xpath>
+          <value>
+            <li>SSFoodSupplyFlare</li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

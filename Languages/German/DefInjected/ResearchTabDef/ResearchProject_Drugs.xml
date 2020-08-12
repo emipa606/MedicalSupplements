@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Research Tabs -->
+  <MedicalSuppTab.label>Medizinische Ergänzungen</MedicalSuppTab.label>
+  <MSGlycerolTab.label>ME Glycerin Drogen</MSGlycerolTab.label>
+  <MSPhenolTab.label>ME Phenol Drogen</MSPhenolTab.label>
+  <MSLithiumTab.label>ME Lithium Drogen</MSLithiumTab.label>
+  <MSOpiumTab.label>ME Opium Drogen</MSOpiumTab.label>
+  <MSVincaTab.label>ME Vinca Drogen</MSVincaTab.label>
+</LanguageData>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Fermenter</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/RecipeDef[defName="MakeRimpeptic" or defName="MakeBulkRimpeptic"]/ingredients/li[4]/filter/thingDefs</xpath>
+          <value>
+            <li>FRMT_PastMilk</li>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs/RecipeDef[defName="MakeRimpeptic" or defName="MakeBulkRimpeptic"]/fixedIngredientFilter/thingDefs</xpath>
+          <value>
+            <li>FRMT_PastMilk</li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

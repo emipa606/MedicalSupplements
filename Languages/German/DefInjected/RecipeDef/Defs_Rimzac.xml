@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Bulk Recipe -->
+  <MakeBulkRimzac.label>Stelle Rimzac in Massen her</MakeBulkRimzac.label>
+  <MakeBulkRimzac.description>Stelle 5 Rimzactabletten her.</MakeBulkRimzac.description>
+  <MakeBulkRimzac.jobString>Stelle Rimzac her.</MakeBulkRimzac.jobString>
+</LanguageData>

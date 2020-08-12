@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>RimPlas (Continued)</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <RecipeDef>
+              <defName>MakeMSLuciferium</defName>
+              <label>Make Luciferium</label>
+              <description>Make 5 Luciferium</description>
+              <jobString>Making Luciferium</jobString>
+              <workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+              <effectWorking>Cook</effectWorking>
+              <soundWorking>Recipe_CookMeal</soundWorking>
+              <workAmount>1000</workAmount>
+              <targetCountAdjustment>5</targetCountAdjustment>
+              <workSkill>Intellectual</workSkill>
+              <ingredients>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>MedicineUltratech</li>
+                    </thingDefs>
+                  </filter>
+                  <count>5</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>MSAndrogen</li>
+                    </thingDefs>
+                  </filter>
+                  <count>10</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>RPMechanites</li>
+                    </thingDefs>
+                  </filter>
+                  <count>1</count>
+                </li>
+                <li>
+                  <filter>
+                    <thingDefs>
+                      <li>Uranium</li>
+                    </thingDefs>
+                  </filter>
+                  <count>5</count>
+                </li>
+              </ingredients>
+              <fixedIngredientFilter>
+                <thingDefs>
+                  <li>MedicineUltratech</li>
+                  <li>MSAndrogen</li>
+                  <li>RPMechanites</li>
+                  <li>Uranium</li>
+                </thingDefs>
+              </fixedIngredientFilter>
+              <products>
+                <Luciferium>5</Luciferium>
+              </products>
+              <recipeUsers>
+                <li>MSStimLab</li>
+              </recipeUsers>
+              <skillRequirements>
+                <Intellectual>10</Intellectual>
+              </skillRequirements>
+              <researchPrerequisite>MSLuciferium</researchPrerequisite>
+            </RecipeDef>
+          </value>
+        </li>
+        <li Class="PatchOperationAdd">
+          <xpath>/Defs</xpath>
+          <value>
+            <ResearchProjectDef>
+              <defName>MSLuciferium</defName>
+              <label>Luciferium</label>
+              <description>Grants the ability to make Luciferium.</description>
+              <baseCost>2000</baseCost>
+              <techLevel>Ultra</techLevel>
+              <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+              <requiredResearchFacilities>
+                <li>MultiAnalyzer</li>
+              </requiredResearchFacilities>
+              <prerequisites>
+                <li>MSBattleStims</li>
+                <li>RimPlas_AdvInjMld</li>
+              </prerequisites>
+              <tab>MSUltraMedTab</tab>
+            </ResearchProjectDef>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>

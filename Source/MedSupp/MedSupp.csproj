@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08AD127C-FF6A-4157-8C88-EFB10B84A4A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MedSupp</RootNamespace>
+    <AssemblyName>MedSupp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\1.2\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.0.2\lib\net472\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="0MultiplayerAPI, Version=0.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RimWorld.MultiplayerAPI.0.2.0\lib\net472\0MultiplayerAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MSOptions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\1.2\Assemblies\MSOptions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HarmonyPatching.cs" />
+    <Compile Include="HediffCompProperties_MSWakeAnasthetic.cs" />
+    <Compile Include="HediffComp_MSWakeAnasthetic.cs" />
+    <Compile Include="MSAddict\HediffCompProperties_MSAddict.cs" />
+    <Compile Include="MSAddict\HediffComp_MSAddict.cs" />
+    <Compile Include="MSBandageUse\HealthAIUtility_FindBestMedicine_PostPatch.cs" />
+    <Compile Include="MSClarity\MentalStateTick.cs" />
+    <Compile Include="MSClarity\MSHDCompProperties_AntiPsychotic.cs" />
+    <Compile Include="MSClarity\MSHDComp_AntiPsychotic.cs" />
+    <Compile Include="MSDrugMix\Building_MSDrugMix.cs" />
+    <Compile Include="MSDrugMix\MSDrugMixUtility.cs" />
+    <Compile Include="MSDrugMix\PlaceWorker_MSDrugMixHopper.cs" />
+    <Compile Include="MSExotic\CompMSStimWorn.cs" />
+    <Compile Include="MSExotic\CompProperties_MSStimWorn.cs" />
+    <Compile Include="MSExotic\CompUseEffect_MSExotic.cs" />
+    <Compile Include="MSExotic\JobDriver_MSWearCondom.cs" />
+    <Compile Include="MSExotic\MSExoticDefOf.cs" />
+    <Compile Include="MSExotic\MSExoticUtility.cs" />
+    <Compile Include="MSExotic\MSHediffEffecter.cs" />
+    <Compile Include="MSExotic\MSMedSupplyFlare.cs" />
+    <Compile Include="MSExotic\MSSkillChanger.cs" />
+    <Compile Include="MSExotic\MSStimWorn.cs" />
+    <Compile Include="MSExotic\MSTraitChanger.cs" />
+    <Compile Include="MSExotic\Recipe_MSAdministerInject.cs" />
+    <Compile Include="MSExotic\TryGiveJob_PostPatch.cs" />
+    <Compile Include="MSMedMat\GetBuildingResourcesLeaveCalculator_PostPatch.cs" />
+    <Compile Include="MSMineBits\MSBitsUtility.cs" />
+    <Compile Include="MSMineBits\TrySpawnYield_PostPatch.cs" />
+    <Compile Include="MSPlacebo\BestIngestTarget.cs" />
+    <Compile Include="MSRegen\HediffCompProperties_MSCure.cs" />
+    <Compile Include="MSRegen\HediffCompProperties_MSRegen.cs" />
+    <Compile Include="MSRegen\HediffComp_MSCure.cs" />
+    <Compile Include="MSRegen\HediffComp_MSRegen.cs" />
+    <Compile Include="MSRegen\MSRegenUtility.cs" />
+    <Compile Include="MSTend\FoodUtility_AddFoodPoisoningHediff_prepatch.cs" />
+    <Compile Include="MSTend\MSHediffCompProperties_GrowthMode.cs" />
+    <Compile Include="MSTend\MSHediffCompProperties_TendDuration.cs" />
+    <Compile Include="MSTend\MSHediffComp_GrowthMode.cs" />
+    <Compile Include="MSTend\MSHediffComp_TendDuration.cs" />
+    <Compile Include="MSTend\MSTendableNow_Patch.cs" />
+    <Compile Include="MSVitamins\MSCompFoodPoisonable.cs" />
+    <Compile Include="MSVitamins\MSCompProperties_FoodPoisonable.cs" />
+    <Compile Include="MultiplayerSupport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

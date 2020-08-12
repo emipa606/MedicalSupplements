@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <!-- Bulk Recipe -->
+  <MakeBulkFireThroat.label>Stelle Firethroat in Massen her</MakeBulkFireThroat.label>
+  <MakeBulkFireThroat.description>Stelle 5 Firethroat her.</MakeBulkFireThroat.description>
+  <MakeBulkFireThroat.jobString>Stelle Firethroat her.</MakeBulkFireThroat.jobString>
+</LanguageData>
