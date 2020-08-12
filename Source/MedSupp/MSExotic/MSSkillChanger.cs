@@ -20,7 +20,7 @@ namespace MSExotic
 		{
 			reason = "";
 			passed = true;
-			List<SkillDef> chkskills = MSSkillChanger.GetSkillList(MSSkillChanger.GetTranscendenceQuality(t));
+			List<SkillDef> chkskills = GetSkillList(GetTranscendenceQuality(t));
 			if (chkskills.Count > 0)
 			{
 				int numCants = 0;

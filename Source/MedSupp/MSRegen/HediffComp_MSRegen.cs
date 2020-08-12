@@ -29,7 +29,7 @@ namespace MSRegen
 		public void ResetTicksToHeal()
 		{
 			int period = 2500;
-			if (base.Def.defName == "MSBattleStim_High")
+			if (Def.defName == "MSBattleStim_High")
 			{
 				period /= 2;
 			}
@@ -57,7 +57,7 @@ namespace MSRegen
 		{
 			int healAmount = this.MSProps.RegenHealVal;
 			List<Hediff> candidates = new List<Hediff>();
-			Pawn pawn = base.Pawn;
+			Pawn pawn = Pawn;
 			List<Hediff> list;
 			if (pawn == null)
 			{
@@ -74,14 +74,14 @@ namespace MSRegen
 				for (int i = 0; i < hediffs.Count; i++)
 				{
 					Hediff hediff = hediffs[i];
-					if (base.Def.defName == "MSRimBurnEazeHigh")
+					if (Def.defName == "MSRimBurnEazeHigh")
 					{
 						if (hediff.def == HediffDefOf.Burn)
 						{
 							candidates.Add(hediff);
 						}
 					}
-					else if (base.Def.defName == "MSBattleStim_High")
+					else if (Def.defName == "MSBattleStim_High")
 					{
 						if (this.MSIsRegenInjury(hediff))
 						{
@@ -112,9 +112,9 @@ namespace MSRegen
 							}
 						}
 					}
-					if (hediffToHeal.Severity - (float)healAmount <= 0f && (PawnUtility.ShouldSendNotificationAbout(base.Pawn) && !this.MSIsFastRegen(base.Def.defName)))
+					if (hediffToHeal.Severity - (float)healAmount <= 0f && (PawnUtility.ShouldSendNotificationAbout(Pawn) && !this.MSIsFastRegen(Def.defName)))
 					{
-						Messages.Message("MSRegen.WoundHealed".Translate(this.parent.LabelCap, base.Pawn.LabelShort, hediffToHeal.Label, base.Pawn.Named("PAWN")), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+						Messages.Message("MSRegen.WoundHealed".Translate(this.parent.LabelCap, Pawn.LabelShort, hediffToHeal.Label, Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.PositiveEvent, true);
 					}
 					if (hediffToHeal.Severity - (float)healAmount > 0f)
 					{

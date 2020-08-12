@@ -12,10 +12,10 @@ namespace MSExotic
 		// Token: 0x06000074 RID: 116 RVA: 0x000065E7 File Offset: 0x000047E7
 		public override IEnumerable<Gizmo> GetWornGizmos()
 		{
-			Pawn wearer = base.Wearer;
-			if (base.Wearer != null)
+			Pawn wearer = Wearer;
+			if (Wearer != null)
 			{
-				if (Find.Selector.SingleSelectedThing == base.Wearer)
+				if (Find.Selector.SingleSelectedThing == Wearer)
 				{
 					string text = "MSExotic.StimUses".Translate(this.def.label.CapitalizeFirst(), this.StimUses.ToString());
 					string desc = "MSExotic.StimDesc".Translate(this.def.label.CapitalizeFirst());
@@ -26,7 +26,7 @@ namespace MSExotic
 						icon = this.def.uiIcon,
 						action = delegate()
 						{
-							this.MSDoStimSelect(base.Wearer);
+							this.MSDoStimSelect(Wearer);
 						}
 					};
 				}
@@ -58,7 +58,7 @@ namespace MSExotic
 		{
 			get
 			{
-				return base.GetComp<CompMSStimWorn>();
+				return GetComp<CompMSStimWorn>();
 			}
 		}
 
@@ -66,7 +66,7 @@ namespace MSExotic
 		public override void PostMake()
 		{
 			base.PostMake();
-			this.StimUses = base.GetComp<CompMSStimWorn>().Props.StimUses;
+			this.StimUses = GetComp<CompMSStimWorn>().Props.StimUses;
 		}
 
 		// Token: 0x06000078 RID: 120 RVA: 0x000066D9 File Offset: 0x000048D9

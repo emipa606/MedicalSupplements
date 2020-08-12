@@ -11,7 +11,7 @@ namespace MSOptions
 		// Token: 0x06000004 RID: 4 RVA: 0x00002082 File Offset: 0x00000282
 		static MSOptions_Initializer()
 		{
-			LongEventHandler.QueueLongEvent(new Action(MSOptions_Initializer.Setup), "LibraryStartup", false, null, true);
+			LongEventHandler.QueueLongEvent(new Action(Setup), "LibraryStartup", false, null, true);
 		}
 
 		// Token: 0x06000005 RID: 5 RVA: 0x000020A0 File Offset: 0x000002A0
@@ -20,7 +20,7 @@ namespace MSOptions
 			List<ResearchProjectDef> allDefs = DefDatabase<ResearchProjectDef>.AllDefsListForReading;
 			if (allDefs.Count > 0)
 			{
-				List<string> MSList = MSOptions_Initializer.MSResearchList();
+				List<string> MSList = MSResearchList();
 				foreach (ResearchProjectDef ResDef in allDefs)
 				{
 					if (MSList.Contains(ResDef.defName))

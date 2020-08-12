@@ -24,14 +24,14 @@ namespace MSLHM
 			};
 			for (int i = 0; i < array.Length; i++)
 			{
-				MultiplayerSupport.FixRNG(array[i]);
+                FixRNG(array[i]);
 			}
 		}
 
 		// Token: 0x06000015 RID: 21 RVA: 0x00002707 File Offset: 0x00000907
 		private static void FixRNG(MethodInfo method)
 		{
-			MultiplayerSupport.harmony.Patch(method, new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPre", null), new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPos", null), null, null);
+            harmony.Patch(method, new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPre", null), new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPos", null), null, null);
 		}
 
 		// Token: 0x06000016 RID: 22 RVA: 0x00002741 File Offset: 0x00000941

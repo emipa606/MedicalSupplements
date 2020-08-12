@@ -20,9 +20,9 @@ namespace MedSupp
 		// Token: 0x060000C8 RID: 200 RVA: 0x00009708 File Offset: 0x00007908
 		public override void CompPostTick(ref float severityAdjustment)
 		{
-			if (base.Pawn.Awake())
+			if (Pawn.Awake())
 			{
-				Pawn_HealthTracker health = base.Pawn.health;
+				Pawn_HealthTracker health = Pawn.health;
 				bool flag;
 				if (health == null)
 				{
@@ -35,9 +35,9 @@ namespace MedSupp
 					float num2 = 0.05f;
 					flag = (num.GetValueOrDefault() > num2 & num != null);
 				}
-				if (flag && base.Pawn.IsHashIntervalTick(2500))
+				if (flag && Pawn.IsHashIntervalTick(2500))
 				{
-					Pawn pawn = base.Pawn;
+					Pawn pawn = Pawn;
 					HediffSet hediffSet;
 					if (pawn == null)
 					{

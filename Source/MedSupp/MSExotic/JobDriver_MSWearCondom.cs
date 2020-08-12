@@ -21,7 +21,7 @@ namespace MSExotic
 		// Token: 0x06000051 RID: 81 RVA: 0x00005676 File Offset: 0x00003876
 		protected override IEnumerable<Toil> MakeNewToils()
 		{
-			Pawn pawn = base.GetActor();
+			Pawn pawn = GetActor();
 			this.FailOnBurningImmobile(TargetIndex.A);
 			yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch).FailOnDespawnedNullOrForbidden(TargetIndex.A);
             Toil toil = new Toil
@@ -71,7 +71,7 @@ namespace MSExotic
 				Thing LovinBed = thing;
 				if (LovinBed != null)
 				{
-					Pawn partnerInMyBed = JobDriver_MSWearCondom.GetCondomPartnerInMyBed(pawn, LovinBed as Building_Bed);
+					Pawn partnerInMyBed = GetCondomPartnerInMyBed(pawn, LovinBed as Building_Bed);
 					if (partnerInMyBed != null && partnerInMyBed.health.capacities.CanBeAwake)
 					{
 						Job newLovin = new Job(JobDefOf.Lovin, partnerInMyBed, LovinBed);

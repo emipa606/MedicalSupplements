@@ -70,7 +70,7 @@ namespace MSLHM
 		// Token: 0x06000007 RID: 7 RVA: 0x000021EC File Offset: 0x000003EC
 		public void TryHealRandomPermanentWound()
 		{
-			IEnumerable<Hediff> selectHediffsQuery = from hd in base.Pawn.health.hediffSet.hediffs
+			IEnumerable<Hediff> selectHediffsQuery = from hd in Pawn.health.hediffSet.hediffs
 			where hd.IsPermanent() || this.chronicConditions.Contains(hd.def.defName)
 			select hd;
 			if (selectHediffsQuery.Any())
@@ -94,16 +94,16 @@ namespace MSLHM
 					}
 					if (hediff.Severity - healAmount < 0.1f)
 					{
-						base.Pawn.health.hediffSet.hediffs.Remove(hediff);
+                        Pawn.health.hediffSet.hediffs.Remove(hediff);
 					}
 					else
 					{
 						hediff.Severity -= healAmount;
 					}
 				}
-				if (PawnUtility.ShouldSendNotificationAbout(base.Pawn))
+				if (PawnUtility.ShouldSendNotificationAbout(Pawn))
 				{
-					Messages.Message(base.Pawn.Label + "'s " + Hlabel + " was healed by Metasis.", base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+					Messages.Message(Pawn.Label + "'s " + Hlabel + " was healed by Metasis.", Pawn, MessageTypeDefOf.PositiveEvent, true);
 				}
 			}
 		}
@@ -111,55 +111,55 @@ namespace MSLHM
 		// Token: 0x06000008 RID: 8 RVA: 0x00002328 File Offset: 0x00000528
 		public void AffectPawnsAge()
 		{
-			if (base.Pawn.RaceProps.Humanlike)
+			if (Pawn.RaceProps.Humanlike)
 			{
-				if (base.Pawn.ageTracker.AgeBiologicalYears > 25)
+				if (Pawn.ageTracker.AgeBiologicalYears > 25)
 				{
-                    base.Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out int biologicalYears, out int biologicalQuadrums, out int biologicalDays, out _);
+                    Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out int biologicalYears, out int biologicalQuadrums, out int biologicalDays, out _);
                     string ageBefore = "AgeBiological".Translate(new object[]
 					{
 						biologicalYears,
 						biologicalQuadrums,
 						biologicalDays
 					});
-					long diffFromOptimalAge = base.Pawn.ageTracker.AgeBiologicalTicks - 90000000L;
-					base.Pawn.ageTracker.AgeBiologicalTicks -= (long)((float)diffFromOptimalAge * 0.05f);
-					base.Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out biologicalYears, out biologicalQuadrums, out biologicalDays, out _);
+					long diffFromOptimalAge = Pawn.ageTracker.AgeBiologicalTicks - 90000000L;
+                    Pawn.ageTracker.AgeBiologicalTicks -= (long)((float)diffFromOptimalAge * 0.05f);
+                    Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out biologicalYears, out biologicalQuadrums, out biologicalDays, out _);
 					string ageAfter = "AgeBiological".Translate(new object[]
 					{
 						biologicalYears,
 						biologicalQuadrums,
 						biologicalDays
 					});
-					if (base.Pawn.IsColonist && Settings.Get().showAgingMessages)
+					if (Pawn.IsColonist && Settings.Get().showAgingMessages)
 					{
 						Messages.Message("MessageAgeReduced".Translate(new object[]
 						{
-							base.Pawn.Label,
+                            Pawn.Label,
 							ageBefore,
 							ageAfter
 						}), MessageTypeDefOf.PositiveEvent, true);
-						Messages.Message("MessageAgeReduced".Translate(this.parent.LabelCap, base.Pawn.Label, ageBefore, ageAfter), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+						Messages.Message("MessageAgeReduced".Translate(this.parent.LabelCap, Pawn.Label, ageBefore, ageAfter), Pawn, MessageTypeDefOf.PositiveEvent, true);
 						return;
 					}
 				}
-				else if (base.Pawn.ageTracker.AgeBiologicalYears < 25)
+				else if (Pawn.ageTracker.AgeBiologicalYears < 25)
 				{
-					base.Pawn.ageTracker.AgeBiologicalTicks += 900000L;
+                    Pawn.ageTracker.AgeBiologicalTicks += 900000L;
 					return;
 				}
 			}
 			else
 			{
-				int curLifeStageIndex = base.Pawn.ageTracker.CurLifeStageIndex;
-				long startOfThirdStage = (long)(base.Pawn.RaceProps.lifeStageAges[2].minAge * 60f * 60000f);
-				long diffFromOptimalAge2 = base.Pawn.ageTracker.AgeBiologicalTicks - startOfThirdStage;
+				int curLifeStageIndex = Pawn.ageTracker.CurLifeStageIndex;
+				long startOfThirdStage = (long)(Pawn.RaceProps.lifeStageAges[2].minAge * 60f * 60000f);
+				long diffFromOptimalAge2 = Pawn.ageTracker.AgeBiologicalTicks - startOfThirdStage;
 				if (curLifeStageIndex >= 3)
 				{
-					base.Pawn.ageTracker.AgeBiologicalTicks -= (long)((float)diffFromOptimalAge2 * 0.05f);
+                    Pawn.ageTracker.AgeBiologicalTicks -= (long)((float)diffFromOptimalAge2 * 0.05f);
 					return;
 				}
-				base.Pawn.ageTracker.AgeBiologicalTicks += 300000L;
+                Pawn.ageTracker.AgeBiologicalTicks += 300000L;
 			}
 		}
 

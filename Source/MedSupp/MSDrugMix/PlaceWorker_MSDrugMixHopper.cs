@@ -13,7 +13,7 @@ namespace MSDrugMix
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				IntVec3 c = loc + PlaceWorker_MSDrugMixHopper.NewMethod(i);
+				IntVec3 c = loc + NewMethod(i);
 				if (c.InBounds(map))
 				{
 					List<Thing> thingList = c.GetThingList(map);

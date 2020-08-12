@@ -51,7 +51,7 @@ namespace MSTend
 		public override void CompPostTick(ref float severityAdjustment)
 		{
 			base.CompPostTick(ref severityAdjustment);
-			if (base.Pawn.IsHashIntervalTick(5000) && Rand.MTBEventOccurs(100f, 60000f, 5000f))
+			if (Pawn.IsHashIntervalTick(5000) && Rand.MTBEventOccurs(100f, 60000f, 5000f))
 			{
 				this.ChangeGrowthMode();
 			}
@@ -75,7 +75,7 @@ namespace MSTend
 			default:
 				throw new NotImplementedException("GrowthMode");
 			}
-			return this.MSAdjustment(base.Pawn, growthsev, this.growthMode);
+			return this.MSAdjustment(Pawn, growthsev, this.growthMode);
 		}
 
 		// Token: 0x06000015 RID: 21 RVA: 0x00002480 File Offset: 0x00000680
@@ -113,18 +113,18 @@ namespace MSTend
 			this.growthMode = (from x in (HediffGrowthMode[])Enum.GetValues(typeof(HediffGrowthMode))
 			where x != this.growthMode
 			select x).RandomElement();
-			if (PawnUtility.ShouldSendNotificationAbout(base.Pawn))
+			if (PawnUtility.ShouldSendNotificationAbout(Pawn))
 			{
 				switch (this.growthMode)
 				{
 				case HediffGrowthMode.Growing:
-					Messages.Message("DiseaseGrowthModeChanged_Growing".Translate(base.Pawn.LabelShort, base.Def.label, base.Pawn.Named("PAWN")), base.Pawn, MessageTypeDefOf.NegativeHealthEvent, true);
+					Messages.Message("DiseaseGrowthModeChanged_Growing".Translate(Pawn.LabelShort, Def.label, Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.NegativeHealthEvent, true);
 					return;
 				case HediffGrowthMode.Stable:
-					Messages.Message("DiseaseGrowthModeChanged_Stable".Translate(base.Pawn.LabelShort, base.Def.label, base.Pawn.Named("PAWN")), base.Pawn, MessageTypeDefOf.NeutralEvent, true);
+					Messages.Message("DiseaseGrowthModeChanged_Stable".Translate(Pawn.LabelShort, Def.label, Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.NeutralEvent, true);
 					return;
 				case HediffGrowthMode.Remission:
-					Messages.Message("DiseaseGrowthModeChanged_Remission".Translate(base.Pawn.LabelShort, base.Def.label, base.Pawn.Named("PAWN")), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+					Messages.Message("DiseaseGrowthModeChanged_Remission".Translate(Pawn.LabelShort, Def.label, Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.PositiveEvent, true);
 					break;
 				default:
 					return;
@@ -137,7 +137,7 @@ namespace MSTend
 		{
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.Append(base.CompDebugString());
-			stringBuilder.AppendLine("severity: " + this.parent.Severity.ToString("F3") + ((this.parent.Severity < base.Def.maxSeverity) ? string.Empty : " (reached max)"));
+			stringBuilder.AppendLine("severity: " + this.parent.Severity.ToString("F3") + ((this.parent.Severity < Def.maxSeverity) ? string.Empty : " (reached max)"));
 			stringBuilder.AppendLine("severityPerDayGrowingRandomFactor: " + this.severityPerDayGrowingRandomFactor.ToString("0.##"));
 			stringBuilder.AppendLine("severityPerDayRemissionRandomFactor: " + this.severityPerDayRemissionRandomFactor.ToString("0.##"));
 			return stringBuilder.ToString();

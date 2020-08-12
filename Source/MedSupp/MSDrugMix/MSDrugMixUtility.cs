@@ -27,9 +27,9 @@ namespace MSDrugMix
 						return ContentFinder<Texture2D>.Get(texturePath, true);
 					}
 				}
-				return ContentFinder<Texture2D>.Get(MSDrugMixUtility.ChemIconPath, true);
+				return ContentFinder<Texture2D>.Get(ChemIconPath, true);
 			}
-			return ContentFinder<Texture2D>.Get(MSDrugMixUtility.ChemIconPath, true);
+			return ContentFinder<Texture2D>.Get(ChemIconPath, true);
 		}
 
 		// Token: 0x060000A7 RID: 167 RVA: 0x00008258 File Offset: 0x00006458
@@ -172,7 +172,7 @@ namespace MSDrugMix
 					}
 				}
 			}
-			MSDrugMixUtility.cachedChunkList = list;
+            cachedChunkList = list;
 			return list;
 		}
 
@@ -234,13 +234,13 @@ namespace MSDrugMix
 					list.Add(item);
                     _ = new List<ThingDef>();
                     List<ThingDef> useChunkList;
-                    if (MSDrugMixUtility.cachedChunkList.Count > 0)
+                    if (cachedChunkList.Count > 0)
                     {
-                        useChunkList = MSDrugMixUtility.cachedChunkList;
+                        useChunkList = cachedChunkList;
                     }
                     else
                     {
-                        useChunkList = MSDrugMixUtility.ChunkList();
+                        useChunkList = ChunkList();
                     }
                     if (useChunkList.Count <= 0)
 					{
@@ -283,13 +283,13 @@ namespace MSDrugMix
 					{
                         _ = new List<ThingDef>();
                         List<ThingDef> useChunkList2;
-                        if (MSDrugMixUtility.cachedChunkList.Count > 0)
+                        if (cachedChunkList.Count > 0)
                         {
-                            useChunkList2 = MSDrugMixUtility.cachedChunkList;
+                            useChunkList2 = cachedChunkList;
                         }
                         else
                         {
-                            useChunkList2 = MSDrugMixUtility.ChunkList();
+                            useChunkList2 = ChunkList();
                         }
                         if (useChunkList2.Count <= 0)
 						{
@@ -329,13 +329,13 @@ namespace MSDrugMix
 						{
                             _ = new List<ThingDef>();
                             List<ThingDef> useChunkList3;
-                            if (MSDrugMixUtility.cachedChunkList.Count > 0)
+                            if (cachedChunkList.Count > 0)
                             {
-                                useChunkList3 = MSDrugMixUtility.cachedChunkList;
+                                useChunkList3 = cachedChunkList;
                             }
                             else
                             {
-                                useChunkList3 = MSDrugMixUtility.ChunkList();
+                                useChunkList3 = ChunkList();
                             }
                             if (useChunkList3.Count <= 0)
 							{
@@ -411,13 +411,13 @@ namespace MSDrugMix
 						{
                             _ = new List<ThingDef>();
                             List<ThingDef> useChunkList4;
-                            if (MSDrugMixUtility.cachedChunkList.Count > 0)
+                            if (cachedChunkList.Count > 0)
                             {
-                                useChunkList4 = MSDrugMixUtility.cachedChunkList;
+                                useChunkList4 = cachedChunkList;
                             }
                             else
                             {
-                                useChunkList4 = MSDrugMixUtility.ChunkList();
+                                useChunkList4 = ChunkList();
                             }
                             if (useChunkList4.Count > 0)
 							{

@@ -13,7 +13,7 @@ namespace MSVitamins
 		{
 			get
 			{
-				return base.PoisonPercent;
+				return PoisonPercent;
 			}
 		}
 

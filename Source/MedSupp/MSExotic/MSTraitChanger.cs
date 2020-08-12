@@ -28,7 +28,7 @@ namespace MSExotic
 					story2.traits.allTraits.Remove(remTrait);
 				}
 			}
-			MSTraitChanger.TraitsUpdated(pawn);
+            TraitsUpdated(pawn);
 			if (SendMsg)
 			{
 				string key = "MSExotic.TraitRemoved";
@@ -49,7 +49,7 @@ namespace MSExotic
 					story.traits.GainTrait(trait);
 				}
 			}
-			MSTraitChanger.TraitsUpdated(pawn);
+            TraitsUpdated(pawn);
 			if (SendMsg)
 			{
 				Messages.Message("MSExotic.TraitAdded".Translate(pawn?.LabelShort.CapitalizeFirst(), trait?.Label.CapitalizeFirst(), doer.CapitalizeFirst()), pawn, MsgType, true);

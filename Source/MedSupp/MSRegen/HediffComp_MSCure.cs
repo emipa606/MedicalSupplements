@@ -55,7 +55,7 @@ namespace MSRegen
 				this.parent.Severity = 0f;
 				if (this.parent != null)
 				{
-					Pawn pawn = base.Pawn;
+					Pawn pawn = Pawn;
 					if (pawn != null)
 					{
 						Pawn_HealthTracker health = pawn.health;
@@ -65,13 +65,13 @@ namespace MSRegen
 						}
 					}
 				}
-				Messages.Message("MSRegen.CureMsg".Translate(base.Pawn.LabelShort.CapitalizeFirst(), base.Def.label.CapitalizeFirst()), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+				Messages.Message("MSRegen.CureMsg".Translate(Pawn.LabelShort.CapitalizeFirst(), Def.label.CapitalizeFirst()), Pawn, MessageTypeDefOf.PositiveEvent, true);
 				return;
 			}
 
             _ = new List<string>();
             List<string> Immunities;
-            if (MSRegenUtility.ImmuneTo(base.Pawn, base.Def, out Immunities))
+            if (MSRegenUtility.ImmuneTo(Pawn, Def, out Immunities))
             {
                 int ImmunitiesAsCure = 0;
                 for (int i = 0; i < Immunities.Count; i++)

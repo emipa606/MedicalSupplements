@@ -21,10 +21,10 @@ namespace MSAddict
 		// Token: 0x060000C2 RID: 194 RVA: 0x00009518 File Offset: 0x00007718
 		public override void CompPostTick(ref float severityAdjustment)
 		{
-			if ((Find.TickManager.TicksGame + base.Pawn.HashOffset()) % 2500 == 0)
+			if ((Find.TickManager.TicksGame + Pawn.HashOffset()) % 2500 == 0)
 			{
 				List<ChemicalDef> Chemicals = DefDatabase<ChemicalDef>.AllDefsListForReading;
-				Pawn pawn = base.Pawn;
+				Pawn pawn = Pawn;
 				HediffSet hediffSet;
 				if (pawn == null)
 				{
@@ -76,7 +76,7 @@ namespace MSAddict
 			}
 			if (sev >= hsev)
 			{
-				base.Pawn.health.RemoveHediff(h);
+                Pawn.health.RemoveHediff(h);
 				return;
 			}
 			h.Severity -= sev;

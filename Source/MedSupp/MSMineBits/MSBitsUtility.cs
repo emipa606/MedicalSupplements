@@ -11,12 +11,12 @@ namespace MSMineBits
 		{
 			bitsdef = null;
 			bitsyield = 0;
-			if (MSBitsUtility.GetBitsSource(defSource) || isSource)
+			if (GetBitsSource(defSource) || isSource)
 			{
-				bitsdef = DefDatabase<ThingDef>.GetNamed(MSBitsUtility.bitschance.RandomElementByWeight((Pair<string, float> x) => x.Second).First, false);
+				bitsdef = DefDatabase<ThingDef>.GetNamed(bitschance.RandomElementByWeight((Pair<string, float> x) => x.Second).First, false);
 				if (bitsdef != null)
 				{
-					bitsyield = MSBitsUtility.GetBitsYield(defSource, bitsdef);
+					bitsyield = GetBitsYield(defSource, bitsdef);
 					if (bitsyield > 0)
 					{
 						return true;

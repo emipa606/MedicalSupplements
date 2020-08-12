@@ -16,13 +16,13 @@ namespace MSOptions
 		// Token: 0x06000002 RID: 2 RVA: 0x00002061 File Offset: 0x00000261
 		public override void DoSettingsWindowContents(Rect canvas)
 		{
-			Controller.Settings.DoWindowContents(canvas);
+            Settings.DoWindowContents(canvas);
 		}
 
 		// Token: 0x06000003 RID: 3 RVA: 0x0000206E File Offset: 0x0000026E
 		public Controller(ModContentPack content) : base(content)
 		{
-			Controller.Settings = base.GetSettings<Settings>();
+            Settings = GetSettings<Settings>();
 		}
 
 		// Token: 0x04000001 RID: 1

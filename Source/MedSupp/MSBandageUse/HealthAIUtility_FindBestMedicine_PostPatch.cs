@@ -18,10 +18,10 @@ namespace MSBandageUse
 		[HarmonyPriority(0)]
 		public static void Postfix(Pawn healer, Pawn patient, ref Thing __result)
 		{
-			if (Controller.Settings.RealisticBandages && __result != null && HealthAIUtility_FindBestMedicine_PostPatch.IsBandage(__result.def) && !HealthAIUtility_FindBestMedicine_PostPatch.BandagesValid(patient))
+			if (Controller.Settings.RealisticBandages && __result != null && IsBandage(__result.def) && !BandagesValid(patient))
 			{
 				float medPot = __result.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null);
-				__result = GenClosest.ClosestThing_Global_Reachable(patient.Position, patient.Map, patient.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine), PathEndMode.ClosestTouch, TraverseParms.For(healer, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, (Thing m) => !m.IsForbidden(healer) && healer.CanReserve(m, 1, -1, null, false) && !HealthAIUtility_FindBestMedicine_PostPatch.IsBandage(m.def) && m.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null) <= medPot, (Thing m) => m.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null));
+				__result = GenClosest.ClosestThing_Global_Reachable(patient.Position, patient.Map, patient.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine), PathEndMode.ClosestTouch, TraverseParms.For(healer, Danger.Deadly, TraverseMode.ByPawn, false), 9999f, (Thing m) => !m.IsForbidden(healer) && healer.CanReserve(m, 1, -1, null, false) && !IsBandage(m.def) && m.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null) <= medPot, (Thing m) => m.def.GetStatValueAbstract(StatDefOf.MedicalPotency, null));
 			}
 		}
 
@@ -46,7 +46,7 @@ namespace MSBandageUse
 				{
 					foreach (Hediff injury in injuries)
 					{
-						if (!(injury is Hediff_Injury) && !HealthAIUtility_FindBestMedicine_PostPatch.Inclusions().Contains(injury.def.defName))
+						if (!(injury is Hediff_Injury) && !Inclusions().Contains(injury.def.defName))
 						{
 							return false;
 						}
@@ -64,7 +64,7 @@ namespace MSBandageUse
 		// Token: 0x060000BC RID: 188 RVA: 0x00009420 File Offset: 0x00007620
 		public static bool IsBandage(ThingDef def)
 		{
-			return def.IsMedicine && HealthAIUtility_FindBestMedicine_PostPatch.Bandages().Contains(def.defName);
+			return def.IsMedicine && Bandages().Contains(def.defName);
 		}
 
 		// Token: 0x060000BD RID: 189 RVA: 0x0000943F File Offset: 0x0000763F

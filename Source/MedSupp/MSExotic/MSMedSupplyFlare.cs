@@ -33,8 +33,8 @@ namespace MSExotic
 			this.graphicRotation += this.graphicRotationSpeed;
 			if (!this.DestroyedOrNull())
 			{
-				Map TargetMap = base.Map;
-				IntVec3 TargetCell = base.Position;
+				Map TargetMap = Map;
+				IntVec3 TargetCell = Position;
 				if (Find.TickManager.TicksGame % 10 == 0)
 				{
 					MoteMaker.ThrowSmoke(this.TrueCenter() + new Vector3(0f, 0f, 0.1f), TargetMap, 1f);

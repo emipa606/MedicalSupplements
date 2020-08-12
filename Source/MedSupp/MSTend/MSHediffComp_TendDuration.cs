@@ -95,7 +95,7 @@ namespace MSTend
 				StringBuilder stringBuilder = new StringBuilder();
 				if (!this.IsTended)
 				{
-					if (!base.Pawn.Dead && this.parent.TendableNow(false))
+					if (!Pawn.Dead && this.parent.TendableNow(false))
 					{
 						stringBuilder.AppendLine("NeedsTendingNow".Translate());
 					}
@@ -104,7 +104,7 @@ namespace MSTend
 				{
 					if (this.TProps.showTendQuality)
 					{
-						string text = (this.parent.Part != null && this.parent.Part.def.IsSolid(this.parent.Part, base.Pawn.health.hediffSet.hediffs)) ? this.TProps.labelSolidTendedWell : ((this.parent.Part == null || this.parent.Part.depth != BodyPartDepth.Inside) ? this.TProps.labelTendedWell : this.TProps.labelTendedWellInner);
+						string text = (this.parent.Part != null && this.parent.Part.def.IsSolid(this.parent.Part, Pawn.health.hediffSet.hediffs)) ? this.TProps.labelSolidTendedWell : ((this.parent.Part == null || this.parent.Part.depth != BodyPartDepth.Inside) ? this.TProps.labelTendedWell : this.TProps.labelTendedWellInner);
 						if (text != null)
 						{
 							stringBuilder.AppendLine(text.CapitalizeFirst() + " (" + "Quality".Translate().ToLower() + " " + this.tendQuality.ToStringPercent("F0") + ")");
@@ -114,7 +114,7 @@ namespace MSTend
 							stringBuilder.AppendLine(string.Format("{0}: {1}", "TendQuality".Translate(), this.tendQuality.ToStringPercent()));
 						}
 					}
-					if (!base.Pawn.Dead && !this.TProps.TendIsPermanent && this.parent.TendableNow(true))
+					if (!Pawn.Dead && !this.TProps.TendIsPermanent && this.parent.TendableNow(true))
 					{
 						int num = this.tendTicksLeft - this.TProps.TendTicksOverlap;
 						if (num < 0)
@@ -146,18 +146,18 @@ namespace MSTend
 				{
 					if (this.IsTended && !this.parent.IsPermanent())
 					{
-						Color color = Color.Lerp(MSHediffComp_TendDuration.UntendedColor, Color.white, Mathf.Clamp01(this.tendQuality));
-						return new TextureAndColor(MSHediffComp_TendDuration.TendedIcon_Well_Injury, color);
+						Color color = Color.Lerp(UntendedColor, Color.white, Mathf.Clamp01(this.tendQuality));
+						return new TextureAndColor(TendedIcon_Well_Injury, color);
 					}
 				}
 				else if (!(this.parent is Hediff_MissingPart) && !this.parent.FullyImmune())
 				{
 					if (this.IsTended)
 					{
-						Color color2 = Color.Lerp(MSHediffComp_TendDuration.UntendedColor, Color.white, Mathf.Clamp01(this.tendQuality));
-						return new TextureAndColor(MSHediffComp_TendDuration.TendedIcon_Well_General, color2);
+						Color color2 = Color.Lerp(UntendedColor, Color.white, Mathf.Clamp01(this.tendQuality));
+						return new TextureAndColor(TendedIcon_Well_General, color2);
 					}
-					return MSHediffComp_TendDuration.TendedIcon_Need_General;
+					return TendedIcon_Need_General;
 				}
 				return TextureAndColor.None;
 			}
@@ -186,31 +186,31 @@ namespace MSTend
 		{
 			float MSAddQuality = 0f;
 			HediffSet MShedSet = this.parent.pawn.health.hediffSet;
-			if (base.Def.defName == "WoundInfection" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimedicrem_High"), false)) != null)
+			if (Def.defName == "WoundInfection" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimedicrem_High"), false)) != null)
 			{
 				MSAddQuality += 0.25f;
 			}
-			if (base.Def.defName == "Asthma" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSInhaler_High"), false)) != null)
+			if (Def.defName == "Asthma" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSInhaler_High"), false)) != null)
 			{
 				MSAddQuality += 0.2f;
 			}
-			if (base.Def.defName == "Flu" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSFireThroat_High"), false)) != null)
+			if (Def.defName == "Flu" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSFireThroat_High"), false)) != null)
 			{
 				MSAddQuality += 0.25f;
 			}
-			if (base.Def.defName == "MuscleParasites" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimtarolHigh"), false)) != null)
+			if (Def.defName == "MuscleParasites" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimtarolHigh"), false)) != null)
 			{
 				MSAddQuality += 0.15f;
 			}
-			if (base.Def.defName == "GutWorms" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh"), false)) != null)
+			if (Def.defName == "GutWorms" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh"), false)) != null)
 			{
 				MSAddQuality += 0.18f;
 			}
-			if ((base.Def.defName == "Carcinoma" || base.Def.defName == "BloodCancer") && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSVinacol_High"), false)) != null)
+			if ((Def.defName == "Carcinoma" || Def.defName == "BloodCancer") && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSVinacol_High"), false)) != null)
 			{
 				MSAddQuality += 0.25f;
 			}
-			if (base.Def.defName == "HepatitisK")
+			if (Def.defName == "HepatitisK")
 			{
 				bool flag = (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"), false)) != null;
 				Hediff MSCheckDrug2 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSBattleStim_High"), false);
@@ -219,7 +219,7 @@ namespace MSTend
 					MSAddQuality += 0.15f;
 				}
 			}
-			if (base.Def.defName == "StomachUlcer")
+			if (Def.defName == "StomachUlcer")
 			{
 				bool flag2 = (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh"), false)) != null;
 				Hediff MSCheckDrug3 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"), false);
@@ -229,7 +229,7 @@ namespace MSTend
 					MSAddQuality += 0.2f;
 				}
 			}
-			if (base.Def.defName == "Tuberculosis" || base.Def.defName == "KindredDickVirus" || base.Def.defName == "Sepsis" || base.Def.defName == "Toothache" || base.Def.defName == "VoightBernsteinDisease" || base.Def.defName == "NewReschianFever")
+			if (Def.defName == "Tuberculosis" || Def.defName == "KindredDickVirus" || Def.defName == "Sepsis" || Def.defName == "Toothache" || Def.defName == "VoightBernsteinDisease" || Def.defName == "NewReschianFever")
 			{
 				bool flag3 = (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimoxicillin_High"), false)) != null;
 				Hediff MSCheckDrug5 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"), false);
@@ -239,7 +239,7 @@ namespace MSTend
 					MSAddQuality += 0.15f;
 				}
 			}
-			if (base.Def.defName == "Migraine")
+			if (Def.defName == "Migraine")
 			{
 				bool flag4 = (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimCodamol_High"), false)) != null;
 				Hediff MSCheckDrug7 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMorphine_High"), false);
@@ -263,12 +263,12 @@ namespace MSTend
 			{
 				this.tendTicksLeft = Mathf.Max(0, this.tendTicksLeft) + this.TProps.TendTicksFull;
 			}
-			if (batchPosition == 0 && base.Pawn.Spawned)
+			if (batchPosition == 0 && Pawn.Spawned)
 			{
 				string text = "TextMote_Tended".Translate(this.parent.Label).CapitalizeFirst() + "\n" + "Quality".Translate() + " " + this.tendQuality.ToStringPercent();
-				MoteMaker.ThrowText(base.Pawn.DrawPos, base.Pawn.Map, text, Color.white, 3.65f);
+				MoteMaker.ThrowText(Pawn.DrawPos, Pawn.Map, text, Color.white, 3.65f);
 			}
-			base.Pawn.health.Notify_HediffChanged(this.parent);
+            Pawn.health.Notify_HediffChanged(this.parent);
 		}
 
 		// Token: 0x06000024 RID: 36 RVA: 0x000030B8 File Offset: 0x000012B8
@@ -292,71 +292,71 @@ namespace MSTend
 					}
 					if (this.tendQuality >= MSOverComeLevel)
 					{
-						if (base.Def.defName == "Asthma" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSInhaler_High"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
+						if (Def.defName == "Asthma" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSInhaler_High"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
 						{
 							if (MSDebug && this.tendTicksLeft % 250 == 0)
 							{
 								Messages.Message(string.Concat(new string[]
 								{
 									"Debug: ",
-									base.Def.label,
+                                    Def.label,
 									" for ",
-									base.Pawn.Label,
+                                    Pawn.Label,
 									" is INCREASING with tendqual ",
 									this.tendQuality.ToString("N2")
-								}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+								}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 							}
 							this.tendTicksLeft++;
 						}
-						if (base.Def.defName == "Flu" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSFireThroat_High"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
+						if (Def.defName == "Flu" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSFireThroat_High"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
 						{
 							if (MSDebug && this.tendTicksLeft % 250 == 0)
 							{
 								Messages.Message(string.Concat(new string[]
 								{
 									"Debug: ",
-									base.Def.label,
+                                    Def.label,
 									" for ",
-									base.Pawn.Label,
+                                    Pawn.Label,
 									" is INCREASING with tendqual ",
 									this.tendQuality.ToString("N2")
-								}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+								}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 							}
 							this.tendTicksLeft++;
 						}
-						if (base.Def.defName == "WoundInfection" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimedicrem_High"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
+						if (Def.defName == "WoundInfection" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimedicrem_High"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
 						{
 							if (MSDebug && this.tendTicksLeft % 250 == 0)
 							{
 								Messages.Message(string.Concat(new string[]
 								{
 									"Debug: ",
-									base.Def.label,
+                                    Def.label,
 									" for ",
-									base.Pawn.Label,
+                                    Pawn.Label,
 									" is INCREASING with tendqual ",
 									this.tendQuality.ToString("N2")
-								}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+								}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 							}
 							this.tendTicksLeft++;
 						}
-						if (this.tendTicksLeft > MSTicksSafeTendTime && base.Def.defName == "MuscleParasites" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimtarolHigh"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
+						if (this.tendTicksLeft > MSTicksSafeTendTime && Def.defName == "MuscleParasites" && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimtarolHigh"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
 						{
 							if (MSDebug && this.tendTicksLeft % 250 == 0)
 							{
 								Messages.Message(string.Concat(new string[]
 								{
 									"Debug: ",
-									base.Def.label,
+                                    Def.label,
 									" for ",
-									base.Pawn.Label,
+                                    Pawn.Label,
 									" is REDUCING with tendqual ",
 									this.tendQuality.ToString("N2")
-								}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+								}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 							}
 							this.tendTicksLeft--;
 						}
-						if (base.Def.defName == "GutWorms")
+						if (Def.defName == "GutWorms")
 						{
 							Hediff MSCheckRimpeptic = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh"), false);
 							if (MSCheckRimpeptic != null)
@@ -368,12 +368,12 @@ namespace MSTend
 										Messages.Message(string.Concat(new string[]
 										{
 											"Debug: ",
-											base.Def.label,
+                                            Def.label,
 											" for ",
-											base.Pawn.Label,
+                                            Pawn.Label,
 											" is REDUCING with tendqual ",
 											this.tendQuality.ToString("N2")
-										}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+										}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 									}
 									this.tendTicksLeft--;
 								}
@@ -387,23 +387,23 @@ namespace MSTend
 								}
 							}
 						}
-						if ((base.Def.defName == "BloodCancer" || base.Def.defName == "Carcinoma") && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSVinacol_High"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
+						if ((Def.defName == "BloodCancer" || Def.defName == "Carcinoma") && (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSVinacol_High"), false)) != null && Rand.Range(0f, this.tendQuality) >= MSOverComeLevel)
 						{
 							if (MSDebug && this.tendTicksLeft % 250 == 0)
 							{
 								Messages.Message(string.Concat(new string[]
 								{
 									"Debug: ",
-									base.Def.label,
+                                    Def.label,
 									" for ",
-									base.Pawn.Label,
+                                    Pawn.Label,
 									" is INCREASING with tendqual ",
 									this.tendQuality.ToString("N2")
-								}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+								}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 							}
 							this.tendTicksLeft++;
 						}
-						if (base.Def.defName == "HepatitisK")
+						if (Def.defName == "HepatitisK")
 						{
 							Hediff MSCheckDrug = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"), false);
 							Hediff MSCheckDrug2 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSBattleStim_High"), false);
@@ -414,17 +414,17 @@ namespace MSTend
 									Messages.Message(string.Concat(new string[]
 									{
 										"Debug: ",
-										base.Def.label,
+                                        Def.label,
 										" for ",
-										base.Pawn.Label,
+                                        Pawn.Label,
 										" is INCREASING with tendqual ",
 										this.tendQuality.ToString("N2")
-									}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+									}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 								}
 								this.tendTicksLeft++;
 							}
 						}
-						if (base.Def.defName == "StomachUlcer")
+						if (Def.defName == "StomachUlcer")
 						{
 							Hediff MSCheckDrug3 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh"), false);
 							Hediff MSCheckDrug4 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"), false);
@@ -436,17 +436,17 @@ namespace MSTend
 									Messages.Message(string.Concat(new string[]
 									{
 										"Debug: ",
-										base.Def.label,
+                                        Def.label,
 										" for ",
-										base.Pawn.Label,
+                                        Pawn.Label,
 										" is INCREASING with tendqual ",
 										this.tendQuality.ToString("N2")
-									}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+									}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 								}
 								this.tendTicksLeft++;
 							}
 						}
-						if (base.Def.defName == "Tuberculosis" || base.Def.defName == "KindredDickVirus" || base.Def.defName == "Sepsis" || base.Def.defName == "Toothache" || base.Def.defName == "VoightBernsteinDisease" || base.Def.defName == "NewReschianFever")
+						if (Def.defName == "Tuberculosis" || Def.defName == "KindredDickVirus" || Def.defName == "Sepsis" || Def.defName == "Toothache" || Def.defName == "VoightBernsteinDisease" || Def.defName == "NewReschianFever")
 						{
 							Hediff MSCheckDrug6 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimoxicillin_High"), false);
 							Hediff MSCheckDrug7 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"), false);
@@ -458,17 +458,17 @@ namespace MSTend
 									Messages.Message(string.Concat(new string[]
 									{
 										"Debug: ",
-										base.Def.label,
+                                        Def.label,
 										" for ",
-										base.Pawn.Label,
+                                        Pawn.Label,
 										" is INCREASING with tendqual ",
 										this.tendQuality.ToString("N2")
-									}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+									}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 								}
 								this.tendTicksLeft++;
 							}
 						}
-						if (base.Def.defName == "Migraine")
+						if (Def.defName == "Migraine")
 						{
 							Hediff MSCheckDrug9 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimCodamol_High"), false);
 							Hediff MSCheckDrug10 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMorphine_High"), false);
@@ -480,18 +480,18 @@ namespace MSTend
 									Messages.Message(string.Concat(new string[]
 									{
 										"Debug: ",
-										base.Def.label,
+                                        Def.label,
 										" for ",
-										base.Pawn.Label,
+                                        Pawn.Label,
 										" is INCREASING with tendqual ",
 										this.tendQuality.ToString("N2")
-									}), base.Pawn, MessageTypeDefOf.PositiveEvent, true);
+									}), Pawn, MessageTypeDefOf.PositiveEvent, true);
 								}
 								this.tendTicksLeft++;
 							}
 						}
 					}
-					if (base.Def.defName == "FibrousMechanites")
+					if (Def.defName == "FibrousMechanites")
 					{
 						Hediff MSCheckAntinites = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSAntinitesHigh"), false);
 						if (MSCheckAntinites != null)
@@ -503,7 +503,7 @@ namespace MSTend
 							}
 						}
 					}
-					if (base.Def.defName == "SensoryMechanites")
+					if (Def.defName == "SensoryMechanites")
 					{
 						Hediff MSCheckAntinites2 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSAntinitesHigh"), false);
 						if (MSCheckAntinites2 != null)
@@ -515,7 +515,7 @@ namespace MSTend
 							}
 						}
 					}
-					if (base.Def.defName == "LymphaticMechanites")
+					if (Def.defName == "LymphaticMechanites")
 					{
 						Hediff MSCheckAntinites3 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSAntinitesHigh"), false);
 						if (MSCheckAntinites3 != null)

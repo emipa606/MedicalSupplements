@@ -20,7 +20,7 @@ namespace MSDrugMix
 				if (this.cachedAdjCellsCardinal == null)
 				{
 					this.cachedAdjCellsCardinal = (from c in GenAdj.CellsAdjacentCardinal(this)
-					where c.InBounds(base.Map)
+					where c.InBounds(Map)
 					select c).ToList();
 				}
 				return this.cachedAdjCellsCardinal;
@@ -43,7 +43,7 @@ namespace MSDrugMix
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			base.SpawnSetup(map, respawningAfterLoad);
-			this.powerComp = base.GetComp<CompPowerTrader>();
+			this.powerComp = GetComp<CompPowerTrader>();
 			this.cachedAdjCellsCardinal = this.AdjCellsCardinalInBounds;
 		}
 
@@ -76,7 +76,7 @@ namespace MSDrugMix
 				Log.Message(debugMsg, false);
 			}
 
-            if (this.IsWorking(this) && this.MixerThingDef != null && !Building_MSDrugMix.StockLimitReached(this, this.MixerThingDef, this.StockLimit, out _))
+            if (this.IsWorking(this) && this.MixerThingDef != null && !StockLimitReached(this, this.MixerThingDef, this.StockLimit, out _))
             {
                 if (this.ProdWorkTicks > 0 && this.isProducing)
                 {
@@ -274,7 +274,7 @@ namespace MSDrugMix
 						bool isInputCell = false;
 						int has = 0;
 						List<Thing> candidates = new List<Thing>();
-						List<Thing> thingList = AdjCells[i].GetThingList(base.Map);
+						List<Thing> thingList = AdjCells[i].GetThingList(Map);
 						if (thingList.Count > 0)
 						{
 							for (int j = 0; j < thingList.Count; j++)
@@ -334,7 +334,7 @@ namespace MSDrugMix
 				{
 					bool isOutputCell = false;
 					int has = 0;
-					List<Thing> thingList = AdjCells[i].GetThingList(base.Map);
+					List<Thing> thingList = AdjCells[i].GetThingList(Map);
 					if (thingList.Count > 0)
 					{
 						for (int j = 0; j < thingList.Count; j++)
@@ -520,7 +520,7 @@ namespace MSDrugMix
 					if (!foundGroup)
 					{
 						NotAllGroups = true;
-						Building_MSDrugMix.DoNotFoundGroupsOverlay(this, t, RCPGroups[j]);
+                        DoNotFoundGroupsOverlay(this, t, RCPGroups[j]);
 					}
 				}
 			}
@@ -618,7 +618,7 @@ namespace MSDrugMix
 				yield return gizmo;
 			}
 			IEnumerator<Gizmo> enumerator = null;
-			if (base.Faction == Faction.OfPlayer)
+			if (Faction == Faction.OfPlayer)
 			{
 				string SelectDesc = "MSDrugMix.ChemSelectDesc".Translate();
 				if (this.MixerThingDef == null)
@@ -700,7 +700,7 @@ namespace MSDrugMix
 				string LimitLabelDetail;
 				if (this.StockLimit > 0)
 				{
-                    Building_MSDrugMix.StockLimitReached(this, this.MixerThingDef, this.StockLimit, out int ActualStockNum);
+                    StockLimitReached(this, this.MixerThingDef, this.StockLimit, out int ActualStockNum);
                     int LimitPct = ActualStockNum * 100 / this.StockLimit;
 					LimitLabelDetail = "MSDrugMix.StockLabel".Translate(this.StockLimit.ToString(), LimitPct.ToString());
 					LimitTexPath += this.StockLimit.ToString();
@@ -798,7 +798,7 @@ namespace MSDrugMix
 				{
 					ThingDef ChoiceChemDef = DefDatabase<ThingDef>.GetNamed(Choices[i], true);
 					text = ChoiceChemDef.label.CapitalizeFirst();
-					if (Building_MSDrugMix.IsChemAvailable(ChoiceChemDef))
+					if (IsChemAvailable(ChoiceChemDef))
 					{
 						list.Add(new FloatMenuOption(text, delegate()
 						{
@@ -880,7 +880,7 @@ namespace MSDrugMix
 				IntVec3 c = this.AdjCellsCardinalInBounds[i];
 				Thing thingNeed = null;
 				Thing thingHopper = null;
-				List<Thing> thingList = c.GetThingList(base.Map);
+				List<Thing> thingList = c.GetThingList(Map);
 				for (int j = 0; j < thingList.Count; j++)
 				{
 					Thing thing3 = thingList[j];
@@ -955,19 +955,19 @@ namespace MSDrugMix
 
 		// Token: 0x0400005F RID: 95
 		[NoTranslate]
-		private readonly string produceTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerProduce_Icon";
+		private readonly string produceTexPath = UITexPath + "MSDrugsMixerProduce_Icon";
 
 		// Token: 0x04000060 RID: 96
 		[NoTranslate]
-		private readonly string chemicalTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerChem_Icon";
+		private readonly string chemicalTexPath = UITexPath + "MSDrugsMixerChem_Icon";
 
 		// Token: 0x04000061 RID: 97
 		[NoTranslate]
-		private readonly string debugTexPath = Building_MSDrugMix.UITexPath + "MSDrugsMixerDebug_Icon";
+		private readonly string debugTexPath = UITexPath + "MSDrugsMixerDebug_Icon";
 
 		// Token: 0x04000062 RID: 98
 		[NoTranslate]
-		private readonly string FrontLimitPath = Building_MSDrugMix.UITexPath + "StockLimits/MSDrugMixerStock";
+		private readonly string FrontLimitPath = UITexPath + "StockLimits/MSDrugMixerStock";
 
 		// Token: 0x04000063 RID: 99
 		[NoTranslate]

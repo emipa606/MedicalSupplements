@@ -15,13 +15,13 @@ namespace MSTend
 		[HarmonyPriority(800)]
 		public static bool Prefix(Pawn pawn, Thing ingestible, FoodPoisonCause cause)
 		{
-			return !FoodUtility_AddFoodPoisoningHediff_prepatch.ImmuneToFP(pawn, HediffDefOf.FoodPoisoning);
+			return !ImmuneToFP(pawn, HediffDefOf.FoodPoisoning);
 		}
 
 		// Token: 0x06000006 RID: 6 RVA: 0x00002120 File Offset: 0x00000320
 		public static bool ImmuneToFP(Pawn pawn, HediffDef FPdef)
 		{
-			List<string> drugHDefs = FoodUtility_AddFoodPoisoningHediff_prepatch.MSFPImmDrug();
+			List<string> drugHDefs = MSFPImmDrug();
 			List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
 			for (int i = 0; i < hediffs.Count; i++)
 			{

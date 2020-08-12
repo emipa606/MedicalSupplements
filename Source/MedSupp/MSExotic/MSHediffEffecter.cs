@@ -13,7 +13,7 @@ namespace MSExotic
 			immune = false;
 			if (!pawn.RaceProps.IsMechanoid && hediffdef != null)
 			{
-				if (!MSHediffEffecter.ImmuneTo(pawn, hediffdef))
+				if (!ImmuneTo(pawn, hediffdef))
 				{
 					if (!pawn.health.WouldDieAfterAddingHediff(hediffdef, part, SeverityToApply))
 					{
