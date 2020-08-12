@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Reflection;
 using HarmonyLib;
 using MSDrugMix;
@@ -12,66 +12,62 @@ using Verse;
 
 namespace MedSupp
 {
-	// Token: 0x0200002C RID: 44
 	[StaticConstructorOnStartup]
 	internal static class MultiplayerSupport
 	{
-		// Token: 0x060000CB RID: 203 RVA: 0x00009830 File Offset: 0x00007A30
 		static MultiplayerSupport()
 		{
-			if (!MP.enabled)
+			if (!MP.enabled) return;
+
+			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), nameof(Building_MSDrugMix.MSMixerSelectChem));
+			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), nameof(Building_MSDrugMix.SetProdControlValues));
+			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), nameof(Building_MSDrugMix.ToggleProducing));
+			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), nameof(Building_MSDrugMix.MSMixerSelectLimit));
+			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), nameof(Building_MSDrugMix.SetStockLimits));
+			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), nameof(Building_MSDrugMix.ToggleDebug));
+			MP.RegisterSyncMethod(typeof(MSStimWorn), nameof(MSStimWorn.MSDoStimSelect));
+			MP.RegisterSyncMethod(typeof(MSStimWorn), nameof(MSStimWorn.MSUseStim));
+
+			var rngMethods = new MethodInfo[]
 			{
-				return;
-			}
-			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), "MSMixerSelectChem", null);
-			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), "SetProdControlValues", null);
-			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), "ToggleProducing", null);
-			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), "MSMixerSelectLimit", null);
-			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), "SetStockLimits", null);
-			MP.RegisterSyncMethod(typeof(Building_MSDrugMix), "ToggleDebug", null);
-			MP.RegisterSyncMethod(typeof(MSStimWorn), "MSDoStimSelect", null);
-			MP.RegisterSyncMethod(typeof(MSStimWorn), "MSUseStim", null);
-			MethodInfo[] array = new MethodInfo[]
-			{
-				AccessTools.Method(typeof(MSBitsUtility), "GetBitsYield", null, null),
-				AccessTools.Method(typeof(MSBitsUtility), "GetIsBitsSource", null, null),
-				AccessTools.Method(typeof(MSExoticUtility), "DoMSTranscendence", null, null),
-				AccessTools.Method(typeof(MSExoticUtility), "DoMSPerpetuity", null, null),
-				AccessTools.Method(typeof(HediffComp_MSRegen), "ResetTicksToHeal", null, null),
-				AccessTools.Method(typeof(HediffComp_MSRegen), "TryHealRandomOldWound", null, null),
-				AccessTools.Method(typeof(MSHediffComp_TendDuration), "CompTended", null, null),
-				AccessTools.Method(typeof(MSHediffComp_TendDuration), "CompPostTick", null, null),
-				AccessTools.Method(typeof(MSCompFoodPoisonable), "PostIngested", null, null),
-				AccessTools.Method(typeof(HediffComp_MSCure), "SetTicksToCure", null, null),
-				AccessTools.Method(typeof(MSHediffComp_GrowthMode), "CompPostPostAdd", null, null),
-				AccessTools.Method(typeof(MSHediffComp_GrowthMode), "CompPostTick", null, null),
-				AccessTools.Method(typeof(MSHediffComp_GrowthMode), "MSAdjustment", null, null)
+				AccessTools.Method(typeof(MSBitsUtility), nameof(MSBitsUtility.GetBitsYield)),
+				AccessTools.Method(typeof(MSBitsUtility), nameof(MSBitsUtility.GetIsBitsSource)),
+				AccessTools.Method(typeof(MSExoticUtility), nameof(MSExoticUtility.DoMSTranscendence)),
+				AccessTools.Method(typeof(MSExoticUtility), nameof(MSExoticUtility.DoMSPerpetuity)),
+				AccessTools.Method(typeof(HediffComp_MSRegen), nameof(HediffComp_MSRegen.ResetTicksToHeal)),
+				AccessTools.Method(typeof(HediffComp_MSRegen), nameof(HediffComp_MSRegen.TryHealRandomOldWound)),
+				AccessTools.Method(typeof(MSHediffComp_TendDuration), nameof(MSHediffComp_TendDuration.CompTended_NewTemp)),
+				AccessTools.Method(typeof(MSHediffComp_TendDuration), nameof(MSHediffComp_TendDuration.CompPostTick)),
+				AccessTools.Method(typeof(MSCompFoodPoisonable), nameof(MSCompFoodPoisonable.PostIngested)),
+				AccessTools.Method(typeof(HediffComp_MSCure), nameof(HediffComp_MSCure.SetTicksToCure)),
+				AccessTools.Method(typeof(MSHediffComp_GrowthMode), nameof(MSHediffComp_GrowthMode.CompPostPostAdd)),
+				AccessTools.Method(typeof(MSHediffComp_GrowthMode), nameof(MSHediffComp_GrowthMode.CompPostTick)),
+				AccessTools.Method(typeof(MSHediffComp_GrowthMode), nameof(MSHediffComp_GrowthMode.MSAdjustment))
 			};
-			for (int i = 0; i < array.Length; i++)
+			for (int i = 0; i < rngMethods.Length; i++)
 			{
-				MultiplayerSupport.FixRNG(array[i]);
+				MultiplayerSupport.FixRNG(rngMethods[i]);
 			}
 		}
 
-		// Token: 0x060000CC RID: 204 RVA: 0x00009A6B File Offset: 0x00007C6B
 		private static void FixRNG(MethodInfo method)
 		{
-			MultiplayerSupport.harmony.Patch(method, new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPre", null), new HarmonyMethod(typeof(MultiplayerSupport), "FixRNGPos", null), null, null);
+			MultiplayerSupport.harmony.Patch(method,
+			    prefix: new HarmonyMethod(typeof(MultiplayerSupport), nameof(FixRNGPre)),
+				postfix: new HarmonyMethod(typeof(MultiplayerSupport), nameof(FixRNGPos))
+			);
 		}
 
-		// Token: 0x060000CD RID: 205 RVA: 0x00009AA5 File Offset: 0x00007CA5
 		private static void FixRNGPre()
 		{
 			Rand.PushState(Find.TickManager.TicksAbs);
 		}
 
-		// Token: 0x060000CE RID: 206 RVA: 0x00009AB6 File Offset: 0x00007CB6
 		private static void FixRNGPos()
 		{
 			Rand.PopState();
 		}
 
-		// Token: 0x0400006A RID: 106
 		private static readonly Harmony harmony = new Harmony("rimworld.medicalsupplements.multiplayersupport");
 	}
 }
