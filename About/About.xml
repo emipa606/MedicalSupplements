@@ -24,8 +24,6 @@
     <li>Mlie.Fermenter</li>
     <li>Mlie.GhostGear</li>
     <li>Mlie.RimPlas</li>
-    <li>Mlie.Apothecary</li>
-    <li>VanillaExpanded.VFEProduction</li>
     <li>LWM.DeepStorage</li>
     <li>rimfridge.kv.rw</li>
     <li>Ogre.NanoRepairTech</li>
@@ -169,7 +167,7 @@ VFE - Production - additional compatibility with drug cabinet.
 
 Recommended
 
-Drug Policy Fix (V1.1) https://steamcommunity.com/sharedfiles/filedetails/?id=2000335507 ; can be used to help manage and correct drugs added or removed part way through a save game. It will also sort the drug listings alphabetically.
+Drug Policy Fix https://steamcommunity.com/sharedfiles/filedetails/?id=2195390245 ; can be used to help manage and correct drugs added or removed part way through a save game. It will also sort the drug listings alphabetically.
 
 Mod Medicine Patch https://steamcommunity.com/sharedfiles/filedetails/?id=1430084631 - allows you to specify additional modded medicines (GUI), works with the mod Pharmacy.
 

@@ -123,38 +123,4 @@
       </operations>
     </match>
   </Operation>
-  <!--  Apothecary Table -->
-  <Operation Class="PatchOperationFindMod">
-    <mods>
-      <li>Apothecary (Continued)</li>
-    </mods>
-    <match Class="PatchOperationSequence">
-      <success>Always</success>
-      <operations>
-        <li Class="PatchOperationAdd">
-          <xpath>/Defs/ThingDef[defName="AYApothecaryTable"]/comps/li[@Class='CompProperties_AffectedByFacilities']/linkableFacilities</xpath>
-          <value>
-            <li>DrugCabinet</li>
-          </value>
-        </li>
-        <li Class="PatchOperationConditional">
-          <xpath>/Defs/ThingDef[defName="DrugCabinet"]/building/fixedStorageSettings/filter/categories</xpath>
-          <match Class="PatchOperationAdd">
-            <xpath>/Defs/ThingDef[defName="DrugCabinet"]/building/fixedStorageSettings/filter/categories</xpath>
-            <value>
-              <li>AYProducts</li>
-              <li>AYOils</li>
-              <li>AYPowders</li>
-              <li>AYDrugs</li>
-              <li>AYElixirs</li>
-              <li>AYSalts</li>
-              <li>AYOintments</li>
-              <li>AYTeas</li>
-              <li>AYTonics</li>
-            </value>
-          </match>
-        </li>
-      </operations>
-    </match>
-  </Operation>
 </Patch>
