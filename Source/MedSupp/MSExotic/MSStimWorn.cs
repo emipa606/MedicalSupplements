@@ -13,7 +13,7 @@ namespace MSExotic
 		public override IEnumerable<Gizmo> GetWornGizmos()
 		{
 			Pawn wearer = Wearer;
-			if (Wearer != null)
+			if (Wearer != null && wearer.IsColonistPlayerControlled)
 			{
 				if (Find.Selector.SingleSelectedThing == Wearer)
 				{
