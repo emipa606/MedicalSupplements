@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Patch>
   <!-- KV RimFridge -->
-  <Operation Class="PatchOperationFindMod">
-    <mods>
-      <li>[KV] RimFridge - 1.2</li>
-    </mods>
+  <Operation Class="PatchOperationConditional">
+    <success>Always</success>
+    <xpath>/Defs/ThingDef[defName="RimFridge_SingleRefrigerator"]</xpath>
     <match Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
@@ -78,10 +77,9 @@
     </nomatch>
   </Operation>
   <!-- ========== Drug Lab ================= -->
-  <Operation Class="PatchOperationFindMod">
-    <mods>
-      <li>[KV] RimFridge - 1.2</li>
-    </mods>
+  <Operation Class="PatchOperationConditional">
+    <success>Always</success>
+    <xpath>/Defs/ThingDef[defName="RimFridge_SingleRefrigerator"]</xpath>
     <match Class="PatchOperationSequence">
       <success>Always</success>
       <operations>
@@ -99,10 +97,9 @@
     </match>
   </Operation>
   <!--  GhostGear -->
-  <Operation Class="PatchOperationFindMod">
-    <mods>
-      <li>[KV] RimFridge - 1.2</li>
-    </mods>
+  <Operation Class="PatchOperationConditional">
+    <success>Always</success>
+    <xpath>/Defs/ThingDef[defName="RimFridge_SingleRefrigerator"]</xpath>
     <match Class="PatchOperationFindMod">
       <mods>
         <li>Ghost Gear (Continued)</li>
@@ -125,10 +122,9 @@
     </match>
   </Operation>
   <!--  VFE - PRD -->
-  <Operation Class="PatchOperationFindMod">
-    <mods>
-      <li>[KV] RimFridge - 1.2</li>
-    </mods>
+  <Operation Class="PatchOperationConditional">
+    <success>Always</success>
+    <xpath>/Defs/ThingDef[defName="RimFridge_SingleRefrigerator"]</xpath>
     <match Class="PatchOperationFindMod">
       <mods>
         <li>Vanilla Furniture Expanded - Production</li>
@@ -151,10 +147,9 @@
     </match>
   </Operation>
   <!--  Deep Storage -->
-  <Operation Class="PatchOperationFindMod">
-    <mods>
-      <li>[KV] RimFridge - 1.2</li>
-    </mods>
+  <Operation Class="PatchOperationConditional">
+    <success>Always</success>
+    <xpath>/Defs/ThingDef[defName="RimFridge_SingleRefrigerator"]</xpath>
     <match Class="PatchOperationFindMod">
       <mods>
         <li>LWM's Deep Storage</li>
