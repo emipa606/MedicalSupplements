@@ -11,6 +11,8 @@
       <li>SterileMaterials</li>
     </prerequisites>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.20</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSMedicalMatSpacer</defName>
@@ -23,6 +25,8 @@
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.30</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSMedicalMatUltra</defName>
@@ -39,6 +43,8 @@
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>4.00</researchViewX>
+    <researchViewY>2.30</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSMedicalMatEarly</defName>
@@ -50,5 +56,7 @@
       <li>CarpetMaking</li>
     </prerequisites>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>2.80</researchViewY>
   </ResearchProjectDef>
 </Defs>

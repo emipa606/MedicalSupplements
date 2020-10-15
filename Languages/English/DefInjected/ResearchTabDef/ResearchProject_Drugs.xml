@@ -4,11 +4,12 @@
   <!-- Research Tabs -->
 
   <MedicalSuppTab.label>Medical Supplements</MedicalSuppTab.label>
-  <MSGlycerolTab.label>MS Glycerol Drugs</MSGlycerolTab.label>
-  <MSPhenolTab.label>MS Phenol Drugs</MSPhenolTab.label>
-  <MSLithiumTab.label>MS Lithium Drugs</MSLithiumTab.label>
-  <MSOpiumTab.label>MS Opium Drugs</MSOpiumTab.label>
-  <MSVincaTab.label>MS Vinca Drugs</MSVincaTab.label>
 
+
+  <!--<MSGlycerolTab.label>MS Glycerol Drugs</MSGlycerolTab.label>-->
+  <!--<MSPhenolTab.label>MS Phenol Drugs</MSPhenolTab.label>-->
+  <!--<MSLithiumTab.label>MS Lithium Drugs</MSLithiumTab.label>-->
+  <!--<MSOpiumTab.label>MS Opium Drugs</MSOpiumTab.label>-->
+  <!--<MSVincaTab.label>MS Vinca Drugs</MSVincaTab.label>-->
 
 </LanguageData>

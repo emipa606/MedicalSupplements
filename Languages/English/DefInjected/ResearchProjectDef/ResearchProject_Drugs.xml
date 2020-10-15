@@ -3,6 +3,9 @@
 
   <!-- Generic -->
 
+  <MSDrugMixer.label>Drug Mixer</MSDrugMixer.label>
+  <MSDrugMixer.description>Grants the ability to build the drug mixer. An automated mixing machine to make precursor chemicals.</MSDrugMixer.description>
+
   <MSMultiVitamins.label>Multi-Vitamins</MSMultiVitamins.label>
   <MSMultiVitamins.description>Grants the ability to make Multi-Vitamins. A pill taken every other day and used for slightly boosting immunity and includes the avoidance of food poisoning and gut worms.</MSMultiVitamins.description>
 

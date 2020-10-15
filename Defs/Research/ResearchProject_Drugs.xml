@@ -5,27 +5,24 @@
     <defName>MedicalSuppTab</defName>
     <label>Medical Supplements</label>
   </ResearchTabDef>
-  <ResearchTabDef>
-    <defName>MSGlycerolTab</defName>
-    <label>MS Glycerol Drugs</label>
-  </ResearchTabDef>
-  <ResearchTabDef>
-    <defName>MSPhenolTab</defName>
-    <label>MS Phenol Drugs</label>
-  </ResearchTabDef>
-  <ResearchTabDef>
-    <defName>MSLithiumTab</defName>
-    <label>MS Lithium Drugs</label>
-  </ResearchTabDef>
-  <ResearchTabDef>
-    <defName>MSOpiumTab</defName>
-    <label>MS Opium Drugs</label>
-  </ResearchTabDef>
-  <ResearchTabDef>
-    <defName>MSVincaTab</defName>
-    <label>MS Vinca Drugs</label>
-  </ResearchTabDef>
   <!-- Generic -->
+  <ResearchProjectDef>
+    <defName>MSDrugMixer</defName>
+    <label>Drug Mixer</label>
+    <description>Grants the ability to build the drug mixer. An automated mixing machine to make precursor chemicals.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Stonecutting</li>
+      <li>DrugProduction</li>
+      <li>BiofuelRefining</li>
+      <li>Brewing</li>
+    </prerequisites>
+    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>4.90</researchViewY>
+  </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSMultiVitamins</defName>
     <label>Multi-Vitamins</label>
@@ -36,6 +33,8 @@
       <li>DrugProduction</li>
     </prerequisites>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>5.60</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSMetasis</defName>
@@ -52,6 +51,8 @@
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>1.90</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSAntinites</defName>
@@ -68,6 +69,8 @@
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>4.00</researchViewX>
+    <researchViewY>3.10</researchViewY>
   </ResearchProjectDef>
   <!-- Glycerol and Phenol based -->
   <ResearchProjectDef>
@@ -81,6 +84,8 @@
       <li>MSPhenol</li>
     </prerequisites>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>3.80</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSProphylactics</defName>
@@ -93,6 +98,8 @@
       <li>MSPhenol</li>
     </prerequisites>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>5.20</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSAndrogen</defName>
@@ -105,6 +112,8 @@
       <li>MSPhenol</li>
     </prerequisites>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>3.85</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSRimpeptic</defName>
@@ -117,6 +126,8 @@
       <li>MSPhenol</li>
     </prerequisites>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>3.15</researchViewY>
   </ResearchProjectDef>
   <!-- Glycerol based -->
   <ResearchProjectDef>
@@ -130,7 +141,9 @@
       <li>BiofuelRefining</li>
       <li>Brewing</li>
     </prerequisites>
-    <tab>MSGlycerolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>6.30</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSFireThroat</defName>
@@ -141,7 +154,9 @@
     <prerequisites>
       <li>MSGlycerol</li>
     </prerequisites>
-    <tab>MSGlycerolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>1.75</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSInhaler</defName>
@@ -152,7 +167,9 @@
     <prerequisites>
       <li>MSGlycerol</li>
     </prerequisites>
-    <tab>MSGlycerolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>3.10</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSRimProPlus</defName>
@@ -164,7 +181,9 @@
       <li>Cocoa</li>
       <li>MSGlycerol</li>
     </prerequisites>
-    <tab>MSGlycerolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>5.20</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSAspirin</defName>
@@ -175,7 +194,9 @@
     <prerequisites>
       <li>MSGlycerol</li>
     </prerequisites>
-    <tab>MSGlycerolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>4.50</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSRimzac</defName>
@@ -186,7 +207,9 @@
     <prerequisites>
       <li>MSGlycerol</li>
     </prerequisites>
-    <tab>MSGlycerolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>2.15</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSAntitox</defName>
@@ -197,7 +220,9 @@
     <prerequisites>
       <li>MSGlycerol</li>
     </prerequisites>
-    <tab>MSGlycerolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>6.50</researchViewY>
   </ResearchProjectDef>
   <!-- Phenol based -->
   <ResearchProjectDef>
@@ -210,7 +235,9 @@
       <li>DrugProduction</li>
       <li>BiofuelRefining</li>
     </prerequisites>
-    <tab>MSPhenolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>4.15</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSWipes</defName>
@@ -221,7 +248,9 @@
     <prerequisites>
       <li>MSPhenol</li>
     </prerequisites>
-    <tab>MSPhenolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>4.20</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSContacts</defName>
@@ -234,7 +263,9 @@
       <li>MicroelectronicsBasics</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <tab>MSPhenolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>1.10</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSRimtarol</defName>
@@ -245,7 +276,9 @@
     <prerequisites>
       <li>MSPhenol</li>
     </prerequisites>
-    <tab>MSPhenolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>4.55</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSRimedicrem</defName>
@@ -256,7 +289,9 @@
     <prerequisites>
       <li>MSPhenol</li>
     </prerequisites>
-    <tab>MSPhenolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>4.90</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSRimBurnEaze</defName>
@@ -268,7 +303,9 @@
       <li>MSPhenol</li>
       <li>MSMercury</li>
     </prerequisites>
-    <tab>MSPhenolTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>1.55</researchViewY>
   </ResearchProjectDef>
   <!-- Lithium based Drugs -->
   <ResearchProjectDef>
@@ -281,7 +318,9 @@
       <li>MSPhenol</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <tab>MSLithiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>5.80</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSClarity</defName>
@@ -294,7 +333,9 @@
       <li>MSLithiumSalts</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <tab>MSLithiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>5.85</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSPlacebo</defName>
@@ -307,7 +348,9 @@
       <li>MSLithiumSalts</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <tab>MSLithiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>6.20</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSTravelPill</defName>
@@ -320,7 +363,9 @@
       <li>MSLithiumSalts</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <tab>MSLithiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>5.55</researchViewY>
   </ResearchProjectDef>
   <!-- Opium based drugs -->
   <ResearchProjectDef>
@@ -329,7 +374,9 @@
     <description>Grants the ability to cultivate the Opium Poppy. A species of flowering plant in the family Papaveraceae. It is the species of plant from which opium and poppy seeds are derived</description>
     <baseCost>300</baseCost>
     <techLevel>Neolithic</techLevel>
-    <tab>MSOpiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>2.20</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSOpium</defName>
@@ -340,7 +387,9 @@
     <prerequisites>
       <li>MSOpiumPoppy</li>
     </prerequisites>
-    <tab>MSOpiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>2.40</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSRimCodamol</defName>
@@ -352,7 +401,9 @@
       <li>MSOpium</li>
       <li>DrugProduction</li>
     </prerequisites>
-    <tab>MSOpiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>0.25</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSMorphine</defName>
@@ -364,7 +415,9 @@
       <li>MSOpium</li>
       <li>DrugProduction</li>
     </prerequisites>
-    <tab>MSOpiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>0.95</researchViewY>
   </ResearchProjectDef>
   <!--  Vinca based -->
   <ResearchProjectDef>
@@ -373,7 +426,9 @@
     <description>Grants the ability to cultivate the Perrywinkle. A plant having alkaloids useful in synthesising chemotherapy drugs</description>
     <baseCost>250</baseCost>
     <techLevel>Medieval</techLevel>
-    <tab>MSVincaTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>3.45</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSVinca</defName>
@@ -386,7 +441,9 @@
       <li>MSPerrywinkle</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <tab>MSVincaTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>2.85</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSVinacol</defName>
@@ -398,6 +455,8 @@
       <li>MSVinca</li>
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <tab>MSVincaTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>2.50</researchViewY>
   </ResearchProjectDef>
 </Defs>

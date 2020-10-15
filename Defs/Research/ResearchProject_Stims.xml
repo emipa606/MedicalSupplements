@@ -15,7 +15,9 @@
       <li>MSMedicineUltra</li>
       <li>MSMetasis</li>
     </prerequisites>
-    <tab>MSUltraMedTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>4.00</researchViewX>
+    <researchViewY>1.60</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSTranscendence</defName>
@@ -30,6 +32,8 @@
     <prerequisites>
       <li>MSNeuroMechSerum</li>
     </prerequisites>
-    <tab>MSUltraMedTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>6.00</researchViewX>
+    <researchViewY>1.60</researchViewY>
   </ResearchProjectDef>
 </Defs>

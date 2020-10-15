@@ -12,6 +12,8 @@
       <li>DrugProduction</li>
     </prerequisites>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.85</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSImmunisation</defName>
@@ -25,6 +27,8 @@
     </prerequisites>
     <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>3.55</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSCerebrax</defName>
@@ -39,6 +43,8 @@
     <requiredResearchFacilities>
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
-    <tab>MSLithiumTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>4.00</researchViewX>
+    <researchViewY>5.55</researchViewY>
   </ResearchProjectDef>
 </Defs>

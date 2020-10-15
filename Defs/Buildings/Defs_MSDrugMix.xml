@@ -1,21 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- Research -->
-  <ResearchProjectDef>
-    <defName>MSDrugMixer</defName>
-    <label>Drug Mixer</label>
-    <description>Grants the ability to build the drug mixer. An automated mixing machine to make precursor chemicals.</description>
-    <baseCost>500</baseCost>
-    <techLevel>Industrial</techLevel>
-    <prerequisites>
-      <li>Stonecutting</li>
-      <li>DrugProduction</li>
-      <li>BiofuelRefining</li>
-      <li>Brewing</li>
-    </prerequisites>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-    <tab>MedicalSuppTab</tab>
-  </ResearchProjectDef>
   <!-- Building -->
   <ThingDef ParentName="BuildingBase">
     <defName>MSDrugMixer</defName>

@@ -1,10 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
-  <!-- Tab -->
-  <ResearchTabDef>
-    <defName>MSUltraMedTab</defName>
-    <label>MS Ultratech Medicine</label>
-  </ResearchTabDef>
   <!-- Projects -->
   <ResearchProjectDef>
     <defName>MSMedicineUltra</defName>
@@ -20,7 +15,9 @@
       <li>MedicineProduction</li>
       <li>AdvancedFabrication</li>
     </prerequisites>
-    <tab>MSUltraMedTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>0.50</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSHealerMechSerum</defName>
@@ -36,7 +33,9 @@
       <li>MSMedicineUltra</li>
       <li>MSMetasis</li>
     </prerequisites>
-    <tab>MSUltraMedTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>4.00</researchViewX>
+    <researchViewY>0.90</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSRessurectMechSerum</defName>
@@ -51,7 +50,9 @@
     <prerequisites>
       <li>MSHealerMechSerum</li>
     </prerequisites>
-    <tab>MSUltraMedTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>5.00</researchViewX>
+    <researchViewY>1.05</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSNeuroMechSerum</defName>
@@ -67,6 +68,8 @@
       <li>MSBattleStims</li>
       <li>MSHealerMechSerum</li>
     </prerequisites>
-    <tab>MSUltraMedTab</tab>
+    <tab>MedicalSuppTab</tab>
+    <researchViewX>5.00</researchViewX>
+    <researchViewY>1.90</researchViewY>
   </ResearchProjectDef>
 </Defs>

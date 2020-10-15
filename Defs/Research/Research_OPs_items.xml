@@ -16,6 +16,8 @@
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>1.55</researchViewY>
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSSurgeryItemsSpacer</defName>
@@ -32,5 +34,7 @@
       <li>MultiAnalyzer</li>
     </requiredResearchFacilities>
     <tab>MedicalSuppTab</tab>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>1.20</researchViewY>
   </ResearchProjectDef>
 </Defs>
