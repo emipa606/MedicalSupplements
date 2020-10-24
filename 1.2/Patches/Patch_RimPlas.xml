@@ -93,7 +93,7 @@
                 <li>MSBattleStims</li>
                 <li>RimPlas_AdvInjMld</li>
               </prerequisites>
-              <tab>MSUltraMedTab</tab>
+              <tab>MedicalSuppTab</tab>
             </ResearchProjectDef>
           </value>
         </li>
