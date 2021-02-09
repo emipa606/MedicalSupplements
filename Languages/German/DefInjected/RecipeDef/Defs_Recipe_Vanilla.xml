@@ -16,10 +16,6 @@
   <MakeMSRessurectorMechSerum.description>Stelle Reanimierer-Naniten her.</MakeMSRessurectorMechSerum.description>
   <MakeMSRessurectorMechSerum.jobString>Stelle Reanimierer-Naniten her.</MakeMSRessurectorMechSerum.jobString>
   <!-- Neurotrainer -->
-  <MakeMSNeuroTrainerMechSerum.label>Stelle Neurotrainer Mechserum her</MakeMSNeuroTrainerMechSerum.label>
-  <MakeMSNeuroTrainerMechSerum.description>Stelle ein Neurotrainer Mechserum her.</MakeMSNeuroTrainerMechSerum.description>
-  <MakeMSNeuroTrainerMechSerum.jobString>Stelle Neurotrainer Mechserum her.</MakeMSNeuroTrainerMechSerum.jobString>
-  <MakeMSNTMechSerum.jobString>Stelle Neurotrainer Mechserum her.</MakeMSNTMechSerum.jobString>
   <MakeMSNTMechSerumShooting.label>Stelle Neurotrainer (Fernkampf) her</MakeMSNTMechSerumShooting.label>
   <MakeMSNTMechSerumShooting.description>Stelle ein Neurotrainer (Fernkampf) her.</MakeMSNTMechSerumShooting.description>
   <MakeMSNTMechSerumShooting.jobString>Stelle Neurotrainer (Fernkampf) her.</MakeMSNTMechSerumShooting.jobString>

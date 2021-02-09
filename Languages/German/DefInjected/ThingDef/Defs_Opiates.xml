@@ -15,4 +15,5 @@
   <MSOpiumPipe.description>Ein frühes und rohes, wenn auch noch starkes Opiat-Schmerzmittel, das etwa einen halben Tag anhält. Kann süchtig machen.</MSOpiumPipe.description>
   <MSOpiumPipe.ingestible.ingestCommandString>Rauche {0}</MSOpiumPipe.ingestible.ingestCommandString>
   <MSOpiumPipe.ingestible.ingestReportString>Raucht {0}.</MSOpiumPipe.ingestible.ingestReportString>
+  <MSOpiumPipe.ingestible.ingestReportStringEat>Raucht {0}.</MSOpiumPipe.ingestible.ingestReportStringEat>
 </LanguageData>

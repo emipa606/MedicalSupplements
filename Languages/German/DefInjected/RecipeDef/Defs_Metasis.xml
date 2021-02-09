@@ -14,6 +14,9 @@
   <MakeBulkMSInjectorUnit.label>Stelle Spritzen in Massen her</MakeBulkMSInjectorUnit.label>
   <MakeBulkMSInjectorUnit.description>Stelle 5 Spritzen her.</MakeBulkMSInjectorUnit.description>
   <MakeBulkMSInjectorUnit.jobString>Stelle Spritze her.</MakeBulkMSInjectorUnit.jobString>
+  <Make_MSMetasis.label>Stelle Metasisspritze her</Make_MSMetasis.label>
+  <Make_MSMetasis.description>Stelle Metasisspritze her.</Make_MSMetasis.description>
+  <Make_MSMetasis.jobString>Stelle Metasisspritze her.</Make_MSMetasis.jobString>
   <!-- Bulk Recipe -->
   <MakeBulkMetasis.label>Stelle Metasisspritzen in Massen her</MakeBulkMetasis.label>
   <MakeBulkMetasis.description>Stelle 5 Metasisspritzen her.</MakeBulkMetasis.description>

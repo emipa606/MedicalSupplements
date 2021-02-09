@@ -19,17 +19,23 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Update of peladors mod
+  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2004944243
 
-[img]https://i.imgur.com/wtwHAQu.png[/img]
+- Updated the research-tree to be more readable
 
-Support-chat:
-https://invite.gg/mlie
+[img]https://i.imgur.com/7Gzt3Rg.png[/img]
 
-Non-steam version:
-https://github.com/emipa606/MedicalSupplements
+[table]
+    [tr]
+        [td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+        [td][url=https://github.com/emipa606/MedicalSupplements][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+    [/tr]
+[/table]
 	
+[img]https://i.imgur.com/NOW7jU1.png[/img]
+
 --- Original Description ---
 Overview
 V1.1
@@ -114,10 +120,10 @@ To remove the mod you would have to remove all the items introduced first.
 Expansion to this Mod
 
 Social Supplements
-https://steamcommunity.com/sharedfiles/filedetails/?id=2005917068
+https://steamcommunity.com/sharedfiles/filedetails/?id=2195052690
 
 Utility Supplements
-https://steamcommunity.com/sharedfiles/filedetails/?id=2012459600
+https://steamcommunity.com/sharedfiles/filedetails/?id=2195065488
 
 
 Compatibility Notes
@@ -167,5 +173,17 @@ Credits
 Erdnussbrot - German translation.
 
 (CC BY-NC-SA 4.0)
-  	</description>
+  	
+
+[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]
+</description>
 </ModMetaData>
+

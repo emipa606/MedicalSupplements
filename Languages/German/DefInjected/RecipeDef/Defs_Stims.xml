@@ -11,6 +11,9 @@
   <MakeMSBattleStim.label>Stelle Kampfstim her</MakeMSBattleStim.label>
   <MakeMSBattleStim.description>Stelle eine KampfStim her.</MakeMSBattleStim.description>
   <MakeMSBattleStim.jobString>Stelle eine KampfStim her.</MakeMSBattleStim.jobString>
+  <Make_MSBattleStimBelt.label>Stelle Kampfstimhalter her</Make_MSBattleStimBelt.label>
+  <Make_MSBattleStimBelt.description>Stelle Kampfstimhalter her. Ein Gürtel an dem man eine Kampfstim anbringen kann.</Make_MSBattleStimBelt.description>
+  <Make_MSBattleStimBelt.jobString>Stelle Kampfstimhalter her.</Make_MSBattleStimBelt.jobString>
   <MakeBulkMSBattleStim.label>Stelle Kampfstims in Massen her</MakeBulkMSBattleStim.label>
   <MakeBulkMSBattleStim.description>Stelle 5 KampfStims her.</MakeBulkMSBattleStim.description>
   <MakeBulkMSBattleStim.jobString>Stelle KampfStim her.</MakeBulkMSBattleStim.jobString>

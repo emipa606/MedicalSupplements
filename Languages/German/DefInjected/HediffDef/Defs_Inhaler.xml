@@ -2,4 +2,5 @@
 <LanguageData>
   <!-- Inhaler -->
   <MSInhaler_High.label>Asthma-Inhalator</MSInhaler_High.label>
+  <MSInhaler_High.description>Asthmamittel im Blutkreislauf.</MSInhaler_High.description>
 </LanguageData>

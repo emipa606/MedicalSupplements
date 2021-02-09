@@ -7,11 +7,4 @@
   <DrugCabinet_Blueprint_Install.label>Medizinschrank (Entwurf)</DrugCabinet_Blueprint_Install.label>
   <DrugCabinet_Frame.label>Medizinschrank (im Bau)</DrugCabinet_Frame.label>
   <DrugCabinet_Frame.description>Ein kleiner Schrank zur Aufbewahrung von Drogen oder Medizin. Beinhaltet einen kleinen Sauberkeitsschub und einen Produktionsschub für Laborbänke.</DrugCabinet_Frame.description>
-  <!-- Drug Cabinet Fridge -->
-  <DrugCabinetFridge.label>Medizinschrank (Kühlung)</DrugCabinetFridge.label>
-  <DrugCabinetFridge.description>Ein kleiner Schrank zur Aufbewahrung von Drogen oder Medizin. Beinhaltet einen kleinen Sauberkeitsschub und einen Produktionsschub für Laborbänke. Dieser Medizinschrank verfügt zusätzlich über eine Kühlfunktionen.</DrugCabinetFridge.description>
-  <DrugCabinetFridge_Blueprint.label>Medizinschrank (Kühlung) (Entwurf)</DrugCabinetFridge_Blueprint.label>
-  <DrugCabinetFridge_Blueprint_Install.label>Medizinschrank (Kühlung) (Entwurf)</DrugCabinetFridge_Blueprint_Install.label>
-  <DrugCabinetFridge_Frame.label>Medizinschrank (Kühlung) (im Bau)</DrugCabinetFridge_Frame.label>
-  <DrugCabinetFridge_Frame.description>Ein kleiner Schrank zur Aufbewahrung von Drogen oder Medizin. Beinhaltet einen kleinen Sauberkeitsschub und einen Produktionsschub für Laborbänke. Dieser Medizinschrank verfügt zusätzlich über eine Kühlfunktionen.</DrugCabinetFridge_Frame.description>
 </LanguageData>
