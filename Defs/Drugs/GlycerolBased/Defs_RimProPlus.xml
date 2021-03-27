@@ -26,6 +26,10 @@
       <ingestSound>Ingest_Pill</ingestSound>
       <ingestCommandString>Take {0}</ingestCommandString>
       <ingestReportString>Taking {0}.</ingestReportString>
+      <chairSearchRadius>0</chairSearchRadius>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+      <preferability>NeverForNutrition</preferability>
       <drugCategory>Medical</drugCategory>
       <ingestHoldOffsetStanding>
         <northDefault>

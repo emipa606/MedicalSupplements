@@ -147,8 +147,8 @@
   </ResearchProjectDef>
   <ResearchProjectDef>
     <defName>MSFireThroat</defName>
-    <label>FireThroat</label>
-    <description>Grants the ability to make FireThroat. A rather strong and unpalletabe flu prevention tincture. Taken every 3 days.</description>
+    <label>Firethroat</label>
+    <description>Grants the ability to make Firethroat. A rather strong and unpalatable flu prevention tincture. Taken every 3 days.</description>
     <baseCost>400</baseCost>
     <techLevel>Industrial</techLevel>
     <prerequisites>
