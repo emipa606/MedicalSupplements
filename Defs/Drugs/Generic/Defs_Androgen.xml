@@ -4,7 +4,7 @@
   <ThingDef ParentName="MSDrugPillBase">
     <defName>MSAndrogen</defName>
     <label>Androgen</label>
-    <description>Synthetic androgen used as a mild steroid hormone. Can make a person more tempremental and also potential unwanted hair growth for women as a more uncommon side effect. Effects last for 3 days.</description>
+    <description>Synthetic androgen used as a mild steroid hormone. Can make a person more temperamental and also potential unwanted hair growth for women as a more uncommon side effect. Effects last for 3 days.</description>
     <graphicData>
       <texPath>Things/Item/MSAndrogen</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
