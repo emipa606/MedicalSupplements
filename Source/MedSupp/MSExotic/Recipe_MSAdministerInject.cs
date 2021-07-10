@@ -13,25 +13,27 @@ namespace MSExotic
         {
             foreach (var item in ingredients)
             {
-                if (item != ingredients[0])
+                if (item == ingredients[0])
                 {
-                    if (item.def.IsDrug && item.def.IsIngestible)
+                    continue;
+                }
+
+                if (item.def.IsDrug && item.def.IsIngestible)
+                {
+                    var ingestible = item.def.ingestible;
+                    var listIOD = ingestible?.outcomeDoers;
+                    if (listIOD != null && listIOD.Count > 0)
                     {
-                        var ingestible = item.def.ingestible;
-                        var listIOD = ingestible?.outcomeDoers;
-                        if (listIOD.Count > 0)
+                        foreach (var ingestionOutcomeDoer in listIOD)
                         {
-                            foreach (var ingestionOutcomeDoer in listIOD)
-                            {
-                                ingestionOutcomeDoer.DoIngestionOutcome(pawn, item);
-                            }
+                            ingestionOutcomeDoer.DoIngestionOutcome(pawn, item);
                         }
                     }
+                }
 
-                    if (!item.DestroyedOrNull())
-                    {
-                        item.Destroy();
-                    }
+                if (!item.DestroyedOrNull())
+                {
+                    item.Destroy();
                 }
             }
 

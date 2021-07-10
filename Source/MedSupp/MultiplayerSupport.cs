@@ -41,7 +41,7 @@ namespace MedSupp
                 AccessTools.Method(typeof(HediffComp_MSRegen), nameof(HediffComp_MSRegen.ResetTicksToHeal)),
                 AccessTools.Method(typeof(HediffComp_MSRegen), nameof(HediffComp_MSRegen.TryHealRandomOldWound)),
                 AccessTools.Method(typeof(MSHediffComp_TendDuration),
-                    nameof(MSHediffComp_TendDuration.CompTended_NewTemp)),
+                    nameof(MSHediffComp_TendDuration.CompTended)),
                 AccessTools.Method(typeof(MSHediffComp_TendDuration), nameof(MSHediffComp_TendDuration.CompPostTick)),
                 AccessTools.Method(typeof(MSCompFoodPoisonable), nameof(MSCompFoodPoisonable.PostIngested)),
                 AccessTools.Method(typeof(HediffComp_MSCure), nameof(HediffComp_MSCure.SetTicksToCure)),
@@ -49,9 +49,9 @@ namespace MedSupp
                 AccessTools.Method(typeof(MSHediffComp_GrowthMode), nameof(MSHediffComp_GrowthMode.CompPostTick)),
                 AccessTools.Method(typeof(MSHediffComp_GrowthMode), nameof(MSHediffComp_GrowthMode.MSAdjustment))
             };
-            for (var i = 0; i < rngMethods.Length; i++)
+            foreach (var methodInfo in rngMethods)
             {
-                FixRNG(rngMethods[i]);
+                FixRNG(methodInfo);
             }
         }
 

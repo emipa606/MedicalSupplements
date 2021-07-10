@@ -18,8 +18,7 @@ namespace MSOptions
         // Token: 0x06000007 RID: 7 RVA: 0x00002344 File Offset: 0x00000544
         public void DoWindowContents(Rect canvas)
         {
-            var listing_Standard = new Listing_Standard();
-            listing_Standard.ColumnWidth = canvas.width;
+            var listing_Standard = new Listing_Standard {ColumnWidth = canvas.width};
             listing_Standard.Begin(canvas);
             listing_Standard.Gap();
             listing_Standard.CheckboxLabeled("MSOpt.RealisticBandages".Translate(), ref RealisticBandages);

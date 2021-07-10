@@ -13,7 +13,7 @@ namespace MSClarity
         [HarmonyPrefix]
         public static bool Prefix(MentalState __instance)
         {
-            if (!(__instance.def.defName == "Wander_Psychotic"))
+            if (__instance.def.defName != "Wander_Psychotic")
             {
                 return true;
             }
@@ -25,23 +25,19 @@ namespace MSClarity
             }
 
             var MShedSet = p.health.hediffSet;
-            if (MShedSet == null)
+
+            var MSCheckClarity = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High"));
+            if (MSCheckClarity == null)
             {
                 return true;
             }
 
-            var MSCheckClarity = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High"));
-            if (MSCheckClarity != null)
-            {
-                __instance.RecoverFromState();
-                Messages.Message(
-                    p.Label.CapitalizeFirst() + "'s condition of " + __instance.def.label.CapitalizeFirst() +
-                    " has been cured by " + MSCheckClarity.LabelBase.CapitalizeFirst(), p,
-                    MessageTypeDefOf.PositiveEvent);
-                return false;
-            }
-
-            return true;
+            __instance.RecoverFromState();
+            Messages.Message(
+                p.Label.CapitalizeFirst() + "'s condition of " + __instance.def.label.CapitalizeFirst() +
+                " has been cured by " + MSCheckClarity.LabelBase.CapitalizeFirst(), p,
+                MessageTypeDefOf.PositiveEvent);
+            return false;
         }
     }
 }

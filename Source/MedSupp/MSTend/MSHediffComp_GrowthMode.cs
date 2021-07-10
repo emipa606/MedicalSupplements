@@ -61,7 +61,7 @@ namespace MSTend
         }
 
         // Token: 0x06000014 RID: 20 RVA: 0x00002400 File Offset: 0x00000600
-        protected override float SeverityChangePerDay()
+        public override float SeverityChangePerDay()
         {
             float growthsev;
             switch (growthMode)
@@ -86,28 +86,32 @@ namespace MSTend
         public float MSAdjustment(Pawn p, float sev, HediffGrowthMode gm)
         {
             var newSev = sev;
-            if (gm == HediffGrowthMode.Growing)
+            if (gm != HediffGrowthMode.Growing)
             {
-                HediffSet hediffSet;
-                if (p == null)
-                {
-                    hediffSet = null;
-                }
-                else
-                {
-                    var health = p.health;
-                    hediffSet = health?.hediffSet;
-                }
+                return newSev;
+            }
 
-                var hSet = hediffSet;
-                if (hSet != null)
-                {
-                    var drugDef = DefDatabase<HediffDef>.GetNamed("MSVinacol_High", false);
-                    if (drugDef != null && hSet.GetFirstHediffOfDef(drugDef) != null)
-                    {
-                        newSev *= Rand.Range(0f, 0.1f);
-                    }
-                }
+            HediffSet hediffSet;
+            if (p == null)
+            {
+                hediffSet = null;
+            }
+            else
+            {
+                var health = p.health;
+                hediffSet = health?.hediffSet;
+            }
+
+            var hSet = hediffSet;
+            if (hSet == null)
+            {
+                return newSev;
+            }
+
+            var drugDef = DefDatabase<HediffDef>.GetNamed("MSVinacol_High", false);
+            if (drugDef != null && hSet.GetFirstHediffOfDef(drugDef) != null)
+            {
+                newSev *= Rand.Range(0f, 0.1f);
             }
 
             return newSev;
@@ -119,28 +123,30 @@ namespace MSTend
             growthMode = (from x in (HediffGrowthMode[]) Enum.GetValues(typeof(HediffGrowthMode))
                 where x != growthMode
                 select x).RandomElement();
-            if (PawnUtility.ShouldSendNotificationAbout(Pawn))
+            if (!PawnUtility.ShouldSendNotificationAbout(Pawn))
             {
-                switch (growthMode)
-                {
-                    case HediffGrowthMode.Growing:
-                        Messages.Message(
-                            "DiseaseGrowthModeChanged_Growing".Translate(Pawn.LabelShort, Def.label,
-                                Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.NegativeHealthEvent);
-                        return;
-                    case HediffGrowthMode.Stable:
-                        Messages.Message(
-                            "DiseaseGrowthModeChanged_Stable".Translate(Pawn.LabelShort, Def.label, Pawn.Named("PAWN")),
-                            Pawn, MessageTypeDefOf.NeutralEvent);
-                        return;
-                    case HediffGrowthMode.Remission:
-                        Messages.Message(
-                            "DiseaseGrowthModeChanged_Remission".Translate(Pawn.LabelShort, Def.label,
-                                Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.PositiveEvent);
-                        break;
-                    default:
-                        return;
-                }
+                return;
+            }
+
+            switch (growthMode)
+            {
+                case HediffGrowthMode.Growing:
+                    Messages.Message(
+                        "DiseaseGrowthModeChanged_Growing".Translate(Pawn.LabelShort, Def.label,
+                            Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.NegativeHealthEvent);
+                    return;
+                case HediffGrowthMode.Stable:
+                    Messages.Message(
+                        "DiseaseGrowthModeChanged_Stable".Translate(Pawn.LabelShort, Def.label, Pawn.Named("PAWN")),
+                        Pawn, MessageTypeDefOf.NeutralEvent);
+                    return;
+                case HediffGrowthMode.Remission:
+                    Messages.Message(
+                        "DiseaseGrowthModeChanged_Remission".Translate(Pawn.LabelShort, Def.label,
+                            Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.PositiveEvent);
+                    break;
+                default:
+                    return;
             }
         }
 

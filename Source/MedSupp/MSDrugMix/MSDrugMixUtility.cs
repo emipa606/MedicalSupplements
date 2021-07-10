@@ -17,27 +17,24 @@ namespace MSDrugMix
         // Token: 0x060000A6 RID: 166 RVA: 0x000081D0 File Offset: 0x000063D0
         public static Texture2D GetMSMixIcon(ThingDef t)
         {
-            if (t != null)
+            if (t == null)
             {
-                if (t != null)
-                {
-                    var graphicData = t.graphicData;
-                    if (graphicData?.texPath != null)
-                    {
-                        var texturePath = t.graphicData.texPath;
-                        if (t.graphicData.graphicClass.Name == "Graphic_StackCount")
-                        {
-                            texturePath = texturePath + "/" + t.defName + "_a";
-                        }
-
-                        return ContentFinder<Texture2D>.Get(texturePath);
-                    }
-                }
-
                 return ContentFinder<Texture2D>.Get(ChemIconPath);
             }
 
-            return ContentFinder<Texture2D>.Get(ChemIconPath);
+            var graphicData = t.graphicData;
+            if (graphicData?.texPath == null)
+            {
+                return ContentFinder<Texture2D>.Get(ChemIconPath);
+            }
+
+            var texturePath = t.graphicData.texPath;
+            if (t.graphicData.graphicClass.Name == "Graphic_StackCount")
+            {
+                texturePath = texturePath + "/" + t.defName + "_a";
+            }
+
+            return ContentFinder<Texture2D>.Get(texturePath);
         }
 
         // Token: 0x060000A7 RID: 167 RVA: 0x00008258 File Offset: 0x00006458
@@ -156,16 +153,16 @@ namespace MSDrugMix
                 return true;
             }
 
-            if (t.defName == "MSHydrochloricAcid")
+            if (t.defName != "MSHydrochloricAcid")
             {
-                ticks = 200;
-                minProd = 10;
-                maxProd = 10;
-                research = "DrugProduction";
-                return true;
+                return false;
             }
 
-            return false;
+            ticks = 200;
+            minProd = 10;
+            maxProd = 10;
+            research = "DrugProduction";
+            return true;
         }
 
         // Token: 0x060000A8 RID: 168 RVA: 0x0000848C File Offset: 0x0000668C
@@ -178,19 +175,21 @@ namespace MSDrugMix
                 foreach (var thingdef in allthings)
                 {
                     var thingCats = thingdef?.thingCategories;
-                    if (thingCats != null && thingCats.Count > 0)
+                    if (thingCats == null || thingCats.Count <= 0)
                     {
-                        using (var enumerator2 = thingCats.GetEnumerator())
+                        continue;
+                    }
+
+                    using var enumerator2 = thingCats.GetEnumerator();
+                    while (enumerator2.MoveNext())
+                    {
+                        if (enumerator2.Current != ThingCategoryDefOf.StoneChunks)
                         {
-                            while (enumerator2.MoveNext())
-                            {
-                                if (enumerator2.Current == ThingCategoryDefOf.StoneChunks)
-                                {
-                                    list.AddDistinct(thingdef);
-                                    break;
-                                }
-                            }
+                            continue;
                         }
+
+                        list.AddDistinct(thingdef);
+                        break;
                     }
                 }
             }
@@ -256,36 +255,26 @@ namespace MSDrugMix
                     item.ratio = 0.2f;
                     list.Add(item);
                     _ = new List<ThingDef>();
-                    List<ThingDef> useChunkList;
-                    if (cachedChunkList.Count > 0)
-                    {
-                        useChunkList = cachedChunkList;
-                    }
-                    else
-                    {
-                        useChunkList = ChunkList();
-                    }
+                    var useChunkList = cachedChunkList.Count > 0 ? cachedChunkList : ChunkList();
 
                     if (useChunkList.Count <= 0)
                     {
                         return list;
                     }
 
-                    using (var enumerator = useChunkList.GetEnumerator())
+                    using var enumerator = useChunkList.GetEnumerator();
+                    while (enumerator.MoveNext())
                     {
-                        while (enumerator.MoveNext())
-                        {
-                            var ChunkDef = enumerator.Current;
-                            item.def = ChunkDef;
-                            item.mixed = true;
-                            item.mixgrp = 3;
-                            item.num = 1;
-                            item.ratio = 0.02f;
-                            list.Add(item);
-                        }
-
-                        return list;
+                        var ChunkDef = enumerator.Current;
+                        item.def = ChunkDef;
+                        item.mixed = true;
+                        item.mixgrp = 3;
+                        item.num = 1;
+                        item.ratio = 0.02f;
+                        list.Add(item);
                     }
+
+                    return list;
                 }
 
                 if (thingdef.defName == "MSOpiumLatex")
@@ -309,35 +298,25 @@ namespace MSDrugMix
                     if (thingdef.defName == "MSMercurySalts")
                     {
                         _ = new List<ThingDef>();
-                        List<ThingDef> useChunkList2;
-                        if (cachedChunkList.Count > 0)
-                        {
-                            useChunkList2 = cachedChunkList;
-                        }
-                        else
-                        {
-                            useChunkList2 = ChunkList();
-                        }
+                        var useChunkList2 = cachedChunkList.Count > 0 ? cachedChunkList : ChunkList();
 
                         if (useChunkList2.Count <= 0)
                         {
                             return list;
                         }
 
-                        using (var enumerator = useChunkList2.GetEnumerator())
+                        using var enumerator = useChunkList2.GetEnumerator();
+                        while (enumerator.MoveNext())
                         {
-                            while (enumerator.MoveNext())
-                            {
-                                var ChunkDef2 = enumerator.Current;
-                                item.def = ChunkDef2;
-                                item.mixgrp = 1;
-                                item.num = 1;
-                                item.ratio = 0.2f;
-                                list.Add(item);
-                            }
-
-                            return list;
+                            var ChunkDef2 = enumerator.Current;
+                            item.def = ChunkDef2;
+                            item.mixgrp = 1;
+                            item.num = 1;
+                            item.ratio = 0.2f;
+                            list.Add(item);
                         }
+
+                        return list;
                     }
 
                     if (thingdef.defName == "MSEthylMercury")
@@ -359,35 +338,25 @@ namespace MSDrugMix
                         if (thingdef.defName == "MSSulphur")
                         {
                             _ = new List<ThingDef>();
-                            List<ThingDef> useChunkList3;
-                            if (cachedChunkList.Count > 0)
-                            {
-                                useChunkList3 = cachedChunkList;
-                            }
-                            else
-                            {
-                                useChunkList3 = ChunkList();
-                            }
+                            var useChunkList3 = cachedChunkList.Count > 0 ? cachedChunkList : ChunkList();
 
                             if (useChunkList3.Count <= 0)
                             {
                                 return list;
                             }
 
-                            using (var enumerator = useChunkList3.GetEnumerator())
+                            using var enumerator = useChunkList3.GetEnumerator();
+                            while (enumerator.MoveNext())
                             {
-                                while (enumerator.MoveNext())
-                                {
-                                    var ChunkDef3 = enumerator.Current;
-                                    item.def = ChunkDef3;
-                                    item.mixgrp = 1;
-                                    item.num = 1;
-                                    item.ratio = 0.02f;
-                                    list.Add(item);
-                                }
-
-                                return list;
+                                var ChunkDef3 = enumerator.Current;
+                                item.def = ChunkDef3;
+                                item.mixgrp = 1;
+                                item.num = 1;
+                                item.ratio = 0.02f;
+                                list.Add(item);
                             }
+
+                            return list;
                         }
 
                         if (thingdef.defName == "MSSulphuricAcid")
@@ -445,15 +414,7 @@ namespace MSDrugMix
                         else if (thingdef.defName == "MSHydrochloricAcid")
                         {
                             _ = new List<ThingDef>();
-                            List<ThingDef> useChunkList4;
-                            if (cachedChunkList.Count > 0)
-                            {
-                                useChunkList4 = cachedChunkList;
-                            }
-                            else
-                            {
-                                useChunkList4 = ChunkList();
-                            }
+                            var useChunkList4 = cachedChunkList.Count > 0 ? cachedChunkList : ChunkList();
 
                             if (useChunkList4.Count > 0)
                             {

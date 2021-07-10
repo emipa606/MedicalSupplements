@@ -22,37 +22,27 @@ namespace MSExotic
                 return;
             }
 
-            if (pawn != null)
-            {
-                var story2 = pawn.story;
-                if (story2 != null)
-                {
-                    story2.traits.allTraits.Remove(remTrait);
-                }
-            }
+            var story2 = pawn.story;
+            story2?.traits.allTraits.Remove(remTrait);
 
             TraitsUpdated(pawn);
-            if (SendMsg)
+            if (!SendMsg)
             {
-                var key = "MSExotic.TraitRemoved";
-                NamedArgument arg = pawn?.LabelShort.CapitalizeFirst();
-                var trait2 = trait;
-                Messages.Message(key.Translate(arg, trait2?.Label.CapitalizeFirst(), doer.CapitalizeFirst()), pawn,
-                    MsgType);
+                return;
             }
+
+            var key = "MSExotic.TraitRemoved";
+            NamedArgument arg = pawn.LabelShort.CapitalizeFirst();
+            var trait2 = trait;
+            Messages.Message(key.Translate(arg, trait2?.Label.CapitalizeFirst(), doer.CapitalizeFirst()), pawn,
+                MsgType);
         }
 
         // Token: 0x0600007D RID: 125 RVA: 0x000068C8 File Offset: 0x00004AC8
         public static void AddTrait(Pawn pawn, Trait trait, string doer, MessageTypeDef MsgType, bool SendMsg = true)
         {
-            if (pawn != null)
-            {
-                var story = pawn.story;
-                if (story != null)
-                {
-                    story.traits.GainTrait(trait);
-                }
-            }
+            var story = pawn?.story;
+            story?.traits.GainTrait(trait);
 
             TraitsUpdated(pawn);
             if (SendMsg)
@@ -66,17 +56,11 @@ namespace MSExotic
         // Token: 0x0600007E RID: 126 RVA: 0x0000694C File Offset: 0x00004B4C
         public static void TraitsUpdated(Pawn pawn)
         {
-            if (pawn.workSettings != null)
-            {
-                pawn.workSettings.Notify_UseWorkPrioritiesChanged();
-            }
+            pawn.workSettings?.Notify_UseWorkPrioritiesChanged();
 
             typeof(Pawn).GetField("cachedDisabledWorkTypes", BindingFlags.Instance | BindingFlags.NonPublic)
-                .SetValue(pawn, null);
-            if (pawn.skills != null)
-            {
-                pawn.skills.Notify_SkillDisablesChanged();
-            }
+                ?.SetValue(pawn, null);
+            pawn.skills?.Notify_SkillDisablesChanged();
 
             if (!pawn.Dead && pawn.RaceProps.Humanlike)
             {

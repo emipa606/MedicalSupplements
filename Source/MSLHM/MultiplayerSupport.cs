@@ -25,9 +25,9 @@ namespace MSLHM
                 AccessTools.Method(typeof(HediffComp_HealPermanentWounds), "ResetTicksToHeal"),
                 AccessTools.Method(typeof(HediffComp_HealPermanentWounds), "TryHealRandomPermanentWound")
             };
-            for (var i = 0; i < array.Length; i++)
+            foreach (var methodInfo in array)
             {
-                FixRNG(array[i]);
+                FixRNG(methodInfo);
             }
         }
 

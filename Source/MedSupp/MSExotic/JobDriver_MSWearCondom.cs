@@ -11,16 +11,16 @@ namespace MSExotic
         // Token: 0x06000050 RID: 80 RVA: 0x0000563C File Offset: 0x0000383C
         public override bool TryMakePreToilReservations(bool errorOnFailed)
         {
-            var pawn = this.pawn;
-            var job = this.job;
-            LocalTargetInfo target = job.GetTarget(TargetIndex.A).Thing;
-            return pawn.Reserve(target, job);
+            var pawn1 = pawn;
+            var job1 = job;
+            LocalTargetInfo target = job1.GetTarget(TargetIndex.A).Thing;
+            return pawn1.Reserve(target, job1);
         }
 
         // Token: 0x06000051 RID: 81 RVA: 0x00005676 File Offset: 0x00003876
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            var pawn = GetActor();
+            var actor = GetActor();
             this.FailOnBurningImmobile(TargetIndex.A);
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.ClosestTouch)
                 .FailOnDespawnedNullOrForbidden(TargetIndex.A);
@@ -39,7 +39,7 @@ namespace MSExotic
                 JobCondition JC;
                 if (TargetA.Thing != null && TargetA.Thing.Spawned)
                 {
-                    MSExoticUtility.DoMSCondom(pawn, TargetA.Thing.def);
+                    MSExoticUtility.DoMSCondom(actor, TargetA.Thing.def);
                     var stack = TargetA.Thing.stackCount;
                     if (stack > 1)
                     {
@@ -59,35 +59,26 @@ namespace MSExotic
                 }
 
                 Thing thing;
-                if (pawn == null)
+                if (actor == null)
                 {
                     thing = null;
                 }
                 else
                 {
-                    var ownership = pawn.ownership;
+                    var ownership = actor.ownership;
                     thing = ownership?.OwnedBed;
                 }
 
                 var LovinBed = thing;
                 if (LovinBed != null)
                 {
-                    var partnerInMyBed = GetCondomPartnerInMyBed(pawn, LovinBed as Building_Bed);
+                    var partnerInMyBed = GetCondomPartnerInMyBed(actor, LovinBed as Building_Bed);
                     if (partnerInMyBed != null && partnerInMyBed.health.capacities.CanBeAwake)
                     {
                         var newLovin = new Job(JobDefOf.Lovin, partnerInMyBed, LovinBed);
-                        if (newLovin != null)
-                        {
-                            var pawn2 = pawn;
-                            if (pawn2 != null)
-                            {
-                                var jobs = pawn2.jobs;
-                                if (jobs != null)
-                                {
-                                    jobs.jobQueue.EnqueueFirst(newLovin);
-                                }
-                            }
-                        }
+                        var pawn2 = actor;
+                        var jobs = pawn2.jobs;
+                        jobs?.jobQueue.EnqueueFirst(newLovin);
                     }
                 }
 

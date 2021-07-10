@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using RimWorld;
+﻿using RimWorld;
 using Verse;
 
 namespace MSRegen
@@ -59,14 +58,8 @@ namespace MSRegen
                 if (parent != null)
                 {
                     var pawn = Pawn;
-                    if (pawn != null)
-                    {
-                        var health = pawn.health;
-                        if (health != null)
-                        {
-                            health.RemoveHediff(parent);
-                        }
-                    }
+                    var health = pawn?.health;
+                    health?.RemoveHediff(parent);
                 }
 
                 Messages.Message(
@@ -75,25 +68,27 @@ namespace MSRegen
                 return;
             }
 
-            _ = new List<string>();
-            List<string> Immunities;
-            if (MSRegenUtility.ImmuneTo(Pawn, Def, out Immunities))
+            if (!MSRegenUtility.ImmuneTo(Pawn, Def, out var Immunities))
             {
-                var ImmunitiesAsCure = 0;
-                for (var i = 0; i < Immunities.Count; i++)
-                {
-                    if (Immunities[i] != "MSCondom_High")
-                    {
-                        ImmunitiesAsCure++;
-                    }
-                }
+                return;
+            }
 
-                if (ImmunitiesAsCure > 0)
+            var ImmunitiesAsCure = 0;
+            foreach (var s in Immunities)
+            {
+                if (s != "MSCondom_High")
                 {
-                    SetTicksToCure();
-                    curing = true;
+                    ImmunitiesAsCure++;
                 }
             }
+
+            if (ImmunitiesAsCure <= 0)
+            {
+                return;
+            }
+
+            SetTicksToCure();
+            curing = true;
         }
 
         // Token: 0x0600002F RID: 47 RVA: 0x00004058 File Offset: 0x00002258

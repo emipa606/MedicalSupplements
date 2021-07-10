@@ -13,18 +13,18 @@ namespace MSDrugMix
             for (var i = 0; i < 4; i++)
             {
                 var c = loc + NewMethod(i);
-                if (c.InBounds(map))
+                if (!c.InBounds(map))
                 {
-                    var thingList = c.GetThingList(map);
-                    for (var j = 0; j < thingList.Count; j++)
+                    continue;
+                }
+
+                var thingList = c.GetThingList(map);
+                foreach (var thing in thingList)
+                {
+                    if (GenConstruct.BuiltDefOf(thing.def) is ThingDef {building: { }, defName: "MSDrugMixer"} &&
+                        IsCorrectSide(thing, c, rot))
                     {
-                        var thing = thingList[j];
-                        var thingDef = GenConstruct.BuiltDefOf(thing.def) as ThingDef;
-                        if (thingDef != null && thingDef.building != null && thingDef.defName == "MSDrugMixer" &&
-                            IsCorrectSide(thing, c, rot))
-                        {
-                            return true;
-                        }
+                        return true;
                     }
                 }
             }

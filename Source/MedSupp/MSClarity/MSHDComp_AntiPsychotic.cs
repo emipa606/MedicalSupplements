@@ -15,27 +15,32 @@ namespace MSClarity
         public override void CompPostTick(ref float severityAdjustment)
         {
             ticksToDisappear--;
-            if (ticksToDisappear > 0)
+            if (ticksToDisappear <= 0)
             {
-                var MShedSet = parent.pawn.health.hediffSet;
-                if (MShedSet != null)
-                {
-                    if ((Def.defName == "CatatonicBreakdown" || Def.defName == "PsychicShock") &&
-                        MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High")) != null)
-                    {
-                        ticksToDisappear--;
-                    }
+                return;
+            }
 
-                    if (Def.defName == "Unease" || Def.defName == "SuicidePreparation")
-                    {
-                        var flag = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High")) != null;
-                        var MSCheckRimzac = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimzac_High"));
-                        if (flag || MSCheckRimzac != null)
-                        {
-                            ticksToDisappear--;
-                        }
-                    }
-                }
+            var MShedSet = parent.pawn.health.hediffSet;
+            if (MShedSet == null)
+            {
+                return;
+            }
+
+            if ((Def.defName == "CatatonicBreakdown" || Def.defName == "PsychicShock") &&
+                MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High")) != null)
+            {
+                ticksToDisappear--;
+            }
+
+            if (Def.defName != "Unease" && Def.defName != "SuicidePreparation")
+            {
+                return;
+            }
+
+            var MSCheckRimzac = MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSRimzac_High"));
+            if (MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSClarity_High")) != null || MSCheckRimzac != null)
+            {
+                ticksToDisappear--;
             }
         }
 

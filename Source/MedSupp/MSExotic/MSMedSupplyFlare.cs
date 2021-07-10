@@ -32,25 +32,29 @@ namespace MSExotic
             }
 
             graphicRotation += graphicRotationSpeed;
+            if (this.DestroyedOrNull())
+            {
+                return;
+            }
+
+            var TargetMap = Map;
+            var TargetCell = Position;
+            if (Find.TickManager.TicksGame % 10 == 0)
+            {
+                FleckMaker.ThrowSmoke(this.TrueCenter() + new Vector3(0f, 0f, 0.1f), TargetMap, 1f);
+            }
+
+            if (Find.TickManager.TicksGame % 300 != 0)
+            {
+                return;
+            }
+
+            var DropSpot = GetDropSpot(TargetMap, TargetCell);
+            var supplies = GetSupplies(SupplyList());
+            DoMSMedSupplies(TargetMap, DropSpot, supplies);
             if (!this.DestroyedOrNull())
             {
-                var TargetMap = Map;
-                var TargetCell = Position;
-                if (Find.TickManager.TicksGame % 10 == 0)
-                {
-                    MoteMaker.ThrowSmoke(this.TrueCenter() + new Vector3(0f, 0f, 0.1f), TargetMap, 1f);
-                }
-
-                if (Find.TickManager.TicksGame % 300 == 0)
-                {
-                    var DropSpot = GetDropSpot(TargetMap, TargetCell);
-                    var supplies = GetSupplies(SupplyList());
-                    DoMSMedSupplies(TargetMap, DropSpot, supplies);
-                    if (!this.DestroyedOrNull())
-                    {
-                        Destroy();
-                    }
-                }
+                Destroy();
             }
         }
 
@@ -72,37 +76,37 @@ namespace MSExotic
         public List<ThingDef> SupplyList()
         {
             var list = new List<ThingDef>();
-            ThingDef def = null;
+            ThingDef medicineIndustrial = null;
             for (var count = 0; count < 7; count++)
             {
                 switch (count)
                 {
                     case 0:
-                        def = ThingDefOf.MedicineIndustrial;
+                        medicineIndustrial = ThingDefOf.MedicineIndustrial;
                         break;
                     case 1:
-                        def = DefDatabase<ThingDef>.GetNamed("MSASBandage", false);
+                        medicineIndustrial = DefDatabase<ThingDef>.GetNamed("MSASBandage", false);
                         break;
                     case 2:
-                        def = DefDatabase<ThingDef>.GetNamed("MSRimoxicillin", false);
+                        medicineIndustrial = DefDatabase<ThingDef>.GetNamed("MSRimoxicillin", false);
                         break;
                     case 3:
-                        def = DefDatabase<ThingDef>.GetNamed("MSRimCodamol", false);
+                        medicineIndustrial = DefDatabase<ThingDef>.GetNamed("MSRimCodamol", false);
                         break;
                     case 4:
-                        def = DefDatabase<ThingDef>.GetNamed("MSRimzac", false);
+                        medicineIndustrial = DefDatabase<ThingDef>.GetNamed("MSRimzac", false);
                         break;
                     case 5:
-                        def = DefDatabase<ThingDef>.GetNamed("MSRimedicrem", false);
+                        medicineIndustrial = DefDatabase<ThingDef>.GetNamed("MSRimedicrem", false);
                         break;
                     case 6:
-                        def = DefDatabase<ThingDef>.GetNamed("MSRimBurnEaze", false);
+                        medicineIndustrial = DefDatabase<ThingDef>.GetNamed("MSRimBurnEaze", false);
                         break;
                 }
 
-                if (def != null)
+                if (medicineIndustrial != null)
                 {
-                    list.Add(def);
+                    list.Add(medicineIndustrial);
                 }
             }
 
@@ -113,9 +117,9 @@ namespace MSExotic
         public List<Thing> GetSupplies(List<ThingDef> list)
         {
             var supplies = new List<Thing>();
-            foreach (var def in list)
+            foreach (var thingDef in list)
             {
-                var thing = MakeSupplies(def);
+                var thing = MakeSupplies(thingDef);
                 if (thing != null)
                 {
                     supplies.Add(thing);
@@ -126,14 +130,15 @@ namespace MSExotic
         }
 
         // Token: 0x0600006F RID: 111 RVA: 0x000062E8 File Offset: 0x000044E8
-        public Thing MakeSupplies(ThingDef def)
+        public Thing MakeSupplies(ThingDef thingDef)
         {
-            Thing supply = null;
-            if (def != null)
+            if (thingDef == null)
             {
-                supply = ThingMaker.MakeThing(def);
-                supply.stackCount = Math.Min(10, def.stackLimit);
+                return null;
             }
+
+            var supply = ThingMaker.MakeThing(thingDef);
+            supply.stackCount = Math.Min(10, thingDef.stackLimit);
 
             return supply;
         }

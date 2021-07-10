@@ -44,11 +44,13 @@ namespace MSRegen
         public override void CompPostTick(ref float severityAdjustment)
         {
             ticksToHeal--;
-            if (ticksToHeal <= 0)
+            if (ticksToHeal > 0)
             {
-                TryHealRandomOldWound();
-                ResetTicksToHeal();
+                return;
             }
+
+            TryHealRandomOldWound();
+            ResetTicksToHeal();
         }
 
         // Token: 0x06000036 RID: 54 RVA: 0x0000418C File Offset: 0x0000238C
@@ -69,11 +71,10 @@ namespace MSRegen
             }
 
             var hediffs = list;
-            if (hediffs.Count > 0)
+            if (hediffs != null && hediffs.Count > 0)
             {
-                for (var i = 0; i < hediffs.Count; i++)
+                foreach (var hediff in hediffs)
                 {
-                    var hediff = hediffs[i];
                     if (Def.defName == "MSRimBurnEazeHigh")
                     {
                         if (hediff.def == HediffDefOf.Burn)
@@ -95,42 +96,46 @@ namespace MSRegen
                 }
             }
 
-            if (candidates.Count > 0)
+            if (candidates.Count <= 0)
             {
-                candidates.TryRandomElement(out var hediffToHeal);
-                if (hediffToHeal != null)
+                return;
+            }
+
+            candidates.TryRandomElement(out var hediffToHeal);
+            if (hediffToHeal == null)
+            {
+                return;
+            }
+
+            if (hediffToHeal.IsTended())
+            {
+                healAmount = (int) (healAmount * 1.2f);
+                var healfactor = GetHealFactor(hediffToHeal);
+                if (healfactor > 0f)
                 {
-                    if (hediffToHeal.IsTended())
+                    healAmount = (int) (healAmount * healfactor);
+                    if (healAmount < 1)
                     {
-                        healAmount = (int) (healAmount * 1.2f);
-                        var healfactor = GetHealFactor(hediffToHeal);
-                        if (healfactor > 0f)
-                        {
-                            healAmount = (int) (healAmount * healfactor);
-                            if (healAmount < 1)
-                            {
-                                healAmount = 1;
-                            }
-                        }
+                        healAmount = 1;
                     }
-
-                    if (hediffToHeal.Severity - healAmount <= 0f && PawnUtility.ShouldSendNotificationAbout(Pawn) &&
-                        !MSIsFastRegen(Def.defName))
-                    {
-                        Messages.Message(
-                            "MSRegen.WoundHealed".Translate(parent.LabelCap, Pawn.LabelShort, hediffToHeal.Label,
-                                Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.PositiveEvent);
-                    }
-
-                    if (hediffToHeal.Severity - healAmount > 0f)
-                    {
-                        hediffToHeal.Severity -= healAmount;
-                        return;
-                    }
-
-                    hediffToHeal.Severity = 0f;
                 }
             }
+
+            if (hediffToHeal.Severity - healAmount <= 0f && PawnUtility.ShouldSendNotificationAbout(Pawn) &&
+                !MSIsFastRegen(Def.defName))
+            {
+                Messages.Message(
+                    "MSRegen.WoundHealed".Translate(parent.LabelCap, Pawn.LabelShort, hediffToHeal.Label,
+                        Pawn.Named("PAWN")), Pawn, MessageTypeDefOf.PositiveEvent);
+            }
+
+            if (hediffToHeal.Severity - healAmount > 0f)
+            {
+                hediffToHeal.Severity -= healAmount;
+                return;
+            }
+
+            hediffToHeal.Severity = 0f;
         }
 
         // Token: 0x06000037 RID: 55 RVA: 0x0000437C File Offset: 0x0000257C

@@ -12,19 +12,23 @@ namespace MSRegen
             Immunities = new List<string>();
             var immune = false;
             var hediffs = pawn.health.hediffSet.hediffs;
-            for (var i = 0; i < hediffs.Count; i++)
+            foreach (var hediff in hediffs)
             {
-                var curStage = hediffs[i].CurStage;
-                if (curStage != null && curStage.makeImmuneTo != null)
+                var curStage = hediff.CurStage;
+                if (curStage?.makeImmuneTo == null)
                 {
-                    for (var j = 0; j < curStage.makeImmuneTo.Count; j++)
+                    continue;
+                }
+
+                foreach (var hediffDef in curStage.makeImmuneTo)
+                {
+                    if (hediffDef != def)
                     {
-                        if (curStage.makeImmuneTo[j] == def)
-                        {
-                            Immunities.AddDistinct(hediffs[i].def.defName);
-                            immune = true;
-                        }
+                        continue;
                     }
+
+                    Immunities.AddDistinct(hediff.def.defName);
+                    immune = true;
                 }
             }
 

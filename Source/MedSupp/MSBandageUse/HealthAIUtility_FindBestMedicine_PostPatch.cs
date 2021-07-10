@@ -17,17 +17,19 @@ namespace MSBandageUse
         [HarmonyPriority(0)]
         public static void Postfix(Pawn healer, Pawn patient, ref Thing __result)
         {
-            if (Controller.Settings.RealisticBandages && __result != null && IsBandage(__result.def) &&
-                !BandagesValid(patient))
+            if (!Controller.Settings.RealisticBandages || __result == null || !IsBandage(__result.def) ||
+                BandagesValid(patient))
             {
-                var medPot = __result.def.GetStatValueAbstract(StatDefOf.MedicalPotency);
-                __result = GenClosest.ClosestThing_Global_Reachable(patient.Position, patient.Map,
-                    patient.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine), PathEndMode.ClosestTouch,
-                    TraverseParms.For(healer), 9999f,
-                    m => !m.IsForbidden(healer) && healer.CanReserve(m) && !IsBandage(m.def) &&
-                         m.def.GetStatValueAbstract(StatDefOf.MedicalPotency) <= medPot,
-                    m => m.def.GetStatValueAbstract(StatDefOf.MedicalPotency));
+                return;
             }
+
+            var medPot = __result.def.GetStatValueAbstract(StatDefOf.MedicalPotency);
+            __result = GenClosest.ClosestThing_Global_Reachable(patient.Position, patient.Map,
+                patient.Map.listerThings.ThingsInGroup(ThingRequestGroup.Medicine), PathEndMode.ClosestTouch,
+                TraverseParms.For(healer), 9999f,
+                m => !m.IsForbidden(healer) && healer.CanReserve(m) && !IsBandage(m.def) &&
+                     m.def.GetStatValueAbstract(StatDefOf.MedicalPotency) <= medPot,
+                m => m.def.GetStatValueAbstract(StatDefOf.MedicalPotency));
         }
 
         // Token: 0x060000BB RID: 187 RVA: 0x0000935C File Offset: 0x0000755C
@@ -45,29 +47,27 @@ namespace MSBandageUse
             }
 
             var hedset = hediffSet;
-            if (hedset != null)
+
+            var injuries = hedset?.GetHediffsTendable().ToList();
+            if (injuries == null || injuries.Count <= 0)
             {
-                var injuries = hedset.GetHediffsTendable().ToList();
-                if (injuries != null && injuries.Count > 0)
+                return false;
+            }
+
+            foreach (var injury in injuries)
+            {
+                if (!(injury is Hediff_Injury) && !Inclusions().Contains(injury.def.defName))
                 {
-                    foreach (var injury in injuries)
-                    {
-                        if (!(injury is Hediff_Injury) && !Inclusions().Contains(injury.def.defName))
-                        {
-                            return false;
-                        }
+                    return false;
+                }
 
-                        if (injury is Hediff_Injury && injury.Part.depth == BodyPartDepth.Inside)
-                        {
-                            return false;
-                        }
-                    }
-
-                    return true;
+                if (injury is Hediff_Injury && injury.Part.depth == BodyPartDepth.Inside)
+                {
+                    return false;
                 }
             }
 
-            return false;
+            return true;
         }
 
         // Token: 0x060000BC RID: 188 RVA: 0x00009420 File Offset: 0x00007620

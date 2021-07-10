@@ -22,20 +22,24 @@ namespace MSTend
         {
             var drugHDefs = MSFPImmDrug();
             var hediffs = pawn.health.hediffSet.hediffs;
-            for (var i = 0; i < hediffs.Count; i++)
+            foreach (var hediff in hediffs)
             {
-                if (drugHDefs.Contains(hediffs[i].def.defName))
+                if (!drugHDefs.Contains(hediff.def.defName))
                 {
-                    var curStage = hediffs[i].CurStage;
-                    if (curStage != null && curStage.makeImmuneTo != null)
+                    continue;
+                }
+
+                var curStage = hediff.CurStage;
+                if (curStage?.makeImmuneTo == null)
+                {
+                    continue;
+                }
+
+                foreach (var hediffDef in curStage.makeImmuneTo)
+                {
+                    if (hediffDef == FPdef)
                     {
-                        for (var j = 0; j < curStage.makeImmuneTo.Count; j++)
-                        {
-                            if (curStage.makeImmuneTo[j] == FPdef)
-                            {
-                                return true;
-                            }
-                        }
+                        return true;
                     }
                 }
             }

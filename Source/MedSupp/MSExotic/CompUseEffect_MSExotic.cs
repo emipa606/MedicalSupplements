@@ -95,17 +95,19 @@ namespace MSExotic
                 }
             }
 
-            if (parent.def == MSExoticDefOf.ThingDefOf.MSCondom)
+            if (parent.def != MSExoticDefOf.ThingDefOf.MSCondom)
             {
-                MSExoticUtility.ChkMSCondom(p, out var Reason6, out var Passed6);
-                if (!Passed6)
-                {
-                    failReason = Reason6;
-                    return false;
-                }
+                return true;
             }
 
-            return true;
+            MSExoticUtility.ChkMSCondom(p, out var Reason6, out var Passed6);
+            if (Passed6)
+            {
+                return true;
+            }
+
+            failReason = Reason6;
+            return false;
         }
     }
 }

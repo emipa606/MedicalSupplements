@@ -13,7 +13,7 @@ namespace MSExotic
             var Sickly = false;
             var MsgType = MessageTypeDefOf.PositiveEvent;
             var Immunity = DefDatabase<TraitDef>.GetNamed("Immunity");
-            if (p.story.traits.HasTrait(Immunity) && p != null)
+            if (p.story.traits.HasTrait(Immunity))
             {
                 var story = p.story;
                 int? num;
@@ -65,12 +65,12 @@ namespace MSExotic
             if (!p.RaceProps.Humanlike)
             {
                 Passed = false;
-                Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
+                Reason = "MSExotic.NotHumanLike".Translate(p.LabelShort.CapitalizeFirst());
                 return;
             }
 
             var Immunity = DefDatabase<TraitDef>.GetNamed("Immunity");
-            if (p.story.traits.HasTrait(Immunity) && p != null)
+            if (p.story.traits.HasTrait(Immunity))
             {
                 var story = p.story;
                 int? num;
@@ -89,7 +89,7 @@ namespace MSExotic
                 if ((num2.GetValueOrDefault() == num3) & (num2 != null))
                 {
                     Passed = false;
-                    Reason = "MSExotic.AlreadyHasImmunity".Translate(p?.LabelShort.CapitalizeFirst());
+                    Reason = "MSExotic.AlreadyHasImmunity".Translate(p.LabelShort.CapitalizeFirst());
                     return;
                 }
             }
@@ -129,23 +129,25 @@ namespace MSExotic
                 return;
             }
 
-            if (degree == 1)
+            if (degree != 1)
             {
-                var story2 = p.story;
-                Trait trait2;
-                if (story2 == null)
-                {
-                    trait2 = null;
-                }
-                else
-                {
-                    var traits2 = story2.traits;
-                    trait2 = traits2?.GetTrait(Psych);
-                }
-
-                var ToGo2 = trait2;
-                MSTraitChanger.RemoveTrait(p, ToGo2, t.label, MsgType);
+                return;
             }
+
+            var story2 = p.story;
+            Trait trait2;
+            if (story2 == null)
+            {
+                trait2 = null;
+            }
+            else
+            {
+                var traits2 = story2.traits;
+                trait2 = traits2?.GetTrait(Psych);
+            }
+
+            var ToGo2 = trait2;
+            MSTraitChanger.RemoveTrait(p, ToGo2, t.label, MsgType);
         }
 
         // Token: 0x06000059 RID: 89 RVA: 0x000059B0 File Offset: 0x00003BB0
@@ -155,35 +157,32 @@ namespace MSExotic
             if (!p.RaceProps.Humanlike)
             {
                 Passed = false;
-                Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
+                Reason = "MSExotic.NotHumanLike".Translate(p.LabelShort.CapitalizeFirst());
                 return;
             }
 
             var Psych = DefDatabase<TraitDef>.GetNamed("PsychicSensitivity");
             if (p.story.traits.HasTrait(Psych))
             {
-                if (p != null)
+                var story = p.story;
+                int? num;
+                if (story == null)
                 {
-                    var story = p.story;
-                    int? num;
-                    if (story == null)
-                    {
-                        num = null;
-                    }
-                    else
-                    {
-                        var traits = story.traits;
-                        num = traits != null ? new int?(traits.GetTrait(Psych).Degree) : null;
-                    }
+                    num = null;
+                }
+                else
+                {
+                    var traits = story.traits;
+                    num = traits != null ? new int?(traits.GetTrait(Psych).Degree) : null;
+                }
 
-                    var num2 = num;
-                    var num3 = 0;
-                    if ((num2.GetValueOrDefault() <= num3) & (num2 != null))
-                    {
-                        Passed = false;
-                        Reason = "MSExotic.HasNoPsychSensitivity".Translate(p?.LabelShort.CapitalizeFirst());
-                        return;
-                    }
+                var num2 = num;
+                var num3 = 0;
+                if ((num2.GetValueOrDefault() <= num3) & (num2 != null))
+                {
+                    Passed = false;
+                    Reason = "MSExotic.HasNoPsychSensitivity".Translate(p.LabelShort.CapitalizeFirst());
+                    return;
                 }
 
                 Passed = true;
@@ -191,7 +190,7 @@ namespace MSExotic
             }
 
             Passed = false;
-            Reason = "MSExotic.HasNoPsychSensitivity".Translate(p?.LabelShort.CapitalizeFirst());
+            Reason = "MSExotic.HasNoPsychSensitivity".Translate(p.LabelShort.CapitalizeFirst());
         }
 
         // Token: 0x0600005A RID: 90 RVA: 0x00005ACC File Offset: 0x00003CCC
@@ -209,14 +208,14 @@ namespace MSExotic
             if (!p.RaceProps.Humanlike)
             {
                 Passed = false;
-                Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
+                Reason = "MSExotic.NotHumanLike".Translate(p.LabelShort.CapitalizeFirst());
                 return;
             }
 
             if (MSHediffEffecter.HasHediff(p, DefDatabase<HediffDef>.GetNamed("MSBattleStim_High")))
             {
                 Passed = false;
-                Reason = "MSExoctic.AlreadyStimmed".Translate(p?.LabelShort.CapitalizeFirst());
+                Reason = "MSExoctic.AlreadyStimmed".Translate(p.LabelShort.CapitalizeFirst());
                 return;
             }
 
@@ -236,49 +235,60 @@ namespace MSExotic
             var candidates = new List<SkillDef>();
             if (skills.Count > 0)
             {
-                for (var i = 0; i < skills.Count; i++)
+                foreach (var skillDef in skills)
                 {
-                    if (p != null)
+                    if (p == null)
                     {
-                        var skills2 = p.skills;
-                        int? num;
-                        if (skills2 == null)
-                        {
-                            num = null;
-                        }
-                        else
-                        {
-                            var skill2 = skills2.GetSkill(skills[i]);
-                            num = skill2 != null ? new int?(skill2.Level) : null;
-                        }
+                        continue;
+                    }
 
-                        var num2 = num;
-                        var num3 = 20;
-                        if ((num2.GetValueOrDefault() < num3) & (num2 != null) && p != null)
-                        {
-                            var skills3 = p.skills;
-                            num2 = skills3 != null ? new int?(skills3.GetSkill(skills[i]).Level) : null;
-                            num3 = 0;
-                            if ((num2.GetValueOrDefault() > num3) & (num2 != null))
-                            {
-                                candidates.Add(skills[i]);
-                            }
-                        }
+                    var skills2 = p.skills;
+                    int? num;
+                    if (skills2 == null)
+                    {
+                        num = null;
+                    }
+                    else
+                    {
+                        var skill2 = skills2.GetSkill(skillDef);
+                        num = skill2 != null ? new int?(skill2.Level) : null;
+                    }
+
+                    var num2 = num;
+                    var num3 = 20;
+                    if (!((num2.GetValueOrDefault() < num3) & (num2 != null)))
+                    {
+                        continue;
+                    }
+
+                    var skills3 = p.skills;
+                    num2 = skills3 != null ? new int?(skills3.GetSkill(skillDef).Level) : null;
+                    num3 = 0;
+                    if ((num2.GetValueOrDefault() > num3) & (num2 != null))
+                    {
+                        candidates.Add(skillDef);
                     }
                 }
             }
 
-            if (candidates.Count > 0)
+            if (candidates.Count <= 0)
             {
-                var skill = candidates.RandomElement();
-                var before = p.skills.GetSkill(skill).Level;
-                var Rnd = Rand.Range(1f, 3f);
-                p.skills.Learn(skill, 32000f * Rnd, true);
-                var after = p.skills.GetSkill(skill).Level;
-                Messages.Message(
-                    "MSExotic.TSkillBoost".Translate(p.LabelShort, skill.label.CapitalizeFirst(), before.ToString(),
-                        after.ToString()), p, MessageTypeDefOf.PositiveEvent);
+                return;
             }
+
+            var skill = candidates.RandomElement();
+            if (p == null)
+            {
+                return;
+            }
+
+            var before = p.skills.GetSkill(skill).Level;
+            var Rnd = Rand.Range(1f, 3f);
+            p.skills.Learn(skill, 32000f * Rnd, true);
+            var after = p.skills.GetSkill(skill).Level;
+            Messages.Message(
+                "MSExotic.TSkillBoost".Translate(p.LabelShort, skill.label.CapitalizeFirst(), before.ToString(),
+                    after.ToString()), p, MessageTypeDefOf.PositiveEvent);
         }
 
         // Token: 0x0600005E RID: 94 RVA: 0x00005D44 File Offset: 0x00003F44
@@ -288,7 +298,7 @@ namespace MSExotic
             if (!p.RaceProps.Humanlike)
             {
                 Passed = false;
-                Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
+                Reason = "MSExotic.NotHumanLike".Translate(p.LabelShort.CapitalizeFirst());
                 return;
             }
 
@@ -338,7 +348,7 @@ namespace MSExotic
             if (!p.RaceProps.Humanlike)
             {
                 Passed = false;
-                Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
+                Reason = "MSExotic.NotHumanLike".Translate(p.LabelShort.CapitalizeFirst());
                 return;
             }
 
@@ -360,7 +370,7 @@ namespace MSExotic
             if (!p.RaceProps.Humanlike)
             {
                 Passed = false;
-                Reason = "MSExotic.NotHumanLike".Translate(p?.LabelShort.CapitalizeFirst());
+                Reason = "MSExotic.NotHumanLike".Translate(p.LabelShort.CapitalizeFirst());
                 return;
             }
 

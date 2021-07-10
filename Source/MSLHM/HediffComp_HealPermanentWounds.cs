@@ -67,12 +67,14 @@ namespace MSLHM
                 return;
             }
 
-            if (ticksToHeal <= 0)
+            if (ticksToHeal > 0)
             {
-                TryHealRandomPermanentWound();
-                AffectPawnsAge();
-                ResetTicksToHeal();
+                return;
             }
+
+            TryHealRandomPermanentWound();
+            AffectPawnsAge();
+            ResetTicksToHeal();
         }
 
         // Token: 0x06000007 RID: 7 RVA: 0x000021EC File Offset: 0x000003EC
@@ -81,42 +83,44 @@ namespace MSLHM
             var selectHediffsQuery = from hd in Pawn.health.hediffSet.hediffs
                 where hd.IsPermanent() || chronicConditions.Contains(hd.def.defName)
                 select hd;
-            if (selectHediffsQuery.Any())
+            if (!selectHediffsQuery.Any())
             {
-                selectHediffsQuery.TryRandomElement(out var hediff);
-                var Hlabel = "condition";
-                if (hediff != null)
+                return;
+            }
+
+            selectHediffsQuery.TryRandomElement(out var hediff);
+            var Hlabel = "condition";
+            if (hediff != null)
+            {
+                Hlabel = hediff.Label;
+                var meanHeal = 0.2f;
+                var rndHealPercent = meanHeal + (Rand.Gaussian() * meanHeal / 2f);
+                var bodyPartMaxHP = 1f;
+                if (hediff.Part != null)
                 {
-                    Hlabel = hediff.Label;
-                    var meanHeal = 0.2f;
-                    var rndHealPercent = meanHeal + (Rand.Gaussian() * meanHeal / 2f);
-                    var bodyPartMaxHP = 1f;
-                    if (hediff?.Part != null)
-                    {
-                        bodyPartMaxHP = hediff.Part.def.GetMaxHealth(hediff.pawn);
-                    }
-
-                    var healAmount = bodyPartMaxHP * rndHealPercent;
-                    if (healAmount < 0.1f)
-                    {
-                        healAmount = 0.1f;
-                    }
-
-                    if (hediff.Severity - healAmount < 0.1f)
-                    {
-                        Pawn.health.hediffSet.hediffs.Remove(hediff);
-                    }
-                    else
-                    {
-                        hediff.Severity -= healAmount;
-                    }
+                    bodyPartMaxHP = hediff.Part.def.GetMaxHealth(hediff.pawn);
                 }
 
-                if (PawnUtility.ShouldSendNotificationAbout(Pawn))
+                var healAmount = bodyPartMaxHP * rndHealPercent;
+                if (healAmount < 0.1f)
                 {
-                    Messages.Message(Pawn.Label + "'s " + Hlabel + " was healed by Metasis.", Pawn,
-                        MessageTypeDefOf.PositiveEvent);
+                    healAmount = 0.1f;
                 }
+
+                if (hediff.Severity - healAmount < 0.1f)
+                {
+                    Pawn.health.hediffSet.hediffs.Remove(hediff);
+                }
+                else
+                {
+                    hediff.Severity -= healAmount;
+                }
+            }
+
+            if (PawnUtility.ShouldSendNotificationAbout(Pawn))
+            {
+                Messages.Message(Pawn.Label + "'s " + Hlabel + " was healed by Metasis.", Pawn,
+                    MessageTypeDefOf.PositiveEvent);
             }
         }
 
@@ -129,34 +133,22 @@ namespace MSLHM
                 {
                     Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out var biologicalYears,
                         out var biologicalQuadrums, out var biologicalDays, out _);
-                    var ageBefore = "AgeBiological".Translate(new object[]
-                    {
-                        biologicalYears,
-                        biologicalQuadrums,
-                        biologicalDays
-                    });
+                    var ageBefore = "AgeBiological".Translate(biologicalYears, biologicalQuadrums, biologicalDays);
                     var diffFromOptimalAge = Pawn.ageTracker.AgeBiologicalTicks - 90000000L;
                     Pawn.ageTracker.AgeBiologicalTicks -= (long) (diffFromOptimalAge * 0.05f);
                     Pawn.ageTracker.AgeBiologicalTicks.TicksToPeriod(out biologicalYears, out biologicalQuadrums,
                         out biologicalDays, out _);
-                    var ageAfter = "AgeBiological".Translate(new object[]
+                    var ageAfter = "AgeBiological".Translate(biologicalYears, biologicalQuadrums, biologicalDays);
+                    if (!Pawn.IsColonist || !Settings.Get().showAgingMessages)
                     {
-                        biologicalYears,
-                        biologicalQuadrums,
-                        biologicalDays
-                    });
-                    if (Pawn.IsColonist && Settings.Get().showAgingMessages)
-                    {
-                        Messages.Message("MessageAgeReduced".Translate(new object[]
-                        {
-                            Pawn.Label,
-                            ageBefore,
-                            ageAfter
-                        }), MessageTypeDefOf.PositiveEvent);
-                        Messages.Message(
-                            "MessageAgeReduced".Translate(parent.LabelCap, Pawn.Label, ageBefore, ageAfter), Pawn,
-                            MessageTypeDefOf.PositiveEvent);
+                        return;
                     }
+
+                    Messages.Message("MessageAgeReduced".Translate(Pawn.Label, ageBefore, ageAfter),
+                        MessageTypeDefOf.PositiveEvent);
+                    Messages.Message(
+                        "MessageAgeReduced".Translate(parent.LabelCap, Pawn.Label, ageBefore, ageAfter), Pawn,
+                        MessageTypeDefOf.PositiveEvent);
                 }
                 else if (Pawn.ageTracker.AgeBiologicalYears < 25)
                 {

@@ -10,42 +10,44 @@ namespace MSExotic
             out bool immune)
         {
             immune = false;
-            if (!pawn.RaceProps.IsMechanoid && hediffdef != null)
+            if (pawn.RaceProps.IsMechanoid || hediffdef == null)
             {
-                if (!ImmuneTo(pawn, hediffdef))
+                return false;
+            }
+
+            if (!ImmuneTo(pawn, hediffdef))
+            {
+                if (pawn.health.WouldDieAfterAddingHediff(hediffdef, part, SeverityToApply))
                 {
-                    if (!pawn.health.WouldDieAfterAddingHediff(hediffdef, part, SeverityToApply))
-                    {
-                        var health = pawn.health;
-                        Hediff hediff;
-                        if (health == null)
-                        {
-                            hediff = null;
-                        }
-                        else
-                        {
-                            var hediffSet = health.hediffSet;
-                            hediff = hediffSet?.GetFirstHediffOfDef(hediffdef);
-                        }
+                    return false;
+                }
 
-                        var hashediff = hediff;
-                        if (hashediff != null)
-                        {
-                            hashediff.Severity += SeverityToApply;
-                            return true;
-                        }
-
-                        var addhediff = HediffMaker.MakeHediff(hediffdef, pawn, part);
-                        addhediff.Severity = SeverityToApply;
-                        pawn.health.AddHediff(addhediff, part);
-                        return true;
-                    }
+                var health = pawn.health;
+                Hediff hediff;
+                if (health == null)
+                {
+                    hediff = null;
                 }
                 else
                 {
-                    immune = true;
+                    var hediffSet = health.hediffSet;
+                    hediff = hediffSet?.GetFirstHediffOfDef(hediffdef);
                 }
+
+                var hashediff = hediff;
+                if (hashediff != null)
+                {
+                    hashediff.Severity += SeverityToApply;
+                    return true;
+                }
+
+                var addhediff = HediffMaker.MakeHediff(hediffdef, pawn, part);
+                addhediff.Severity = SeverityToApply;
+                pawn.health.AddHediff(addhediff, part);
+                return true;
             }
+
+            immune = true;
 
             return false;
         }
@@ -54,17 +56,19 @@ namespace MSExotic
         internal static bool ImmuneTo(Pawn pawn, HediffDef def)
         {
             var hediffs = pawn.health.hediffSet.hediffs;
-            for (var i = 0; i < hediffs.Count; i++)
+            foreach (var hediff in hediffs)
             {
-                var curStage = hediffs[i].CurStage;
-                if (curStage != null && curStage.makeImmuneTo != null)
+                var curStage = hediff.CurStage;
+                if (curStage?.makeImmuneTo == null)
                 {
-                    for (var j = 0; j < curStage.makeImmuneTo.Count; j++)
+                    continue;
+                }
+
+                foreach (var hediffDef in curStage.makeImmuneTo)
+                {
+                    if (hediffDef == def)
                     {
-                        if (curStage.makeImmuneTo[j] == def)
-                        {
-                            return true;
-                        }
+                        return true;
                     }
                 }
             }
@@ -77,7 +81,7 @@ namespace MSExotic
         {
             var health = pawn.health;
             var HS = health?.hediffSet;
-            return HS != null && HS.GetFirstHediffOfDef(def) != null;
+            return HS?.GetFirstHediffOfDef(def) != null;
         }
     }
 }

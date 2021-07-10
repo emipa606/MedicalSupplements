@@ -14,49 +14,57 @@ namespace MSAddict
         // Token: 0x060000C2 RID: 194 RVA: 0x00009518 File Offset: 0x00007718
         public override void CompPostTick(ref float severityAdjustment)
         {
-            if ((Find.TickManager.TicksGame + Pawn.HashOffset()) % 2500 == 0)
+            if ((Find.TickManager.TicksGame + Pawn.HashOffset()) % 2500 != 0)
             {
-                var Chemicals = DefDatabase<ChemicalDef>.AllDefsListForReading;
-                var pawn = Pawn;
-                HediffSet hediffSet;
-                if (pawn == null)
+                return;
+            }
+
+            var Chemicals = DefDatabase<ChemicalDef>.AllDefsListForReading;
+            var pawn = Pawn;
+            HediffSet hediffSet;
+            if (pawn == null)
+            {
+                hediffSet = null;
+            }
+            else
+            {
+                var health = pawn.health;
+                hediffSet = health?.hediffSet;
+            }
+
+            var set = hediffSet;
+            if (Chemicals == null || Chemicals.Count <= 0)
+            {
+                return;
+            }
+
+            foreach (var Chemical in Chemicals)
+            {
+                if (Chemical.defName == "MSMental")
                 {
-                    hediffSet = null;
-                }
-                else
-                {
-                    var health = pawn.health;
-                    hediffSet = health?.hediffSet;
+                    continue;
                 }
 
-                var set = hediffSet;
-                if (Chemicals != null && Chemicals.Count > 0)
+                var addiction = Chemical.addictionHediff;
+                if (addiction != null && set != null)
                 {
-                    foreach (var Chemical in Chemicals)
+                    var chkaddiction = set.GetFirstHediffOfDef(addiction);
+                    if (chkaddiction != null)
                     {
-                        if (!(Chemical.defName == "MSMental"))
-                        {
-                            var addiction = Chemical?.addictionHediff;
-                            if (addiction != null && set != null)
-                            {
-                                var chkaddiction = set.GetFirstHediffOfDef(addiction);
-                                if (chkaddiction != null)
-                                {
-                                    ReduceHediff(chkaddiction, MSProps.AddictionLossPerHour);
-                                }
-                            }
-
-                            var tolerance = Chemical?.toleranceHediff;
-                            if (tolerance != null && set != null)
-                            {
-                                var chktolerance = set.GetFirstHediffOfDef(tolerance);
-                                if (chktolerance != null)
-                                {
-                                    ReduceHediff(chktolerance, MSProps.ToleranceLossPerHour);
-                                }
-                            }
-                        }
+                        ReduceHediff(chkaddiction, MSProps.AddictionLossPerHour);
                     }
+                }
+
+                var tolerance = Chemical.toleranceHediff;
+                if (tolerance == null || set == null)
+                {
+                    continue;
+                }
+
+                var chktolerance = set.GetFirstHediffOfDef(tolerance);
+                if (chktolerance != null)
+                {
+                    ReduceHediff(chktolerance, MSProps.ToleranceLossPerHour);
                 }
             }
         }

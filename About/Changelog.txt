@@ -1,5 +1,8 @@
 # Changelog for MedicalSupplements
 
+1.0.15.0 - Mod updated for 1.3 and passed autotests
+
+
 1.0.14.0 - Now sorting the chemical mixers menu alphabetically
 
 

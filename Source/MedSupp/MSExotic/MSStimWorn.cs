@@ -18,21 +18,25 @@ namespace MSExotic
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
             var wearer = Wearer;
-            if (Wearer != null && wearer.IsColonistPlayerControlled)
+            if (Wearer == null || !wearer.IsColonistPlayerControlled)
             {
-                if (Find.Selector.SingleSelectedThing == Wearer)
-                {
-                    string text = "MSExotic.StimUses".Translate(def.label.CapitalizeFirst(), StimUses.ToString());
-                    string desc = "MSExotic.StimDesc".Translate(def.label.CapitalizeFirst());
-                    yield return new Command_Action
-                    {
-                        defaultLabel = text,
-                        defaultDesc = desc,
-                        icon = def.uiIcon,
-                        action = delegate { MSDoStimSelect(Wearer); }
-                    };
-                }
+                yield break;
             }
+
+            if (Find.Selector.SingleSelectedThing != Wearer)
+            {
+                yield break;
+            }
+
+            string text = "MSExotic.StimUses".Translate(def.label.CapitalizeFirst(), StimUses.ToString());
+            string desc = "MSExotic.StimDesc".Translate(def.label.CapitalizeFirst());
+            yield return new Command_Action
+            {
+                defaultLabel = text,
+                defaultDesc = desc,
+                icon = def.uiIcon,
+                action = delegate { MSDoStimSelect(Wearer); }
+            };
         }
 
         // Token: 0x06000075 RID: 117 RVA: 0x000065F8 File Offset: 0x000047F8
@@ -65,30 +69,32 @@ namespace MSExotic
         // Token: 0x06000079 RID: 121 RVA: 0x000066F4 File Offset: 0x000048F4
         public void MSUseStim(Pawn p, bool Using)
         {
-            if (Using && p != null)
+            if (!Using || p == null)
             {
-                if (def.defName == "MSBattleStimBelt")
-                {
-                    MSExoticUtility.ChkMSBattleStim(p, out var Reason, out var Passed);
-                    if (!Passed)
-                    {
-                        Messages.Message("MSExotic.ReasonPrefix".Translate() + Reason, p, MessageTypeDefOf.NeutralEvent,
-                            false);
-                        return;
-                    }
+                return;
+            }
 
-                    StimUses--;
-                    MSExoticUtility.DoMSBattleStim(p, def);
-                    if (StimUses < 1 && !this.DestroyedOrNull())
-                    {
-                        Destroy();
-                    }
-                }
-                else
+            if (def.defName == "MSBattleStimBelt")
+            {
+                MSExoticUtility.ChkMSBattleStim(p, out var Reason, out var Passed);
+                if (!Passed)
                 {
-                    Log.Message(string.Concat("ERR: Stim Worn item def not found for ", def.label.CapitalizeFirst(),
-                        " : (", def.defName, ")"));
+                    Messages.Message("MSExotic.ReasonPrefix".Translate() + Reason, p, MessageTypeDefOf.NeutralEvent,
+                        false);
+                    return;
                 }
+
+                StimUses--;
+                MSExoticUtility.DoMSBattleStim(p, def);
+                if (StimUses < 1 && !this.DestroyedOrNull())
+                {
+                    Destroy();
+                }
+            }
+            else
+            {
+                Log.Message(string.Concat("ERR: Stim Worn item def not found for ", def.label.CapitalizeFirst(),
+                    " : (", def.defName, ")"));
             }
         }
     }

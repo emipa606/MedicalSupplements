@@ -18,18 +18,22 @@ namespace MSOptions
         public static void Setup()
         {
             var allDefs = DefDatabase<ResearchProjectDef>.AllDefsListForReading;
-            if (allDefs.Count > 0)
+            if (allDefs.Count <= 0)
             {
-                var MSList = MSResearchList();
-                foreach (var ResDef in allDefs)
+                return;
+            }
+
+            var MSList = MSResearchList();
+            foreach (var ResDef in allDefs)
+            {
+                if (!MSList.Contains(ResDef.defName))
                 {
-                    if (MSList.Contains(ResDef.defName))
-                    {
-                        var Resbase = ResDef.baseCost;
-                        Resbase = checked((int) Math.Round(Resbase * (Controller.Settings.ResPct / 100f)));
-                        ResDef.baseCost = Resbase;
-                    }
+                    continue;
                 }
+
+                var Resbase = ResDef.baseCost;
+                Resbase = checked((int) Math.Round(Resbase * (Controller.Settings.ResPct / 100f)));
+                ResDef.baseCost = Resbase;
             }
         }
 

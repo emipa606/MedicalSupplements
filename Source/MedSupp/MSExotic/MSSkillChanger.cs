@@ -23,36 +23,44 @@ namespace MSExotic
             if (chkskills.Count > 0)
             {
                 var numCants = 0;
-                for (var i = 0; i < chkskills.Count; i++)
+                foreach (var skillDef in chkskills)
                 {
-                    if (p != null)
+                    if (p == null)
                     {
-                        var skills = p.skills;
-                        int? num;
-                        if (skills == null)
-                        {
-                            num = null;
-                        }
-                        else
-                        {
-                            var skill = skills.GetSkill(chkskills[i]);
-                            num = skill != null ? new int?(skill.Level) : null;
-                        }
+                        continue;
+                    }
 
-                        var num2 = num;
-                        var num3 = 20;
-                        if ((num2.GetValueOrDefault() >= num3) & (num2 != null))
-                        {
-                            numCants++;
-                        }
+                    var skills = p.skills;
+                    int? num;
+                    if (skills == null)
+                    {
+                        num = null;
+                    }
+                    else
+                    {
+                        var skill = skills.GetSkill(skillDef);
+                        num = skill != null ? new int?(skill.Level) : null;
+                    }
+
+                    var num2 = num;
+                    var num3 = 20;
+                    if ((num2.GetValueOrDefault() >= num3) & (num2 != null))
+                    {
+                        numCants++;
                     }
                 }
 
-                if (numCants == chkskills.Count)
+                if (numCants != chkskills.Count)
+                {
+                    return;
+                }
+
+                if (p != null)
                 {
                     reason = "MSExotic.WontLearnUsing".Translate(p.LabelShort, t.label.CapitalizeFirst());
-                    passed = false;
                 }
+
+                passed = false;
             }
             else
             {
@@ -65,62 +73,51 @@ namespace MSExotic
         public static List<SkillDef> GetSkillList(string selector)
         {
             var skills = new List<SkillDef>();
-            if (!(selector == "All"))
+            switch (selector)
             {
-                if (!(selector == "Receptive"))
-                {
-                    if (!(selector == "Inventive"))
-                    {
-                        if (!(selector == "Tactical"))
-                        {
-                            if (!(selector == "Practical"))
-                            {
-                                if (selector == "Analytical")
-                                {
-                                    skills.Add(SkillDefOf.Intellectual);
-                                    skills.Add(SkillDefOf.Medicine);
-                                }
-                            }
-                            else
-                            {
-                                skills.Add(SkillDefOf.Construction);
-                                skills.Add(SkillDefOf.Crafting);
-                                skills.Add(SkillDefOf.Mining);
-                            }
-                        }
-                        else
-                        {
-                            skills.Add(SkillDefOf.Shooting);
-                            skills.Add(SkillDefOf.Melee);
-                        }
-                    }
-                    else
-                    {
-                        skills.Add(SkillDefOf.Artistic);
-                        skills.Add(SkillDefOf.Cooking);
-                        skills.Add(SkillDefOf.Plants);
-                    }
-                }
-                else
-                {
+                case "All":
+                    skills.Add(SkillDefOf.Animals);
+                    skills.Add(SkillDefOf.Artistic);
+                    skills.Add(SkillDefOf.Construction);
+                    skills.Add(SkillDefOf.Cooking);
+                    skills.Add(SkillDefOf.Crafting);
+                    skills.Add(SkillDefOf.Intellectual);
+                    skills.Add(SkillDefOf.Medicine);
+                    skills.Add(SkillDefOf.Melee);
+                    skills.Add(SkillDefOf.Mining);
+                    skills.Add(SkillDefOf.Plants);
+                    skills.Add(SkillDefOf.Shooting);
+                    skills.Add(SkillDefOf.Social);
+                    break;
+                case "Receptive":
                     skills.Add(SkillDefOf.Animals);
                     skills.Add(SkillDefOf.Social);
+                    break;
+                case "Inventive":
+                    skills.Add(SkillDefOf.Artistic);
+                    skills.Add(SkillDefOf.Cooking);
+                    skills.Add(SkillDefOf.Plants);
+                    break;
+                case "Tactical":
+                    skills.Add(SkillDefOf.Shooting);
+                    skills.Add(SkillDefOf.Melee);
+                    break;
+                case "Practical":
+                    skills.Add(SkillDefOf.Construction);
+                    skills.Add(SkillDefOf.Crafting);
+                    skills.Add(SkillDefOf.Mining);
+                    break;
+                default:
+                {
+                    if (selector != "Analytical")
+                    {
+                        return skills;
+                    }
+
+                    skills.Add(SkillDefOf.Intellectual);
+                    skills.Add(SkillDefOf.Medicine);
+                    break;
                 }
-            }
-            else
-            {
-                skills.Add(SkillDefOf.Animals);
-                skills.Add(SkillDefOf.Artistic);
-                skills.Add(SkillDefOf.Construction);
-                skills.Add(SkillDefOf.Cooking);
-                skills.Add(SkillDefOf.Crafting);
-                skills.Add(SkillDefOf.Intellectual);
-                skills.Add(SkillDefOf.Medicine);
-                skills.Add(SkillDefOf.Melee);
-                skills.Add(SkillDefOf.Mining);
-                skills.Add(SkillDefOf.Plants);
-                skills.Add(SkillDefOf.Shooting);
-                skills.Add(SkillDefOf.Social);
             }
 
             return skills;

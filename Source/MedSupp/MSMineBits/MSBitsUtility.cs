@@ -154,17 +154,21 @@ namespace MSMineBits
         {
             bitsdef = null;
             bitsyield = 0;
-            if (GetBitsSource(defSource) || isSource)
+            if (!GetBitsSource(defSource) && !isSource)
             {
-                bitsdef = DefDatabase<ThingDef>.GetNamed(bitschance.RandomElementByWeight(x => x.Second).First, false);
-                if (bitsdef != null)
-                {
-                    bitsyield = GetBitsYield(defSource, bitsdef);
-                    if (bitsyield > 0)
-                    {
-                        return true;
-                    }
-                }
+                return false;
+            }
+
+            bitsdef = DefDatabase<ThingDef>.GetNamed(bitschance.RandomElementByWeight(x => x.Second).First, false);
+            if (bitsdef == null)
+            {
+                return false;
+            }
+
+            bitsyield = GetBitsYield(defSource, bitsdef);
+            if (bitsyield > 0)
+            {
+                return true;
             }
 
             return false;
@@ -176,12 +180,12 @@ namespace MSMineBits
             var yield = 0;
             if (defSource != null)
             {
-                if (defSource?.defName == "ChunkLepidolite")
+                if (defSource.defName == "ChunkLepidolite")
                 {
                     var defName = def.defName;
-                    if (!(defName == "MSLithiumSalts"))
+                    if (defName != "MSLithiumSalts")
                     {
-                        if (!(defName == "MSMercurySalts"))
+                        if (defName != "MSMercurySalts")
                         {
                             if (defName == "MSSulphur")
                             {
@@ -198,12 +202,12 @@ namespace MSMineBits
                         yield = Rand.Range(10, 15);
                     }
                 }
-                else if (defSource?.defName == "ChunkSerpentinite")
+                else if (defSource.defName == "ChunkSerpentinite")
                 {
                     var defName = def.defName;
-                    if (!(defName == "MSLithiumSalts"))
+                    if (defName != "MSLithiumSalts")
                     {
-                        if (!(defName == "MSMercurySalts"))
+                        if (defName != "MSMercurySalts")
                         {
                             if (defName == "MSSulphur")
                             {
@@ -220,12 +224,12 @@ namespace MSMineBits
                         yield = Rand.Range(1, 3);
                     }
                 }
-                else if (defSource?.defName == "ChunkDunite")
+                else if (defSource.defName == "ChunkDunite")
                 {
                     var defName = def.defName;
-                    if (!(defName == "MSLithiumSalts"))
+                    if (defName != "MSLithiumSalts")
                     {
-                        if (!(defName == "MSMercurySalts"))
+                        if (defName != "MSMercurySalts")
                         {
                             if (defName == "MSSulphur")
                             {
@@ -242,12 +246,12 @@ namespace MSMineBits
                         yield = Rand.Range(1, 2);
                     }
                 }
-                else if (defSource?.defName == "ChunkPegmatite")
+                else if (defSource.defName == "ChunkPegmatite")
                 {
                     var defName = def.defName;
-                    if (!(defName == "MSLithiumSalts"))
+                    if (defName != "MSLithiumSalts")
                     {
-                        if (!(defName == "MSMercurySalts"))
+                        if (defName != "MSMercurySalts")
                         {
                             if (defName == "MSSulphur")
                             {
@@ -264,17 +268,17 @@ namespace MSMineBits
                         yield = Rand.Range(5, 20);
                     }
                 }
-                else if (defSource?.defName == "ChunkMarble" || defSource?.defName == "ChunkLimestone" ||
-                         defSource?.defName == "ChunkEmperadordark" || defSource?.defName == "ChunkBlueschist" ||
-                         defSource?.defName == "ChunkGreenSchist" || defSource?.defName == "ChunkDacite" ||
-                         defSource?.defName == "ChunkSovite" || defSource?.defName == "ChunkChalk" ||
-                         defSource?.defName == "ChunkCreoleMarble" || defSource?.defName == "ChunkEtowahMarble" ||
-                         defSource?.defName == "ChunkDiorite")
+                else if (defSource.defName == "ChunkMarble" || defSource.defName == "ChunkLimestone" ||
+                         defSource.defName == "ChunkEmperadordark" || defSource.defName == "ChunkBlueschist" ||
+                         defSource.defName == "ChunkGreenSchist" || defSource.defName == "ChunkDacite" ||
+                         defSource.defName == "ChunkSovite" || defSource.defName == "ChunkChalk" ||
+                         defSource.defName == "ChunkCreoleMarble" || defSource.defName == "ChunkEtowahMarble" ||
+                         defSource.defName == "ChunkDiorite")
                 {
                     var defName = def.defName;
-                    if (!(defName == "MSLithiumSalts"))
+                    if (defName != "MSLithiumSalts")
                     {
-                        if (!(defName == "MSMercurySalts"))
+                        if (defName != "MSMercurySalts")
                         {
                             if (defName == "MSSulphur")
                             {
@@ -294,9 +298,9 @@ namespace MSMineBits
                 else
                 {
                     var defName = def.defName;
-                    if (!(defName == "MSLithiumSalts"))
+                    if (defName != "MSLithiumSalts")
                     {
-                        if (!(defName == "MSMercurySalts"))
+                        if (defName != "MSMercurySalts")
                         {
                             if (defName == "MSSulphur")
                             {
@@ -317,9 +321,9 @@ namespace MSMineBits
             else
             {
                 var defName = def.defName;
-                if (!(defName == "MSLithiumSalts"))
+                if (defName != "MSLithiumSalts")
                 {
-                    if (!(defName == "MSMercurySalts"))
+                    if (defName != "MSMercurySalts")
                     {
                         if (defName == "MSSulphur")
                         {
@@ -343,13 +347,15 @@ namespace MSMineBits
         internal static uint ComputeStringHash(string s)
         {
             uint num = 0;
-            if (s != null)
+            if (s == null)
             {
-                num = 2166136261U;
-                for (var i = 0; i < s.Length; i++)
-                {
-                    num = (s[i] ^ num) * 16777619U;
-                }
+                return num;
+            }
+
+            num = 2166136261U;
+            foreach (var c in s)
+            {
+                num = (c ^ num) * 16777619U;
             }
 
             return num;
@@ -359,335 +365,369 @@ namespace MSMineBits
         public static bool GetBitsSource(ThingDef def)
         {
             var isBitsSource = false;
-            if (def != null)
+            if (def == null)
             {
-                var defName = def.defName;
-                var num = ComputeStringHash(defName);
-                if (num <= 1154306412U)
+                return false;
+            }
+
+            var defName = def.defName;
+            var num = ComputeStringHash(defName);
+            if (num <= 1154306412U)
+            {
+                if (num <= 702995605U)
                 {
-                    if (num <= 702995605U)
+                    if (num <= 450668030U)
                     {
-                        if (num <= 450668030U)
+                        if (num <= 135430043U)
                         {
-                            if (num <= 135430043U)
+                            if (num != 130326325U)
                             {
-                                if (num != 130326325U)
+                                if (num != 135430043U)
                                 {
-                                    if (num == 135430043U)
-                                    {
-                                        if (defName == "ChunkBasalt")
-                                        {
-                                            isBitsSource = true;
-                                        }
-                                    }
+                                    return false;
                                 }
-                                else if (defName == "ChunkCreoleMarble")
+
+                                if (defName == "ChunkBasalt")
                                 {
                                     isBitsSource = true;
                                 }
                             }
-                            else if (num != 237089535U)
+                            else if (defName == "ChunkCreoleMarble")
                             {
-                                if (num != 334370396U)
+                                isBitsSource = true;
+                            }
+                        }
+                        else if (num != 237089535U)
+                        {
+                            if (num != 334370396U)
+                            {
+                                if (num != 450668030U)
                                 {
-                                    if (num == 450668030U)
-                                    {
-                                        if (defName == "ChunkAnorthosite")
-                                        {
-                                            isBitsSource = true;
-                                        }
-                                    }
+                                    return false;
                                 }
-                                else if (defName == "ChunkBlueschist")
+
+                                if (defName == "ChunkAnorthosite")
                                 {
                                     isBitsSource = true;
                                 }
                             }
-                            else if (defName == "ChunkGreenSchist")
+                            else if (defName == "ChunkBlueschist")
                             {
                                 isBitsSource = true;
                             }
                         }
-                        else if (num <= 468849279U)
-                        {
-                            if (num != 459180747U)
-                            {
-                                if (num == 468849279U)
-                                {
-                                    if (defName == "ChunkGneiss")
-                                    {
-                                        isBitsSource = true;
-                                    }
-                                }
-                            }
-                            else if (defName == "ChunkLepidolite")
-                            {
-                                isBitsSource = true;
-                            }
-                        }
-                        else if (num != 497423552U)
-                        {
-                            if (num != 547426595U)
-                            {
-                                if (num == 702995605U)
-                                {
-                                    if (defName == "ChunkDarkAndesite")
-                                    {
-                                        isBitsSource = true;
-                                    }
-                                }
-                            }
-                            else if (defName == "ChunkDunite")
-                            {
-                                isBitsSource = true;
-                            }
-                        }
-                        else if (defName == "ChunkDiorite")
+                        else if (defName == "ChunkGreenSchist")
                         {
                             isBitsSource = true;
                         }
                     }
-                    else if (num <= 990094961U)
+                    else if (num <= 468849279U)
                     {
-                        if (num <= 803651291U)
+                        if (num != 459180747U)
                         {
-                            if (num != 754271499U)
+                            if (num != 468849279U)
                             {
-                                if (num == 803651291U)
-                                {
-                                    if (defName == "ChunkQuartzite")
-                                    {
-                                        isBitsSource = true;
-                                    }
-                                }
+                                return false;
                             }
-                            else if (defName == "ChunkSiltstone")
+
+                            if (defName == "ChunkGneiss")
                             {
                                 isBitsSource = true;
                             }
                         }
-                        else if (num != 840754687U)
+                        else if (defName == "ChunkLepidolite")
                         {
-                            if (num != 930377356U)
+                            isBitsSource = true;
+                        }
+                    }
+                    else if (num != 497423552U)
+                    {
+                        if (num != 547426595U)
+                        {
+                            if (num != 702995605U)
                             {
-                                if (num == 990094961U)
-                                {
-                                    if (defName == "ChunkGabbro")
-                                    {
-                                        isBitsSource = true;
-                                    }
-                                }
+                                return false;
                             }
-                            else if (defName == "ChunkLignite")
+
+                            if (defName == "ChunkDarkAndesite")
                             {
                                 isBitsSource = true;
                             }
                         }
-                        else if (defName == "ChunkSlate")
+                        else if (defName == "ChunkDunite")
                         {
                             isBitsSource = true;
                         }
                     }
-                    else if (num <= 1113897122U)
-                    {
-                        if (num != 1103574401U)
-                        {
-                            if (num == 1113897122U)
-                            {
-                                if (defName == "ChunkDacite")
-                                {
-                                    isBitsSource = true;
-                                }
-                            }
-                        }
-                        else if (defName == "ChunkEtowahMarble")
-                        {
-                            isBitsSource = true;
-                        }
-                    }
-                    else if (num != 1117948611U)
-                    {
-                        if (num != 1138947383U)
-                        {
-                            if (num == 1154306412U)
-                            {
-                                if (defName == "ChunkSchist")
-                                {
-                                    isBitsSource = true;
-                                }
-                            }
-                        }
-                        else if (defName == "ChunkSyenite")
-                        {
-                            isBitsSource = true;
-                        }
-                    }
-                    else if (defName == "ChunkMarble")
+                    else if (defName == "ChunkDiorite")
                     {
                         isBitsSource = true;
                     }
                 }
-                else if (num <= 3134642644U)
+                else if (num <= 990094961U)
                 {
-                    if (num <= 2223887258U)
+                    if (num <= 803651291U)
                     {
-                        if (num <= 1807593693U)
+                        if (num != 754271499U)
                         {
-                            if (num != 1789891285U)
+                            if (num != 803651291U)
                             {
-                                if (num == 1807593693U)
-                                {
-                                    if (defName == "ChunkChalk")
-                                    {
-                                        isBitsSource = true;
-                                    }
-                                }
+                                return false;
                             }
-                            else if (defName == "ChunkMonzonite")
+
+                            if (defName == "ChunkQuartzite")
                             {
                                 isBitsSource = true;
                             }
                         }
-                        else if (num != 2078373069U)
+                        else if (defName == "ChunkSiltstone")
                         {
-                            if (num != 2104149328U)
+                            isBitsSource = true;
+                        }
+                    }
+                    else if (num != 840754687U)
+                    {
+                        if (num != 930377356U)
+                        {
+                            if (num != 990094961U)
                             {
-                                if (num == 2223887258U)
-                                {
-                                    if (defName == "ChunkSovite")
-                                    {
-                                        isBitsSource = true;
-                                    }
-                                }
+                                return false;
                             }
-                            else if (defName == "ChunkRhyolite")
+
+                            if (defName == "ChunkGabbro")
                             {
                                 isBitsSource = true;
                             }
                         }
-                        else if (defName == "ChunkVibrantDunite")
+                        else if (defName == "ChunkLignite")
                         {
                             isBitsSource = true;
                         }
                     }
-                    else if (num <= 2723944204U)
-                    {
-                        if (num != 2277173191U)
-                        {
-                            if (num == 2723944204U)
-                            {
-                                if (defName == "ChunkClayStone")
-                                {
-                                    isBitsSource = true;
-                                }
-                            }
-                        }
-                        else if (defName == "ChunkScoria")
-                        {
-                            isBitsSource = true;
-                        }
-                    }
-                    else if (num != 2981327554U)
-                    {
-                        if (num != 3027871598U)
-                        {
-                            if (num == 3134642644U)
-                            {
-                                if (defName == "ChunkGranite")
-                                {
-                                    isBitsSource = true;
-                                }
-                            }
-                        }
-                        else if (defName == "ChunkGreenGabbro")
-                        {
-                            isBitsSource = true;
-                        }
-                    }
-                    else if (defName == "ChunkSerpentinite")
+                    else if (defName == "ChunkSlate")
                     {
                         isBitsSource = true;
                     }
                 }
-                else if (num <= 3386876289U)
+                else if (num <= 1113897122U)
                 {
-                    if (num <= 3317400192U)
+                    if (num != 1103574401U)
                     {
-                        if (num != 3242717934U)
+                        if (num != 1113897122U)
                         {
-                            if (num == 3317400192U)
-                            {
-                                if (defName == "ChunkPegmatite")
-                                {
-                                    isBitsSource = true;
-                                }
-                            }
+                            return false;
                         }
-                        else if (defName == "ChunkLherzolite")
+
+                        if (defName == "ChunkDacite")
                         {
                             isBitsSource = true;
                         }
                     }
-                    else if (num != 3349364057U)
+                    else if (defName == "ChunkEtowahMarble")
                     {
-                        if (num != 3354811171U)
+                        isBitsSource = true;
+                    }
+                }
+                else if (num != 1117948611U)
+                {
+                    if (num != 1138947383U)
+                    {
+                        if (num != 1154306412U)
                         {
-                            if (num == 3386876289U)
-                            {
-                                if (defName == "ChunkSandstone")
-                                {
-                                    isBitsSource = true;
-                                }
-                            }
+                            return false;
                         }
-                        else if (defName == "ChunkMigmatite")
+
+                        if (defName == "ChunkSchist")
                         {
                             isBitsSource = true;
                         }
                     }
-                    else if (defName == "ChunkCharnockite")
+                    else if (defName == "ChunkSyenite")
                     {
                         isBitsSource = true;
                     }
                 }
-                else if (num <= 3660010543U)
-                {
-                    if (num != 3604908289U)
-                    {
-                        if (num == 3660010543U)
-                        {
-                            if (defName == "ChunkEmperadordark")
-                            {
-                                isBitsSource = true;
-                            }
-                        }
-                    }
-                    else if (defName == "ChunkJaspillite")
-                    {
-                        isBitsSource = true;
-                    }
-                }
-                else if (num != 3782560473U)
-                {
-                    if (num != 4006516401U)
-                    {
-                        if (num == 4282638488U)
-                        {
-                            if (defName == "ChunkLimestone")
-                            {
-                                isBitsSource = true;
-                            }
-                        }
-                    }
-                    else if (defName == "ChunkAndesite")
-                    {
-                        isBitsSource = true;
-                    }
-                }
-                else if (defName == "ChunkThometzekite")
+                else if (defName == "ChunkMarble")
                 {
                     isBitsSource = true;
                 }
+            }
+            else if (num <= 3134642644U)
+            {
+                if (num <= 2223887258U)
+                {
+                    if (num <= 1807593693U)
+                    {
+                        if (num != 1789891285U)
+                        {
+                            if (num != 1807593693U)
+                            {
+                                return false;
+                            }
+
+                            if (defName == "ChunkChalk")
+                            {
+                                isBitsSource = true;
+                            }
+                        }
+                        else if (defName == "ChunkMonzonite")
+                        {
+                            isBitsSource = true;
+                        }
+                    }
+                    else if (num != 2078373069U)
+                    {
+                        if (num != 2104149328U)
+                        {
+                            if (num != 2223887258U)
+                            {
+                                return false;
+                            }
+
+                            if (defName == "ChunkSovite")
+                            {
+                                isBitsSource = true;
+                            }
+                        }
+                        else if (defName == "ChunkRhyolite")
+                        {
+                            isBitsSource = true;
+                        }
+                    }
+                    else if (defName == "ChunkVibrantDunite")
+                    {
+                        isBitsSource = true;
+                    }
+                }
+                else if (num <= 2723944204U)
+                {
+                    if (num != 2277173191U)
+                    {
+                        if (num != 2723944204U)
+                        {
+                            return false;
+                        }
+
+                        if (defName == "ChunkClayStone")
+                        {
+                            isBitsSource = true;
+                        }
+                    }
+                    else if (defName == "ChunkScoria")
+                    {
+                        isBitsSource = true;
+                    }
+                }
+                else if (num != 2981327554U)
+                {
+                    if (num != 3027871598U)
+                    {
+                        if (num != 3134642644U)
+                        {
+                            return false;
+                        }
+
+                        if (defName == "ChunkGranite")
+                        {
+                            isBitsSource = true;
+                        }
+                    }
+                    else if (defName == "ChunkGreenGabbro")
+                    {
+                        isBitsSource = true;
+                    }
+                }
+                else if (defName == "ChunkSerpentinite")
+                {
+                    isBitsSource = true;
+                }
+            }
+            else if (num <= 3386876289U)
+            {
+                if (num <= 3317400192U)
+                {
+                    if (num != 3242717934U)
+                    {
+                        if (num != 3317400192U)
+                        {
+                            return false;
+                        }
+
+                        if (defName == "ChunkPegmatite")
+                        {
+                            isBitsSource = true;
+                        }
+                    }
+                    else if (defName == "ChunkLherzolite")
+                    {
+                        isBitsSource = true;
+                    }
+                }
+                else if (num != 3349364057U)
+                {
+                    if (num != 3354811171U)
+                    {
+                        if (num != 3386876289U)
+                        {
+                            return false;
+                        }
+
+                        if (defName == "ChunkSandstone")
+                        {
+                            isBitsSource = true;
+                        }
+                    }
+                    else if (defName == "ChunkMigmatite")
+                    {
+                        isBitsSource = true;
+                    }
+                }
+                else if (defName == "ChunkCharnockite")
+                {
+                    isBitsSource = true;
+                }
+            }
+            else if (num <= 3660010543U)
+            {
+                if (num != 3604908289U)
+                {
+                    if (num != 3660010543U)
+                    {
+                        return false;
+                    }
+
+                    if (defName == "ChunkEmperadordark")
+                    {
+                        isBitsSource = true;
+                    }
+                }
+                else if (defName == "ChunkJaspillite")
+                {
+                    isBitsSource = true;
+                }
+            }
+            else if (num != 3782560473U)
+            {
+                if (num != 4006516401U)
+                {
+                    if (num != 4282638488U)
+                    {
+                        return false;
+                    }
+
+                    if (defName == "ChunkLimestone")
+                    {
+                        isBitsSource = true;
+                    }
+                }
+                else if (defName == "ChunkAndesite")
+                {
+                    isBitsSource = true;
+                }
+            }
+            else if (defName == "ChunkThometzekite")
+            {
+                isBitsSource = true;
             }
 
             return isBitsSource;
