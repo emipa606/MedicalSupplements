@@ -1,6 +1,6 @@
 # MedicalSupplements
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2004944243
@@ -8,19 +8,10 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2004944243
 - Updated the research-tree to be more readable
 - Updated the German translation, via Erdnussbrot
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-    [tr]
-        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-        [td]https://github.com/emipa606/MedicalSupplements]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-    [/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 --- Original Description ---
@@ -31,7 +22,7 @@ Adds pharmaceuticals and new food items.
 
 Drug Chemical Mixer
 
-Autonomously produce precursor chemicals. The mixer has &quot;input&quot; and &quot;output&quot; hoppers to control resources and product. There is a selector for the chemical to produce, control production and set stock limits.
+Autonomously produce precursor chemicals. The mixer has "input" and "output" hoppers to control resources and product. There is a selector for the chemical to produce, control production and set stock limits.
 
 Drug Cabinet
 
@@ -45,7 +36,7 @@ Requires Medicine Production and Sterile materials research. Can link to beds to
 
 Medical Mats
 
-Bedrolls used in the field or as caravan itinerary. Four tech versions (Medieval, Industrial, Spacer and Ultra) which can be researched after hospital beds (except for Medieval which is after Carpet Making). Note the items are best made in advance at a tailoring bench/crafting spot. Upon deconstruction it will return the base item used and using a crafting spot you can repack any uninstalled buildings to be rolled back up. Suggest using the mod &quot;Pick up and haul&quot;.
+Bedrolls used in the field or as caravan itinerary. Four tech versions (Medieval, Industrial, Spacer and Ultra) which can be researched after hospital beds (except for Medieval which is after Carpet Making). Note the items are best made in advance at a tailoring bench/crafting spot. Upon deconstruction it will return the base item used and using a crafting spot you can repack any uninstalled buildings to be rolled back up. Suggest using the mod "Pick up and haul".
 
 Precursor Chemicals
 
@@ -116,28 +107,28 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2195065488
 Compatibility Notes
 *** Subject to Conversion ***
 
-Apothecary - Integrated elements.
-Children, School and Learning - MSCondom will reduce fertility. (Act as birth control).
-Common Ailments - Specifically adds a condom for minor STIs.
-Cupros Stones - will generate relevant mining bits.
-Diseases Overhauled - Adds additional MS Drug use for conditions. (See pdf above).
-Electric Stone Cutting Table - Salts can be made.
-Fermenter - use of pasteurised milk.
-Fertile Fields 1.1 - Rock mill, provides Sulphur and Mercury Salts.
-KV Rimfridge - Adds a refrigerated drug cabinet.
-Kuratheris&apos;s Extra Stone - Adds mining &quot;bits&quot; support for stone.
-LWM Deep storage - Drug cabinet uses storage capabilities.
-Multiplayer - native support added (beta).
-RimCuisine (V1.2) - Will use fruits and fungi in recipes.
-RimCuisine 2 - Will use fruits and fungi in recipes.
-RimPlas - Production of Luci.
-[sd] Medical Addons - Medical Mats use &quot;linkable&quot; facilities.
-Seeds Please - Patches the plants used in the mod to be able to have seeds.
-VCE/VPE - Fruits used in applicable recipes
-VGP Vegetable Garden - Will use fruits and fungi in recipes. (Best putting VGP before this mod in the mod order).
-VGP Garden Medicine - Bulk penoxy recipe is not loaded to avoid duplication.
-VFE - Medical Module - Medical Mats make use of &quot;linkable&quot; facilities.
-VFE - Production - additional compatibility with drug cabinet.
+Apothecary
+Children, School and Learning
+Common Ailments
+Cupros Stones
+Diseases Overhauled
+Electric Stone Cutting Table
+Fermenter
+Fertile Fields
+KV Rimfridge
+Kuratheris's Extra Stone
+LWM Deep storage
+Multiplayer
+RimCuisine 1
+RimCuisine 2
+RimPlas
+[sd] Medical Addons
+Seeds Please
+VCE/VPE
+VGP Vegetable Garden
+VGP Garden Medicine
+VFE - Medical Module
+VFE - Production
 
 Recommended
 
@@ -150,19 +141,17 @@ Several research projects (in a number of tabs). Recommend mods that make the ma
 
 Credits
 
-&quot;OskarPotocki&quot;: Most graphics.
-&quot;jabbaMonkey&quot;: Modified version of cannister graphic (with permission) for hydrogen peroxide.
+"OskarPotocki": Most graphics.
+"jabbaMonkey": Modified version of cannister graphic (with permission) for hydrogen peroxide.
 
-&quot;who_stole_my_name/svc_bot&quot; for allowing the use of the &quot;Luci Heals More&quot; (LHM) C# process. I have included an assembly (MS version) but the associated mod can be found here: https://steamcommunity.com/sharedfiles/filedetails/?id=965087548
+"who_stole_my_name/svc_bot" for allowing the use of the "Luci Heals More" (LHM) C# process. I have included an assembly (MS version) but the associated mod can be found here: https://steamcommunity.com/sharedfiles/filedetails/?id=965087548
 
-&quot;Broken Valkyrie&quot; - original author of the disinfectant stand.
-&quot;Maxwell.J&quot; - Chinese (Simplified) Translation.
+"Broken Valkyrie" - original author of the disinfectant stand.
+"Maxwell.J" - Chinese (Simplified) Translation.
 Erdnussbrot - German translation.
 
 (CC BY-NC-SA 4.0)
-  	
-
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
@@ -172,6 +161,5 @@ Erdnussbrot - German translation.
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
-
 
 
