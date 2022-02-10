@@ -7,6 +7,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2004944243
 
 - Updated the research-tree to be more readable
 - Updated the German translation, via Erdnussbrot
+- Added override for Hot Meals-mod sorting, thanks Lurmey
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 
