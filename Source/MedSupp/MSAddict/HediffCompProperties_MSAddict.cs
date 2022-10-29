@@ -1,20 +1,15 @@
-﻿using Verse;
+using Verse;
 
-namespace MSAddict
+namespace MSAddict;
+
+public class HediffCompProperties_MSAddict : HediffCompProperties
 {
-    // Token: 0x02000027 RID: 39
-    public class HediffCompProperties_MSAddict : HediffCompProperties
+    public float AddictionLossPerHour;
+
+    public float ToleranceLossPerHour;
+
+    public HediffCompProperties_MSAddict()
     {
-        // Token: 0x04000067 RID: 103
-        public float AddictionLossPerHour;
-
-        // Token: 0x04000068 RID: 104
-        public float ToleranceLossPerHour;
-
-        // Token: 0x060000C0 RID: 192 RVA: 0x000094F2 File Offset: 0x000076F2
-        public HediffCompProperties_MSAddict()
-        {
-            compClass = typeof(HediffComp_MSAddict);
-        }
+        compClass = typeof(HediffComp_MSAddict);
     }
 }

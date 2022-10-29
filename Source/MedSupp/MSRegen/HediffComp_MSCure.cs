@@ -1,112 +1,97 @@
-﻿using RimWorld;
+using RimWorld;
 using Verse;
 
-namespace MSRegen
+namespace MSRegen;
+
+public class HediffComp_MSCure : HediffComp
 {
-    // Token: 0x0200000C RID: 12
-    public class HediffComp_MSCure : HediffComp
+    private bool curing;
+
+    private int ticksToCure;
+
+    public HediffCompProperties_MSCure MSProps => (HediffCompProperties_MSCure)props;
+
+    public void SetTicksToCure()
     {
-        // Token: 0x04000021 RID: 33
-        private bool curing;
-
-        // Token: 0x04000020 RID: 32
-        private int ticksToCure;
-
-        // Token: 0x1700000E RID: 14
-        // (get) Token: 0x0600002C RID: 44 RVA: 0x00003E9C File Offset: 0x0000209C
-        public HediffCompProperties_MSCure MSProps => (HediffCompProperties_MSCure) props;
-
-        // Token: 0x0600002D RID: 45 RVA: 0x00003EAC File Offset: 0x000020AC
-        public void SetTicksToCure()
+        var period = 2500;
+        int basehours;
+        if (MSProps.CureHoursMin > 0f && MSProps.CureHoursMax > 0f && MSProps.CureHoursMax >= MSProps.CureHoursMin)
         {
-            var period = 2500;
-            int basehours;
-            if (MSProps.CureHoursMin > 0f && MSProps.CureHoursMax > 0f && MSProps.CureHoursMax >= MSProps.CureHoursMin)
-            {
-                basehours = (int) (Rand.Range(MSProps.CureHoursMin, MSProps.CureHoursMax) * period);
-            }
-            else
-            {
-                basehours = Rand.Range(2, 5) * period;
-            }
-
-            if (basehours < period)
-            {
-                basehours = period;
-            }
-
-            if (basehours > 36 * period)
-            {
-                basehours = 36 * period;
-            }
-
-            ticksToCure = basehours;
+            basehours = (int)(Rand.Range(MSProps.CureHoursMin, MSProps.CureHoursMax) * period);
+        }
+        else
+        {
+            basehours = Rand.Range(2, 5) * period;
         }
 
-        // Token: 0x0600002E RID: 46 RVA: 0x00003F40 File Offset: 0x00002140
-        public override void CompPostTick(ref float severityAdjustment)
+        if (basehours < period)
         {
-            if (curing && ticksToCure > 0)
-            {
-                ticksToCure--;
-                return;
-            }
-
-            if (curing)
-            {
-                parent.Severity = 0f;
-                if (parent != null)
-                {
-                    var pawn = Pawn;
-                    var health = pawn?.health;
-                    health?.RemoveHediff(parent);
-                }
-
-                Messages.Message(
-                    "MSRegen.CureMsg".Translate(Pawn.LabelShort.CapitalizeFirst(), Def.label.CapitalizeFirst()), Pawn,
-                    MessageTypeDefOf.PositiveEvent);
-                return;
-            }
-
-            if (!MSRegenUtility.ImmuneTo(Pawn, Def, out var Immunities))
-            {
-                return;
-            }
-
-            var ImmunitiesAsCure = 0;
-            foreach (var s in Immunities)
-            {
-                if (s != "MSCondom_High")
-                {
-                    ImmunitiesAsCure++;
-                }
-            }
-
-            if (ImmunitiesAsCure <= 0)
-            {
-                return;
-            }
-
-            SetTicksToCure();
-            curing = true;
+            basehours = period;
         }
 
-        // Token: 0x0600002F RID: 47 RVA: 0x00004058 File Offset: 0x00002258
-        public override void CompExposeData()
+        if (basehours > 36 * period)
         {
-            Scribe_Values.Look(ref ticksToCure, "ticksToCure");
-            Scribe_Values.Look(ref curing, "curing");
+            basehours = 36 * period;
         }
 
-        // Token: 0x06000030 RID: 48 RVA: 0x0000407E File Offset: 0x0000227E
-        public override string CompDebugString()
+        ticksToCure = basehours;
+    }
+
+    public override void CompPostTick(ref float severityAdjustment)
+    {
+        if (curing && ticksToCure > 0)
         {
-            if (curing)
+            ticksToCure--;
+            return;
+        }
+
+        if (curing)
+        {
+            parent.Severity = 0f;
+            if (parent != null)
             {
-                return "ticksToCure: " + ticksToCure;
+                var pawn = Pawn;
+                var health = pawn?.health;
+                health?.RemoveHediff(parent);
             }
 
-            return "No active cure.";
+            Messages.Message(
+                "MSRegen.CureMsg".Translate(Pawn.LabelShort.CapitalizeFirst(), Def.label.CapitalizeFirst()), Pawn,
+                MessageTypeDefOf.PositiveEvent);
+            return;
         }
+
+        if (!MSRegenUtility.ImmuneTo(Pawn, Def, out var Immunities))
+        {
+            return;
+        }
+
+        var ImmunitiesAsCure = 0;
+        foreach (var s in Immunities)
+        {
+            if (s != "MSCondom_High")
+            {
+                ImmunitiesAsCure++;
+            }
+        }
+
+        if (ImmunitiesAsCure <= 0)
+        {
+            return;
+        }
+
+        SetTicksToCure();
+        curing = true;
+    }
+
+    public override void CompExposeData()
+    {
+        Scribe_Values.Look(ref ticksToCure, "ticksToCure");
+        Scribe_Values.Look(ref curing, "curing");
+    }
+
+    public override string CompDebugString()
+    {
+        return curing ? $"ticksToCure: {ticksToCure}" : "No active cure.";
     }
 }

@@ -8,6 +8,8 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2004944243
 - Updated the research-tree to be more readable
 - Updated the German translation, via Erdnussbrot
 - Added override for Hot Meals-mod sorting, thanks Lurmey
+- For a nicer look, take a look at https://steamcommunity.com/sharedfiles/filedetails/?id=2777300427]Medical Supplements Retexture by Tec
+- For detailed description, download the https://github.com/emipa606/MedicalSupplements/raw/main/Source/MSDrugReference.pdf]PDF
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 
@@ -162,5 +164,6 @@ Erdnussbrot - German translation.
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 

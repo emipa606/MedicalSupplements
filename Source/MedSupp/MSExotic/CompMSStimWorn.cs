@@ -1,12 +1,8 @@
-﻿using Verse;
+using Verse;
 
-namespace MSExotic
+namespace MSExotic;
+
+public class CompMSStimWorn : ThingComp
 {
-    // Token: 0x02000013 RID: 19
-    public class CompMSStimWorn : ThingComp
-    {
-        // Token: 0x17000010 RID: 16
-        // (get) Token: 0x0600004A RID: 74 RVA: 0x0000541C File Offset: 0x0000361C
-        public CompProperties_MSStimWorn Props => (CompProperties_MSStimWorn) props;
-    }
+    public CompProperties_MSStimWorn Props => (CompProperties_MSStimWorn)props;
 }

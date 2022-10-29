@@ -1,106 +1,103 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using MSOptions;
 using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace MSMineBits
+namespace MSMineBits;
+
+[HarmonyPatch(typeof(Mineable), "TrySpawnYield")]
+public class TrySpawnYield_PostPatch
 {
-    // Token: 0x02000011 RID: 17
-    [HarmonyPatch(typeof(Mineable), "TrySpawnYield")]
-    public class TrySpawnYield_PostPatch
+    [HarmonyPostfix]
+    public static void PostFix(ref Mineable __instance, Map map, float yieldChance, bool moteOnWaste, Pawn pawn)
     {
-        // Token: 0x06000046 RID: 70 RVA: 0x000051D0 File Offset: 0x000033D0
-        [HarmonyPostfix]
-        public static void PostFix(ref Mineable __instance, Map map, float yieldChance, bool moteOnWaste, Pawn pawn)
+        if (pawn == null)
         {
-            if (pawn == null)
-            {
-                return;
-            }
+            return;
+        }
 
-            var isSource = false;
-            if (__instance.def.defName == "CollapsedRocks" || __instance.def.defName == "rxCollapsedRoofRocks")
-            {
-                isSource = Controller.Settings.AllowCollapseRocks;
-            }
+        var isSource = false;
+        if (__instance.def.defName is "CollapsedRocks" or "rxCollapsedRoofRocks")
+        {
+            isSource = Controller.Settings.AllowCollapseRocks;
+        }
 
-            var mineable = __instance;
-            object obj;
-            if (mineable == null)
+        var mineable = __instance;
+        object obj;
+        if (mineable == null)
+        {
+            obj = null;
+        }
+        else
+        {
+            var def = mineable.def;
+            if (def == null)
             {
                 obj = null;
             }
             else
             {
-                var def = mineable.def;
-                if (def == null)
-                {
-                    obj = null;
-                }
-                else
-                {
-                    var building = def.building;
-                    obj = building?.mineableThing;
-                }
+                var building = def.building;
+                obj = building?.mineableThing;
             }
+        }
 
-            if (obj == null && !isSource)
-            {
-                return;
-            }
+        if (obj == null && !isSource)
+        {
+            return;
+        }
 
-            var mining = 0;
-            var skills = pawn.skills;
-            var b = skills?.GetSkill(SkillDefOf.Mining) != null;
+        var mining = 0;
+        var skills = pawn.skills;
+        var b = skills?.GetSkill(SkillDefOf.Mining) != null;
 
-            if (b)
-            {
-                mining = pawn.skills.GetSkill(SkillDefOf.Mining).Level / 4;
-            }
+        if (b)
+        {
+            mining = pawn.skills.GetSkill(SkillDefOf.Mining).Level / 4;
+        }
 
-            if (Rand.Range(1, 100) > 20 + mining)
-            {
-                return;
-            }
+        if (Rand.Range(1, 100) > 20 + mining)
+        {
+            return;
+        }
 
-            var mineable2 = __instance;
-            ThingDef defSource;
-            if (mineable2 == null)
+        var mineable2 = __instance;
+        ThingDef defSource;
+        if (mineable2 == null)
+        {
+            defSource = null;
+        }
+        else
+        {
+            var def2 = mineable2.def;
+            if (def2 == null)
             {
                 defSource = null;
             }
             else
             {
-                var def2 = mineable2.def;
-                if (def2 == null)
-                {
-                    defSource = null;
-                }
-                else
-                {
-                    var building2 = def2.building;
-                    defSource = building2?.mineableThing;
-                }
+                var building2 = def2.building;
+                defSource = building2?.mineableThing;
             }
+        }
 
-            if (!MSBitsUtility.GetIsBitsSource(defSource, isSource, pawn, out var bitsdef,
+        if (!MSBitsUtility.GetIsBitsSource(defSource, isSource, pawn, out var bitsdef,
                 out var bitsyield) || bitsdef == null || bitsyield <= 0)
-            {
-                return;
-            }
+        {
+            return;
+        }
 
-            var num = Mathf.Max(1,
-                Mathf.RoundToInt(bitsyield * Find.Storyteller.difficulty.mineYieldFactor));
-            var thing = ThingMaker.MakeThing(bitsdef);
-            thing.stackCount = num;
-            GenPlace.TryPlaceThing(thing, pawn.Position, map, ThingPlaceMode.Near,
-                out var newbitsthing);
-            if (!pawn.IsColonist && newbitsthing.def.EverHaulable &&
-                !newbitsthing.def.designateHaulable)
-            {
-                newbitsthing.SetForbidden(true);
-            }
+        var num = Mathf.Max(1,
+            Mathf.RoundToInt(bitsyield * Find.Storyteller.difficulty.mineYieldFactor));
+        var thing = ThingMaker.MakeThing(bitsdef);
+        thing.stackCount = num;
+        GenPlace.TryPlaceThing(thing, pawn.Position, map, ThingPlaceMode.Near,
+            out var newbitsthing);
+        if (!pawn.IsColonist && newbitsthing.def.EverHaulable &&
+            !newbitsthing.def.designateHaulable)
+        {
+            newbitsthing.SetForbidden(true);
         }
     }
 }

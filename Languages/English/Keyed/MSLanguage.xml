@@ -41,6 +41,7 @@
   <MSDrugsMix.SelNoChemical>No Chemical</MSDrugsMix.SelNoChemical>
   <!--  MSOptions -->
   <MSOpt.Name>Medical Supplements</MSOpt.Name>
+  <MSOpt.ModVersion>Installed mod-version: {0}</MSOpt.ModVersion>
   <MSOpt.RealisticBandages>Apply realistic bandage use:</MSOpt.RealisticBandages>
   <MSOpt.AllowCollapseRocks>Allow Collapsed rocks to produce mining bits:</MSOpt.AllowCollapseRocks>
   <MSOpt.ResPct>Relative cost for research %:</MSOpt.ResPct>
