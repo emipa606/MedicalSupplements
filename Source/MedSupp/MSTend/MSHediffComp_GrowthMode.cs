@@ -32,6 +32,7 @@ public class MSHediffComp_GrowthMode : HediffComp_SeverityPerDay
 
     public override void CompPostPostAdd(DamageInfo? dinfo)
     {
+        Log.Message("CompPostPostAdd override");
         base.CompPostPostAdd(dinfo);
         growthMode = ((HediffGrowthMode[])Enum.GetValues(typeof(HediffGrowthMode))).RandomElement();
         severityPerDayGrowingRandomFactor = Props.severityPerDayGrowingRandomFactor.RandomInRange;

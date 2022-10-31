@@ -63,49 +63,49 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityPerDay
                 {
                     stringBuilder.AppendLine("NeedsTendingNow".Translate());
                 }
+
+                return stringBuilder.ToString().TrimEndNewlines();
             }
-            else
+
+            if (TProps.showTendQuality)
             {
-                if (TProps.showTendQuality)
+                var text =
+                    parent.Part != null && parent.Part.def.IsSolid(parent.Part, Pawn.health.hediffSet.hediffs)
+                        ? TProps.labelSolidTendedWell
+                        : parent.Part is not { depth: BodyPartDepth.Inside }
+                            ? TProps.labelTendedWell
+                            : TProps.labelTendedWellInner;
+                if (text != null)
                 {
-                    var text =
-                        parent.Part != null && parent.Part.def.IsSolid(parent.Part, Pawn.health.hediffSet.hediffs)
-                            ? TProps.labelSolidTendedWell
-                            : parent.Part is not { depth: BodyPartDepth.Inside }
-                                ? TProps.labelTendedWell
-                                : TProps.labelTendedWellInner;
-                    if (text != null)
-                    {
-                        stringBuilder.AppendLine($"{text.CapitalizeFirst()} (" + "Quality".Translate().ToLower() +
-                                                 " " + tendQuality.ToStringPercent("F0") + ")");
-                    }
-                    else
-                    {
-                        stringBuilder.AppendLine($"{"TendQuality".Translate()}: {tendQuality.ToStringPercent()}");
-                    }
-                }
-
-                if (Pawn.Dead || TProps.TendIsPermanent || !parent.TendableNow(true))
-                {
-                    return stringBuilder.ToString().TrimEndNewlines();
-                }
-
-                var num = tendTicksLeft - TProps.TendTicksOverlap;
-                if (num < 0)
-                {
-                    stringBuilder.AppendLine("CanTendNow".Translate());
-                }
-                else if ("NextTendIn".CanTranslate())
-                {
-                    stringBuilder.AppendLine("NextTendIn".Translate(num.ToStringTicksToPeriod()));
+                    stringBuilder.AppendLine($"{text.CapitalizeFirst()} (" + "Quality".Translate().ToLower() +
+                                             " " + tendQuality.ToStringPercent("F0") + ")");
                 }
                 else
                 {
-                    stringBuilder.AppendLine("NextTreatmentIn".Translate(num.ToStringTicksToPeriod()));
+                    stringBuilder.AppendLine($"{"TendQuality".Translate()}: {tendQuality.ToStringPercent()}");
                 }
-
-                stringBuilder.AppendLine("TreatmentExpiresIn".Translate(tendTicksLeft.ToStringTicksToPeriod()));
             }
+
+            if (Pawn.Dead || TProps.TendIsPermanent || !parent.TendableNow(true))
+            {
+                return stringBuilder.ToString().TrimEndNewlines();
+            }
+
+            var num = tendTicksLeft - TProps.TendTicksOverlap;
+            if (num < 0)
+            {
+                stringBuilder.AppendLine("CanTendNow".Translate());
+            }
+            else if ("NextTendIn".CanTranslate())
+            {
+                stringBuilder.AppendLine("NextTendIn".Translate(num.ToStringTicksToPeriod()));
+            }
+            else
+            {
+                stringBuilder.AppendLine("NextTreatmentIn".Translate(num.ToStringTicksToPeriod()));
+            }
+
+            stringBuilder.AppendLine("TreatmentExpiresIn".Translate(tendTicksLeft.ToStringTicksToPeriod()));
 
             return stringBuilder.ToString().TrimEndNewlines();
         }
@@ -196,83 +196,79 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityPerDay
     {
         var MSAddQuality = 0f;
         var MShedSet = parent.pawn.health.hediffSet;
-        if (Def.defName == "WoundInfection" &&
-            MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimedicrem_High")) != null)
+        switch (Def.defName)
         {
-            MSAddQuality += 0.25f;
-        }
-
-        if (Def.defName == "Asthma" && MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSInhaler_High")) != null)
-        {
-            MSAddQuality += 0.2f;
-        }
-
-        if (Def.defName == "Flu" && MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSFireThroat_High")) != null)
-        {
-            MSAddQuality += 0.25f;
-        }
-
-        if (Def.defName == "MuscleParasites" &&
-            MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimtarolHigh")) != null)
-        {
-            MSAddQuality += 0.15f;
-        }
-
-        if (Def.defName == "GutWorms" && MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh")) != null)
-        {
-            MSAddQuality += 0.18f;
-        }
-
-        if (Def.defName is "Carcinoma" or "BloodCancer" &&
-            MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSVinacol_High")) != null)
-        {
-            MSAddQuality += 0.25f;
-        }
-
-        if (Def.defName == "HepatitisK")
-        {
-            var MSCheckDrug2 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSBattleStim_High"));
-            if (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh")) != null || MSCheckDrug2 != null)
-            {
-                MSAddQuality += 0.15f;
-            }
-        }
-
-        if (Def.defName == "StomachUlcer")
-        {
-            var MSCheckDrug3 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"));
-            var MSCheckDrug4 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSBattleStim_High"));
-            if (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh")) != null || MSCheckDrug3 != null ||
-                MSCheckDrug4 != null)
-            {
-                MSAddQuality += 0.2f;
-            }
-        }
-
-        if (Def.defName is "Tuberculosis" or "KindredDickVirus" or "Sepsis" or "Toothache" or "VoightBernsteinDisease"
-            or "NewReschianFever")
-        {
-            var MSCheckDrug5 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"));
-            var MSCheckDrug6 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSBattleStim_High"));
-            if (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimoxicillin_High")) != null ||
-                MSCheckDrug5 != null || MSCheckDrug6 != null)
-            {
-                MSAddQuality += 0.15f;
-            }
-        }
-
-        if (Def.defName == "Migraine")
-        {
-            var MSCheckDrug7 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMorphine_High"));
-            var MSCheckDrug8 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSOpiumPipe_High"));
-            if (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimCodamol_High")) != null)
-            {
+            case "WoundInfection" when
+                MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimedicrem_High")) != null:
                 MSAddQuality += 0.25f;
-            }
-
-            if (MSCheckDrug7 != null || MSCheckDrug8 != null)
+                break;
+            case "Asthma" when MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSInhaler_High")) != null:
+                MSAddQuality += 0.2f;
+                break;
+            case "Flu" when MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSFireThroat_High")) != null:
+                MSAddQuality += 0.25f;
+                break;
+            case "MuscleParasites" when
+                MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimtarolHigh")) != null:
+                MSAddQuality += 0.15f;
+                break;
+            case "GutWorms" when MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh")) != null:
+                MSAddQuality += 0.18f;
+                break;
+            case "Carcinoma" or "BloodCancer" when
+                MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSVinacol_High")) != null:
+                MSAddQuality += 0.25f;
+                break;
+            case "HepatitisK":
             {
-                MSAddQuality += 0.5f;
+                var MSCheckDrug2 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSBattleStim_High"));
+                if (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh")) != null || MSCheckDrug2 != null)
+                {
+                    MSAddQuality += 0.15f;
+                }
+
+                break;
+            }
+            case "StomachUlcer":
+            {
+                var MSCheckDrug3 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"));
+                var MSCheckDrug4 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSBattleStim_High"));
+                if (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimpepticHigh")) != null || MSCheckDrug3 != null ||
+                    MSCheckDrug4 != null)
+                {
+                    MSAddQuality += 0.2f;
+                }
+
+                break;
+            }
+            case "Tuberculosis" or "KindredDickVirus" or "Sepsis" or "Toothache" or "VoightBernsteinDisease"
+                or "NewReschianFever":
+            {
+                var MSCheckDrug5 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMetasisHigh"));
+                var MSCheckDrug6 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSBattleStim_High"));
+                if (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimoxicillin_High")) != null ||
+                    MSCheckDrug5 != null || MSCheckDrug6 != null)
+                {
+                    MSAddQuality += 0.15f;
+                }
+
+                break;
+            }
+            case "Migraine":
+            {
+                var MSCheckDrug7 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSMorphine_High"));
+                var MSCheckDrug8 = MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSOpiumPipe_High"));
+                if (MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimCodamol_High")) != null)
+                {
+                    MSAddQuality += 0.25f;
+                }
+
+                if (MSCheckDrug7 != null || MSCheckDrug8 != null)
+                {
+                    MSAddQuality += 0.5f;
+                }
+
+                break;
             }
         }
 
