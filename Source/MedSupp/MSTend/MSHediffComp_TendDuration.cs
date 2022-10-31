@@ -6,7 +6,7 @@ using Verse;
 namespace MSTend;
 
 [StaticConstructorOnStartup]
-public class MSHediffComp_TendDuration : HediffComp_SeverityPerDay
+public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
 {
     public const float TendQualityRandomVariance = 0.25f;
 

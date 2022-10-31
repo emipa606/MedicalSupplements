@@ -6,7 +6,7 @@ using Verse;
 
 namespace MSTend;
 
-public class MSHediffComp_GrowthMode : HediffComp_SeverityPerDay
+public class MSHediffComp_GrowthMode : HediffComp_SeverityModifierBase
 {
     private const int CheckGrowthModeChangeInterval = 5000;
 
