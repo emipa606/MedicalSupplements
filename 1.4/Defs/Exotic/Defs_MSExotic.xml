@@ -25,9 +25,7 @@
       <li Class="CompProperties_UseEffect">
         <compClass>MSExotic.CompUseEffect_MSExotic</compClass>
       </li>
-      <li Class="CompProperties_UseEffect">
-        <compClass>CompUseEffect_DestroySelf</compClass>
-      </li>
+      <li Class="CompProperties_UseEffectDestroySelf" />
     </comps>
     <thingSetMakerTags>
       <li>RewardSpecial</li>

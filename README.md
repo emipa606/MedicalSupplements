@@ -167,3 +167,4 @@ Erdnussbrot - German translation.
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2195037369]Last updated 2022-12-14
