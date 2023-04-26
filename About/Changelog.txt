@@ -1,5 +1,8 @@
 # Changelog for MedicalSupplements
 
+1.4.5 - Russian translation added thanks to younyokel
+
+
 1.4.4 - Fixed the Destroy Self-change in 1.4
 
 
