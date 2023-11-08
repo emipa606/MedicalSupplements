@@ -1,5 +1,8 @@
 # Changelog for MedicalSupplements
 
+1.4.6 - Added some medicines to the list that can be be carried
+
+
 1.4.5 - Russian translation added thanks to younyokel
 
 

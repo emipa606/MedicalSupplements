@@ -48,6 +48,14 @@
           </li>
         </value>
       </li>
+      <li Class="PatchOperationAdd">
+        <xpath>/Defs/InventoryStockGroupDef[defName="Medicine"]/thingDefs</xpath>
+        <value>
+          <li>MSRimedicrem</li>
+          <li>MSRimpeptic</li>
+          <li>MSRimtarol</li>
+        </value>
+      </li>
     </operations>
   </Operation>
 </Patch>
