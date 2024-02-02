@@ -1,5 +1,8 @@
 # Changelog for MedicalSupplements
 
+1.4.7 - Fixed the loadfolders file, should now detect the continued version of Hot Meals
+
+
 1.4.6 - Added some medicines to the list that can be be carried
 
 
