@@ -12,13 +12,6 @@ public class BestIngestTarget
     [HarmonyPrefix]
     public static bool Prefix(ref Thing __result, Pawn pawn)
     {
-        bool Predicate(Thing t)
-        {
-            return (pawn.InMentalState || !t.IsForbidden(pawn)) && pawn.CanReserve(t) &&
-                   (pawn.Position.InHorDistOf(t.Position, 100f) || t.Position.Roofed(t.Map) ||
-                    pawn.Map.areaManager.Home[t.Position] || t.GetSlotGroup() != null);
-        }
-
         var position = pawn.Position;
         var map = pawn.Map;
         var peMode = PathEndMode.OnCell;
@@ -28,5 +21,12 @@ public class BestIngestTarget
         __result = GenClosest.ClosestThingReachable(position, map, PlaceboReq, peMode, traverseParams, 9999f,
             validator);
         return __result == null;
+
+        bool Predicate(Thing t)
+        {
+            return (pawn.InMentalState || !t.IsForbidden(pawn)) && pawn.CanReserve(t) &&
+                   (pawn.Position.InHorDistOf(t.Position, 100f) || t.Position.Roofed(t.Map) ||
+                    pawn.Map.areaManager.Home[t.Position] || t.GetSlotGroup() != null);
+        }
     }
 }

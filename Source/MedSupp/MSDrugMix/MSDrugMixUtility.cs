@@ -7,9 +7,10 @@ namespace MSDrugMix;
 
 public class MSDrugMixUtility
 {
-    [NoTranslate] public static string ChemIconPath = "Things/Building/Misc/MSDrugMixer/UI/MSDrugsMixerChem_Icon";
+    [NoTranslate]
+    public static readonly string ChemIconPath = "Things/Building/Misc/MSDrugMixer/UI/MSDrugsMixerChem_Icon";
 
-    public static List<ThingDef> cachedChunkList = new List<ThingDef>();
+    public static List<ThingDef> cachedChunkList = [];
 
     public static Texture2D GetMSMixIcon(ThingDef t)
     {
@@ -412,8 +413,8 @@ public class MSDrugMixUtility
 
     public static List<string> GetMixList()
     {
-        return new List<string>
-        {
+        return
+        [
             "Neutroamine",
             "MSGlycerol",
             "MSPhenol",
@@ -427,13 +428,13 @@ public class MSDrugMixUtility
             "MSHydrogenPeroxide",
             "MSVincaAlkaloid",
             "MSHydrochloricAcid"
-        };
+        ];
     }
 
     public static List<int> GetMaxStock()
     {
-        return new List<int>
-        {
+        return
+        [
             25,
             50,
             75,
@@ -447,7 +448,7 @@ public class MSDrugMixUtility
             750,
             1000,
             0
-        };
+        ];
     }
 
     public static int StringToInt(string ToConvert)

@@ -36,16 +36,6 @@ public class TryGiveJob_PostPatch
 
         var TravParms = TraverseParms.For(TraverseMode.NoPassClosedDoors, Danger.None);
 
-        bool Validator(Thing t)
-        {
-            if (pawn.GetRoom() == null)
-            {
-                return false;
-            }
-
-            return pawn.GetRoom() == t?.GetRoom();
-        }
-
         var Condom = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map,
             ThingRequest.ForDef(CondomDef), PathEndMode.ClosestTouch, TravParms, 20f, Validator);
         if (Condom == null)
@@ -55,5 +45,16 @@ public class TryGiveJob_PostPatch
 
         var JobCondom = new Job(CondomJobDef, Condom);
         __result = JobCondom;
+        return;
+
+        bool Validator(Thing t)
+        {
+            if (pawn.GetRoom() == null)
+            {
+                return false;
+            }
+
+            return pawn.GetRoom() == t?.GetRoom();
+        }
     }
 }

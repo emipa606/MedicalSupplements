@@ -19,10 +19,10 @@ internal class Settings : ModSettings
     {
         var listing_Standard = new Listing_Standard();
         listing_Standard.Begin(wrect);
-        listing_Standard.CheckboxLabeled("Show aging messages", ref showAgingMessages,
-            "Show notification every time age was affected by luci");
-        listing_Standard.CheckboxLabeled("Debug luci healing", ref debugHealingSpeed,
-            "Luci heal procs way more often");
+        listing_Standard.CheckboxLabeled("MSOpt.ShowAging".Translate(), ref showAgingMessages,
+            "MSOpt.ShowAgingTT".Translate());
+        listing_Standard.CheckboxLabeled("MSOpt.DebugLuci".Translate(), ref debugHealingSpeed,
+            "MSOpt.DebugLuciTT".Translate());
         if (Controller.currentVersion != null)
         {
             listing_Standard.Gap();

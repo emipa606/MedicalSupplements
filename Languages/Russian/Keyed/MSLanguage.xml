@@ -47,4 +47,8 @@
   <MSOpt.ResWarn>(Внимание: увеличение % приведет к тому, что исследование станет неполным при использовании предыдущего значения).</MSOpt.ResWarn>
   <MSMineBits.Name>Медицинские добавки: Горные коронки</MSMineBits.Name>
   <MSMineBits.AllowCollapseRocks>Разрешить обрушившимся скалам добывать горные отвалы:</MSMineBits.AllowCollapseRocks>
+  <MSOpt.ShowAging>Показать сообщения о старении</MSOpt.ShowAging>
+  <MSOpt.ShowAgingTT>Показывайте уведомление каждый раз, когда возраст был затронут luci</MSOpt.ShowAgingTT>
+  <MSOpt.DebugLuci>Отладка лечения люци</MSOpt.DebugLuci>
+  <MSOpt.DebugLuciTT>Люси исцеляет гораздо чаще</MSOpt.DebugLuciTT>
 </LanguageData>

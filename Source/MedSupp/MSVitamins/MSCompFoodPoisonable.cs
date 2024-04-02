@@ -15,12 +15,12 @@ public class MSCompFoodPoisonable : CompFoodPoisonable
             if (MShedSet.GetFirstHediffOfDef(HediffDef.Named("MSMultiVitamins_High")) == null &&
                 Rand.Chance(poisonPct * Find.Storyteller.difficulty.foodPoisonChanceFactor))
             {
-                FoodUtility.AddFoodPoisoningHediff(ingester, parent, cause);
+                FoodUtility.AddFoodPoisoningHediff(ingester, parent, Cause);
             }
         }
         else if (Rand.Chance(poisonPct * Find.Storyteller.difficulty.foodPoisonChanceFactor))
         {
-            FoodUtility.AddFoodPoisoningHediff(ingester, parent, cause);
+            FoodUtility.AddFoodPoisoningHediff(ingester, parent, Cause);
         }
     }
 }

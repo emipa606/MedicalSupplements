@@ -1,5 +1,9 @@
 # Changelog for MedicalSupplements
 
+1.5.0 - Mod updated for 1.5 and passed autotests
+Used DeepL to update translations for ChineseSimplified, French, German, Russian
+
+
 1.4.7 - Fixed the loadfolders file, should now detect the continued version of Hot Meals
 
 

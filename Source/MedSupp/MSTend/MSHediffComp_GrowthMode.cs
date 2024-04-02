@@ -42,7 +42,8 @@ public class MSHediffComp_GrowthMode : HediffComp_SeverityModifierBase
     public override void CompPostTick(ref float severityAdjustment)
     {
         base.CompPostTick(ref severityAdjustment);
-        if (Pawn.IsHashIntervalTick(5000) && Rand.MTBEventOccurs(100f, 60000f, 5000f))
+        if (Pawn.IsHashIntervalTick(5000) &&
+            Rand.MTBEventOccurs(GrowthModeChangeMtbDays, GenDate.TicksPerDay, CheckGrowthModeChangeInterval))
         {
             ChangeGrowthMode();
         }

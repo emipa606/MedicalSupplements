@@ -40,6 +40,10 @@
   <MSDrugMix.StockNoLimit>No Limit</MSDrugMix.StockNoLimit>
   <MSDrugsMix.SelNoChemical>No Chemical</MSDrugsMix.SelNoChemical>
   <!--  MSOptions -->
+  <MSOpt.ShowAging>Show aging messages</MSOpt.ShowAging>
+  <MSOpt.ShowAgingTT>Show notification every time age was affected by luci</MSOpt.ShowAgingTT>
+  <MSOpt.DebugLuci>Debug luci healing</MSOpt.DebugLuci>
+  <MSOpt.DebugLuciTT>Luci heal procs way more often</MSOpt.DebugLuciTT>
   <MSOpt.Name>Medical Supplements</MSOpt.Name>
   <MSOpt.ModVersion>Installed mod-version: {0}</MSOpt.ModVersion>
   <MSOpt.RealisticBandages>Apply realistic bandage use:</MSOpt.RealisticBandages>

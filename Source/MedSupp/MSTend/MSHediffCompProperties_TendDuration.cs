@@ -7,9 +7,11 @@ public class MSHediffCompProperties_TendDuration : HediffCompProperties
 {
     private readonly float baseTendDurationHours = -1f;
 
-    private readonly float tendOverlapHours = 3f;
+    public readonly int disappearsAtTotalTendQuality = -1;
 
-    public int disappearsAtTotalTendQuality = -1;
+    public readonly bool showTendQuality = true;
+
+    private readonly float tendOverlapHours = 3f;
 
     [LoadAlias("labelSolidTreatedWell")] public string labelSolidTendedWell;
 
@@ -18,8 +20,6 @@ public class MSHediffCompProperties_TendDuration : HediffCompProperties
     [LoadAlias("labelTreatedWellInner")] public string labelTendedWellInner;
 
     public float severityPerDayTended;
-
-    public bool showTendQuality = true;
 
     public bool tendAllAtOnce;
 

@@ -353,7 +353,7 @@ public class Building_MSDrugMix : Building
     private bool ValidateOutput(ThingDef t, out int hasSpace, out List<Building> candidatesOut)
     {
         hasSpace = 0;
-        candidatesOut = new List<Building>();
+        candidatesOut = [];
         var AdjCells = AdjCellsCardinalInBounds;
         if (AdjCells.Count > 0)
         {
@@ -505,7 +505,7 @@ public class Building_MSDrugMix : Building
                 $"InnerRecipe List: Groups: {RCPGroups.Count} , Potentials: {RCPListPotentials.Count}");
         }
 
-        FinalList = new List<RCPItemCanUse>();
+        FinalList = [];
         var NotAllGroups = false;
         if (RCPGroups.Count > 0)
         {

@@ -8,8 +8,7 @@ using Verse.AI;
 
 namespace MSBandageUse;
 
-[HarmonyPatch(typeof(HealthAIUtility))]
-[HarmonyPatch("FindBestMedicine")]
+[HarmonyPatch(typeof(HealthAIUtility), nameof(HealthAIUtility.FindBestMedicine))]
 public class HealthAIUtility_FindBestMedicine_PostPatch
 {
     [HarmonyPriority(0)]

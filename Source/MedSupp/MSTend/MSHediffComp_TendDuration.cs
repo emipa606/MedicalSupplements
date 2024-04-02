@@ -307,7 +307,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
             return;
         }
 
-        var MSDebug = false;
         var MShedSet = parent.pawn.health.hediffSet;
         var MSOverComeLevel = 0.5f;
         var MSRimpepticCureLevel = 0.01f;
@@ -324,13 +323,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSInhaler_High")) != null &&
                 Rand.Range(0f, tendQuality) >= MSOverComeLevel)
             {
-                if (MSDebug && tendTicksLeft % 250 == 0)
-                {
-                    Messages.Message(
-                        $"Debug: {Def.label} for {Pawn.Label} is INCREASING with tendqual {tendQuality:N2}", Pawn,
-                        MessageTypeDefOf.PositiveEvent);
-                }
-
                 tendTicksLeft++;
             }
 
@@ -338,13 +330,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSFireThroat_High")) != null &&
                 Rand.Range(0f, tendQuality) >= MSOverComeLevel)
             {
-                if (MSDebug && tendTicksLeft % 250 == 0)
-                {
-                    Messages.Message(
-                        $"Debug: {Def.label} for {Pawn.Label} is INCREASING with tendqual {tendQuality:N2}", Pawn,
-                        MessageTypeDefOf.PositiveEvent);
-                }
-
                 tendTicksLeft++;
             }
 
@@ -352,13 +337,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimedicrem_High")) != null &&
                 Rand.Range(0f, tendQuality) >= MSOverComeLevel)
             {
-                if (MSDebug && tendTicksLeft % 250 == 0)
-                {
-                    Messages.Message(
-                        $"Debug: {Def.label} for {Pawn.Label} is INCREASING with tendqual {tendQuality:N2}", Pawn,
-                        MessageTypeDefOf.PositiveEvent);
-                }
-
                 tendTicksLeft++;
             }
 
@@ -366,13 +344,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSRimtarolHigh")) != null &&
                 Rand.Range(0f, tendQuality) >= MSOverComeLevel)
             {
-                if (MSDebug && tendTicksLeft % 250 == 0)
-                {
-                    Messages.Message(
-                        $"Debug: {Def.label} for {Pawn.Label} is REDUCING with tendqual {tendQuality:N2}", Pawn,
-                        MessageTypeDefOf.PositiveEvent);
-                }
-
                 tendTicksLeft--;
             }
 
@@ -384,13 +355,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                     if (tendTicksLeft > MSTicksSafeTendTime &&
                         Rand.Range(0f, tendQuality) >= MSOverComeLevel)
                     {
-                        if (MSDebug && tendTicksLeft % 250 == 0)
-                        {
-                            Messages.Message(
-                                $"Debug: {Def.label} for {Pawn.Label} is REDUCING with tendqual {tendQuality:N2}", Pawn,
-                                MessageTypeDefOf.PositiveEvent);
-                        }
-
                         tendTicksLeft--;
                     }
 
@@ -412,13 +376,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 MShedSet?.GetFirstHediffOfDef(HediffDef.Named("MSVinacol_High")) != null &&
                 Rand.Range(0f, tendQuality) >= MSOverComeLevel)
             {
-                if (MSDebug && tendTicksLeft % 250 == 0)
-                {
-                    Messages.Message(
-                        $"Debug: {Def.label} for {Pawn.Label} is INCREASING with tendqual {tendQuality:N2}", Pawn,
-                        MessageTypeDefOf.PositiveEvent);
-                }
-
                 tendTicksLeft++;
             }
 
@@ -429,13 +386,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 if ((MSCheckDrug != null || MSCheckDrug2 != null) &&
                     Rand.Range(0f, tendQuality) >= MSOverComeLevel)
                 {
-                    if (MSDebug && tendTicksLeft % 250 == 0)
-                    {
-                        Messages.Message(
-                            $"Debug: {Def.label} for {Pawn.Label} is INCREASING with tendqual {tendQuality:N2}", Pawn,
-                            MessageTypeDefOf.PositiveEvent);
-                    }
-
                     tendTicksLeft++;
                 }
             }
@@ -448,13 +398,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 if ((MSCheckDrug3 != null || MSCheckDrug4 != null || MSCheckDrug5 != null) &&
                     Rand.Range(0f, tendQuality) >= MSOverComeLevel)
                 {
-                    if (MSDebug && tendTicksLeft % 250 == 0)
-                    {
-                        Messages.Message(
-                            $"Debug: {Def.label} for {Pawn.Label} is INCREASING with tendqual {tendQuality:N2}", Pawn,
-                            MessageTypeDefOf.PositiveEvent);
-                    }
-
                     tendTicksLeft++;
                 }
             }
@@ -468,13 +411,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 if ((MSCheckDrug6 != null || MSCheckDrug7 != null || MSCheckDrug8 != null) &&
                     Rand.Range(0f, tendQuality) >= MSOverComeLevel)
                 {
-                    if (MSDebug && tendTicksLeft % 250 == 0)
-                    {
-                        Messages.Message(
-                            $"Debug: {Def.label} for {Pawn.Label} is INCREASING with tendqual {tendQuality:N2}", Pawn,
-                            MessageTypeDefOf.PositiveEvent);
-                    }
-
                     tendTicksLeft++;
                 }
             }
@@ -487,13 +423,6 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
                 if ((MSCheckDrug9 != null || MSCheckDrug10 != null || MSCheckDrug11 != null) &&
                     Rand.Range(0f, tendQuality) >= MSOverComeLevel)
                 {
-                    if (MSDebug && tendTicksLeft % 250 == 0)
-                    {
-                        Messages.Message(
-                            $"Debug: {Def.label} for {Pawn.Label} is INCREASING with tendqual {tendQuality:N2}", Pawn,
-                            MessageTypeDefOf.PositiveEvent);
-                    }
-
                     tendTicksLeft++;
                 }
             }

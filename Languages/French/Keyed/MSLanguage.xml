@@ -47,4 +47,8 @@
   <MSOpt.ResWarn>(Attention : en augmentant le %, la recherche sera incomplète en utilisant la valeur précédente).</MSOpt.ResWarn>
   <MSMineBits.Name>Suppléments médicaux : Bouts de mine</MSMineBits.Name>
   <MSMineBits.AllowCollapseRocks>Permettre aux rochers effondrés de produire des fragments miniers :</MSMineBits.AllowCollapseRocks>
+  <MSOpt.ShowAging>Afficher les messages de vieillissement</MSOpt.ShowAging>
+  <MSOpt.ShowAgingTT>Afficher une notification à chaque fois que l'âge est affecté par luci</MSOpt.ShowAgingTT>
+  <MSOpt.DebugLuci>Déboguer la guérison de Luci</MSOpt.DebugLuci>
+  <MSOpt.DebugLuciTT>Luci heal procs bien plus souvent</MSOpt.DebugLuciTT>
 </LanguageData>

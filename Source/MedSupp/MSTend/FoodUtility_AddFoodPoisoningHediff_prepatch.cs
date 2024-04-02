@@ -5,12 +5,12 @@ using Verse;
 
 namespace MSTend;
 
-[HarmonyPatch(typeof(FoodUtility), "AddFoodPoisoningHediff")]
+[HarmonyPatch(typeof(FoodUtility), nameof(FoodUtility.AddFoodPoisoningHediff))]
 public class FoodUtility_AddFoodPoisoningHediff_prepatch
 {
     [HarmonyPrefix]
     [HarmonyPriority(800)]
-    public static bool Prefix(Pawn pawn, Thing ingestible, FoodPoisonCause cause)
+    public static bool Prefix(Pawn pawn)
     {
         return !ImmuneToFP(pawn, HediffDefOf.FoodPoisoning);
     }

@@ -18,10 +18,10 @@ internal static class MultiplayerSupport
         }
 
         MethodInfo[] array =
-        {
+        [
             AccessTools.Method(typeof(HediffComp_HealPermanentWounds), "ResetTicksToHeal"),
             AccessTools.Method(typeof(HediffComp_HealPermanentWounds), "TryHealRandomPermanentWound")
-        };
+        ];
         foreach (var methodInfo in array)
         {
             FixRNG(methodInfo);

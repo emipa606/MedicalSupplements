@@ -49,4 +49,8 @@
   <MSOpt.ResWarn>(警告：增加百分比将意味着使用以前的数值，研究将变得不完整)。</MSOpt.ResWarn>
   <MSMineBits.Name>医疗补充剂。采矿比特</MSMineBits.Name>
   <MSMineBits.AllowCollapseRocks>允许倒塌的岩石产生采矿位。</MSMineBits.AllowCollapseRocks>
+  <MSOpt.ShowAging>显示老化信息</MSOpt.ShowAging>
+  <MSOpt.ShowAgingTT>每次年龄受到 Luci 影响时都会显示通知</MSOpt.ShowAgingTT>
+  <MSOpt.DebugLuci>调试露西愈合</MSOpt.DebugLuci>
+  <MSOpt.DebugLuciTT>路西的治疗次数更多了</MSOpt.DebugLuciTT>
 </LanguageData>

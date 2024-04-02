@@ -3,7 +3,7 @@ using Verse;
 
 namespace MSTend;
 
-[HarmonyPatch(typeof(Hediff), "TendableNow")]
+[HarmonyPatch(typeof(Hediff), nameof(Hediff.TendableNow))]
 public class MSTendableNow_Patch
 {
     [HarmonyPostfix]

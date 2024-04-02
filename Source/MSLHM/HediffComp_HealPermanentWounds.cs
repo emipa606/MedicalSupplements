@@ -7,15 +7,15 @@ namespace MSLHM;
 
 public class HediffComp_HealPermanentWounds : HediffComp
 {
-    private readonly HashSet<string> chronicConditions = new HashSet<string>
-    {
+    private readonly HashSet<string> chronicConditions =
+    [
         "Blindness",
         "TraumaSavant",
         "Cirrhosis",
         "ChemicalDamageSevere",
         "ChemicalDamageModerate",
         "HepatitisK"
-    };
+    ];
 
     private int ticksToHeal;
 

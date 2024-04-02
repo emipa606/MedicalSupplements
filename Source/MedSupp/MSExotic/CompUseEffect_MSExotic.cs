@@ -39,16 +39,14 @@ public class CompUseEffect_MSExotic : CompUseEffect
         }
     }
 
-    public override bool CanBeUsedBy(Pawn p, out string failReason)
+    public override AcceptanceReport CanBeUsedBy(Pawn p)
     {
-        failReason = null;
         if (parent.def == MSExoticDefOf.ThingDefOf.MSImmunisation)
         {
             MSExoticUtility.ChkMSImmunisation(p, out var Reason, out var Passed);
             if (!Passed)
             {
-                failReason = Reason;
-                return false;
+                return Reason;
             }
         }
 
@@ -57,8 +55,7 @@ public class CompUseEffect_MSExotic : CompUseEffect
             MSExoticUtility.ChkMSCerebrax(p, out var Reason2, out var Passed2);
             if (!Passed2)
             {
-                failReason = Reason2;
-                return false;
+                return Reason2;
             }
         }
 
@@ -67,8 +64,7 @@ public class CompUseEffect_MSExotic : CompUseEffect
             MSExoticUtility.ChkMSBattleStim(p, out var Reason3, out var Passed3);
             if (!Passed3)
             {
-                failReason = Reason3;
-                return false;
+                return Reason3;
             }
         }
 
@@ -77,8 +73,7 @@ public class CompUseEffect_MSExotic : CompUseEffect
             MSExoticUtility.ChkMSTranscendence(p, parent.def, out var Reason4, out var Passed4);
             if (!Passed4)
             {
-                failReason = Reason4;
-                return false;
+                return Reason4;
             }
         }
 
@@ -87,8 +82,7 @@ public class CompUseEffect_MSExotic : CompUseEffect
             MSExoticUtility.ChkMSPerpetuity(p, out var Reason5, out var Passed5);
             if (!Passed5)
             {
-                failReason = Reason5;
-                return false;
+                return Reason5;
             }
         }
 
@@ -103,7 +97,6 @@ public class CompUseEffect_MSExotic : CompUseEffect
             return true;
         }
 
-        failReason = Reason6;
-        return false;
+        return Reason6;
     }
 }

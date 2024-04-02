@@ -24,7 +24,7 @@ public class Recipe_MSAdministerInject : Recipe_Surgery
                 {
                     foreach (var ingestionOutcomeDoer in listIOD)
                     {
-                        ingestionOutcomeDoer.DoIngestionOutcome(pawn, item);
+                        ingestionOutcomeDoer.DoIngestionOutcome(pawn, item, 1);
                     }
                 }
             }

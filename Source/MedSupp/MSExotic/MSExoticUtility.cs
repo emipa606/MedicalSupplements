@@ -192,7 +192,7 @@ public class MSExoticUtility
     {
         var named = DefDatabase<HediffDef>.GetNamed("MSBattleStim_High", false);
         var SeverityToApply = 0.5f;
-        MSHediffEffecter.HediffEffect(named, SeverityToApply, p, null, out _);
+        MSHediffEffecter.HediffEffect(named, SeverityToApply, p, null);
     }
 
     public static void ChkMSBattleStim(Pawn p, out string Reason, out bool Passed)
@@ -347,7 +347,7 @@ public class MSExoticUtility
     {
         var named = DefDatabase<HediffDef>.GetNamed("MSCondom_High", false);
         var SeverityToApply = 0.5f;
-        MSHediffEffecter.HediffEffect(named, SeverityToApply, p, null, out _);
+        MSHediffEffecter.HediffEffect(named, SeverityToApply, p, null);
     }
 
     public static void ChkMSCondom(Pawn p, out string Reason, out bool Passed)

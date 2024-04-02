@@ -95,11 +95,11 @@ public class MSBitsUtility
     public const string MSSulphur = "MSSulphur";
 
     private static readonly Pair<string, float>[] bitschance =
-    {
+    [
         new Pair<string, float>("MSLithiumSalts", 0.85f),
         new Pair<string, float>("MSMercurySalts", 0.1f),
         new Pair<string, float>("MSSulphur", 1f)
-    };
+    ];
 
     public static bool GetIsBitsSource(ThingDef defSource, bool isSource, Pawn pawn, out ThingDef bitsdef,
         out int bitsyield)

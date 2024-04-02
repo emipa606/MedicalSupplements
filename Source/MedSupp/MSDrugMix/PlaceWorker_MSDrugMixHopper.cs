@@ -19,7 +19,7 @@ public class PlaceWorker_MSDrugMixHopper : PlaceWorker
             var thingList = c.GetThingList(map);
             foreach (var thing in thingList)
             {
-                if (GenConstruct.BuiltDefOf(thing.def) is ThingDef { building: { }, defName: "MSDrugMixer" } &&
+                if (GenConstruct.BuiltDefOf(thing.def) is ThingDef { building: not null, defName: "MSDrugMixer" } &&
                     IsCorrectSide(thing, c, rot))
                 {
                     return true;

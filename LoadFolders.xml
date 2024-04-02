@@ -24,4 +24,10 @@
     <li IfModActive="dame.hotmeals">HotMeals</li>
     <li IfModActive="Mlie.DThermodynamicsHotMeals">HotMeals</li>
   </v1.4>
+  <v1.5>
+    <li>/</li>
+    <li>1.5</li>
+    <li IfModActive="dame.hotmeals">HotMeals</li>
+    <li IfModActive="Mlie.DThermodynamicsHotMeals">HotMeals</li>
+  </v1.5>
 </loadFolders>
