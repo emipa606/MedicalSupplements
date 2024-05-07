@@ -10,7 +10,7 @@ public class MSTendableNow_Patch
     public static void Postfix(ref Hediff __instance, ref bool __result, bool ignoreTimer = false)
     {
         if (!__instance.def.tendable || __instance.Severity <= 0f || __instance.FullyImmune() ||
-            !__instance.Visible || __instance.IsPermanent())
+            !__instance.Visible || __instance.IsPermanent() || !__instance.pawn.RaceProps.IsFlesh || !__instance.pawn.health.CanBleed)
         {
             __result = false;
             return;
