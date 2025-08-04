@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Unhook in bulk -->
+  <MakeBulkMSUnhook.label>Make Unhook in bulk</MakeBulkMSUnhook.label>
+  <!-- EN: Make 5 Unhook -->
+  <MakeBulkMSUnhook.description>Make 5 Unhook</MakeBulkMSUnhook.description>
+  <!-- EN: Making Unhook -->
+  <MakeBulkMSUnhook.jobString>Making Unhook</MakeBulkMSUnhook.jobString>
+  <!-- EN: Make Unhook -->
+  <MakeMSUnhook.label>Make Unhook</MakeMSUnhook.label>
+  <!-- EN: Make 1 Unhook -->
+  <MakeMSUnhook.description>Make 1 Unhook</MakeMSUnhook.description>
+  <!-- EN: Making Unhook -->
+  <MakeMSUnhook.jobString>Making Unhook</MakeMSUnhook.jobString>
+</LanguageData>

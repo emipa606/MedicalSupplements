@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Ethyl Mercury -->
+  <MSEthylMercury.label>Ethyl Mercury</MSEthylMercury.label>
+  <!-- EN: Ethyl mercury is a cation composed of an organic CH3CH2- species (an ethyl group) bound to a mercury(II) centre, making it a type of organometallic cation, and giving it a chemical formula is C2H5Hg+.  A precursor chemical. (Made from Chemfuel and Mercury Salts). -->
+  <MSEthylMercury.description>Ethyl mercury is a cation composed of an organic CH3CH2- species (an ethyl group) bound to a mercury(II) centre, making it a type of organometallic cation, and giving it a chemical formula is C2H5Hg+.  A precursor chemical. (Made from Chemfuel and Mercury Salts).</MSEthylMercury.description>
+  <!-- EN: Mercury Salts -->
+  <MSMercurySalts.label>Mercury Salts</MSMercurySalts.label>
+  <!-- EN: A vermillion powdery salt otherwise known as cinnibar which contains mercury. A precursor chemical. (Made from stone chunks). -->
+  <MSMercurySalts.description>A vermillion powdery salt otherwise known as cinnibar which contains mercury. A precursor chemical. (Made from stone chunks).</MSMercurySalts.description>
+</LanguageData>

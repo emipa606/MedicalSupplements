@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Clarity in bulk -->
+  <MakeBulkMSClarity.label>Make Clarity in bulk</MakeBulkMSClarity.label>
+  <!-- EN: Make 5 Clarity -->
+  <MakeBulkMSClarity.description>Make 5 Clarity</MakeBulkMSClarity.description>
+  <!-- EN: Making Clarity -->
+  <MakeBulkMSClarity.jobString>Making Clarity</MakeBulkMSClarity.jobString>
+  <!-- EN: Make Clarity -->
+  <MakeMSClarity.label>Make Clarity</MakeMSClarity.label>
+  <!-- EN: Make 1 Clarity -->
+  <MakeMSClarity.description>Make 1 Clarity</MakeMSClarity.description>
+  <!-- EN: Making Clarity -->
+  <MakeMSClarity.jobString>Making Clarity</MakeMSClarity.jobString>
+</LanguageData>

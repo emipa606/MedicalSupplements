@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: mental dependency withdrawal -->
+  <MSMentalWithdrawal.stages.mental_dependency_withdrawal.label>mental dependency withdrawal</MSMentalWithdrawal.stages.mental_dependency_withdrawal.label>
+  <!-- EN: I'm irritable. -->
+  <MSMentalWithdrawal.stages.mental_dependency_withdrawal.description>I'm irritable.</MSMentalWithdrawal.stages.mental_dependency_withdrawal.description>
+  <!-- EN: Placebo sedation effect -->
+  <MSPlacebo_Thought.stages.Placebo_sedation_effect.label>Placebo sedation effect</MSPlacebo_Thought.stages.Placebo_sedation_effect.label>
+  <!-- EN: Placebo provides a mild numbing to reality. -->
+  <MSPlacebo_Thought.stages.Placebo_sedation_effect.description>Placebo provides a mild numbing to reality.</MSPlacebo_Thought.stages.Placebo_sedation_effect.description>
+</LanguageData>

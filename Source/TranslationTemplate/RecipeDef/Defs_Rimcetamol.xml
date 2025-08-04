@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Rimcetamol in bulk -->
+  <MakeBulkRimcetamol.label>Make Rimcetamol in bulk</MakeBulkRimcetamol.label>
+  <!-- EN: Make 10 Rimcetamol tablets. -->
+  <MakeBulkRimcetamol.description>Make 10 Rimcetamol tablets.</MakeBulkRimcetamol.description>
+  <!-- EN: Making Rimcetamol. -->
+  <MakeBulkRimcetamol.jobString>Making Rimcetamol.</MakeBulkRimcetamol.jobString>
+  <!-- EN: Make Rimcetamol -->
+  <MakeRimcetamol.label>Make Rimcetamol</MakeRimcetamol.label>
+  <!-- EN: Make 2 Rimcetamol tablets. -->
+  <MakeRimcetamol.description>Make 2 Rimcetamol tablets.</MakeRimcetamol.description>
+  <!-- EN: Making Rimcetamol. -->
+  <MakeRimcetamol.jobString>Making Rimcetamol.</MakeRimcetamol.jobString>
+</LanguageData>

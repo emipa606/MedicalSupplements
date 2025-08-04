@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Multi-Vitamins in Bulk -->
+  <MakeBulkMSMultiVitamins.label>Make Multi-Vitamins in Bulk</MakeBulkMSMultiVitamins.label>
+  <!-- EN: Make 25 Multi-Vitamins -->
+  <MakeBulkMSMultiVitamins.description>Make 25 Multi-Vitamins</MakeBulkMSMultiVitamins.description>
+  <!-- EN: Making Multi-Vitamins -->
+  <MakeBulkMSMultiVitamins.jobString>Making Multi-Vitamins</MakeBulkMSMultiVitamins.jobString>
+  <!-- EN: Make Multi-Vitamins -->
+  <MakeMSMultiVitamins.label>Make Multi-Vitamins</MakeMSMultiVitamins.label>
+  <!-- EN: Make 5 Multi-Vitamins. -->
+  <MakeMSMultiVitamins.description>Make 5 Multi-Vitamins.</MakeMSMultiVitamins.description>
+  <!-- EN: Making Multi-Vitamins. -->
+  <MakeMSMultiVitamins.jobString>Making Multi-Vitamins.</MakeMSMultiVitamins.jobString>
+</LanguageData>

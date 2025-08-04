@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Rimedicrem in bulk -->
+  <MakeBulkRimedicrem.label>Make Rimedicrem in bulk</MakeBulkRimedicrem.label>
+  <!-- EN: Make 5 Rimedicrem. -->
+  <MakeBulkRimedicrem.description>Make 5 Rimedicrem.</MakeBulkRimedicrem.description>
+  <!-- EN: Making Rimedicrem -->
+  <MakeBulkRimedicrem.jobString>Making Rimedicrem</MakeBulkRimedicrem.jobString>
+  <!-- EN: Make Rimedicrem -->
+  <MakeRimedicrem.label>Make Rimedicrem</MakeRimedicrem.label>
+  <!-- EN: Make Rimedicrem. -->
+  <MakeRimedicrem.description>Make Rimedicrem.</MakeRimedicrem.description>
+  <!-- EN: Making Rimedicrem -->
+  <MakeRimedicrem.jobString>Making Rimedicrem</MakeRimedicrem.jobString>
+</LanguageData>

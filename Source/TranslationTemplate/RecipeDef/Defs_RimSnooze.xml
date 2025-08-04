@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make RimSnooze in bulk -->
+  <MakeBulkMSRimSnooze.label>Make RimSnooze in bulk</MakeBulkMSRimSnooze.label>
+  <!-- EN: Make 5 RimSnooze -->
+  <MakeBulkMSRimSnooze.description>Make 5 RimSnooze</MakeBulkMSRimSnooze.description>
+  <!-- EN: Making RimSnooze -->
+  <MakeBulkMSRimSnooze.jobString>Making RimSnooze</MakeBulkMSRimSnooze.jobString>
+  <!-- EN: Make RimSnooze -->
+  <MakeMSRimSnooze.label>Make RimSnooze</MakeMSRimSnooze.label>
+  <!-- EN: Make 1 RimSnooze -->
+  <MakeMSRimSnooze.description>Make 1 RimSnooze</MakeMSRimSnooze.description>
+  <!-- EN: Making RimSnooze -->
+  <MakeMSRimSnooze.jobString>Making RimSnooze</MakeMSRimSnooze.jobString>
+</LanguageData>

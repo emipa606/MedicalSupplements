@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/.github/">
+    <File Path="../.github/copilot-instructions.md" />
+  </Folder>
+  <Configurations>
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="MedSupp/MedSupp.csproj" />
+  <Project Path="MSLHM/MSLHM.csproj" />
+  <Project Path="MSOptions/MSOptions.csproj" />
+</Solution>

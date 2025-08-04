@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <MSGPSBeaconMeds.label>GPS-маячок (медицинский)</MSGPSBeaconMeds.label>
   <MSGPSBeaconMeds.description>GPS-маячок для вызова медикаментов. Компонент одноразового использования, посылающий радиосигнал для запроса поставок в определенное место.</MSGPSBeaconMeds.description>

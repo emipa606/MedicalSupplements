@@ -12,13 +12,13 @@ public class MSHediffComp_GrowthMode : HediffComp_SeverityModifierBase
 
     private const float GrowthModeChangeMtbDays = 100f;
 
-    public HediffGrowthMode growthMode;
+    private HediffGrowthMode growthMode;
 
     private float severityPerDayGrowingRandomFactor = 1f;
 
     private float severityPerDayRemissionRandomFactor = 1f;
 
-    public MSHediffCompProperties_GrowthMode Props => (MSHediffCompProperties_GrowthMode)props;
+    private MSHediffCompProperties_GrowthMode Props => (MSHediffCompProperties_GrowthMode)props;
 
     public override string CompLabelInBracketsExtra => growthMode.GetLabel();
 

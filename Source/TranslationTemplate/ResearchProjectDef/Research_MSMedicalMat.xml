@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Medical Mats -->
+  <MSMedicalMat.label>Medical Mats</MSMedicalMat.label>
+  <!-- EN: Grants the ability to make Medical Mats. A rolled up portable mat that can be used for medical purposes in the field or as a useful caravan item. -->
+  <MSMedicalMat.description>Grants the ability to make Medical Mats. A rolled up portable mat that can be used for medical purposes in the field or as a useful caravan item.</MSMedicalMat.description>
+  <!-- EN: Early Medical Mats -->
+  <MSMedicalMatEarly.label>Early Medical Mats</MSMedicalMatEarly.label>
+  <!-- EN: Grants the ability to make early Medical Mats. A rolled up portable mat made from herbal medicine impregnated rope that can be used for medical purposes in the field or as a useful caravan item. -->
+  <MSMedicalMatEarly.description>Grants the ability to make early Medical Mats. A rolled up portable mat made from herbal medicine impregnated rope that can be used for medical purposes in the field or as a useful caravan item.</MSMedicalMatEarly.description>
+  <!-- EN: Advanced Medical Mats -->
+  <MSMedicalMatSpacer.label>Advanced Medical Mats</MSMedicalMatSpacer.label>
+  <!-- EN: Grants the ability to make Advanced Medical Mats. A rolled up advanced portable mat that can be used for medical purposes in the field or as a useful caravan item. -->
+  <MSMedicalMatSpacer.description>Grants the ability to make Advanced Medical Mats. A rolled up advanced portable mat that can be used for medical purposes in the field or as a useful caravan item.</MSMedicalMatSpacer.description>
+  <!-- EN: Ultra Medical Mats -->
+  <MSMedicalMatUltra.label>Ultra Medical Mats</MSMedicalMatUltra.label>
+  <!-- EN: Grants the ability to make Ultratech Medical Mats. A rolled up high-tech portable mat that can be used for medical purposes in the field or as a useful caravan item. -->
+  <MSMedicalMatUltra.description>Grants the ability to make Ultratech Medical Mats. A rolled up high-tech portable mat that can be used for medical purposes in the field or as a useful caravan item.</MSMedicalMatUltra.description>
+</LanguageData>

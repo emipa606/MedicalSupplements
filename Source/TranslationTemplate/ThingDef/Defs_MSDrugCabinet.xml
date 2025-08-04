@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Drug Cabinet -->
+  <DrugCabinet.label>Drug Cabinet</DrugCabinet.label>
+  <!-- EN: A small cabinet to store drugs. Includes a small cleanliness boost and a production boost to drug lab benches. -->
+  <DrugCabinet.description>A small cabinet to store drugs. Includes a small cleanliness boost and a production boost to drug lab benches.</DrugCabinet.description>
+</LanguageData>

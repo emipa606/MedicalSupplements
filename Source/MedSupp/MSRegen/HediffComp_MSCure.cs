@@ -9,7 +9,7 @@ public class HediffComp_MSCure : HediffComp
 
     private int ticksToCure;
 
-    public HediffCompProperties_MSCure MSProps => (HediffCompProperties_MSCure)props;
+    private HediffCompProperties_MSCure MSProps => (HediffCompProperties_MSCure)props;
 
     public void SetTicksToCure()
     {

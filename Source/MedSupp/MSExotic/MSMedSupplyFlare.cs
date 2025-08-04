@@ -20,7 +20,7 @@ public class MSMedSupplyFlare : Gas
         Scribe_Values.Look(ref destroyTick, "destroyTick");
     }
 
-    public override void Tick()
+    protected override void Tick()
     {
         if (destroyTick <= Find.TickManager.TicksGame)
         {
@@ -45,7 +45,7 @@ public class MSMedSupplyFlare : Gas
             return;
         }
 
-        var DropSpot = GetDropSpot(TargetMap, TargetCell);
+        var DropSpot = GetDropSpot(TargetCell);
         var supplies = GetSupplies(SupplyList());
         DoMSMedSupplies(TargetMap, DropSpot, supplies);
         if (!this.DestroyedOrNull())
@@ -54,19 +54,19 @@ public class MSMedSupplyFlare : Gas
         }
     }
 
-    public void DoMSMedSupplies(Map map, IntVec3 DropSpot, List<Thing> things)
+    private static void DoMSMedSupplies(Map map, IntVec3 DropSpot, List<Thing> things)
     {
         DropPodUtility.DropThingsNear(DropSpot, map, things, 110, false, true);
         Find.LetterStack.ReceiveLetter("MSExotic.MedSupplyLabel".Translate(), "MSExotic.MedSupplyEvent".Translate(),
             LetterDefOf.PositiveEvent, new TargetInfo(DropSpot, map));
     }
 
-    public IntVec3 GetDropSpot(Map map, IntVec3 root)
+    private static IntVec3 GetDropSpot(IntVec3 root)
     {
         return root;
     }
 
-    public List<ThingDef> SupplyList()
+    private static List<ThingDef> SupplyList()
     {
         var list = new List<ThingDef>();
         ThingDef medicineIndustrial = null;
@@ -106,7 +106,7 @@ public class MSMedSupplyFlare : Gas
         return list;
     }
 
-    public List<Thing> GetSupplies(List<ThingDef> list)
+    private static List<Thing> GetSupplies(List<ThingDef> list)
     {
         var supplies = new List<Thing>();
         foreach (var thingDef in list)
@@ -121,7 +121,7 @@ public class MSMedSupplyFlare : Gas
         return supplies;
     }
 
-    public Thing MakeSupplies(ThingDef thingDef)
+    private static Thing MakeSupplies(ThingDef thingDef)
     {
         if (thingDef == null)
         {

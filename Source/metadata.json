@@ -2,5 +2,17 @@
   "Continued": true,
   "CanAdd": "0",
   "CanRemove": "2",
-  "PreviewVersion": "1.5"
+  "PreviewVersion": "1.6",
+  "Patches": true,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 182645,
+  "LinesOfXML": 534838,
+  "CodeBaseSize": 92,
+  "LastXmlCleaning": "2025-08-04T21:47:18.0256435+02:00",
+  "SocialImageSet": true,
+  "SearchTags": [
+    " drug production",
+    " medical research"
+  ]
 }

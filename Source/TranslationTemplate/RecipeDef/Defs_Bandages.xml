@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make bandages (antisceptic) -->
+  <MakeMSASBandage.label>Make bandages (antisceptic)</MakeMSASBandage.label>
+  <!-- EN: Make 10 bandages (antisceptic). -->
+  <MakeMSASBandage.description>Make 10 bandages (antisceptic).</MakeMSASBandage.description>
+  <!-- EN: Crafting bandages. -->
+  <MakeMSASBandage.jobString>Crafting bandages.</MakeMSASBandage.jobString>
+  <!-- EN: Make bandages (cotton) -->
+  <MakeMSBandage.label>Make bandages (cotton)</MakeMSBandage.label>
+  <!-- EN: Make 10 bandages (cotton). -->
+  <MakeMSBandage.description>Make 10 bandages (cotton).</MakeMSBandage.description>
+  <!-- EN: Crafting bandages. -->
+  <MakeMSBandage.jobString>Crafting bandages.</MakeMSBandage.jobString>
+  <!-- EN: Make bandages (Nanotech) -->
+  <MakeMSNanoBandage.label>Make bandages (Nanotech)</MakeMSNanoBandage.label>
+  <!-- EN: Make 10 bandages (Nanotech). -->
+  <MakeMSNanoBandage.description>Make 10 bandages (Nanotech).</MakeMSNanoBandage.description>
+  <!-- EN: Crafting bandages. -->
+  <MakeMSNanoBandage.jobString>Crafting bandages.</MakeMSNanoBandage.jobString>
+</LanguageData>

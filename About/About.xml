@@ -10,6 +10,7 @@
     <li>1.3</li>
     <li>1.4</li>
     <li>1.5</li>
+    <li>1.6</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -36,7 +37,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2004944243
 
 [table]
     [tr]
-        [td][url=https://dsc.gg/mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+        [td][url=https://discord.gg/h5TY6DA][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
         [td][url=https://github.com/emipa606/MedicalSupplements][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
     [/tr]
     [tr]
@@ -136,42 +137,6 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2195052690
 Utility Supplements
 https://steamcommunity.com/sharedfiles/filedetails/?id=2195065488
 
-
-Compatibility Notes
-*** Subject to Conversion ***
-
-Apothecary
-Children, School and Learning
-Common Ailments
-Cupros Stones
-Diseases Overhauled
-Electric Stone Cutting Table
-Fermenter
-Fertile Fields
-KV Rimfridge
-Kuratheris's Extra Stone
-LWM Deep storage
-Multiplayer
-RimCuisine 1
-RimCuisine 2
-RimPlas
-[sd] Medical Addons
-Seeds Please
-VCE/VPE
-VGP Vegetable Garden
-VGP Garden Medicine
-VFE - Medical Module
-VFE - Production
-
-Recommended
-
-Drug Policy Fix https://steamcommunity.com/sharedfiles/filedetails/?id=2195390245 ; can be used to help manage and correct drugs added or removed part way through a save game. It will also sort the drug listings alphabetically.
-
-Mod Medicine Patch https://steamcommunity.com/sharedfiles/filedetails/?id=1430084631 - allows you to specify additional modded medicines (GUI), works with the mod Pharmacy.
-
-Several research projects (in a number of tabs). Recommend mods that make the management of research projects more user friendly. Examples include (but not limited to): Research Tree, ResearchPal.
-
-
 Credits
 
 "OskarPotocki": Most graphics.
@@ -188,13 +153,13 @@ Erdnussbrot - German translation.
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
-[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader[/url] and command Ctrl+F12
+[*] Post your error-log using the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Log Uploader[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader[/url] and command Ctrl+F12
 [*] For best support, please use the Discord-channel for error-reporting.
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [*] Use [url=https://github.com/RimSort/RimSort/releases/latest]RimSort[/url] to sort your mods
-[/list]
+[/list] 
 
-[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2195037369][img]https://img.shields.io/github/v/release/emipa606/MedicalSupplements?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url]</description>
-  <modVersion IgnoreIfNoMatchingField="True">1.5.2</modVersion>
+[url=https://steamcommunity.com/sharedfiles/filedetails/changelog/2195037369][img]https://img.shields.io/github/v/release/emipa606/MedicalSupplements?label=latest%20version&amp;style=plastic&amp;color=9f1111&amp;labelColor=black[/img][/url] | tags:  drug production,  medical research</description>
+  <modVersion IgnoreIfNoMatchingField="True">1.6.0</modVersion>
 </ModMetaData>

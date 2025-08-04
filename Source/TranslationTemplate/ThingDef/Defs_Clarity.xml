@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Clarity -->
+  <MSClarity.label>Clarity</MSClarity.label>
+  <!-- EN: Clarity is an antipsychotic and nootropic drug. Take every 5 days. -->
+  <MSClarity.description>Clarity is an antipsychotic and nootropic drug. Take every 5 days.</MSClarity.description>
+  <!-- EN: Take {0} -->
+  <MSClarity.ingestible.ingestCommandString>Take {0}</MSClarity.ingestible.ingestCommandString>
+  <!-- EN: Taking {0}. -->
+  <MSClarity.ingestible.ingestReportString>Taking {0}.</MSClarity.ingestible.ingestReportString>
+</LanguageData>

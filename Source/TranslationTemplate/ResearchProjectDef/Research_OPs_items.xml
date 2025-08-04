@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Medical surgery items -->
+  <MSSurgeryItemsIndustrial.label>Medical surgery items</MSSurgeryItemsIndustrial.label>
+  <!-- EN: Grants the ability to make medical surgery items. -->
+  <MSSurgeryItemsIndustrial.description>Grants the ability to make medical surgery items.</MSSurgeryItemsIndustrial.description>
+  <!-- EN: Advanced medical surgery items -->
+  <MSSurgeryItemsSpacer.label>Advanced medical surgery items</MSSurgeryItemsSpacer.label>
+  <!-- EN: Grants the ability to make advanced medical surgery items. -->
+  <MSSurgeryItemsSpacer.description>Grants the ability to make advanced medical surgery items.</MSSurgeryItemsSpacer.description>
+</LanguageData>

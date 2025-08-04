@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Ethanol in Bulk -->
+  <MakeBulkMSEthanol.label>Make Ethanol in Bulk</MakeBulkMSEthanol.label>
+  <!-- EN: Make 25 Ethanol. -->
+  <MakeBulkMSEthanol.description>Make 25 Ethanol.</MakeBulkMSEthanol.description>
+  <!-- EN: Preparing Ethanol. -->
+  <MakeBulkMSEthanol.jobString>Preparing Ethanol.</MakeBulkMSEthanol.jobString>
+  <!-- EN: Make Ethanol -->
+  <MakeMSEthanol.label>Make Ethanol</MakeMSEthanol.label>
+  <!-- EN: Make 5 Ethanol. -->
+  <MakeMSEthanol.description>Make 5 Ethanol.</MakeMSEthanol.description>
+  <!-- EN: Preparing Ethanol. -->
+  <MakeMSEthanol.jobString>Preparing Ethanol.</MakeMSEthanol.jobString>
+</LanguageData>

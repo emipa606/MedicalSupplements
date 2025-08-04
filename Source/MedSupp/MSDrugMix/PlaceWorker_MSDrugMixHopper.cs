@@ -20,7 +20,7 @@ public class PlaceWorker_MSDrugMixHopper : PlaceWorker
             foreach (var thing in thingList)
             {
                 if (GenConstruct.BuiltDefOf(thing.def) is ThingDef { building: not null, defName: "MSDrugMixer" } &&
-                    IsCorrectSide(thing, c, rot))
+                    IsCorrectSide(thing, c))
                 {
                     return true;
                 }
@@ -35,7 +35,7 @@ public class PlaceWorker_MSDrugMixHopper : PlaceWorker
         return GenAdj.CardinalDirections[i];
     }
 
-    public bool IsCorrectSide(Thing t, IntVec3 c, Rot4 rot)
+    private static bool IsCorrectSide(Thing t, IntVec3 c)
     {
         var tRot = t.Rotation;
         var tPos = t.Position;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Firethroat in bulk -->
+  <MakeBulkFireThroat.label>Make Firethroat in bulk</MakeBulkFireThroat.label>
+  <!-- EN: Make 5 Firethroat. -->
+  <MakeBulkFireThroat.description>Make 5 Firethroat.</MakeBulkFireThroat.description>
+  <!-- EN: Making Firethroat. -->
+  <MakeBulkFireThroat.jobString>Making Firethroat.</MakeBulkFireThroat.jobString>
+</LanguageData>

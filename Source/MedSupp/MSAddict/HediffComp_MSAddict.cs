@@ -6,7 +6,7 @@ namespace MSAddict;
 
 public class HediffComp_MSAddict : HediffComp
 {
-    public HediffCompProperties_MSAddict MSProps => (HediffCompProperties_MSAddict)props;
+    private HediffCompProperties_MSAddict MSProps => (HediffCompProperties_MSAddict)props;
 
     public override void CompPostTick(ref float severityAdjustment)
     {
@@ -65,7 +65,7 @@ public class HediffComp_MSAddict : HediffComp
         }
     }
 
-    public void ReduceHediff(Hediff h, float sev)
+    private void ReduceHediff(Hediff h, float sev)
     {
         var hsev = h.Severity;
         if (h.def.defName == "LuciferiumAddiction")

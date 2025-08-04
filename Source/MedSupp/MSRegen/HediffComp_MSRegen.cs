@@ -17,7 +17,7 @@ public class HediffComp_MSRegen : HediffComp
     private static readonly HediffDef frostbite = HediffDef.Named("Frostbite");
     private int ticksToHeal;
 
-    public HediffCompProperties_MSRegen MSProps => (HediffCompProperties_MSRegen)props;
+    private HediffCompProperties_MSRegen MSProps => (HediffCompProperties_MSRegen)props;
 
     public override void CompPostMake()
     {
@@ -139,7 +139,7 @@ public class HediffComp_MSRegen : HediffComp
         hediffToHeal.Severity = 0f;
     }
 
-    internal float GetHealFactor(Hediff h)
+    private static float GetHealFactor(Hediff h)
     {
         var hf = 1f;
         if (h.def == scratch)
@@ -154,15 +154,7 @@ public class HediffComp_MSRegen : HediffComp
         {
             hf = 1.2f;
         }
-        else if (h.def == crack)
-        {
-            hf = 0.8f;
-        }
-        else if (h.def == crush)
-        {
-            hf = 0.8f;
-        }
-        else if (h.def == frostbite)
+        else if (h.def == crack || h.def == crush || h.def == frostbite)
         {
             hf = 0.8f;
         }
@@ -170,7 +162,7 @@ public class HediffComp_MSRegen : HediffComp
         return hf;
     }
 
-    internal bool MSIsRegenInjury(Hediff h)
+    private static bool MSIsRegenInjury(Hediff h)
     {
         return h.Bleeding || h.def == HediffDefOf.Cut || h.def == burn ||
                h.def == gunshot || h.def == scratch || h.def == stab ||
@@ -178,7 +170,7 @@ public class HediffComp_MSRegen : HediffComp
                h.IsPermanent() || h.def == crack || h.def == crush || h.def == frostbite;
     }
 
-    internal bool MSIsFastRegen(string defName)
+    private static bool MSIsFastRegen(string defName)
     {
         return defName == "MSBattleStim_High";
     }

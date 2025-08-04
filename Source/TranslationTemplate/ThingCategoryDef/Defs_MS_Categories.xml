@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Medical Supplements -->
+  <MSDrugs.label>Medical Supplements</MSDrugs.label>
+  <!-- EN: Injections and Stims -->
+  <MSInjectStim.label>Injections and Stims</MSInjectStim.label>
+  <!-- EN: Medical Supplements Resources -->
+  <MSManufactured.label>Medical Supplements Resources</MSManufactured.label>
+</LanguageData>

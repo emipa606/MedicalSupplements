@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Medical Mat -->
+  <MakeMsMedicalMat.label>Make Medical Mat</MakeMsMedicalMat.label>
+  <!-- EN: Make a medical mat. -->
+  <MakeMsMedicalMat.description>Make a medical mat.</MakeMsMedicalMat.description>
+  <!-- EN: Making a medical mat. -->
+  <MakeMsMedicalMat.jobString>Making a medical mat.</MakeMsMedicalMat.jobString>
+  <!-- EN: Make Medical Mat (Early) -->
+  <MakeMsMedicalMatEarly.label>Make Medical Mat (Early)</MakeMsMedicalMatEarly.label>
+  <!-- EN: Make a medical mat (early). -->
+  <MakeMsMedicalMatEarly.description>Make a medical mat (early).</MakeMsMedicalMatEarly.description>
+  <!-- EN: Making a medical mat. -->
+  <MakeMsMedicalMatEarly.jobString>Making a medical mat.</MakeMsMedicalMatEarly.jobString>
+  <!-- EN: Roll up Medical Mat (Early) -->
+  <MakeMSMedicalMatEarlyPackup.label>Roll up Medical Mat (Early)</MakeMSMedicalMatEarlyPackup.label>
+  <!-- EN: Roll up a used medical mat. -->
+  <MakeMSMedicalMatEarlyPackup.description>Roll up a used medical mat.</MakeMSMedicalMatEarlyPackup.description>
+  <!-- EN: Rolling up a medical mat. -->
+  <MakeMSMedicalMatEarlyPackup.jobString>Rolling up a medical mat.</MakeMSMedicalMatEarlyPackup.jobString>
+  <!-- EN: Repack Medical Mat -->
+  <MakeMSMedicalMatPackup.label>Repack Medical Mat</MakeMSMedicalMatPackup.label>
+  <!-- EN: Repack a used medical mat into a bag. -->
+  <MakeMSMedicalMatPackup.description>Repack a used medical mat into a bag.</MakeMSMedicalMatPackup.description>
+  <!-- EN: Repacking a medical mat. -->
+  <MakeMSMedicalMatPackup.jobString>Repacking a medical mat.</MakeMSMedicalMatPackup.jobString>
+  <!-- EN: Make Medical Mat (Spacer) -->
+  <MakeMsMedicalMatSpacer.label>Make Medical Mat (Spacer)</MakeMsMedicalMatSpacer.label>
+  <!-- EN: Make an advanced medical mat. -->
+  <MakeMsMedicalMatSpacer.description>Make an advanced medical mat.</MakeMsMedicalMatSpacer.description>
+  <!-- EN: Making an advanced medical mat. -->
+  <MakeMsMedicalMatSpacer.jobString>Making an advanced medical mat.</MakeMsMedicalMatSpacer.jobString>
+  <!-- EN: Repack Medical Mat (Spacer) -->
+  <MakeMSMedicalMatSpacerPackup.label>Repack Medical Mat (Spacer)</MakeMSMedicalMatSpacerPackup.label>
+  <!-- EN: Repack a used advanced medical mat into a bag. -->
+  <MakeMSMedicalMatSpacerPackup.description>Repack a used advanced medical mat into a bag.</MakeMSMedicalMatSpacerPackup.description>
+  <!-- EN: Repacking a medical mat. -->
+  <MakeMSMedicalMatSpacerPackup.jobString>Repacking a medical mat.</MakeMSMedicalMatSpacerPackup.jobString>
+  <!-- EN: Make Medical Mat (Ultra) -->
+  <MakeMsMedicalMatUltra.label>Make Medical Mat (Ultra)</MakeMsMedicalMatUltra.label>
+  <!-- EN: Make a high-tech medical mat. -->
+  <MakeMsMedicalMatUltra.description>Make a high-tech medical mat.</MakeMsMedicalMatUltra.description>
+  <!-- EN: Making a high-tech medical mat. -->
+  <MakeMsMedicalMatUltra.jobString>Making a high-tech medical mat.</MakeMsMedicalMatUltra.jobString>
+  <!-- EN: Repack Medical Mat (Ultra) -->
+  <MakeMSMedicalMatUltraPackup.label>Repack Medical Mat (Ultra)</MakeMSMedicalMatUltraPackup.label>
+  <!-- EN: Repack a used high-tech medical mat into a bag. -->
+  <MakeMSMedicalMatUltraPackup.description>Repack a used high-tech medical mat into a bag.</MakeMSMedicalMatUltraPackup.description>
+  <!-- EN: Repacking a medical mat. -->
+  <MakeMSMedicalMatUltraPackup.jobString>Repacking a medical mat.</MakeMSMedicalMatUltraPackup.jobString>
+</LanguageData>

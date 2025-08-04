@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Rolled up medical mat (early) -->
+  <MSMedicalMatEarlyItem.label>Rolled up medical mat (early)</MSMedicalMatEarlyItem.label>
+  <!-- EN: A rolled up portable mat made from herbal medicine impregnated rope that can be used for medical purposes in the field or as a useful caravan item. -->
+  <MSMedicalMatEarlyItem.description>A rolled up portable mat made from herbal medicine impregnated rope that can be used for medical purposes in the field or as a useful caravan item.</MSMedicalMatEarlyItem.description>
+  <!-- EN: Rolled up medical mat -->
+  <MSMedicalMatItem.label>Rolled up medical mat</MSMedicalMatItem.label>
+  <!-- EN: A rolled up portable mat that can be used for medical purposes in the field or as a useful caravan item. -->
+  <MSMedicalMatItem.description>A rolled up portable mat that can be used for medical purposes in the field or as a useful caravan item.</MSMedicalMatItem.description>
+  <!-- EN: Rolled up medical mat (Spacer) -->
+  <MSMedicalMatSpacerItem.label>Rolled up medical mat (Spacer)</MSMedicalMatSpacerItem.label>
+  <!-- EN: A rolled up advanced portable mat that can be used for medical purposes in the field or as a useful caravan item. -->
+  <MSMedicalMatSpacerItem.description>A rolled up advanced portable mat that can be used for medical purposes in the field or as a useful caravan item.</MSMedicalMatSpacerItem.description>
+  <!-- EN: Rolled up medical mat (Ultra) -->
+  <MSMedicalMatUltraItem.label>Rolled up medical mat (Ultra)</MSMedicalMatUltraItem.label>
+  <!-- EN: A rolled up high-tech portable mat that can be used for medical purposes in the field or as a useful caravan item. -->
+  <MSMedicalMatUltraItem.description>A rolled up high-tech portable mat that can be used for medical purposes in the field or as a useful caravan item.</MSMedicalMatUltraItem.description>
+</LanguageData>

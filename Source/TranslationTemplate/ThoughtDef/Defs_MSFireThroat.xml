@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Firethroat -->
+  <MSFireThroat_Thought.stages.Firethroat.label>Firethroat</MSFireThroat_Thought.stages.Firethroat.label>
+  <!-- EN: Soothing effect -->
+  <MSFireThroat_Thought.stages.Firethroat.description>Soothing effect</MSFireThroat_Thought.stages.Firethroat.description>
+  <!-- EN: Imbalmed Firethroat -->
+  <MSFireThroat_Thought.stages.Imbalmed_Firethroat.label>Imbalmed Firethroat</MSFireThroat_Thought.stages.Imbalmed_Firethroat.label>
+  <!-- EN: Disliking the aftertaste -->
+  <MSFireThroat_Thought.stages.Imbalmed_Firethroat.description>Disliking the aftertaste</MSFireThroat_Thought.stages.Imbalmed_Firethroat.description>
+</LanguageData>

@@ -49,7 +49,7 @@ public static class MSTraitChanger
         }
     }
 
-    public static void TraitsUpdated(Pawn pawn)
+    private static void TraitsUpdated(Pawn pawn)
     {
         pawn.workSettings?.Notify_UseWorkPrioritiesChanged();
 

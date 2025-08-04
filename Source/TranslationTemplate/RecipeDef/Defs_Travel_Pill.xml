@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Travel pills in bulk -->
+  <MakeBulkMSTravelPills.label>Make Travel pills in bulk</MakeBulkMSTravelPills.label>
+  <!-- EN: Make 10 Travel tablets. -->
+  <MakeBulkMSTravelPills.description>Make 10 Travel tablets.</MakeBulkMSTravelPills.description>
+  <!-- EN: Making Travel Pills -->
+  <MakeBulkMSTravelPills.jobString>Making Travel Pills</MakeBulkMSTravelPills.jobString>
+  <!-- EN: Make Travel pills -->
+  <MakeMSTravelPills.label>Make Travel pills</MakeMSTravelPills.label>
+  <!-- EN: Make 5 Travel tablets. -->
+  <MakeMSTravelPills.description>Make 5 Travel tablets.</MakeMSTravelPills.description>
+  <!-- EN: Making Travel Pills -->
+  <MakeMSTravelPills.jobString>Making Travel Pills</MakeMSTravelPills.jobString>
+</LanguageData>

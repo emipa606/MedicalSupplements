@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Contact Lenses -->
+  <MSContacts.label>Contact Lenses</MSContacts.label>
+  <!-- EN: Soft polycarbonate disposable contact lenses that can improve vision slightly for a period of up to ten days. -->
+  <MSContacts.description>Soft polycarbonate disposable contact lenses that can improve vision slightly for a period of up to ten days.</MSContacts.description>
+  <!-- EN: Apply {0} -->
+  <MSContacts.ingestible.ingestCommandString>Apply {0}</MSContacts.ingestible.ingestCommandString>
+  <!-- EN: Applying {0}. -->
+  <MSContacts.ingestible.ingestReportString>Applying {0}.</MSContacts.ingestible.ingestReportString>
+</LanguageData>

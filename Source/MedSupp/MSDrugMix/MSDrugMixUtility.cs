@@ -8,9 +8,9 @@ namespace MSDrugMix;
 public class MSDrugMixUtility
 {
     [NoTranslate]
-    public static readonly string ChemIconPath = "Things/Building/Misc/MSDrugMixer/UI/MSDrugsMixerChem_Icon";
+    private static readonly string ChemIconPath = "Things/Building/Misc/MSDrugMixer/UI/MSDrugsMixerChem_Icon";
 
-    public static List<ThingDef> cachedChunkList = [];
+    private static List<ThingDef> cachedChunkList = [];
 
     public static Texture2D GetMSMixIcon(ThingDef t)
     {
@@ -129,7 +129,7 @@ public class MSDrugMixUtility
         return true;
     }
 
-    public static List<ThingDef> ChunkList()
+    private static List<ThingDef> ChunkList()
     {
         var list = new List<ThingDef>();
         var allthings = DefDatabase<ThingDef>.AllDefsListForReading;

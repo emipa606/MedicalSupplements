@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Antinites Vial -->
+  <MakeAntinitesVial.label>Make Antinites Vial</MakeAntinitesVial.label>
+  <!-- EN: Make a Antinites Vial. -->
+  <MakeAntinitesVial.description>Make a Antinites Vial.</MakeAntinitesVial.description>
+  <!-- EN: Making a Antinites Vial. -->
+  <MakeAntinitesVial.jobString>Making a Antinites Vial.</MakeAntinitesVial.jobString>
+  <!-- EN: Make Antinites in bulk -->
+  <MakeBulkAntinites.label>Make Antinites in bulk</MakeBulkAntinites.label>
+  <!-- EN: Make 5 Antinites Injections. -->
+  <MakeBulkAntinites.description>Make 5 Antinites Injections.</MakeBulkAntinites.description>
+  <!-- EN: Making Antinites injections. -->
+  <MakeBulkAntinites.jobString>Making Antinites injections.</MakeBulkAntinites.jobString>
+  <!-- EN: Make Antinites Vials in bulk -->
+  <MakeBulkAntinitesVial.label>Make Antinites Vials in bulk</MakeBulkAntinitesVial.label>
+  <!-- EN: Make 5 Antinites Vials. -->
+  <MakeBulkAntinitesVial.description>Make 5 Antinites Vials.</MakeBulkAntinitesVial.description>
+  <!-- EN: Making Antinites Vials. -->
+  <MakeBulkAntinitesVial.jobString>Making Antinites Vials.</MakeBulkAntinitesVial.jobString>
+</LanguageData>

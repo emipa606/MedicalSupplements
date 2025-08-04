@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Perpetuity -->
+  <MSPerpetuity.label>Perpetuity</MSPerpetuity.label>
+  <!-- EN: A dose of self injected mechanites designed to rejuvinate the user. The Elixir of Life from legend. -->
+  <MSPerpetuity.description>A dose of self injected mechanites designed to rejuvinate the user. The Elixir of Life from legend.</MSPerpetuity.description>
+  <!-- EN: Use Perpetuity -->
+  <MSPerpetuity.comps.CompUsable.useLabel>Use Perpetuity</MSPerpetuity.comps.CompUsable.useLabel>
+  <!-- EN: Perpetuity Vial -->
+  <MSPerpetuity_Vial.label>Perpetuity Vial</MSPerpetuity_Vial.label>
+  <!-- EN: Vial of Perpetuity chemicals. To be prepared in the Stimlab. -->
+  <MSPerpetuity_Vial.description>Vial of Perpetuity chemicals. To be prepared in the Stimlab.</MSPerpetuity_Vial.description>
+</LanguageData>

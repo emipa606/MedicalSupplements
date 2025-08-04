@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Androgen in bulk -->
+  <MakeBulkMSAndrogen.label>Make Androgen in bulk</MakeBulkMSAndrogen.label>
+  <!-- EN: Make 5 Androgen tablets. -->
+  <MakeBulkMSAndrogen.description>Make 5 Androgen tablets.</MakeBulkMSAndrogen.description>
+  <!-- EN: Making Androgen -->
+  <MakeBulkMSAndrogen.jobString>Making Androgen</MakeBulkMSAndrogen.jobString>
+  <!-- EN: Make Androgen -->
+  <MakeMSAndrogen.label>Make Androgen</MakeMSAndrogen.label>
+  <!-- EN: Make Androgen tablets. -->
+  <MakeMSAndrogen.description>Make Androgen tablets.</MakeMSAndrogen.description>
+  <!-- EN: Making Androgen -->
+  <MakeMSAndrogen.jobString>Making Androgen</MakeMSAndrogen.jobString>
+</LanguageData>

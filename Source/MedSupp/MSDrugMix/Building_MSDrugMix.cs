@@ -48,12 +48,9 @@ public class Building_MSDrugMix : Building
     {
         get
         {
-            if (cachedAdjCellsCardinal == null)
-            {
-                cachedAdjCellsCardinal = (from c in GenAdj.CellsAdjacentCardinal(this)
-                    where c.InBounds(Map)
-                    select c).ToList();
-            }
+            cachedAdjCellsCardinal ??= (from c in GenAdj.CellsAdjacentCardinal(this)
+                where c.InBounds(Map)
+                select c).ToList();
 
             return cachedAdjCellsCardinal;
         }
@@ -83,7 +80,7 @@ public class Building_MSDrugMix : Building
         mixSustainer = SoundDef.Named("MSDrugMixer").TrySpawnSustainer(info);
     }
 
-    public override void Tick()
+    protected override void Tick()
     {
         base.Tick();
         if (debug && Find.TickManager.TicksGame % 100 == 0)
@@ -102,13 +99,7 @@ public class Building_MSDrugMix : Building
         if (ProdWorkTicks > 0 && isProducing)
         {
             ProdWorkTicks--;
-            if (mixSustainer == null)
-            {
-                StartMixSustainer();
-                return;
-            }
-
-            if (mixSustainer.Ended)
+            if (mixSustainer == null || mixSustainer.Ended)
             {
                 StartMixSustainer();
                 return;

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Morphine -->
+  <MSMorphine.label>Morphine</MSMorphine.label>
+  <!-- EN: A potent opiate pain medication that lasts about a half a day. Can be addictive. -->
+  <MSMorphine.description>A potent opiate pain medication that lasts about a half a day. Can be addictive.</MSMorphine.description>
+  <!-- EN: Inject {0} -->
+  <MSMorphine.ingestible.ingestCommandString>Inject {0}</MSMorphine.ingestible.ingestCommandString>
+  <!-- EN: Injecting {0}. -->
+  <MSMorphine.ingestible.ingestReportString>Injecting {0}.</MSMorphine.ingestible.ingestReportString>
+  <!-- EN: Opium pipe -->
+  <MSOpiumPipe.label>Opium pipe</MSOpiumPipe.label>
+  <!-- EN: An early and crude, if still potent opiate pain medication that lasts about a half a day. Can be quite addictive. -->
+  <MSOpiumPipe.description>An early and crude, if still potent opiate pain medication that lasts about a half a day. Can be quite addictive.</MSOpiumPipe.description>
+  <!-- EN: Smoke {0} -->
+  <MSOpiumPipe.ingestible.ingestCommandString>Smoke {0}</MSOpiumPipe.ingestible.ingestCommandString>
+  <!-- EN: Smoking {0}. -->
+  <MSOpiumPipe.ingestible.ingestReportString>Smoking {0}.</MSOpiumPipe.ingestible.ingestReportString>
+  <!-- EN: Smoking {0}. -->
+  <MSOpiumPipe.ingestible.ingestReportStringEat>Smoking {0}.</MSOpiumPipe.ingestible.ingestReportStringEat>
+  <!-- EN: RimCodamol -->
+  <MSRimCodamol.label>RimCodamol</MSRimCodamol.label>
+  <!-- EN: A mild opiate pain medication that lasts about a day. Can be potentially addictive (mostly if taken too much in a short space of time). -->
+  <MSRimCodamol.description>A mild opiate pain medication that lasts about a day. Can be potentially addictive (mostly if taken too much in a short space of time).</MSRimCodamol.description>
+  <!-- EN: Take {0} -->
+  <MSRimCodamol.ingestible.ingestCommandString>Take {0}</MSRimCodamol.ingestible.ingestCommandString>
+  <!-- EN: Taking {0}. -->
+  <MSRimCodamol.ingestible.ingestReportString>Taking {0}.</MSRimCodamol.ingestible.ingestReportString>
+</LanguageData>

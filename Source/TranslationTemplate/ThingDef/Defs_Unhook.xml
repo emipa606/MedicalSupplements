@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Unhook -->
+  <MSUnhook.label>Unhook</MSUnhook.label>
+  <!-- EN: Unhook is a drug helpful to reduce addiction related issues. There is a chance of forming a mental dependancy. Can be taken every other day. -->
+  <MSUnhook.description>Unhook is a drug helpful to reduce addiction related issues. There is a chance of forming a mental dependancy. Can be taken every other day.</MSUnhook.description>
+  <!-- EN: Take {0} -->
+  <MSUnhook.ingestible.ingestCommandString>Take {0}</MSUnhook.ingestible.ingestCommandString>
+  <!-- EN: Taking {0}. -->
+  <MSUnhook.ingestible.ingestReportString>Taking {0}.</MSUnhook.ingestible.ingestReportString>
+</LanguageData>

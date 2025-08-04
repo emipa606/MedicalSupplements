@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make RimCodamol in bulk -->
+  <MakeBulkMSRimCodamol.label>Make RimCodamol in bulk</MakeBulkMSRimCodamol.label>
+  <!-- EN: Make 5 RimCodamol -->
+  <MakeBulkMSRimCodamol.description>Make 5 RimCodamol</MakeBulkMSRimCodamol.description>
+  <!-- EN: Making RimCodamol. -->
+  <MakeBulkMSRimCodamol.jobString>Making RimCodamol.</MakeBulkMSRimCodamol.jobString>
+  <!-- EN: Make Morphine -->
+  <MakeMSMorphine.label>Make Morphine</MakeMSMorphine.label>
+  <!-- EN: Make 1 morphine injection -->
+  <MakeMSMorphine.description>Make 1 morphine injection</MakeMSMorphine.description>
+  <!-- EN: Making morphine. -->
+  <MakeMSMorphine.jobString>Making morphine.</MakeMSMorphine.jobString>
+  <!-- EN: Make Opium pipe -->
+  <MakeMSOpiumPipe.label>Make Opium pipe</MakeMSOpiumPipe.label>
+  <!-- EN: Make 1 opium pipe -->
+  <MakeMSOpiumPipe.description>Make 1 opium pipe</MakeMSOpiumPipe.description>
+  <!-- EN: Making opium pipes. -->
+  <MakeMSOpiumPipe.jobString>Making opium pipes.</MakeMSOpiumPipe.jobString>
+  <!-- EN: Make RimCodamol -->
+  <MakeMSRimCodamol.label>Make RimCodamol</MakeMSRimCodamol.label>
+  <!-- EN: Make 1 RimCodamol -->
+  <MakeMSRimCodamol.description>Make 1 RimCodamol</MakeMSRimCodamol.description>
+  <!-- EN: Making RimCodamol. -->
+  <MakeMSRimCodamol.jobString>Making RimCodamol.</MakeMSRimCodamol.jobString>
+</LanguageData>

@@ -81,7 +81,7 @@ public class JobDriver_MSWearCondom : JobDriver
         });
     }
 
-    public static Pawn GetCondomPartnerInMyBed(Pawn pawn, Building_Bed LovinBed)
+    private static Pawn GetCondomPartnerInMyBed(Pawn pawn, Building_Bed LovinBed)
     {
         if (LovinBed.SleepingSlotsCount <= 1)
         {

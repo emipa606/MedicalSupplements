@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Drug Chemical Mixer -->
+  <MSDrugMixer.label>Drug Chemical Mixer</MSDrugMixer.label>
+  <!-- EN: A machine for preparing drug precursor elements:\n\n\nNeutroamine: Chemfuel and Glycerol.\n\nGlycerol: Chemfuel and (Beer or Ethanol).\n\nPhenol: Chemfuel.\n\nLithium Salts: Stone Chunks, Chemfuel and (Phenol or Sulphuric Acid).\n		\nOpium Latex: Opium Seed Pods.\n\nSulphur: Stone Chunks.\n\nSulphuric Acid: Sulphur.\n\nEthanol: Chemfuel and Sulphuric Acid.\n\nHydrogen Peroxide: Chemfuel, Neutroamine and Sulphuric Acid.\n		\nMercury Salts: Stone Chunks\n\nEthyl Mercury: Chemfuel and Mercury Salts. -->
+  <MSDrugMixer.description>A machine for preparing drug precursor elements:
+
+
+Neutroamine: Chemfuel and Glycerol.
+
+Glycerol: Chemfuel and (Beer or Ethanol).
+
+Phenol: Chemfuel.
+
+Lithium Salts: Stone Chunks, Chemfuel and (Phenol or Sulphuric Acid).
+		
+Opium Latex: Opium Seed Pods.
+
+Sulphur: Stone Chunks.
+
+Sulphuric Acid: Sulphur.
+
+Ethanol: Chemfuel and Sulphuric Acid.
+
+Hydrogen Peroxide: Chemfuel, Neutroamine and Sulphuric Acid.
+		
+Mercury Salts: Stone Chunks
+
+Ethyl Mercury: Chemfuel and Mercury Salts.</MSDrugMixer.description>
+  <!-- EN: Drug Chemical Mixer Input -->
+  <MSDrugMixInput.label>Drug Chemical Mixer Input</MSDrugMixInput.label>
+  <!-- EN: Holds input resources for use by the drug chemical mixer during production. -->
+  <MSDrugMixInput.description>Holds input resources for use by the drug chemical mixer during production.</MSDrugMixInput.description>
+  <!-- EN: Drug Chemical Mixer Output -->
+  <MSDrugMixOutput.label>Drug Chemical Mixer Output</MSDrugMixOutput.label>
+  <!-- EN: Holds output products from the drug chemical mixer. -->
+  <MSDrugMixOutput.description>Holds output products from the drug chemical mixer.</MSDrugMixOutput.description>
+</LanguageData>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Rimtarol in Bulk -->
+  <MakeBulkRimtarol.label>Make Rimtarol in Bulk</MakeBulkRimtarol.label>
+  <!-- EN: Make 5 Rimtarol. -->
+  <MakeBulkRimtarol.description>Make 5 Rimtarol.</MakeBulkRimtarol.description>
+  <!-- EN: Making Rimtarol -->
+  <MakeBulkRimtarol.jobString>Making Rimtarol</MakeBulkRimtarol.jobString>
+  <!-- EN: Make Rimtarol -->
+  <MakeRimtarol.label>Make Rimtarol</MakeRimtarol.label>
+  <!-- EN: Make Rimtarol. -->
+  <MakeRimtarol.description>Make Rimtarol.</MakeRimtarol.description>
+  <!-- EN: Making Rimtarol -->
+  <MakeRimtarol.jobString>Making Rimtarol</MakeRimtarol.jobString>
+</LanguageData>

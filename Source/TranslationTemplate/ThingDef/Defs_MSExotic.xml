@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Cerebrax Injection -->
+  <MSCerebrax.label>Cerebrax Injection</MSCerebrax.label>
+  <!-- EN: A dose of self injected chemicals designed to permanently remove psychic susceptability. -->
+  <MSCerebrax.description>A dose of self injected chemicals designed to permanently remove psychic susceptability.</MSCerebrax.description>
+  <!-- EN: Use Cerebrax injection -->
+  <MSCerebrax.comps.CompUsable.useLabel>Use Cerebrax injection</MSCerebrax.comps.CompUsable.useLabel>
+  <!-- EN: Condom -->
+  <MSCondom.label>Condom</MSCondom.label>
+  <!-- EN: A condom is a sheath-shaped barrier device, used during sexual intercourse to reduce the probability of pregnancy or a sexually transmitted infection (STI). This version is a unisex version. -->
+  <MSCondom.description>A condom is a sheath-shaped barrier device, used during sexual intercourse to reduce the probability of pregnancy or a sexually transmitted infection (STI). This version is a unisex version.</MSCondom.description>
+  <!-- EN: Use Condom -->
+  <MSCondom.comps.CompUsable.useLabel>Use Condom</MSCondom.comps.CompUsable.useLabel>
+  <!-- EN: Immunisation Injection -->
+  <MSImmunisation.label>Immunisation Injection</MSImmunisation.label>
+  <!-- EN: A dose of self injected chemicals designed to permanently stimulate the immunity system. -->
+  <MSImmunisation.description>A dose of self injected chemicals designed to permanently stimulate the immunity system.</MSImmunisation.description>
+  <!-- EN: Use immunisation injection -->
+  <MSImmunisation.comps.CompUsable.useLabel>Use immunisation injection</MSImmunisation.comps.CompUsable.useLabel>
+</LanguageData>

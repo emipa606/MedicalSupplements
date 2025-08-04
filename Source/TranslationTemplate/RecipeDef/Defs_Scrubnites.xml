@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Scrubnites in bulk -->
+  <MakeBulkScrubnites.label>Make Scrubnites in bulk</MakeBulkScrubnites.label>
+  <!-- EN: Make 5 Scrubnites Injections. -->
+  <MakeBulkScrubnites.description>Make 5 Scrubnites Injections.</MakeBulkScrubnites.description>
+  <!-- EN: Making Scrubnites injections. -->
+  <MakeBulkScrubnites.jobString>Making Scrubnites injections.</MakeBulkScrubnites.jobString>
+</LanguageData>

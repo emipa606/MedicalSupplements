@@ -5,7 +5,7 @@ namespace MedSupp;
 
 public class HediffComp_MSWakeAnasthetic : HediffComp
 {
-    public HediffCompProperties_MSWakeAnasthetic MSProps => (HediffCompProperties_MSWakeAnasthetic)props;
+    private HediffCompProperties_MSWakeAnasthetic MSProps => (HediffCompProperties_MSWakeAnasthetic)props;
 
     public override void CompPostTick(ref float severityAdjustment)
     {

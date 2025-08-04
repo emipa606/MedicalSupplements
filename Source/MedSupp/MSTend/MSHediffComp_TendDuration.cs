@@ -21,18 +21,18 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
     private static readonly Texture2D TendedIcon_Well_Injury =
         ContentFinder<Texture2D>.Get("UI/Icons/Medical/BandageWell");
 
-    public float tendQuality;
+    private float tendQuality;
 
-    public int tendTicksLeft = -1;
+    private int tendTicksLeft = -1;
 
     private float totalTendQuality;
 
-    public MSHediffCompProperties_TendDuration TProps => (MSHediffCompProperties_TendDuration)props;
+    private MSHediffCompProperties_TendDuration TProps => (MSHediffCompProperties_TendDuration)props;
 
     public override bool CompShouldRemove => base.CompShouldRemove || TProps.disappearsAtTotalTendQuality >= 0 &&
         totalTendQuality >= TProps.disappearsAtTotalTendQuality;
 
-    public bool IsTended => Current.ProgramState == ProgramState.Playing && tendTicksLeft > 0;
+    private bool IsTended => Current.ProgramState == ProgramState.Playing && tendTicksLeft > 0;
 
     public bool AllowTend
     {
@@ -141,7 +141,7 @@ public class MSHediffComp_TendDuration : HediffComp_SeverityModifierBase
         }
     }
 
-    private void MSCure(Hediff MShediffToCure, Hediff MShediffCuredBy)
+    private static void MSCure(Hediff MShediffToCure, Hediff MShediffCuredBy)
     {
         var pawn = MShediffToCure.pawn;
         pawn.health.RemoveHediff(MShediffToCure);

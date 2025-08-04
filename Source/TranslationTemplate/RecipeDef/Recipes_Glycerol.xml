@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Improve Simple Meals -->
+  <MakeBulkFineMealGlycerol.label>Improve Simple Meals</MakeBulkFineMealGlycerol.label>
+  <!-- EN: Improve 5 simple meals with glycerol. -->
+  <MakeBulkFineMealGlycerol.description>Improve 5 simple meals with glycerol.</MakeBulkFineMealGlycerol.description>
+  <!-- EN: cooking fine meals from glycerol. -->
+  <MakeBulkFineMealGlycerol.jobString>cooking fine meals from glycerol.</MakeBulkFineMealGlycerol.jobString>
+  <!-- EN: Make Neutroamine in bulk -->
+  <MakeBulkNeutroFromGlycerol.label>Make Neutroamine in bulk</MakeBulkNeutroFromGlycerol.label>
+  <!-- EN: Make 25 Neutroamine. -->
+  <MakeBulkNeutroFromGlycerol.description>Make 25 Neutroamine.</MakeBulkNeutroFromGlycerol.description>
+  <!-- EN: Filtering Neutroamine. -->
+  <MakeBulkNeutroFromGlycerol.jobString>Filtering Neutroamine.</MakeBulkNeutroFromGlycerol.jobString>
+  <!-- EN: Improve Simple Meal -->
+  <MakeFineMealGlycerol.label>Improve Simple Meal</MakeFineMealGlycerol.label>
+  <!-- EN: Improve a simple meal with glycerol. -->
+  <MakeFineMealGlycerol.description>Improve a simple meal with glycerol.</MakeFineMealGlycerol.description>
+  <!-- EN: cooking fine meal from glycerol. -->
+  <MakeFineMealGlycerol.jobString>cooking fine meal from glycerol.</MakeFineMealGlycerol.jobString>
+  <!-- EN: Make Neutroamine -->
+  <MakeNeutroFromGlycerol.label>Make Neutroamine</MakeNeutroFromGlycerol.label>
+  <!-- EN: Make 5 Neutroamine. -->
+  <MakeNeutroFromGlycerol.description>Make 5 Neutroamine.</MakeNeutroFromGlycerol.description>
+  <!-- EN: Filtering Neutroamine. -->
+  <MakeNeutroFromGlycerol.jobString>Filtering Neutroamine.</MakeNeutroFromGlycerol.jobString>
+</LanguageData>

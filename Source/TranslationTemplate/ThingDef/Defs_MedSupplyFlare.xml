@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Medical Supply Marker Gas -->
+  <Gas_MSFlareMark.label>Medical Supply Marker Gas</Gas_MSFlareMark.label>
+  <!-- EN: Medical supply flare marker -->
+  <Grenade_MSMedSupplyFlare.label>Medical supply flare marker</Grenade_MSMedSupplyFlare.label>
+  <!-- EN: GPS Beacon (Medical) -->
+  <MSGPSBeaconMeds.label>GPS Beacon (Medical)</MSGPSBeaconMeds.label>
+  <!-- EN: A GPS beacon for medical supplies. A one time use component, that sends a radio burst signal to request supplies to a specific location. -->
+  <MSGPSBeaconMeds.description>A GPS beacon for medical supplies. A one time use component, that sends a radio burst signal to request supplies to a specific location.</MSGPSBeaconMeds.description>
+  <!-- EN: Medical Supply Flare -->
+  <MSMedSupplyFlare.label>Medical Supply Flare</MSMedSupplyFlare.label>
+  <!-- EN: Single use launcher that applies marker gas to call in medical supplies. -->
+  <MSMedSupplyFlare.description>Single use launcher that applies marker gas to call in medical supplies.</MSMedSupplyFlare.description>
+  <!-- EN: Medical supply marker flare -->
+  <MSMedSupplyFlare.verbs.Medical_supply_marker_flare.label>Medical supply marker flare</MSMedSupplyFlare.verbs.Medical_supply_marker_flare.label>
+</LanguageData>

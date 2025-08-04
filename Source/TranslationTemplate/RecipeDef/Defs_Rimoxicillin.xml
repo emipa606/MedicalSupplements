@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Rimoxicillin in bulk -->
+  <MakeBulkRimoxicillin.label>Make Rimoxicillin in bulk</MakeBulkRimoxicillin.label>
+  <!-- EN: Make 5 Rimoxicillin. -->
+  <MakeBulkRimoxicillin.description>Make 5 Rimoxicillin.</MakeBulkRimoxicillin.description>
+  <!-- EN: Making Rimoxicillin -->
+  <MakeBulkRimoxicillin.jobString>Making Rimoxicillin</MakeBulkRimoxicillin.jobString>
+  <!-- EN: Make Rimoxicillin -->
+  <MakeRimoxicillin.label>Make Rimoxicillin</MakeRimoxicillin.label>
+  <!-- EN: Make Rimoxicillin. -->
+  <MakeRimoxicillin.description>Make Rimoxicillin.</MakeRimoxicillin.description>
+  <!-- EN: Making Rimoxicillin -->
+  <MakeRimoxicillin.jobString>Making Rimoxicillin</MakeRimoxicillin.jobString>
+</LanguageData>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Battle Stims in bulk -->
+  <MakeBulkMSBattleStim.label>Make Battle Stims in bulk</MakeBulkMSBattleStim.label>
+  <!-- EN: Make 5 Battle Stims -->
+  <MakeBulkMSBattleStim.description>Make 5 Battle Stims</MakeBulkMSBattleStim.description>
+  <!-- EN: Making Battle Stims -->
+  <MakeBulkMSBattleStim.jobString>Making Battle Stims</MakeBulkMSBattleStim.jobString>
+  <!-- EN: Make Battle Stim Vials in bulk -->
+  <MakeBulkMSBattleStimVial.label>Make Battle Stim Vials in bulk</MakeBulkMSBattleStimVial.label>
+  <!-- EN: Make 5 Battle Stim Vials. -->
+  <MakeBulkMSBattleStimVial.description>Make 5 Battle Stim Vials.</MakeBulkMSBattleStimVial.description>
+  <!-- EN: Making Battle Stim Vials. -->
+  <MakeBulkMSBattleStimVial.jobString>Making Battle Stim Vials.</MakeBulkMSBattleStimVial.jobString>
+  <!-- EN: Make Battle Stim -->
+  <MakeMSBattleStim.label>Make Battle Stim</MakeMSBattleStim.label>
+  <!-- EN: Make 1 Battle Stim -->
+  <MakeMSBattleStim.description>Make 1 Battle Stim</MakeMSBattleStim.description>
+  <!-- EN: Making Battle Stims -->
+  <MakeMSBattleStim.jobString>Making Battle Stims</MakeMSBattleStim.jobString>
+  <!-- EN: Make Battle Stim Vial -->
+  <MakeMSBattleStimVial.label>Make Battle Stim Vial</MakeMSBattleStimVial.label>
+  <!-- EN: Make 1 Battle Stim Vial. -->
+  <MakeMSBattleStimVial.description>Make 1 Battle Stim Vial.</MakeMSBattleStimVial.description>
+  <!-- EN: Making a Battle Stim Vial. -->
+  <MakeMSBattleStimVial.jobString>Making a Battle Stim Vial.</MakeMSBattleStimVial.jobString>
+</LanguageData>

@@ -38,7 +38,7 @@ public class HediffComp_HealPermanentWounds : HediffComp
         ResetTicksToHeal();
     }
 
-    public void ResetTicksToHeal()
+    private void ResetTicksToHeal()
     {
         if (Settings.Get().debugHealingSpeed)
         {
@@ -68,7 +68,7 @@ public class HediffComp_HealPermanentWounds : HediffComp
         ResetTicksToHeal();
     }
 
-    public void TryHealRandomPermanentWound()
+    private void TryHealRandomPermanentWound()
     {
         var selectHediffsQuery = from hd in Pawn.health.hediffSet.hediffs
             where hd.IsPermanent() || chronicConditions.Contains(hd.def.defName)
@@ -114,7 +114,7 @@ public class HediffComp_HealPermanentWounds : HediffComp
         }
     }
 
-    public void AffectPawnsAge()
+    private void AffectPawnsAge()
     {
         if (Pawn.RaceProps.Humanlike)
         {

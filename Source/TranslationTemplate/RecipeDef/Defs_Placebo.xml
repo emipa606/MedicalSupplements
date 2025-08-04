@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Placebo in bulk -->
+  <MakeBulkMSPlacebo.label>Make Placebo in bulk</MakeBulkMSPlacebo.label>
+  <!-- EN: Make 5 Placebo -->
+  <MakeBulkMSPlacebo.description>Make 5 Placebo</MakeBulkMSPlacebo.description>
+  <!-- EN: Making Placebo -->
+  <MakeBulkMSPlacebo.jobString>Making Placebo</MakeBulkMSPlacebo.jobString>
+  <!-- EN: Make Placebo -->
+  <MakeMSPlacebo.label>Make Placebo</MakeMSPlacebo.label>
+  <!-- EN: Make 1 Placebo -->
+  <MakeMSPlacebo.description>Make 1 Placebo</MakeMSPlacebo.description>
+  <!-- EN: Making Placebo -->
+  <MakeMSPlacebo.jobString>Making Placebo</MakeMSPlacebo.jobString>
+</LanguageData>

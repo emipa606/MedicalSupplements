@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Vinacol in bulk -->
+  <MakeBulkMSVinacol.label>Make Vinacol in bulk</MakeBulkMSVinacol.label>
+  <!-- EN: Make 5 Vinacol tablets. -->
+  <MakeBulkMSVinacol.description>Make 5 Vinacol tablets.</MakeBulkMSVinacol.description>
+  <!-- EN: Making Vinacol -->
+  <MakeBulkMSVinacol.jobString>Making Vinacol</MakeBulkMSVinacol.jobString>
+  <!-- EN: Make Vinacol -->
+  <MakeMSVinacol.label>Make Vinacol</MakeMSVinacol.label>
+  <!-- EN: Make Vinacol tablets. -->
+  <MakeMSVinacol.description>Make Vinacol tablets.</MakeMSVinacol.description>
+  <!-- EN: Making Vinacol -->
+  <MakeMSVinacol.jobString>Making Vinacol</MakeMSVinacol.jobString>
+</LanguageData>

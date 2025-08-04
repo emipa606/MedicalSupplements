@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Battle stimmed -->
+  <MSBattleStim_Thought.stages.Battle_stimmed.label>Battle stimmed</MSBattleStim_Thought.stages.Battle_stimmed.label>
+  <!-- EN: Extremely Invigorated -->
+  <MSBattleStim_Thought.stages.Battle_stimmed.description>Extremely Invigorated</MSBattleStim_Thought.stages.Battle_stimmed.description>
+  <!-- EN: Battle stim regression -->
+  <MSBattleStimLow_Thought.stages.Battle_stim_regression.label>Battle stim regression</MSBattleStimLow_Thought.stages.Battle_stim_regression.label>
+  <!-- EN: Feeling bad due to stim regression effects -->
+  <MSBattleStimLow_Thought.stages.Battle_stim_regression.description>Feeling bad due to stim regression effects</MSBattleStimLow_Thought.stages.Battle_stim_regression.description>
+</LanguageData>

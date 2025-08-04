@@ -14,7 +14,7 @@ namespace MedSupp;
 [StaticConstructorOnStartup]
 internal static class MultiplayerSupport
 {
-    private static readonly Harmony harmony = new Harmony("rimworld.medicalsupplements.multiplayersupport");
+    private static readonly Harmony harmony = new("rimworld.medicalsupplements.multiplayersupport");
 
     static MultiplayerSupport()
     {

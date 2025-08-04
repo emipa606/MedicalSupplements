@@ -1,14 +1,15 @@
-# MedicalSupplements
+# [Medical Supplements (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2195037369)
 
 ![Image](https://i.imgur.com/buuPQel.png)
+
 Update of peladors mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=2004944243
 
 - Updated the research-tree to be more readable
 - Updated the German translation, via Erdnussbrot
 - Added override for Hot Meals-mod sorting, thanks Lurmey
-- For a nicer look, take a look at [https://steamcommunity.com/sharedfiles/filedetails/?id=2777300427](Medical Supplements Retexture) by Tec
-- For detailed description, download the [https://github.com/emipa606/MedicalSupplements/raw/main/Source/MSDrugReference.pdf](PDF)
+- For a nicer look, take a look at [Medical Supplements Retexture](https://steamcommunity.com/sharedfiles/filedetails/?id=2777300427) by Tec
+- For detailed description, download the [PDF](https://github.com/emipa606/MedicalSupplements/raw/main/Source/MSDrugReference.pdf)
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 	
@@ -103,42 +104,6 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2195052690
 Utility Supplements
 https://steamcommunity.com/sharedfiles/filedetails/?id=2195065488
 
-
-Compatibility Notes
-*** Subject to Conversion ***
-
-Apothecary
-Children, School and Learning
-Common Ailments
-Cupros Stones
-Diseases Overhauled
-Electric Stone Cutting Table
-Fermenter
-Fertile Fields
-KV Rimfridge
-Kuratheris's Extra Stone
-LWM Deep storage
-Multiplayer
-RimCuisine 1
-RimCuisine 2
-RimPlas
-[sd] Medical Addons
-Seeds Please
-VCE/VPE
-VGP Vegetable Garden
-VGP Garden Medicine
-VFE - Medical Module
-VFE - Production
-
-Recommended
-
-Drug Policy Fix https://steamcommunity.com/sharedfiles/filedetails/?id=2195390245 ; can be used to help manage and correct drugs added or removed part way through a save game. It will also sort the drug listings alphabetically.
-
-Mod Medicine Patch https://steamcommunity.com/sharedfiles/filedetails/?id=1430084631 - allows you to specify additional modded medicines (GUI), works with the mod Pharmacy.
-
-Several research projects (in a number of tabs). Recommend mods that make the management of research projects more user friendly. Examples include (but not limited to): Research Tree, ResearchPal.
-
-
 Credits
 
 "OskarPotocki": Most graphics.
@@ -154,14 +119,15 @@ Erdnussbrot - German translation.
 ![Image](https://i.imgur.com/PwoNOj4.png)
 
 
+
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using [https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] or the standalone [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404](Uploader) and command Ctrl+F12
+-  Post your error-log using the [Log Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) or the standalone [Uploader](https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404) and command Ctrl+F12
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
--  Use [https://github.com/RimSort/RimSort/releases/latest](RimSort) to sort your mods
+-  Use [RimSort](https://github.com/RimSort/RimSort/releases/latest) to sort your mods
 
+ 
 
-
-[https://steamcommunity.com/sharedfiles/filedetails/changelog/2195037369]![Image]((https://img.shields.io/github/v/release/emipa606/MedicalSupplements?label=latest%20version&style=plastic&color=9f1111&labelColor=black))
+[![Image](https://img.shields.io/github/v/release/emipa606/MedicalSupplements?label=latest%20version&style=plastic&color=9f1111&labelColor=black)](https://steamcommunity.com/sharedfiles/filedetails/changelog/2195037369) | tags:  drug production,  medical research

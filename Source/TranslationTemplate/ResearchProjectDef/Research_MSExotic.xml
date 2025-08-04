@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Cerebrax -->
+  <MSCerebrax.label>Cerebrax</MSCerebrax.label>
+  <!-- EN: Grants the ability to make Cerebrax. Drug capable of removing psychic susceptability. -->
+  <MSCerebrax.description>Grants the ability to make Cerebrax. Drug capable of removing psychic susceptability.</MSCerebrax.description>
+  <!-- EN: Immunisation -->
+  <MSImmunisation.label>Immunisation</MSImmunisation.label>
+  <!-- EN: Grants the ability to make immunisations. Drugs that are capable of boosting immune systems. -->
+  <MSImmunisation.description>Grants the ability to make immunisations. Drugs that are capable of boosting immune systems.</MSImmunisation.description>
+  <!-- EN: Mercury Compounds -->
+  <MSMercury.label>Mercury Compounds</MSMercury.label>
+  <!-- EN: Grants the ability to make mercury compounds. -->
+  <MSMercury.description>Grants the ability to make mercury compounds.</MSMercury.description>
+</LanguageData>

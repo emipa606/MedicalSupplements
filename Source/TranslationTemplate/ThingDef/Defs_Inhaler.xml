@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Asthma(antihistamine) Inhaler -->
+  <MSInhaler.label>Asthma(antihistamine) Inhaler</MSInhaler.label>
+  <!-- EN: An inhaler to provide immunity from Asthma with additional antihistamine capabilites, also improves recovery time to tended conditions. Taken daily. -->
+  <MSInhaler.description>An inhaler to provide immunity from Asthma with additional antihistamine capabilites, also improves recovery time to tended conditions. Taken daily.</MSInhaler.description>
+  <!-- EN: Inhale {0} -->
+  <MSInhaler.ingestible.ingestCommandString>Inhale {0}</MSInhaler.ingestible.ingestCommandString>
+  <!-- EN: Inhaling {0}. -->
+  <MSInhaler.ingestible.ingestReportString>Inhaling {0}.</MSInhaler.ingestible.ingestReportString>
+</LanguageData>

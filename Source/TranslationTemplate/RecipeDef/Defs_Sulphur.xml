@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Sulphur -->
+  <MakeMSSulphur.label>Make Sulphur</MakeMSSulphur.label>
+  <!-- EN: Make 50 Sulphur. -->
+  <MakeMSSulphur.description>Make 50 Sulphur.</MakeMSSulphur.description>
+  <!-- EN: Making Sulphur. -->
+  <MakeMSSulphur.jobString>Making Sulphur.</MakeMSSulphur.jobString>
+  <!-- EN: Make Sulphur (Blocks) -->
+  <MakeMSSulphurBlocks.label>Make Sulphur (Blocks)</MakeMSSulphurBlocks.label>
+  <!-- EN: Make 50 Sulphur from blocks -->
+  <MakeMSSulphurBlocks.description>Make 50 Sulphur from blocks</MakeMSSulphurBlocks.description>
+  <!-- EN: Making Sulphur -->
+  <MakeMSSulphurBlocks.jobString>Making Sulphur</MakeMSSulphurBlocks.jobString>
+</LanguageData>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: mental dependency -->
+  <MSMental_Addiction.label>mental dependency</MSMental_Addiction.label>
+  <!-- EN: mental dependancy addiction effect -->
+  <MSMental_Addiction.description>mental dependancy addiction effect</MSMental_Addiction.description>
+  <!-- EN: withdrawal -->
+  <MSMental_Addiction.stages.withdrawal.label>withdrawal</MSMental_Addiction.stages.withdrawal.label>
+  <!-- EN: mental dependency tolerance -->
+  <MSMental_Tolerance.label>mental dependency tolerance</MSMental_Tolerance.label>
+  <!-- EN: mental dependancy tolerance -->
+  <MSMental_Tolerance.description>mental dependancy tolerance</MSMental_Tolerance.description>
+  <!-- EN: small -->
+  <MSMental_Tolerance.stages.small.label>small</MSMental_Tolerance.stages.small.label>
+  <!-- EN: large -->
+  <MSMental_Tolerance.stages.large.label>large</MSMental_Tolerance.stages.large.label>
+  <!-- EN: massive -->
+  <MSMental_Tolerance.stages.massive.label>massive</MSMental_Tolerance.stages.massive.label>
+  <!-- EN: Placebo -->
+  <MSPlacebo_High.label>Placebo</MSPlacebo_High.label>
+  <!-- EN: Placebo effect -->
+  <MSPlacebo_High.description>Placebo effect</MSPlacebo_High.description>
+</LanguageData>

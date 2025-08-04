@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Morphine -->
+  <MSMorphine_Thought.stages.Morphine.label>Morphine</MSMorphine_Thought.stages.Morphine.label>
+  <!-- EN: Feeling really groovy -->
+  <MSMorphine_Thought.stages.Morphine.description>Feeling really groovy</MSMorphine_Thought.stages.Morphine.description>
+  <!-- EN: Opium Pipe -->
+  <MSOpiumPipe_Thought.stages.Opium_Pipe.label>Opium Pipe</MSOpiumPipe_Thought.stages.Opium_Pipe.label>
+  <!-- EN: Feeling extremely soothed by the opium -->
+  <MSOpiumPipe_Thought.stages.Opium_Pipe.description>Feeling extremely soothed by the opium</MSOpiumPipe_Thought.stages.Opium_Pipe.description>
+</LanguageData>

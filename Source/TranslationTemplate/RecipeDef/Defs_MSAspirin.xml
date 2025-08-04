@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Aspirin in bulk -->
+  <MakeBulkAspirin.label>Make Aspirin in bulk</MakeBulkAspirin.label>
+  <!-- EN: Make 5 Aspirin tablets. -->
+  <MakeBulkAspirin.description>Make 5 Aspirin tablets.</MakeBulkAspirin.description>
+  <!-- EN: Making Aspirin. -->
+  <MakeBulkAspirin.jobString>Making Aspirin.</MakeBulkAspirin.jobString>
+</LanguageData>

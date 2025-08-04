@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Vinca alkaloid -->
+  <MakeVincaAlkaloid.label>Make Vinca alkaloid</MakeVincaAlkaloid.label>
+  <!-- EN: Chemically synthesise 5 Vinca alkaloids -->
+  <MakeVincaAlkaloid.description>Chemically synthesise 5 Vinca alkaloids</MakeVincaAlkaloid.description>
+  <!-- EN: Synthesising Vinca alkaloids. -->
+  <MakeVincaAlkaloid.jobString>Synthesising Vinca alkaloids.</MakeVincaAlkaloid.jobString>
+</LanguageData>

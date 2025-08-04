@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make RimBurnEaze in bulk -->
+  <MakeBulkMSRimBurnEaze.label>Make RimBurnEaze in bulk</MakeBulkMSRimBurnEaze.label>
+  <!-- EN: Make 5 RimBurnEaze. -->
+  <MakeBulkMSRimBurnEaze.description>Make 5 RimBurnEaze.</MakeBulkMSRimBurnEaze.description>
+  <!-- EN: Making RimBurnEaze -->
+  <MakeBulkMSRimBurnEaze.jobString>Making RimBurnEaze</MakeBulkMSRimBurnEaze.jobString>
+  <!-- EN: Make RimBurnEaze -->
+  <MakeMSRimBurnEaze.label>Make RimBurnEaze</MakeMSRimBurnEaze.label>
+  <!-- EN: Make RimBurnEaze. -->
+  <MakeMSRimBurnEaze.description>Make RimBurnEaze.</MakeMSRimBurnEaze.description>
+  <!-- EN: Making RimBurnEaze -->
+  <MakeMSRimBurnEaze.jobString>Making RimBurnEaze</MakeMSRimBurnEaze.jobString>
+</LanguageData>

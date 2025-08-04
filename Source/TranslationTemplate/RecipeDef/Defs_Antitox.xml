@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Antitox -->
+  <MakeAntitoxin.label>Make Antitox</MakeAntitoxin.label>
+  <!-- EN: Make Antitox tablets. -->
+  <MakeAntitoxin.description>Make Antitox tablets.</MakeAntitoxin.description>
+  <!-- EN: Making Antitox. -->
+  <MakeAntitoxin.jobString>Making Antitox.</MakeAntitoxin.jobString>
+  <!-- EN: Make Antitox in bulk -->
+  <MakeBulkAntitoxin.label>Make Antitox in bulk</MakeBulkAntitoxin.label>
+  <!-- EN: Make 5 Antitox tablets. -->
+  <MakeBulkAntitoxin.description>Make 5 Antitox tablets.</MakeBulkAntitoxin.description>
+  <!-- EN: Making Antitox. -->
+  <MakeBulkAntitoxin.jobString>Making Antitox.</MakeBulkAntitoxin.jobString>
+</LanguageData>

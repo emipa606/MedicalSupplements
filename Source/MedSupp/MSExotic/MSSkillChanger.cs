@@ -56,14 +56,13 @@ public static class MSSkillChanger
             {
                 reason = "MSExotic.WontLearnUsing".Translate(p.LabelShort, t.label.CapitalizeFirst());
             }
-
-            passed = false;
         }
         else
         {
             reason = "MSExotic.NoTSkillList".Translate(p.LabelShort, t.defName);
-            passed = false;
         }
+
+        passed = false;
     }
 
     public static List<SkillDef> GetSkillList(string selector)

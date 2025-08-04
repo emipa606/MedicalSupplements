@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Antisceptic bandages -->
+  <MSASBandage.label>Antisceptic bandages</MSASBandage.label>
+  <!-- EN: An antisceptic gauze made from synthread impregnated with a silver solution. It can be used to tend similar to medicine but is slightly less effective. -->
+  <MSASBandage.description>An antisceptic gauze made from synthread impregnated with a silver solution. It can be used to tend similar to medicine but is slightly less effective.</MSASBandage.description>
+  <!-- EN: Sterile cotton bandages -->
+  <MSBandage.label>Sterile cotton bandages</MSBandage.label>
+  <!-- EN: A gauze made from sterile cotton. It can be used to tend similar to medicine but is less effective. -->
+  <MSBandage.description>A gauze made from sterile cotton. It can be used to tend similar to medicine but is less effective.</MSBandage.description>
+  <!-- EN: Nanotech bandages -->
+  <MSNanoBandage.label>Nanotech bandages</MSNanoBandage.label>
+  <!-- EN: Hyperweave gauze impregnated with refined Metasis. It can be used to tend similar to medicine but is more effective. -->
+  <MSNanoBandage.description>Hyperweave gauze impregnated with refined Metasis. It can be used to tend similar to medicine but is more effective.</MSNanoBandage.description>
+</LanguageData>

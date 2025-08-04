@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Ethyl Mercury -->
+  <MakeMSEthylMercury.label>Make Ethyl Mercury</MakeMSEthylMercury.label>
+  <!-- EN: Make 1 Ethyl Mercury -->
+  <MakeMSEthylMercury.description>Make 1 Ethyl Mercury</MakeMSEthylMercury.description>
+  <!-- EN: Making Ethyl Mercury. -->
+  <MakeMSEthylMercury.jobString>Making Ethyl Mercury.</MakeMSEthylMercury.jobString>
+  <!-- EN: Make Mercury Salts -->
+  <MakeMSMercurySalts.label>Make Mercury Salts</MakeMSMercurySalts.label>
+  <!-- EN: Make 5 Mercury Salts. -->
+  <MakeMSMercurySalts.description>Make 5 Mercury Salts.</MakeMSMercurySalts.description>
+  <!-- EN: Making Mercury Salts. -->
+  <MakeMSMercurySalts.jobString>Making Mercury Salts.</MakeMSMercurySalts.jobString>
+  <!-- EN: Make Mercury Salts (Blocks) -->
+  <MakeMSMercurySaltsBlocks.label>Make Mercury Salts (Blocks)</MakeMSMercurySaltsBlocks.label>
+  <!-- EN: Make 5 Mercury Salts from stone blocks -->
+  <MakeMSMercurySaltsBlocks.description>Make 5 Mercury Salts from stone blocks</MakeMSMercurySaltsBlocks.description>
+  <!-- EN: Making Mercury Salts -->
+  <MakeMSMercurySaltsBlocks.jobString>Making Mercury Salts</MakeMSMercurySaltsBlocks.jobString>
+</LanguageData>

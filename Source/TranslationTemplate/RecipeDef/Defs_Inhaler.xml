@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Asthma Inhaler in bulk -->
+  <MakeBulkInhalers.label>Make Asthma Inhaler in bulk</MakeBulkInhalers.label>
+  <!-- EN: Make 5 Asthma Inhalers. -->
+  <MakeBulkInhalers.description>Make 5 Asthma Inhalers.</MakeBulkInhalers.description>
+  <!-- EN: Making inhalers. -->
+  <MakeBulkInhalers.jobString>Making inhalers.</MakeBulkInhalers.jobString>
+</LanguageData>

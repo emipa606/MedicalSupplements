@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Rimzac in bulk -->
+  <MakeBulkRimzac.label>Make Rimzac in bulk</MakeBulkRimzac.label>
+  <!-- EN: Make 5 Rimzac tablets. -->
+  <MakeBulkRimzac.description>Make 5 Rimzac tablets.</MakeBulkRimzac.description>
+  <!-- EN: Making Rimzac. -->
+  <MakeBulkRimzac.jobString>Making Rimzac.</MakeBulkRimzac.jobString>
+</LanguageData>

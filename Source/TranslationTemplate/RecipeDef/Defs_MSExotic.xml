@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Inject Cerebrax -->
+  <Inject_MSCerebrax.label>Inject Cerebrax</Inject_MSCerebrax.label>
+  <!-- EN: Administer Cerebrax injection to patient. -->
+  <Inject_MSCerebrax.description>Administer Cerebrax injection to patient.</Inject_MSCerebrax.description>
+  <!-- EN: Injecting patient -->
+  <Inject_MSCerebrax.jobString>Injecting patient</Inject_MSCerebrax.jobString>
+  <!-- EN: Inject Immunisation -->
+  <Inject_MSImmunisation.label>Inject Immunisation</Inject_MSImmunisation.label>
+  <!-- EN: Administer immunisation injection to patient. -->
+  <Inject_MSImmunisation.description>Administer immunisation injection to patient.</Inject_MSImmunisation.description>
+  <!-- EN: Injecting patient -->
+  <Inject_MSImmunisation.jobString>Injecting patient</Inject_MSImmunisation.jobString>
+  <!-- EN: Make Cerebrax Injection -->
+  <MakeMSCerebrax.label>Make Cerebrax Injection</MakeMSCerebrax.label>
+  <!-- EN: Make 1 Cerebrax Injection -->
+  <MakeMSCerebrax.description>Make 1 Cerebrax Injection</MakeMSCerebrax.description>
+  <!-- EN: Making Cerebrax Injection. -->
+  <MakeMSCerebrax.jobString>Making Cerebrax Injection.</MakeMSCerebrax.jobString>
+  <!-- EN: Make Condoms -->
+  <MakeMSCondom.label>Make Condoms</MakeMSCondom.label>
+  <!-- EN: Make 5 Condoms -->
+  <MakeMSCondom.description>Make 5 Condoms</MakeMSCondom.description>
+  <!-- EN: Making Condoms. -->
+  <MakeMSCondom.jobString>Making Condoms.</MakeMSCondom.jobString>
+  <!-- EN: Make Immunisation Injection -->
+  <MakeMSImmunisation.label>Make Immunisation Injection</MakeMSImmunisation.label>
+  <!-- EN: Make 1 Immunisation Injection -->
+  <MakeMSImmunisation.description>Make 1 Immunisation Injection</MakeMSImmunisation.description>
+  <!-- EN: Making Immunisation Injection. -->
+  <MakeMSImmunisation.jobString>Making Immunisation Injection.</MakeMSImmunisation.jobString>
+</LanguageData>

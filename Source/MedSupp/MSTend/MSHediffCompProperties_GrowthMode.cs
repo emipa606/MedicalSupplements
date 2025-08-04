@@ -6,11 +6,11 @@ public class MSHediffCompProperties_GrowthMode : HediffCompProperties
 {
     public float severityPerDayGrowing;
 
-    public FloatRange severityPerDayGrowingRandomFactor = new FloatRange(1f, 1f);
+    public FloatRange severityPerDayGrowingRandomFactor = new(1f, 1f);
 
     public float severityPerDayRemission;
 
-    public FloatRange severityPerDayRemissionRandomFactor = new FloatRange(1f, 1f);
+    public FloatRange severityPerDayRemissionRandomFactor = new(1f, 1f);
 
     public MSHediffCompProperties_GrowthMode()
     {

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make advanced surgery tools -->
+  <MakeMSAdvSurgeryTools.label>Make advanced surgery tools</MakeMSAdvSurgeryTools.label>
+  <!-- EN: Make an advanced surgery toolset. -->
+  <MakeMSAdvSurgeryTools.description>Make an advanced surgery toolset.</MakeMSAdvSurgeryTools.description>
+  <!-- EN: Making an advanced surgery toolset. -->
+  <MakeMSAdvSurgeryTools.jobString>Making an advanced surgery toolset.</MakeMSAdvSurgeryTools.jobString>
+  <!-- EN: Make artifical back disc -->
+  <MakeMSBackDisc.label>Make artifical back disc</MakeMSBackDisc.label>
+  <!-- EN: Make an artificial intervertebral disc. -->
+  <MakeMSBackDisc.description>Make an artificial intervertebral disc.</MakeMSBackDisc.description>
+  <!-- EN: Making a back disc. -->
+  <MakeMSBackDisc.jobString>Making a back disc.</MakeMSBackDisc.jobString>
+  <!-- EN: Make medical stent -->
+  <MakeMSStent.label>Make medical stent</MakeMSStent.label>
+  <!-- EN: Make a medical stent. -->
+  <MakeMSStent.description>Make a medical stent.</MakeMSStent.description>
+  <!-- EN: Making a medical stent. -->
+  <MakeMSStent.jobString>Making a medical stent.</MakeMSStent.jobString>
+  <!-- EN: install arterial Stent -->
+  <MSArterialStent.label>install arterial Stent</MSArterialStent.label>
+  <!-- EN: Install and aterial stent to remove an arterial blockage. -->
+  <MSArterialStent.description>Install and aterial stent to remove an arterial blockage.</MSArterialStent.description>
+  <!-- EN: Installing Stent. -->
+  <MSArterialStent.jobString>Installing Stent.</MSArterialStent.jobString>
+  <!-- EN: {0} has successfully installed a stent to remove {1}'s arterial blockage. -->
+  <MSArterialStent.successfullyRemovedHediffMessage>{0} has successfully installed a stent to remove {1}'s arterial blockage.</MSArterialStent.successfullyRemovedHediffMessage>
+  <!-- EN: add artificial back discs -->
+  <MSBadBackDiscs.label>add artificial back discs</MSBadBackDiscs.label>
+  <!-- EN: add artificial back discs. -->
+  <MSBadBackDiscs.description>add artificial back discs.</MSBadBackDiscs.description>
+  <!-- EN: installing back discs. -->
+  <MSBadBackDiscs.jobString>installing back discs.</MSBadBackDiscs.jobString>
+  <!-- EN: {0} has successfully installed new back discs for {1}. -->
+  <MSBadBackDiscs.successfullyRemovedHediffMessage>{0} has successfully installed new back discs for {1}.</MSBadBackDiscs.successfullyRemovedHediffMessage>
+  <!-- EN: remove cataract -->
+  <MSCataractRemoval.label>remove cataract</MSCataractRemoval.label>
+  <!-- EN: remove cataract. -->
+  <MSCataractRemoval.description>remove cataract.</MSCataractRemoval.description>
+  <!-- EN: Removing cataract. -->
+  <MSCataractRemoval.jobString>Removing cataract.</MSCataractRemoval.jobString>
+  <!-- EN: {0} has successfully removed a cataract for {1}. -->
+  <MSCataractRemoval.successfullyRemovedHediffMessage>{0} has successfully removed a cataract for {1}.</MSCataractRemoval.successfullyRemovedHediffMessage>
+</LanguageData>

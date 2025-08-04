@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: opium dependency -->
+  <MSOpium_Addiction.label>opium dependency</MSOpium_Addiction.label>
+  <!-- EN: opium dependancy effect -->
+  <MSOpium_Addiction.description>opium dependancy effect</MSOpium_Addiction.description>
+  <!-- EN: withdrawal -->
+  <MSOpium_Addiction.stages.withdrawal.label>withdrawal</MSOpium_Addiction.stages.withdrawal.label>
+  <!-- EN: opium dependency tolerance -->
+  <MSOpium_Tolerance.label>opium dependency tolerance</MSOpium_Tolerance.label>
+  <!-- EN: opium dependancy tolerance effect -->
+  <MSOpium_Tolerance.description>opium dependancy tolerance effect</MSOpium_Tolerance.description>
+  <!-- EN: small -->
+  <MSOpium_Tolerance.stages.small.label>small</MSOpium_Tolerance.stages.small.label>
+  <!-- EN: large -->
+  <MSOpium_Tolerance.stages.large.label>large</MSOpium_Tolerance.stages.large.label>
+  <!-- EN: massive -->
+  <MSOpium_Tolerance.stages.massive.label>massive</MSOpium_Tolerance.stages.massive.label>
+</LanguageData>

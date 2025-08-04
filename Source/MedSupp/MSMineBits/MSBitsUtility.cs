@@ -96,9 +96,9 @@ public class MSBitsUtility
 
     private static readonly Pair<string, float>[] bitschance =
     [
-        new Pair<string, float>("MSLithiumSalts", 0.85f),
-        new Pair<string, float>("MSMercurySalts", 0.1f),
-        new Pair<string, float>("MSSulphur", 1f)
+        new("MSLithiumSalts", 0.85f),
+        new("MSMercurySalts", 0.1f),
+        new("MSSulphur", 1f)
     ];
 
     public static bool GetIsBitsSource(ThingDef defSource, bool isSource, Pawn pawn, out ThingDef bitsdef,
@@ -301,7 +301,7 @@ public class MSBitsUtility
         return 0;
     }
 
-    internal static uint ComputeStringHash(string s)
+    private static uint ComputeStringHash(string s)
     {
         uint num = 0;
         if (s == null)
@@ -318,7 +318,7 @@ public class MSBitsUtility
         return num;
     }
 
-    public static bool GetBitsSource(ThingDef def)
+    private static bool GetBitsSource(ThingDef def)
     {
         if (def == null)
         {
@@ -327,13 +327,13 @@ public class MSBitsUtility
 
         var defName = def.defName;
         var num = ComputeStringHash(defName);
-        if (num <= 1154306412U)
+        switch (num)
         {
-            if (num <= 702995605U)
+            case <= 1154306412U and <= 702995605U:
             {
-                if (num <= 450668030U)
+                switch (num)
                 {
-                    if (num <= 135430043U)
+                    case <= 450668030U and <= 135430043U:
                     {
                         if (num != 130326325U)
                         {
@@ -351,8 +351,10 @@ public class MSBitsUtility
                         {
                             return true;
                         }
+
+                        break;
                     }
-                    else if (num != 237089535U)
+                    case <= 450668030U when num != 237089535U:
                     {
                         if (num != 334370396U)
                         {
@@ -370,15 +372,14 @@ public class MSBitsUtility
                         {
                             return true;
                         }
+
+                        break;
                     }
-                    else if (defName == "ChunkGreenSchist")
-                    {
+                    case <= 450668030U when defName == "ChunkGreenSchist":
                         return true;
-                    }
-                }
-                else if (num <= 468849279U)
-                {
-                    if (num != 459180747U)
+                    case <= 450668030U:
+                        break;
+                    case <= 468849279U when num != 459180747U:
                     {
                         if (num != 468849279U)
                         {
@@ -389,37 +390,46 @@ public class MSBitsUtility
                         {
                             return true;
                         }
-                    }
-                    else if (defName == "ChunkLepidolite")
-                    {
-                        return true;
-                    }
-                }
-                else if (num != 497423552U)
-                {
-                    if (num != 547426595U)
-                    {
-                        if (num != 702995605U)
-                        {
-                            return false;
-                        }
 
-                        if (defName == "ChunkDarkAndesite")
+                        break;
+                    }
+                    case <= 468849279U when defName == "ChunkLepidolite":
+                        return true;
+                    case <= 468849279U:
+                        break;
+                    default:
+                    {
+                        if (num != 497423552U)
+                        {
+                            if (num != 547426595U)
+                            {
+                                if (num != 702995605U)
+                                {
+                                    return false;
+                                }
+
+                                if (defName == "ChunkDarkAndesite")
+                                {
+                                    return true;
+                                }
+                            }
+                            else if (defName == "ChunkDunite")
+                            {
+                                return true;
+                            }
+                        }
+                        else if (defName == "ChunkDiorite")
                         {
                             return true;
                         }
-                    }
-                    else if (defName == "ChunkDunite")
-                    {
-                        return true;
+
+                        break;
                     }
                 }
-                else if (defName == "ChunkDiorite")
-                {
-                    return true;
-                }
+
+                break;
             }
-            else if (num <= 990094961U)
+            case <= 990094961U:
             {
                 if (num <= 803651291U)
                 {
@@ -463,8 +473,10 @@ public class MSBitsUtility
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (num <= 1113897122U)
+            case <= 1113897122U:
             {
                 if (num != 1103574401U)
                 {
@@ -482,8 +494,10 @@ public class MSBitsUtility
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (num != 1117948611U)
+            case <= 1154306412U when num != 1117948611U:
             {
                 if (num != 1138947383U)
                 {
@@ -501,15 +515,14 @@ public class MSBitsUtility
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (defName == "ChunkMarble")
-            {
+            case <= 1154306412U when defName == "ChunkMarble":
                 return true;
-            }
-        }
-        else if (num <= 3134642644U)
-        {
-            if (num <= 2223887258U)
+            case <= 1154306412U:
+                break;
+            case <= 3134642644U and <= 2223887258U:
             {
                 if (num <= 1807593693U)
                 {
@@ -553,8 +566,10 @@ public class MSBitsUtility
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (num <= 2723944204U)
+            case <= 2723944204U:
             {
                 if (num != 2277173191U)
                 {
@@ -572,8 +587,10 @@ public class MSBitsUtility
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (num != 2981327554U)
+            case <= 3134642644U when num != 2981327554U:
             {
                 if (num != 3027871598U)
                 {
@@ -591,15 +608,14 @@ public class MSBitsUtility
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (defName == "ChunkSerpentinite")
-            {
+            case <= 3134642644U when defName == "ChunkSerpentinite":
                 return true;
-            }
-        }
-        else if (num <= 3386876289U)
-        {
-            if (num <= 3317400192U)
+            case <= 3134642644U:
+                break;
+            case <= 3386876289U and <= 3317400192U:
             {
                 if (num != 3242717934U)
                 {
@@ -617,8 +633,10 @@ public class MSBitsUtility
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (num != 3349364057U)
+            case <= 3386876289U when num != 3349364057U:
             {
                 if (num != 3354811171U)
                 {
@@ -636,15 +654,14 @@ public class MSBitsUtility
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (defName == "ChunkCharnockite")
-            {
+            case <= 3386876289U when defName == "ChunkCharnockite":
                 return true;
-            }
-        }
-        else if (num <= 3660010543U)
-        {
-            if (num != 3604908289U)
+            case <= 3386876289U:
+                break;
+            case <= 3660010543U when num != 3604908289U:
             {
                 if (num != 3660010543U)
                 {
@@ -655,34 +672,41 @@ public class MSBitsUtility
                 {
                     return true;
                 }
-            }
-            else if (defName == "ChunkJaspillite")
-            {
-                return true;
-            }
-        }
-        else if (num != 3782560473U)
-        {
-            if (num != 4006516401U)
-            {
-                if (num != 4282638488U)
-                {
-                    return false;
-                }
 
-                if (defName == "ChunkLimestone")
+                break;
+            }
+            case <= 3660010543U when defName == "ChunkJaspillite":
+                return true;
+            case <= 3660010543U:
+                break;
+            default:
+            {
+                if (num != 3782560473U)
+                {
+                    if (num != 4006516401U)
+                    {
+                        if (num != 4282638488U)
+                        {
+                            return false;
+                        }
+
+                        if (defName == "ChunkLimestone")
+                        {
+                            return true;
+                        }
+                    }
+                    else if (defName == "ChunkAndesite")
+                    {
+                        return true;
+                    }
+                }
+                else if (defName == "ChunkThometzekite")
                 {
                     return true;
                 }
+
+                break;
             }
-            else if (defName == "ChunkAndesite")
-            {
-                return true;
-            }
-        }
-        else if (defName == "ChunkThometzekite")
-        {
-            return true;
         }
 
         return false;

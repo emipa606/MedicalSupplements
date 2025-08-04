@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Medical Mat -->
+  <MSMedicalMat.label>Medical Mat</MSMedicalMat.label>
+  <!-- EN: A portable mat that can be used for medical purposes in the field. -->
+  <MSMedicalMat.description>A portable mat that can be used for medical purposes in the field.</MSMedicalMat.description>
+  <!-- EN: Medical Mat (early) -->
+  <MSMedicalMatEarly.label>Medical Mat (early)</MSMedicalMatEarly.label>
+  <!-- EN: A portable mat that can be used for medical purposes in the field. -->
+  <MSMedicalMatEarly.description>A portable mat that can be used for medical purposes in the field.</MSMedicalMatEarly.description>
+  <!-- EN: Medical Mat (Spacer Tech) -->
+  <MSMedicalMatSpacer.label>Medical Mat (Spacer Tech)</MSMedicalMatSpacer.label>
+  <!-- EN: An advanced portable mat that can be used for medical purposes in the field. -->
+  <MSMedicalMatSpacer.description>An advanced portable mat that can be used for medical purposes in the field.</MSMedicalMatSpacer.description>
+  <!-- EN: Medical Mat (Ultra Tech) -->
+  <MSMedicalMatUltra.label>Medical Mat (Ultra Tech)</MSMedicalMatUltra.label>
+  <!-- EN: An extremely advanced portable mat that can be used for medical purposes in the field. -->
+  <MSMedicalMatUltra.description>An extremely advanced portable mat that can be used for medical purposes in the field.</MSMedicalMatUltra.description>
+</LanguageData>

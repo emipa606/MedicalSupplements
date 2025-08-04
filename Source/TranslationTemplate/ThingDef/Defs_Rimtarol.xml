@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Rimtarol -->
+  <MSRimtarol.label>Rimtarol</MSRimtarol.label>
+  <!-- EN: Rimtarol is a pain relief gel that can help to reduce pain levels when applied. It can also provide immunity to muscle parasites and in the case of a contracted illness can help to reduce the time spent whilst being tended for the condition. Applied every 3 days. -->
+  <MSRimtarol.description>Rimtarol is a pain relief gel that can help to reduce pain levels when applied. It can also provide immunity to muscle parasites and in the case of a contracted illness can help to reduce the time spent whilst being tended for the condition. Applied every 3 days.</MSRimtarol.description>
+  <!-- EN: Apply {0} -->
+  <MSRimtarol.ingestible.ingestCommandString>Apply {0}</MSRimtarol.ingestible.ingestCommandString>
+  <!-- EN: Applying {0}. -->
+  <MSRimtarol.ingestible.ingestReportString>Applying {0}.</MSRimtarol.ingestible.ingestReportString>
+</LanguageData>

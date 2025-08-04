@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <!-- MSExotic -->
   <MSExotic.ReasonPrefix>无法使用刺激剂，因为</MSExotic.ReasonPrefix>
@@ -41,7 +41,7 @@
   <MSExotic.MedSupplyEvent>医疗用品已被投放到你指定的地点。</MSExotic.MedSupplyEvent>
   <MSRegen.CureMsg>{0}的病情已被治愈的{1}。</MSRegen.CureMsg>
   <MSOpt.Name>医疗补充剂</MSOpt.Name>
-  <MSOpt.ModVersion>已安装的mod-version。{0}</MSOpt.ModVersion>
+  <MSOpt.ModVersion>已安装的模组版本：{0}</MSOpt.ModVersion>
   <MSOpt.RealisticBandages>应用现实的绷带使用。</MSOpt.RealisticBandages>
   <MSOpt.AllowCollapseRocks>允许倒塌的岩石产生采矿位。</MSOpt.AllowCollapseRocks>
   <MSOpt.ResPct>研究的相对成本%。</MSOpt.ResPct>

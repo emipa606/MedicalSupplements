@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Antinites Injection -->
+  <MSAntinites.label>Antinites Injection</MSAntinites.label>
+  <!-- EN: Refined from Luciferium this modified concoction of mechanites can be used to attack other unwanted mechanites in the body. Phenol and Smokeleaf are added into this mix to create a toxic effect targeting unwanted nanites in the system. As a result the experience though short lived, for about half a day, can be quite painful. It would be wise to take some form of pain relief prior to or just after using the injection. -->
+  <MSAntinites.description>Refined from Luciferium this modified concoction of mechanites can be used to attack other unwanted mechanites in the body. Phenol and Smokeleaf are added into this mix to create a toxic effect targeting unwanted nanites in the system. As a result the experience though short lived, for about half a day, can be quite painful. It would be wise to take some form of pain relief prior to or just after using the injection.</MSAntinites.description>
+  <!-- EN: Inject {0} -->
+  <MSAntinites.ingestible.ingestCommandString>Inject {0}</MSAntinites.ingestible.ingestCommandString>
+  <!-- EN: Injecting {0}. -->
+  <MSAntinites.ingestible.ingestReportString>Injecting {0}.</MSAntinites.ingestible.ingestReportString>
+  <!-- EN: Antinites Vial -->
+  <MSAntinites_Vial.label>Antinites Vial</MSAntinites_Vial.label>
+  <!-- EN: Antinites Chemical. Combine with an injector unit to make Antinites Injection -->
+  <MSAntinites_Vial.description>Antinites Chemical. Combine with an injector unit to make Antinites Injection</MSAntinites_Vial.description>
+</LanguageData>

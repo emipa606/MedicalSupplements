@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Sulphuric Acid in bulk -->
+  <MakeBulkMSSulphuricAcid.label>Make Sulphuric Acid in bulk</MakeBulkMSSulphuricAcid.label>
+  <!-- EN: Make 25 Sulphuric Acid. -->
+  <MakeBulkMSSulphuricAcid.description>Make 25 Sulphuric Acid.</MakeBulkMSSulphuricAcid.description>
+  <!-- EN: Preparing Sulphuric Acid. -->
+  <MakeBulkMSSulphuricAcid.jobString>Preparing Sulphuric Acid.</MakeBulkMSSulphuricAcid.jobString>
+  <!-- EN: Make Sulphuric Acid -->
+  <MakeMSSulphuricAcid.label>Make Sulphuric Acid</MakeMSSulphuricAcid.label>
+  <!-- EN: Make 5 Sulphuric Acid. -->
+  <MakeMSSulphuricAcid.description>Make 5 Sulphuric Acid.</MakeMSSulphuricAcid.description>
+  <!-- EN: Preparing Sulphuric Acid. -->
+  <MakeMSSulphuricAcid.jobString>Preparing Sulphuric Acid.</MakeMSSulphuricAcid.jobString>
+</LanguageData>

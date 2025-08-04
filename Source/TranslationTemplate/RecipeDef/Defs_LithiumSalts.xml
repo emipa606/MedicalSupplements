@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Make Lithium Salts -->
+  <MakeLithiumSalts.label>Make Lithium Salts</MakeLithiumSalts.label>
+  <!-- EN: Make 50 Lithium Salts. -->
+  <MakeLithiumSalts.description>Make 50 Lithium Salts.</MakeLithiumSalts.description>
+  <!-- EN: Making Lithium Salts. -->
+  <MakeLithiumSalts.jobString>Making Lithium Salts.</MakeLithiumSalts.jobString>
+</LanguageData>
