@@ -53,4 +53,6 @@
   <MSOpt.ShowAgingTT>每次年龄受到 Luci 影响时都会显示通知</MSOpt.ShowAgingTT>
   <MSOpt.DebugLuci>调试露西愈合</MSOpt.DebugLuci>
   <MSOpt.DebugLuciTT>路西的治疗次数更多了</MSOpt.DebugLuciTT>
+  <!--  MSOptions -->
+  <!--  MSMineBits -->
 </LanguageData>

@@ -51,4 +51,8 @@
   <MSOpt.ShowAgingTT>Afficher une notification à chaque fois que l'âge est affecté par luci</MSOpt.ShowAgingTT>
   <MSOpt.DebugLuci>Déboguer la guérison de Luci</MSOpt.DebugLuci>
   <MSOpt.DebugLuciTT>Luci heal procs bien plus souvent</MSOpt.DebugLuciTT>
+  <!-- MSRegen -->
+  <!-- MSDrugMix -->
+  <!--  MSOptions -->
+  <!--  MSMineBits -->
 </LanguageData>

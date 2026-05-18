@@ -51,4 +51,8 @@
   <MSOpt.ShowAgingTT>Показывайте уведомление каждый раз, когда возраст был затронут luci</MSOpt.ShowAgingTT>
   <MSOpt.DebugLuci>Отладка лечения люци</MSOpt.DebugLuci>
   <MSOpt.DebugLuciTT>Люси исцеляет гораздо чаще</MSOpt.DebugLuciTT>
+  <!-- MSRegen -->
+  <!-- MSDrugMix -->
+  <!--  MSOptions -->
+  <!--  MSMineBits -->
 </LanguageData>
